@@ -49,4 +49,9 @@ namespace BalanceForge.ImportExport
             return sb.ToString();
         }
     }
+    
+    public interface IExporter
+    {
+        bool Export(BalanceTable table, string filePath);
+    }
 }

@@ -12,6 +12,8 @@ namespace BalanceForge.Core.Data
         [SerializeField] private ColumnType dataType;
         [SerializeField] private bool isRequired;
         [SerializeField] private string defaultValueSerialized;
+        [SerializeField] private EnumDefinition enumDefinition;
+        [SerializeField] private string assetType; // For AssetReference columns
         
         [NonSerialized] private IValidator validator;
         
@@ -19,6 +21,8 @@ namespace BalanceForge.Core.Data
         public string DisplayName => displayName;
         public ColumnType DataType => dataType;
         public bool IsRequired => isRequired;
+        public EnumDefinition EnumDefinition => enumDefinition;
+        public string AssetType => assetType;
         
         public object DefaultValue
         {
@@ -39,6 +43,23 @@ namespace BalanceForge.Core.Data
             dataType = type;
             isRequired = required;
             DefaultValue = defaultValue;
+            
+            if (type == ColumnType.Enum)
+            {
+                enumDefinition = new EnumDefinition(name + "_Enum");
+            }
+        }
+        
+        public void SetAssetType(Type type)
+        {
+            assetType = type?.AssemblyQualifiedName ?? typeof(UnityEngine.Object).AssemblyQualifiedName;
+        }
+        
+        public Type GetAssetType()
+        {
+            if (string.IsNullOrEmpty(assetType))
+                return typeof(UnityEngine.Object);
+            return Type.GetType(assetType) ?? typeof(UnityEngine.Object);
         }
         
         public bool Validate(object value)
@@ -91,6 +112,8 @@ namespace BalanceForge.Core.Data
                         return JsonUtility.FromJson<Vector3>(serialized);
                     case ColumnType.Color:
                         return JsonUtility.FromJson<Color>(serialized);
+                    case ColumnType.Enum:
+                        return serialized;
                     default:
                         return serialized;
                 }
@@ -111,6 +134,7 @@ namespace BalanceForge.Core.Data
                 case ColumnType.Vector2: return Vector2.zero;
                 case ColumnType.Vector3: return Vector3.zero;
                 case ColumnType.Color: return Color.white;
+                case ColumnType.Enum: return enumDefinition?.Values.Count > 0 ? enumDefinition.Values[0] : "";
                 default: return string.Empty;
             }
         }

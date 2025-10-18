@@ -49,9 +49,12 @@ namespace BalanceForge.Core.Data
                 createdAtTicks = DateTime.Now.Ticks
             };
             
-            foreach (var kvp in cellValues)
+            if (cellValues != null)
             {
-                clone.SetValue(kvp.Key, kvp.Value);
+                foreach (var kvp in cellValues)
+                {
+                    clone.SetValue(kvp.Key, kvp.Value);
+                }
             }
             
             return clone;

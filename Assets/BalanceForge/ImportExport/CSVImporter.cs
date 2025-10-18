@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using BalanceForge.Core.Data;
 
@@ -20,7 +21,7 @@ namespace BalanceForge.ImportExport
                 return null;
                 
             var table = ScriptableObject.CreateInstance<BalanceTable>();
-            table.name = Path.GetFileNameWithoutExtension(filePath);
+            table.TableName = Path.GetFileNameWithoutExtension(filePath);
             
             // Create columns from header
             var header = data[0];
@@ -28,7 +29,7 @@ namespace BalanceForge.ImportExport
             
             foreach (var column in columns)
             {
-                table.Columns.Add(column);
+                table.AddColumn(column);
             }
             
             // Add rows
@@ -59,7 +60,7 @@ namespace BalanceForge.ImportExport
             {
                 if (!string.IsNullOrWhiteSpace(line))
                 {
-                    result.Add(line.Split(','));
+                    result.Add(line.Split(',').Select(s => s.Trim()).ToArray());
                 }
             }
             
@@ -145,5 +146,11 @@ namespace BalanceForge.ImportExport
                 return value.Trim();
             }
         }
+    }
+    
+    public interface IImporter
+    {
+        BalanceTable Import(string filePath);
+        bool CanImport(string filePath);
     }
 }

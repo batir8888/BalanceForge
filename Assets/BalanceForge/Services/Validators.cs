@@ -2,12 +2,12 @@ using System.Text.RegularExpressions;
 
 namespace BalanceForge.Services
 {
-    public class Validators : IValidator
+    public class RangeValidator : IValidator
     {
         private float minValue;
         private float maxValue;
         
-        public Validators(float min, float max)
+        public RangeValidator(float min, float max)
         {
             minValue = min;
             maxValue = max;

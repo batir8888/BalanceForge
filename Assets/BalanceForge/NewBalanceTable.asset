@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7d88a05a1948b2a981d2ed9a8c9608, type: 3}
+  m_Name: NewBalanceTable
+  m_EditorClassIdentifier: 
+  tableName: Hp
+  tableId: 366851de-a230-4375-b723-5b090bfd9dc9
+  columns:
+  - columnId: 0
+    displayName: Name
+    dataType: 0
+    isRequired: 1
+    defaultValueSerialized: null
+  - columnId: 1
+    displayName: hp
+    dataType: 1
+    isRequired: 0
+    defaultValueSerialized: 10
+  - columnId: 2
+    displayName: damage
+    dataType: 7
+    isRequired: 0
+    defaultValueSerialized: 
+  rows:
+  - rowId: 2efe7d7e-f2f0-4870-a4a8-647401eeb2a1
+    cellValuesSerialized:
+      keys:
+      - 0
+      - 1
+      - 2
+      values:
+      - Skeleton
+      - 2
+      - (0.00, 0.00)
+    createdAtTicks: 638963876660555130
+  - rowId: 4facb179-b90a-4340-9050-6e7a7afb0839
+    cellValuesSerialized:
+      keys:
+      - 0
+      - 1
+      - 2
+      values:
+      - Orc
+      - 10
+      - (0.00, 0.00)
+    createdAtTicks: 638963876669639184
+  - rowId: 039214ae-028c-44fb-8163-b72b921d5206
+    cellValuesSerialized:
+      keys:
+      - 0
+      - 1
+      - 2
+      values:
+      - Wolf
+      - 5
+      - (0.00, 0.00)
+    createdAtTicks: 638963876674041000
+  - rowId: 61ec1a99-9df2-4ebb-908a-6f17f2464cd6
+    cellValuesSerialized:
+      keys:
+      - 0
+      - 1
+      - 2
+      values:
+      - Mamoth
+      - 20
+      - (0.00, 0.00)
+    createdAtTicks: 638963876676238103
+  lastModifiedTicks: 638963878705018053

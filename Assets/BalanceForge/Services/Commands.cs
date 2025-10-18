@@ -1,7 +1,16 @@
 using BalanceForge.Core.Data;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BalanceForge.Services
 {
+    public interface ICommand
+    {
+        void Execute();
+        void Undo();
+        string GetDescription();
+    }
+    
     public class AddRowCommand : ICommand
     {
         private BalanceTable table;
@@ -96,6 +105,51 @@ namespace BalanceForge.Services
         public string GetDescription()
         {
             return "Delete Row";
+        }
+    }
+    
+    public class MultiDeleteCommand : ICommand
+    {
+        private BalanceTable table;
+        private List<BalanceRow> rows;
+        private Dictionary<BalanceRow, int> rowIndices;
+        
+        public MultiDeleteCommand(BalanceTable table, List<BalanceRow> rows)
+        {
+            this.table = table;
+            this.rows = new List<BalanceRow>(rows);
+            this.rowIndices = new Dictionary<BalanceRow, int>();
+            
+            foreach (var row in rows)
+            {
+                rowIndices[row] = table.Rows.IndexOf(row);
+            }
+        }
+        
+        public void Execute()
+        {
+            foreach (var row in rows)
+            {
+                table.Rows.Remove(row);
+            }
+        }
+        
+        public void Undo()
+        {
+            var sortedRows = rows.OrderBy(r => rowIndices[r]).ToList();
+            foreach (var row in sortedRows)
+            {
+                int index = rowIndices[row];
+                if (index >= 0 && index <= table.Rows.Count)
+                    table.Rows.Insert(index, row);
+                else
+                    table.Rows.Add(row);
+            }
+        }
+        
+        public string GetDescription()
+        {
+            return $"Delete {rows.Count} Rows";
         }
     }
 }

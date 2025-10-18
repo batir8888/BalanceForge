@@ -14,7 +14,15 @@ namespace BalanceForge.Core.Data
         [SerializeField] private List<BalanceRow> rows = new List<BalanceRow>();
         [SerializeField] private long lastModifiedTicks;
         
-        public string TableName => tableName;
+        public string TableName 
+        { 
+            get => tableName;
+            set 
+            {
+                tableName = value;
+                UpdateLastModified();
+            }
+        }
         public string TableId => tableId;
         public List<ColumnDefinition> Columns => columns;
         public List<BalanceRow> Rows => rows;
@@ -24,6 +32,36 @@ namespace BalanceForge.Core.Data
         {
             if (string.IsNullOrEmpty(tableId))
                 tableId = Guid.NewGuid().ToString();
+        }
+        
+        public void AddColumn(ColumnDefinition column)
+        {
+            columns.Add(column);
+            
+            // Add default values to existing rows
+            foreach (var row in rows)
+            {
+                row.SetValue(column.ColumnId, column.DefaultValue);
+            }
+            
+            UpdateLastModified();
+        }
+        
+        public void RemoveColumn(string columnId)
+        {
+            var column = columns.FirstOrDefault(c => c.ColumnId == columnId);
+            if (column != null)
+            {
+                columns.Remove(column);
+                
+                // Remove values from existing rows
+                foreach (var row in rows)
+                {
+                    row.SetValue(columnId, null);
+                }
+                
+                UpdateLastModified();
+            }
         }
         
         public BalanceRow AddRow()
@@ -87,6 +125,20 @@ namespace BalanceForge.Core.Data
             }
             
             return result;
+        }
+        
+        public bool HasStructure(List<string> columnNames)
+        {
+            if (columns.Count != columnNames.Count)
+                return false;
+                
+            for (int i = 0; i < columns.Count; i++)
+            {
+                if (columns[i].DisplayName != columnNames[i])
+                    return false;
+            }
+            
+            return true;
         }
         
         private void UpdateLastModified()
