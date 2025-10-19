@@ -1,0 +1,5151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7d88a05a1948b2a981d2ed9a8c9608, type: 3}
+  m_Name: Salary
+  m_EditorClassIdentifier: 
+  tableName: Salary
+  tableId: fbe8111c-d9ac-42e5-b66a-ee77cd44712b
+  columns:
+  - columnId: col_0
+    displayName: Name
+    dataType: 0
+    isRequired: 0
+    defaultValueSerialized: 
+    enumDefinition:
+      enumName: 
+      values: []
+    assetType: 
+  - columnId: col_1
+    displayName: Surname
+    dataType: 0
+    isRequired: 0
+    defaultValueSerialized: 
+    enumDefinition:
+      enumName: 
+      values: []
+    assetType: 
+  - columnId: col_2
+    displayName: Stage
+    dataType: 0
+    isRequired: 0
+    defaultValueSerialized: 
+    enumDefinition:
+      enumName: 
+      values: []
+    assetType: 
+  - columnId: col_3
+    displayName: Salary
+    dataType: 1
+    isRequired: 0
+    defaultValueSerialized: 
+    enumDefinition:
+      enumName: 
+      values: []
+    assetType: 
+  rows:
+  - rowId: b2042e31-bca1-47cc-8601-573ca0605453
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0418\u0432\u0430\u043D"
+      - "\u0418\u0432\u0430\u043D\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 50000
+    createdAtTicks: 638964838010162727
+  - rowId: 69ac6287-f7ec-4a92-9e49-736cb3f43028
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041F\u0435\u0442\u0440"
+      - "\u041F\u0435\u0442\u0440\u043E\u0432"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 75000
+    createdAtTicks: 638964838010162727
+  - rowId: 14359903-b06f-4d7e-b636-ccb6bd3e757d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041C\u0430\u0440\u0438\u044F"
+      - "\u0421\u0438\u0434\u043E\u0440\u043E\u0432\u0430"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 60000
+    createdAtTicks: 638964838010162727
+  - rowId: 2b7b5976-9f4a-4a15-bcaa-58ce91699fa1
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0410\u043D\u043D\u0430"
+      - "\u041A\u0443\u0437\u043D\u0435\u0446\u043E\u0432\u0430"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 65000
+    createdAtTicks: 638964838010162727
+  - rowId: 6ce1850f-a8f8-44b6-8e6b-2d8451257e21
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0421\u0435\u0440\u0433\u0435\u0439"
+      - "\u0412\u043E\u043B\u043A\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 55000
+    createdAtTicks: 638964838010162727
+  - rowId: a5745728-16fc-4a49-93bd-bf23717aaf8b
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041E\u043B\u044C\u0433\u0430"
+      - "\u0421\u043C\u0438\u0440\u043D\u043E\u0432\u0430"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 52000
+    createdAtTicks: 638964838010162727
+  - rowId: e90e7e0e-b872-4a25-80fc-c7b84f5351df
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0414\u043C\u0438\u0442\u0440\u0438\u0439"
+      - "\u041A\u043E\u0437\u043B\u043E\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 95000
+    createdAtTicks: 638964838010162727
+  - rowId: 5de9af25-13c6-419b-acbd-f60ebfd65095
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u043B\u0435\u043D\u0430"
+      - "\u041D\u043E\u0432\u0438\u043A\u043E\u0432\u0430"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 70000
+    createdAtTicks: 638964838010162727
+  - rowId: 2b3e2cb3-d6cd-45f8-94d4-efed61f6b48d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0410\u043B\u0435\u043A\u0441\u0435\u0439"
+      - "\u041C\u043E\u0440\u043E\u0437\u043E\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 58000
+    createdAtTicks: 638964838010162727
+  - rowId: 178c5599-1bb7-4cdf-8c53-9130604b14e2
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0422\u0430\u0442\u044C\u044F\u043D\u0430"
+      - "\u0424\u0435\u0434\u043E\u0440\u043E\u0432\u0430"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 85000
+    createdAtTicks: 638964838010162727
+  - rowId: 0220d971-59de-4c50-9076-e9b6958cc828
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0412\u043B\u0430\u0434\u0438\u043C\u0438\u0440"
+      - "\u041E\u0440\u043B\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 62000
+    createdAtTicks: 638964838010162727
+  - rowId: 2f319b1a-1d5d-414a-a3bd-17429caf5845
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041D\u0430\u0434\u0435\u0436\u0434\u0430"
+      - "\u041B\u0435\u0431\u0435\u0434\u0435\u0432\u0430"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 55000
+    createdAtTicks: 638964838010162727
+  - rowId: 3959ba5a-15a7-49af-aa13-7816b030fdd9
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0412\u0438\u043A\u0442\u043E\u0440"
+      - "\u0421\u043E\u043A\u043E\u043B\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 68000
+    createdAtTicks: 638964838010162727
+  - rowId: 5b6b3e82-5e14-4c3b-878e-791a3e5391b2
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0421\u0432\u0435\u0442\u043B\u0430\u043D\u0430"
+      - "\u041F\u0430\u0432\u043B\u043E\u0432\u0430"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 70000
+    createdAtTicks: 638964838010162727
+  - rowId: 0029b74a-2162-41e7-a304-53059022c531
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041F\u0430\u0432\u0435\u043B"
+      - "\u0412\u043E\u0440\u043E\u0431\u044C\u0435\u0432"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 72000
+    createdAtTicks: 638964838010162727
+  - rowId: 29fee9fb-26c8-4b11-b4b9-46395439a079
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u043A\u0430\u0442\u0435\u0440\u0438\u043D\u0430"
+      - "\u0413\u0430\u0432\u0440\u0438\u043B\u043E\u0432\u0430"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 51000
+    createdAtTicks: 638964838010162727
+  - rowId: 399cbc3c-da77-4cbc-b4c5-304c68b15f77
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041C\u0438\u0445\u0430\u0438\u043B"
+      - "\u0414\u0430\u043D\u0438\u043B\u043E\u0432"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 76000
+    createdAtTicks: 638964838010162727
+  - rowId: 9719fc18-81a7-4e22-a402-2dc271390c97
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041D\u0430\u0442\u0430\u043B\u044C\u044F"
+      - "\u0415\u0444\u0438\u043C\u043E\u0432\u0430"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 61000
+    createdAtTicks: 638964838010162727
+  - rowId: e440ab94-519f-459a-ab26-99e172c7b63e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0421\u0435\u0440\u0433\u0435\u0439"
+      - "\u0416\u0434\u0430\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 66000
+    createdAtTicks: 638964838010162727
+  - rowId: 5aed6871-e9c4-43d3-8871-f9d887909bc3
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440"
+      - "\u0417\u0430\u0439\u0446\u0435\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 56000
+    createdAtTicks: 638964838010162727
+  - rowId: 9578dea9-f77e-4a39-b858-2bdc59b60e0c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0412\u0430\u043B\u0435\u0440\u0438\u044F"
+      - "\u0418\u0432\u0430\u043D\u043E\u0432\u0430"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 53000
+    createdAtTicks: 638964838010162727
+  - rowId: ed2e2d43-7859-47e1-9700-faf80ade4d97
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0418\u0433\u043E\u0440\u044C"
+      - "\u041A\u0443\u043B\u0430\u043A\u043E\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 96000
+    createdAtTicks: 638964838010162727
+  - rowId: a756ac38-3d86-4dbd-8a67-47ef384c6dda
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0412\u0435\u0440\u043E\u043D\u0438\u043A\u0430"
+      - "\u041B\u0430\u0437\u0430\u0440\u0435\u0432\u0430"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 71000
+    createdAtTicks: 638964838010162727
+  - rowId: ae7d80b1-ab64-4c6a-8e7d-ec13857c3c78
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041C\u0430\u043A\u0441\u0438\u043C"
+      - "\u041C\u0430\u043A\u0430\u0440\u043E\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 59000
+    createdAtTicks: 638964838010162727
+  - rowId: 76b0fa3d-2326-43f3-8fdc-bbcfec6e3eca
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041E\u043B\u0435\u0441\u044F"
+      - "\u041D\u0438\u043A\u0438\u0442\u0438\u043D\u0430"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 86000
+    createdAtTicks: 638964838010162727
+  - rowId: b627533c-9685-4a6b-8bfa-f8ecf0b6b7c9
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0410\u0440\u0442\u0435\u043C"
+      - "\u041E\u0440\u0435\u0445\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 63000
+    createdAtTicks: 638964838010162727
+  - rowId: f527af90-7247-4077-acd1-ac6dfb54fbbe
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0413\u0430\u043B\u0438\u043D\u0430"
+      - "\u041F\u0430\u043D\u043E\u0432\u0430"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 56000
+    createdAtTicks: 638964838010162727
+  - rowId: 0a20d51c-3699-4d85-9f84-98b7a848c04e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0411\u043E\u0440\u0438\u0441"
+      - "\u0420\u043E\u043C\u0430\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 69000
+    createdAtTicks: 638964838010162727
+  - rowId: 4ade78f0-1a54-47a1-a298-f1c137ec3de0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041B\u044E\u0434\u043C\u0438\u043B\u0430"
+      - "\u0421\u0435\u0440\u0433\u0435\u0435\u0432\u0430"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 71000
+    createdAtTicks: 638964838010162727
+  - rowId: eb44ab47-0372-4c0f-8a43-6e4cab355106
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0414\u0435\u043D\u0438\u0441"
+      - "\u0422\u0438\u0442\u043E\u0432"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 73000
+    createdAtTicks: 638964838010162727
+  - rowId: 6cba0d87-3d21-4792-8f17-4047310562f2
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0418\u043D\u043D\u0430"
+      - "\u0423\u0433\u0430\u0440\u043E\u0432\u0430"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 52000
+    createdAtTicks: 638964838010162727
+  - rowId: 183357ea-74a0-437a-8ec4-dfb3130fecc0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0432\u0433\u0435\u043D\u0438\u0439"
+      - "\u0424\u0435\u0434\u043E\u0440\u043E\u0432"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 77000
+    createdAtTicks: 638964838010162727
+  - rowId: feebd360-a2f2-45f0-8d8b-925db559703f
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u042F\u043D\u0430"
+      - "\u0425\u0440\u043E\u043C\u043E\u0432\u0430"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 62000
+    createdAtTicks: 638964838010162727
+  - rowId: 9e0b2220-df1c-4b6d-bd2c-d15e97ce4b56
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0421\u0442\u0430\u043D\u0438\u0441\u043B\u0430\u0432"
+      - "\u0426\u0432\u0435\u0442\u043A\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 67000
+    createdAtTicks: 638964838010162727
+  - rowId: 6cfda68c-d392-4200-b7e8-e08c473dc1a6
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0412\u0438\u043E\u043B\u0435\u0442\u0430"
+      - "\u0427\u0435\u0440\u043D\u043E\u0432\u0430"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 57000
+    createdAtTicks: 638964838010162727
+  - rowId: 4fb18e7b-68f5-489f-aff9-5c8d1cd77d0f
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041A\u043E\u043D\u0441\u0442\u0430\u043D\u0442\u0438\u043D"
+      - "\u0429\u0435\u0440\u0431\u0430\u043A\u043E\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 54000
+    createdAtTicks: 638964838010162727
+  - rowId: 743e1da5-ef98-4baa-8fd2-29aa5a6c5221
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041C\u0430\u0440\u0438\u043D\u0430"
+      - "\u042E\u0440\u043E\u0432\u0430"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 97000
+    createdAtTicks: 638964838010162727
+  - rowId: c8624e1e-6493-4fe9-add9-27fd1741bb57
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u042E\u0440\u0438\u0439"
+      - "\u042F\u0431\u043B\u043E\u043A\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 72000
+    createdAtTicks: 638964838010167847
+  - rowId: c66cafea-fbd2-4310-ad9f-e68edbfab4b2
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0412\u0430\u0434\u0438\u043C"
+      - "\u0410\u0431\u0440\u0430\u043C\u043E\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 60000
+    createdAtTicks: 638964838010167847
+  - rowId: 755a92d3-28d8-4530-b426-dc9fb8e6ae46
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0420\u0430\u0438\u0441\u0430"
+      - "\u0411\u043E\u0433\u0434\u0430\u043D\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 87000
+    createdAtTicks: 638964838010167847
+  - rowId: d6a685f3-b648-4a90-8477-940a34acfec1
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0413\u0435\u043D\u043D\u0430\u0434\u0438\u0439"
+      - "\u0412\u0430\u043B\u0435\u043D\u0442\u0438\u043D\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 64000
+    createdAtTicks: 638964838010167847
+  - rowId: 4fd3ac90-a7e1-4490-a937-b722fe9d4871
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0410\u043D\u0442\u043E\u043D\u0438\u043D\u0430"
+      - "\u0413\u0430\u0432\u0440\u0438\u043B\u043E\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 57000
+    createdAtTicks: 638964838010167847
+  - rowId: fc1ae035-780c-4522-91a9-bd97462c1be6
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0424\u0438\u043B\u0438\u043F\u043F"
+      - "\u0414\u043E\u0440\u043E\u0445\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 70000
+    createdAtTicks: 638964838010167847
+  - rowId: 48004236-6d56-4131-8b37-0072a5e80fb3
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0412\u0430\u043B\u0435\u043D\u0442\u0438\u043D\u0430"
+      - "\u0415\u043B\u0438\u0441\u0435\u0435\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 72000
+    createdAtTicks: 638964838010167847
+  - rowId: 1a24f8ce-d579-487c-b201-58c2933c85bc
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0420\u043E\u043C\u0430\u043D"
+      - "\u0416\u0443\u0440\u0430\u0432\u043B\u0435\u0432"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 74000
+    createdAtTicks: 638964838010167847
+  - rowId: c62150c2-1e87-40e5-aca6-a75ddbdf2b1e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041C\u0438\u043B\u0438\u0441\u0430"
+      - "\u0417\u0443\u0431\u0430\u0440\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 53000
+    createdAtTicks: 638964838010167847
+  - rowId: 6032c262-1095-48e0-a3e6-8f4e14320e51
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0420\u0443\u0434\u043E\u043B\u044C\u0444"
+      - "\u0418\u0432\u0430\u043D\u043E\u0432"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 78000
+    createdAtTicks: 638964838010167847
+  - rowId: e5b28a95-d223-4fbc-8756-c5ece1124982
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0410\u043D\u0433\u0435\u043B\u0438\u043D\u0430"
+      - "\u041A\u043E\u043A\u043E\u0448\u043A\u0438\u043D"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 63000
+    createdAtTicks: 638964838010167847
+  - rowId: 24c22d37-986a-4899-bb41-acef347e098b
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0412\u043B\u0430\u0434\u0438\u0441\u043B\u0430\u0432"
+      - "\u041B\u0435\u0431\u0435\u0434\u0435\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 68000
+    createdAtTicks: 638964838010167847
+  - rowId: 454d0298-bfd4-45cf-b92f-4d423e720d7a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041A\u0440\u0438\u0441\u0442\u0438\u043D\u0430"
+      - "\u041C\u0435\u0434\u0432\u0435\u0434\u0435\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 58000
+    createdAtTicks: 638964838010167847
+  - rowId: a28f218e-0c9e-4d37-aa07-066d19b81e7a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0410\u043D\u0430\u0442\u043E\u043B\u0438\u0439"
+      - "\u041D\u0435\u0441\u0442\u0435\u0440\u043E\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 55000
+    createdAtTicks: 638964838010167847
+  - rowId: 4f94cb57-3e83-42a1-bbe1-29804c6e293d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041C\u0430\u0440\u0433\u0430\u0440\u0438\u0442\u0430"
+      - "\u041E\u0440\u043B\u043E\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 98000
+    createdAtTicks: 638964838010167847
+  - rowId: 7e9457c7-26f8-493f-b2e1-4c08aba690d7
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041A\u043B\u0438\u043C\u0435\u043D\u0442"
+      - "\u041F\u0430\u043D\u0444\u0438\u043B\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 73000
+    createdAtTicks: 638964838010167847
+  - rowId: 7c2332ec-bf95-4b76-8c3c-314a9d0bf4f9
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0420\u043E\u0437\u0430\u043B\u0438\u044F"
+      - "\u0420\u0443\u0431\u0446\u043E\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 61000
+    createdAtTicks: 638964838010167847
+  - rowId: 4c5a65de-5bb8-4c9f-a864-cdfb29215b79
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0417\u0430\u0445\u0430\u0440"
+      - "\u0421\u0430\u0444\u043E\u043D\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 88000
+    createdAtTicks: 638964838010167847
+  - rowId: 7b6680ac-390f-4c65-9869-c5f7d3f1e62f
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0417\u043B\u0430\u0442\u0430"
+      - "\u0422\u0438\u0445\u043E\u043D\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 65000
+    createdAtTicks: 638964838010167847
+  - rowId: a1054eaf-f1fa-4312-aaa8-bc3268ed2af9
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0444\u0438\u043C"
+      - "\u0423\u0434\u0430\u043B\u043E\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 58000
+    createdAtTicks: 638964838010167847
+  - rowId: a65785ee-ab77-495d-bd9c-c0c62d9e14af
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0417\u043B\u0430\u0442\u0430"
+      - "\u0424\u0435\u0434\u043E\u0440\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 71000
+    createdAtTicks: 638964838010167847
+  - rowId: ea52d91f-3fb5-466d-b77b-4b0c2e716ed3
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0414\u0435\u043C\u044C\u044F\u043D"
+      - "\u0425\u0430\u043B\u0430\u0442\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 73000
+    createdAtTicks: 638964838010167847
+  - rowId: f52afa5c-3544-4580-9192-076e53eef536
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u041E\u0444\u0435\u043B\u0438\u044F"
+      - "\u0426\u0432\u0435\u0442\u043A\u043E\u0432"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 75000
+    createdAtTicks: 638964838010167847
+  - rowId: 265721a1-ccaa-4e22-8e95-704d7c99d890
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0413\u0435\u0440\u0430\u0441\u0438\u043C"
+      - "\u0427\u0435\u0440\u0435\u0434\u043D\u0438\u043A\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 54000
+    createdAtTicks: 638964838010167847
+  - rowId: 8034d579-d54e-4eb5-a291-54f60dbf31d8
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0413\u0435\u043B\u0435\u043D\u0430"
+      - "\u0427\u0443\u0433\u0443\u043D\u043E\u0432"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 79000
+    createdAtTicks: 638964838010167847
+  - rowId: 65cae275-19e4-4ed7-b2c1-a6ec56ce70b3
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0413\u0430\u0432\u0440\u0438\u0438\u043B"
+      - "\u0428\u0430\u0440\u0430\u043F\u043E\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 64000
+    createdAtTicks: 638964838010167847
+  - rowId: cda6748a-4fcb-476b-9293-dfdd7ef09abb
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0413\u0430\u0439\u0442\u0430\u043D"
+      - "\u0429\u0443\u043A\u0438\u043D"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 69000
+    createdAtTicks: 638964838010167847
+  - rowId: fa878932-cd9a-49c3-ae44-c6160ea5b874
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0413\u043B\u0435\u0431"
+      - "\u042E\u0434\u0438\u043D"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 59000
+    createdAtTicks: 638964838010167847
+  - rowId: 58dff811-5675-48ec-a59a-de43c81c4f9c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0413\u043E\u0440\u0434\u0435\u0439"
+      - "\u042F\u043A\u043E\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 56000
+    createdAtTicks: 638964838010167847
+  - rowId: c58788f6-8a7d-4ffa-9f2e-635d2d244d09
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0413\u043E\u0441\u0442\u043E\u043C\u044B\u0441\u043B"
+      - "\u042F\u043A\u0443\u0448\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 99000
+    createdAtTicks: 638964838010167847
+  - rowId: 9030e42b-9bbc-41f4-b5cb-bc306e48f3cb
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0413\u0440\u0435\u043C\u0438\u0441\u043B\u0430\u0432"
+      - "\u042F\u043D\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 74000
+    createdAtTicks: 638964838010167847
+  - rowId: fe6876d0-15ad-4025-862f-1e10d70c64b0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0413\u0440\u0438\u0432\u0438\u0446\u043A\u0438\u0439"
+      - "\u0410\u0431\u0440\u0430\u043C\u0435\u0446"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 62000
+    createdAtTicks: 638964838010167847
+  - rowId: cf1146fb-1b09-4a30-adec-58605fdbd989
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0413\u0443\u043B\u044C\u0435\u043B\u044C\u043C\u043E"
+      - "\u0410\u0432\u043A\u0441\u0435\u043D\u0442\u044C\u0435\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 89000
+    createdAtTicks: 638964838010167847
+  - rowId: c45736e3-08ac-4eb5-b3a5-19be294945b6
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0413\u0443\u0440\u0438\u0439"
+      - "\u0410\u0432\u0440\u0430\u0430\u043C\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 66000
+    createdAtTicks: 638964838010167847
+  - rowId: 3800498d-108e-4bc9-90e6-937d44b0f397
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0414\u0430\u0432\u044B\u0434"
+      - "\u0410\u0432\u043A\u0441\u0435\u043D\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 59000
+    createdAtTicks: 638964838010167847
+  - rowId: ffee6c76-d83b-47b6-8543-6e54e11d8e6b
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0414\u0430\u0440\u0438\u0439"
+      - "\u0410\u0432\u0441\u0442\u0440\u0438\u0439\u0441\u043A\u0438\u0439"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 72000
+    createdAtTicks: 638964838010167847
+  - rowId: 38c01acc-1a4f-4e14-ac96-cbfa429b6e2a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0414\u0435\u043C\u0435\u0442\u0440\u0438\u0439"
+      - "\u0410\u0433\u0435\u0435\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 74000
+    createdAtTicks: 638964838010167847
+  - rowId: a899412f-bf26-4610-be28-3c58ca63af12
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0414\u043C\u0438\u0442\u0440\u0438\u0435\u0432"
+      - "\u0410\u0433\u0435\u0435\u043D\u043A\u043E\u0432"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 76000
+    createdAtTicks: 638964838010167847
+  - rowId: a9d59b0e-6069-49b1-be6b-ac3e45bf92b8
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0414\u043E\u0440\u0438\u043C\u0435\u0434\u043E\u043D\u0442"
+      - "\u0410\u0439\u0442\u0443\u0433\u0430\u043D\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 55000
+    createdAtTicks: 638964838010167847
+  - rowId: 402b28fb-0899-42e2-902b-0f85d318aba9
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0414\u043E\u0440\u043E\u0444\u0435\u0439"
+      - "\u0410\u043A\u0441\u0430\u043A\u043E\u0432"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 80000
+    createdAtTicks: 638964838010167847
+  - rowId: c32eb7e0-03ba-42eb-ae48-0bfa65b9aa19
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0414\u043E\u0440\u043E\u0444\u0435\u0439"
+      - "\u0410\u043A\u0441\u0435\u043D\u043E\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 65000
+    createdAtTicks: 638964838010167847
+  - rowId: 183f34de-5192-434a-9189-d03fd51a6e78
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0414\u043E\u0440\u043E\u0444\u0435\u0439"
+      - "\u0410\u043B\u0430\u0431\u0435\u0440\u0434\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 70000
+    createdAtTicks: 638964838010167847
+  - rowId: 9c2b49f3-8779-4c0f-a863-c4bb9bb61992
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0414\u0443\u0433\u043B\u0430\u0441"
+      - "\u0410\u043B\u0431\u0430\u043D\u0446\u0435\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 60000
+    createdAtTicks: 638964838010167847
+  - rowId: 441dcd86-7e9f-4bda-bd89-007a181e5d56
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0432\u0434\u043E\u043A\u0438\u043C"
+      - "\u0410\u043B\u044C\u0431\u0435\u0440\u0442\u043E\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 57000
+    createdAtTicks: 638964838010167847
+  - rowId: b7da472f-5f81-4ca9-ab49-4396cf65feea
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0432\u0441\u0442\u0430\u0444\u0438\u0439"
+      - "\u0410\u043B\u044C\u043F\u0430\u0442\u043E\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 100000
+    createdAtTicks: 638964838010167847
+  - rowId: 236cf821-3750-4a46-aa75-cd4a024aef32
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0432\u0441\u0442\u0438\u0433\u043D\u0435\u0439"
+      - "\u0410\u043C\u0430\u0440\u043A\u043E\u0432\u0438\u0447"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 75000
+    createdAtTicks: 638964838010167847
+  - rowId: e353de72-933e-4e89-8bf7-37c3d0ac0e84
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0433\u043E\u0440"
+      - "\u0410\u043C\u0432\u0440\u043E\u0441\u0438\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 63000
+    createdAtTicks: 638964838010167847
+  - rowId: a5d02cb8-2f5a-491a-bc78-1b089efeb999
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u043B\u0438\u0437\u0430\u0440"
+      - "\u0410\u043D\u0430\u043D\u044C\u0435\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 90000
+    createdAtTicks: 638964838010167847
+  - rowId: d0684c9b-9ef3-4b2b-9161-72a5a06bd66b
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u043C\u0435\u043B\u044C\u044F\u043D"
+      - "\u0410\u043D\u0441\u0438\u043C\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 67000
+    createdAtTicks: 638964838010167847
+  - rowId: eb50b35f-399a-4da3-8126-2ecf15de9002
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0440\u0435\u043C\u0435\u0439"
+      - "\u0410\u043D\u0442\u0438\u043F\u043E\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 60000
+    createdAtTicks: 638964838010167847
+  - rowId: d50cd12e-e8c2-414f-a2f1-afa852c056af
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0440\u0435\u043C\u0435\u0439"
+      - "\u0410\u043D\u0442\u0440\u043E\u0441\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 73000
+    createdAtTicks: 638964838010167847
+  - rowId: ac5e1832-68f4-4a2c-b742-0ef6bea4dbd0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0440\u043E\u0444\u0435\u0439"
+      - "\u0410\u043D\u0446\u044B\u0444\u0435\u0440\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 75000
+    createdAtTicks: 638964838010167847
+  - rowId: 54fe2722-a1b8-4012-8679-b5912aac53a7
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0440\u043F\u044B\u043B"
+      - "\u0410\u043F\u0443\u0445\u0442\u0438\u043D"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 77000
+    createdAtTicks: 638964838010167847
+  - rowId: eb5a239b-b0ea-4db5-9ca8-ea7c16f80e82
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0441\u0438\u043F"
+      - "\u0410\u0440\u0430\u043A\u0435\u043B\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 56000
+    createdAtTicks: 638964838010167847
+  - rowId: 7e4f7ddf-07df-48a4-8d45-96978351327a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0441\u043F\u0435\u0440"
+      - "\u0410\u0440\u0445\u0430\u043D\u0433\u0435\u043B\u043E\u0432"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 81000
+    createdAtTicks: 638964838010167847
+  - rowId: 21df2122-c7cc-48ac-8809-9aaf7e335a69
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0444\u0438\u043C"
+      - "\u0410\u0440\u0448\u0430\u043A\u043E\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 66000
+    createdAtTicks: 638964838010167847
+  - rowId: 2f70549c-492e-4a58-90f0-4d5768bbcc39
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0444\u0438\u043C\u0435\u043D\u043A\u043E"
+      - "\u0410\u0440\u0445\u0438\u043F\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 71000
+    createdAtTicks: 638964838010167847
+  - rowId: 8023c8bd-7107-4e2d-8761-bd201ef53025
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0444\u0438\u043C\u0438\u0439"
+      - "\u0410\u0440\u0438\u0441\u0442\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 61000
+    createdAtTicks: 638964838010167847
+  - rowId: 1c91b0bb-01bb-40c0-97f6-c7ae9f0dd70a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0444\u0438\u043C"
+      - "\u0410\u0440\u0442\u0430\u043C\u043E\u043D\u043E\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 58000
+    createdAtTicks: 638964838010167847
+  - rowId: 08eac477-b6c4-401b-82d8-8ee9daa2caf1
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0444\u0440\u0435\u043C"
+      - "\u0410\u0440\u0442\u0430\u0441\u0435\u0441\u043E\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 101000
+    createdAtTicks: 638964838010167847
+  - rowId: 42aefadf-3f9c-45ab-93ce-e307df80f127
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0444\u0440\u043E\u0441\u0438\u043D\u0438\u044F"
+      - "\u0410\u0440\u0442\u0435\u043C\u044C\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 76000
+    createdAtTicks: 638964838010167847
+  - rowId: 30c6226d-ee05-4c0a-998d-299b59e8eb9c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0415\u0444\u0440\u043E\u0441\u0438\u043D\u044C\u044F"
+      - "\u0410\u0440\u0442\u044E\u0445\u043E\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 64000
+    createdAtTicks: 638964838010167847
+  - rowId: 287a8e77-c7c2-4434-87d7-01d294ba705c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u0432\u043E\u0440\u043E\u043D\u043E\u043A"
+      - "\u0410\u0440\u0445\u0438\u043F\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 91000
+    createdAtTicks: 638964838010167847
+  - rowId: be6cb17a-d011-489b-8a76-a3ac83373d24
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D"
+      - "\u0410\u0440\u0447\u0430\u043A\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 68000
+    createdAtTicks: 638964838010167847
+  - rowId: 20f9202a-c8df-4d3d-8c69-dc91024316b7
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0441\u0435\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 61000
+    createdAtTicks: 638964838010167847
+  - rowId: 6b8b02f0-b8af-453f-90f1-9f45b35c530b
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0441\u0442\u0430\u0448\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 74000
+    createdAtTicks: 638964838010167847
+  - rowId: 410bbd66-c2c3-4730-9384-ced673dbfda6
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D-\u0411\u0430\u0442\u0438\u0441\u0442"
+      - "\u0410\u0442\u0430\u043C\u0430\u043D\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 76000
+    createdAtTicks: 638964838010167847
+  - rowId: aef2e53f-1be1-4f0c-a074-dcd99c221cda
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D-\u0416\u0430\u043A"
+      - "\u0410\u0442\u0442\u0430\u0435\u0432"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 78000
+    createdAtTicks: 638964838010167847
+  - rowId: ee712039-b8d1-41e5-a697-686ab16ea5a0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D-\u041B\u044E\u043A"
+      - "\u0410\u0444\u0430\u043D\u0430\u0441\u0438\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 57000
+    createdAtTicks: 638964838010167847
+  - rowId: 31293d17-7f79-4ebe-bc85-a310c3ffd695
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D-\u041F\u0430\u0443\u043B\u044C"
+      - "\u0410\u0444\u0430\u043D\u0430\u0441\u044C\u0435\u0432"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 82000
+    createdAtTicks: 638964838010167847
+  - rowId: 45de8a29-d111-4621-bb03-a8d54c444fa1
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u0438\u043D"
+      - "\u0410\u0444\u0438\u043C\u043E\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 67000
+    createdAtTicks: 638964838010167847
+  - rowId: 56784971-b2f3-4d9e-b18e-98844f883a9d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0444\u043E\u043D\u0438\u043D"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 72000
+    createdAtTicks: 638964838010167847
+  - rowId: 95e122b5-8192-4afd-97d2-6b23638d0472
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u0440\u0430\u043C\u0435\u0435\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 62000
+    createdAtTicks: 638964838010167847
+  - rowId: d94ca5a9-28ac-4e60-a0b9-6eeb5b92931f
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u043C\u0430\u043D\u043E\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 59000
+    createdAtTicks: 638964838010167847
+  - rowId: 5b2251d6-a32a-47e2-820f-4955f6f90f41
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u0440\u043A\u043E\u0432\u0430"
+      - "\u0410\u0445\u043C\u0435\u0434\u043E\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 102000
+    createdAtTicks: 638964838010167847
+  - rowId: 09ea8923-9a62-4740-bcaa-799f64f9c9b2
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u0440\u043A\u043E\u0432"
+      - "\u0410\u0445\u043C\u0435\u0434\u0443\u043B\u0438\u043D"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 77000
+    createdAtTicks: 638964838010167847
+  - rowId: 0ae5b9b4-e6c2-4bac-b1cb-98354fa4ee02
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D"
+      - "\u0410\u0445\u043C\u0435\u0442\u043E\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 65000
+    createdAtTicks: 638964838010167847
+  - rowId: 0ae48682-2964-438b-8baa-59f3747542e2
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D"
+      - "\u0410\u0445\u043C\u0435\u0442\u044C\u0435\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 92000
+    createdAtTicks: 638964838010167847
+  - rowId: 60a8c5f2-f102-407c-b651-71ab844bae8e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D"
+      - "\u0410\u0445\u043C\u0435\u0442\u043E\u0432\u0441\u043A\u0438\u0439"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 69000
+    createdAtTicks: 638964838010167847
+  - rowId: b0103911-0f49-4a50-a043-edcedf4d0906
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D"
+      - "\u0410\u0445\u043C\u0435\u0442\u0447\u0438\u043D"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 62000
+    createdAtTicks: 638964838010167847
+  - rowId: d5ef86b3-29c8-48b3-96d0-7e85c0c10824
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u0430"
+      - "\u0410\u0445\u043F\u0430\u0435\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 75000
+    createdAtTicks: 638964838010167847
+  - rowId: b2a28bdc-c674-4126-8b65-c0f18c06ef01
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u0440\u0438\u043C\u0441\u043A\u0438\u0439"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 77000
+    createdAtTicks: 638964838010167847
+  - rowId: 77e920e6-460a-48ee-8bc3-63771d494fa8
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u0440\u043E\u043C\u0435\u0435\u0432"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 79000
+    createdAtTicks: 638964838010167847
+  - rowId: f252b737-f6d2-47c6-a931-e2117f6f67b2
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u0440\u043E\u043C\u043E\u0432\u0438\u0447"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 58000
+    createdAtTicks: 638964838010167847
+  - rowId: c82888cc-ad3b-4ac5-a2f3-57db3c5cbd62
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u0440\u0443\u0441\u0442\u0438\u043D\u0441\u043A\u0438\u0439"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 83000
+    createdAtTicks: 638964838010167847
+  - rowId: d802b85a-23b0-4619-86f6-18e5997dc162
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u0440\u0443\u0446\u043A\u0438\u0439"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 68000
+    createdAtTicks: 638964838010167847
+  - rowId: dc5ad1c6-2975-4955-8acb-bc987a10958a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u0443\u0431\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 73000
+    createdAtTicks: 638964838010167847
+  - rowId: a6805e32-f490-4f9d-be11-595edaad7f2c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u044B\u043B\u043E\u0432\u0430"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 63000
+    createdAtTicks: 638964838010167847
+  - rowId: abad674d-81fb-4156-bb73-1e99aa03d055
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u044B\u0442\u043E\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 60000
+    createdAtTicks: 638964838010167847
+  - rowId: 02d3e5fe-0bcc-454d-bd9f-a6de8222840a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u044E\u0440\u043E\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 103000
+    createdAtTicks: 638964838010167847
+  - rowId: dd2cbe7e-2903-4321-8819-2f4abf74979f
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u044F\u043C\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 78000
+    createdAtTicks: 638964838010167847
+  - rowId: 8d1bb0ef-658c-4ba7-8320-42299d4e70ca
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u044F\u0437\u043E\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 66000
+    createdAtTicks: 638964838010167847
+  - rowId: 9d410ae2-7f0a-4799-a6bc-4549a07f4493
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u044F\u0440\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 93000
+    createdAtTicks: 638964838010167847
+  - rowId: d98f59c7-2bb1-4c4a-b7e9-eaab052a1639
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0445\u044F\u0445\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 70000
+    createdAtTicks: 638964838010167847
+  - rowId: fa201462-3274-4104-8f8a-6e3d38958e6b
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0448\u0438\u0440\u043E\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 63000
+    createdAtTicks: 638964838010167847
+  - rowId: cea9b802-6e9d-4764-98c0-65e2bbf8f2cc
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0448\u0438\u0442\u043A\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 76000
+    createdAtTicks: 638964838010167847
+  - rowId: ccf1ec9b-d325-4beb-98f8-20b008cf3e39
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0448\u043C\u0430\u0440\u0438\u043D"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 78000
+    createdAtTicks: 638964838010167847
+  - rowId: 2e0705e5-d5ec-4429-a3ab-c22f296401fd
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0448\u043D\u044F\u043A\u043E\u0432"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 80000
+    createdAtTicks: 638964838010167847
+  - rowId: 375d3ea5-0ad1-4595-9619-357cb73ecc95
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0448\u0442\u0430\u0440\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 59000
+    createdAtTicks: 638964838010167847
+  - rowId: da4c78fc-9087-4b69-9dd1-badeea82f03b
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0448\u0443\u0440\u043A\u043E\u0432"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 84000
+    createdAtTicks: 638964838010167847
+  - rowId: 93982d79-0ff7-42b5-91b0-f1e32f758283
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0448\u0445\u0430\u0440\u043E\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 69000
+    createdAtTicks: 638964838010167847
+  - rowId: a865246a-c24b-46c9-a906-011ab3142cda
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0449\u0435\u0443\u043B\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 74000
+    createdAtTicks: 638964838010167847
+  - rowId: fabbb123-4ece-4e6e-9949-002892a32c3c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0449\u0438\u043A"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 64000
+    createdAtTicks: 638964838010167847
+  - rowId: 37cb186e-d58d-4f39-b6f9-fe987ee49bc2
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0449\u0443\u0440\u043A\u043E\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 61000
+    createdAtTicks: 638964838010167847
+  - rowId: 7c1f5fe7-8fc9-4b3f-8ffa-457a4d3b5948
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0440\u043E\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 104000
+    createdAtTicks: 638964838010167847
+  - rowId: 663d19ae-d47f-4b5b-8ce8-309d6bf59215
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0440\u044C\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 79000
+    createdAtTicks: 638964838010167847
+  - rowId: afe8d552-dfce-401a-9e38-18e32a6efcd3
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0440\u0446\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 67000
+    createdAtTicks: 638964838010167847
+  - rowId: 958aea45-7580-47c5-8327-f62ac7c82285
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0440\u044C\u0435\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 94000
+    createdAtTicks: 638964838010167847
+  - rowId: 8589eed1-6c5e-43a6-ac5b-81bf5c17649c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0440\u0446\u0435\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 71000
+    createdAtTicks: 638964838010167847
+  - rowId: fcd28aeb-5fd5-4527-b029-d95e5ed636f6
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0440\u0446\u044B\u043D"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 64000
+    createdAtTicks: 638964838010167847
+  - rowId: 956033d7-986a-43ba-8ec0-0ea6b54ed221
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 77000
+    createdAtTicks: 638964838010167847
+  - rowId: 6cd5d016-71d1-4cba-b040-e4b47853fa3a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 79000
+    createdAtTicks: 638964838010167847
+  - rowId: 047d3db8-baad-43fd-bb9c-5133a7130b01
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 81000
+    createdAtTicks: 638964838010167847
+  - rowId: add52948-a35f-49cc-b4cc-2482b1e02570
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 60000
+    createdAtTicks: 638964838010167847
+  - rowId: a88922ff-f2f3-40e1-94f8-ccf66a86dedb
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0440\u0446\u0435\u0432"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 85000
+    createdAtTicks: 638964838010167847
+  - rowId: e0e56f21-0f3e-4afd-a141-70a75bda224d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 70000
+    createdAtTicks: 638964838010167847
+  - rowId: 6cd0ad6a-4615-4121-a40f-edb64fc572f7
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 75000
+    createdAtTicks: 638964838010167847
+  - rowId: 35b58fff-6ddf-487c-8bb5-c2dd139ba8cd
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 65000
+    createdAtTicks: 638964838010167847
+  - rowId: 6e637dc2-132d-4550-8523-2aaf6029de91
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 62000
+    createdAtTicks: 638964838010167847
+  - rowId: 25a73592-0348-48a1-a28d-57b80e27920e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 105000
+    createdAtTicks: 638964838010167847
+  - rowId: d4ad1bc1-ff9c-4e20-a288-bb558f64c4da
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 80000
+    createdAtTicks: 638964838010167847
+  - rowId: ec354fc5-c253-4d0b-93aa-f741ac98acb8
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 68000
+    createdAtTicks: 638964838010167847
+  - rowId: b754d7c7-c503-49c5-bd46-448368f4fceb
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 95000
+    createdAtTicks: 638964838010167847
+  - rowId: 50f2ad0c-dd55-489e-9e94-6aca64d3b0ef
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 72000
+    createdAtTicks: 638964838010167847
+  - rowId: 5067e085-56fb-458f-83d4-fe33edfb1c1d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0440\u043E\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 65000
+    createdAtTicks: 638964838010167847
+  - rowId: a73dd302-a8e0-4d57-9e25-ff5408e2831e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 78000
+    createdAtTicks: 638964838010167847
+  - rowId: e9285e64-8637-4895-83aa-fa60702b90b2
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 80000
+    createdAtTicks: 638964838010167847
+  - rowId: 814a851f-fedd-4df4-ab8e-b130313e2a3d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 82000
+    createdAtTicks: 638964838010167847
+  - rowId: 7f1106d0-34e1-4eee-86db-25c8c9febfd7
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 61000
+    createdAtTicks: 638964838010167847
+  - rowId: cc8cf817-d222-4113-8f1c-6645bc85ad9d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 86000
+    createdAtTicks: 638964838010167847
+  - rowId: 97c10f18-a581-4103-b69d-2494691d753f
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 71000
+    createdAtTicks: 638964838010167847
+  - rowId: b5922d07-1f8a-4d4f-8508-36ecd682e222
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 76000
+    createdAtTicks: 638964838010167847
+  - rowId: 01efaf96-0f6e-42f9-b703-728ab5979526
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 66000
+    createdAtTicks: 638964838010167847
+  - rowId: 9760442a-e4d5-4e5c-8dc4-d3c2d8d5eede
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 63000
+    createdAtTicks: 638964838010167847
+  - rowId: 949b783f-4a68-4688-93e4-ab3e9ed06ca0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 106000
+    createdAtTicks: 638964838010167847
+  - rowId: 76b09140-013d-408d-bfe9-19a940d77bbd
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 81000
+    createdAtTicks: 638964838010167847
+  - rowId: 2794c9f9-007c-4165-b4b8-d12ad1c5d410
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 69000
+    createdAtTicks: 638964838010167847
+  - rowId: df32d906-3799-497f-b5cd-e95b0fd5d781
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 96000
+    createdAtTicks: 638964838010167847
+  - rowId: d5ee1eef-05ce-4de6-a438-d84421a9b93a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 73000
+    createdAtTicks: 638964838010167847
+  - rowId: 9a55becd-00e2-48c9-b0da-5399efccfb67
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 66000
+    createdAtTicks: 638964838010167847
+  - rowId: 06b9172d-f4c6-4480-85fa-5dfbc46deff1
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 79000
+    createdAtTicks: 638964838010167847
+  - rowId: 4c5be3b0-db88-441c-b609-db6835d9ab54
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 81000
+    createdAtTicks: 638964838010167847
+  - rowId: 761d9a5c-1a85-4bca-b54d-794f4f768d25
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 83000
+    createdAtTicks: 638964838010167847
+  - rowId: 8ffd69cf-6c24-4415-b7fb-2ec8cd32ad80
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 62000
+    createdAtTicks: 638964838010167847
+  - rowId: 1d9e62b9-02ac-4819-a1b5-88e091179d81
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 87000
+    createdAtTicks: 638964838010167847
+  - rowId: 03a73135-088a-488e-8d75-8fe4794fddb8
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 72000
+    createdAtTicks: 638964838010167847
+  - rowId: 513ef9a0-3af8-437b-aade-a16c7afb5a60
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 77000
+    createdAtTicks: 638964838010167847
+  - rowId: c5b548d2-451a-474f-942f-98964c06b16d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 67000
+    createdAtTicks: 638964838010167847
+  - rowId: fcae7c98-4fcd-4e53-ba62-018f7d507e63
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 64000
+    createdAtTicks: 638964838010167847
+  - rowId: e5b6548c-dcc2-41a9-949e-dcc0b1f61009
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 107000
+    createdAtTicks: 638964838010167847
+  - rowId: bf7cef24-dd37-486a-ac86-4e05b9e1c88d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 82000
+    createdAtTicks: 638964838010167847
+  - rowId: 95fcadd4-a54c-4c35-9b11-1648670352ed
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 70000
+    createdAtTicks: 638964838010167847
+  - rowId: 548878b5-cd76-4c52-a006-cd20a57b266c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 97000
+    createdAtTicks: 638964838010167847
+  - rowId: 2448b2ca-841b-44fd-a032-6c94d9fb8679
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 74000
+    createdAtTicks: 638964838010167847
+  - rowId: 1b2c1826-9f62-4181-be04-bb6bd942c493
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 67000
+    createdAtTicks: 638964838010167847
+  - rowId: be03aa6c-4355-4662-8107-25e60a6f4a62
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 80000
+    createdAtTicks: 638964838010167847
+  - rowId: b08a56e3-9531-4800-993f-9427ef643f14
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 82000
+    createdAtTicks: 638964838010167847
+  - rowId: add29f4d-bf2d-4f23-b47e-ae88fa25330f
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 84000
+    createdAtTicks: 638964838010167847
+  - rowId: 3dc5ec65-1c7b-43a5-a738-a01a6fd6e48e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 63000
+    createdAtTicks: 638964838010167847
+  - rowId: 964af225-dff5-45eb-bb59-dd618dae082e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 88000
+    createdAtTicks: 638964838010167847
+  - rowId: 67595ac9-6f85-4c49-9513-5f016e8c0c31
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 73000
+    createdAtTicks: 638964838010167847
+  - rowId: 5a1650cb-444d-45a6-ab72-7c9f901dd3f0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 78000
+    createdAtTicks: 638964838010167847
+  - rowId: df10fe24-b4cb-4915-b4b7-ed2ba3487d40
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 68000
+    createdAtTicks: 638964838010167847
+  - rowId: 028e2280-b771-4cdf-8a5d-d1d066ead70e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 65000
+    createdAtTicks: 638964838010167847
+  - rowId: 66a64fcd-1af7-4c29-8fee-7a39cb18d306
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 108000
+    createdAtTicks: 638964838010167847
+  - rowId: 597bd910-949e-43d3-bf82-5162d7dddc5e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 83000
+    createdAtTicks: 638964838010167847
+  - rowId: e7ca1d2c-a061-4f74-9bc7-d2994a8ede22
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 71000
+    createdAtTicks: 638964838010167847
+  - rowId: 8fc049fa-091e-44d3-8e44-b40551c45f9d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 98000
+    createdAtTicks: 638964838010167847
+  - rowId: c3c4d1ae-f388-4c5f-8fd1-fd79fd4ffaa7
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 75000
+    createdAtTicks: 638964838010167847
+  - rowId: e31e5a0d-edf8-4946-9b96-3f8a5da8cb90
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 68000
+    createdAtTicks: 638964838010167847
+  - rowId: a76eeaaf-7b6c-469d-ae0b-6dc4d55938a2
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 81000
+    createdAtTicks: 638964838010167847
+  - rowId: e9f1adcd-5439-4395-a1ed-fdc30f99e8c2
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 83000
+    createdAtTicks: 638964838010167847
+  - rowId: 9d36bd02-045d-4007-ac28-7428bf28329c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 85000
+    createdAtTicks: 638964838010167847
+  - rowId: 6717b395-a9b1-4472-ae35-38e03363ad22
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 64000
+    createdAtTicks: 638964838010167847
+  - rowId: 975f467b-6b76-4727-8756-6987e6583232
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 89000
+    createdAtTicks: 638964838010167847
+  - rowId: d3d7275d-481e-4f91-8a93-85582e96191d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 74000
+    createdAtTicks: 638964838010167847
+  - rowId: 7a73a371-3fff-4047-bf40-1d01901d4ec8
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 79000
+    createdAtTicks: 638964838010167847
+  - rowId: fa94f98c-b99f-4ab8-b4f4-9d5d6261561c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 69000
+    createdAtTicks: 638964838010167847
+  - rowId: c4451a73-0428-463f-8df0-931d0f39f83e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 66000
+    createdAtTicks: 638964838010167847
+  - rowId: 91b19915-a76d-41a8-af48-210b8046342c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 109000
+    createdAtTicks: 638964838010167847
+  - rowId: 5e287ba9-977b-4b24-9721-d4e6ed98a677
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 84000
+    createdAtTicks: 638964838010167847
+  - rowId: e5b2e47f-26f9-4e98-be38-812111298777
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 72000
+    createdAtTicks: 638964838010167847
+  - rowId: f3ee529d-845d-42cd-a0bf-08cfafc8c163
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 99000
+    createdAtTicks: 638964838010167847
+  - rowId: a9bd28f2-5052-47cb-940b-2171e75572e6
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 76000
+    createdAtTicks: 638964838010167847
+  - rowId: 1da46ff4-0072-4f6b-aed3-d11ed3bccea3
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 69000
+    createdAtTicks: 638964838010167847
+  - rowId: 83f3c4a0-aed5-4256-9caa-0a5f8984a946
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 82000
+    createdAtTicks: 638964838010167847
+  - rowId: 1a048074-32f3-468a-9856-e0ce66296dba
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 84000
+    createdAtTicks: 638964838010167847
+  - rowId: d1168855-082d-4f8a-97cb-cd0bd3929a2b
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 86000
+    createdAtTicks: 638964838010167847
+  - rowId: 9b85ddd0-2bd4-47fe-9413-2f6014aea95e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 65000
+    createdAtTicks: 638964838010167847
+  - rowId: 9bbe9330-8b6c-4d22-8829-b6a19ed591fb
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 90000
+    createdAtTicks: 638964838010167847
+  - rowId: 1949fe1d-e2d3-4324-bbdd-4ed7ca151c41
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 75000
+    createdAtTicks: 638964838010167847
+  - rowId: 96b6a51d-ad4a-4198-935b-fcb0b9d3cc12
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 80000
+    createdAtTicks: 638964838010167847
+  - rowId: 6502bde6-eda2-47f4-84cf-5ec005584f0a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 70000
+    createdAtTicks: 638964838010167847
+  - rowId: c6387c4f-1bba-4381-a571-8a961f27cc8e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 67000
+    createdAtTicks: 638964838010167847
+  - rowId: f17a62e4-e551-42e2-a2b0-5e247b91b56a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 110000
+    createdAtTicks: 638964838010167847
+  - rowId: 8efb47ff-c7ec-4fc6-b3b2-fed18f83d17c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 85000
+    createdAtTicks: 638964838010167847
+  - rowId: 8cf8c145-9403-4111-a238-6a66c7ef0a73
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 73000
+    createdAtTicks: 638964838010167847
+  - rowId: aa61f266-4db9-4927-98cb-3b658fbe3a82
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 100000
+    createdAtTicks: 638964838010167847
+  - rowId: 309f353e-5081-4a94-84c4-a4af4798d4d6
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 77000
+    createdAtTicks: 638964838010167847
+  - rowId: 44ade8da-6503-418e-a23d-eef2ce1900fa
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 70000
+    createdAtTicks: 638964838010167847
+  - rowId: d828dece-2bad-4557-930a-e484cbfb033b
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 83000
+    createdAtTicks: 638964838010167847
+  - rowId: 9322ff83-c51a-496e-97de-931ed3cfb83b
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 85000
+    createdAtTicks: 638964838010167847
+  - rowId: 61953704-0e02-4a2f-a05f-85c11e56e9f3
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 87000
+    createdAtTicks: 638964838010167847
+  - rowId: 10e50335-b40a-4bd6-adf8-728cea85beaa
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 66000
+    createdAtTicks: 638964838010167847
+  - rowId: a66076c0-e3b7-427b-bcc7-a06ea6575fdc
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 91000
+    createdAtTicks: 638964838010167847
+  - rowId: 25fbf1ff-7405-42e8-a7e3-b1a6b04fff76
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 76000
+    createdAtTicks: 638964838010167847
+  - rowId: da669342-031f-4869-befe-64a177dbd739
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 81000
+    createdAtTicks: 638964838010167847
+  - rowId: da0e1796-68ff-4175-91ee-6b3606245cd4
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 71000
+    createdAtTicks: 638964838010167847
+  - rowId: 2625afb3-026c-4bdf-93e4-3c875fdf1d49
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 68000
+    createdAtTicks: 638964838010167847
+  - rowId: 14b40562-546c-4fe9-94e2-27d0245c92ef
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 111000
+    createdAtTicks: 638964838010167847
+  - rowId: 7fafc759-7c3a-49fa-83f1-8afc5b2428f7
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 86000
+    createdAtTicks: 638964838010167847
+  - rowId: fb36f9da-88c8-49ab-8832-55e9d75d3f81
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 74000
+    createdAtTicks: 638964838010167847
+  - rowId: 06ffab22-7c8c-4ade-a6cd-96ecbc6af1d1
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 101000
+    createdAtTicks: 638964838010167847
+  - rowId: 4ebe52c8-ab6d-49e2-8fa7-83d6a7849acd
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 78000
+    createdAtTicks: 638964838010167847
+  - rowId: 96b06b7a-eebb-4668-ba8a-8304d3edfbdc
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 71000
+    createdAtTicks: 638964838010167847
+  - rowId: eba3077c-5002-4136-a698-d11ee94b764d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 84000
+    createdAtTicks: 638964838010167847
+  - rowId: ad9a3d67-4480-4545-a808-f673372cb4be
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 86000
+    createdAtTicks: 638964838010167847
+  - rowId: 412b216c-48db-446d-9629-6503d9cde3f0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 88000
+    createdAtTicks: 638964838010167847
+  - rowId: e53a8fbb-5709-47bd-8c9d-d6678f804968
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 67000
+    createdAtTicks: 638964838010167847
+  - rowId: f0b45f97-5a1a-4669-81ee-4c2e674d8aef
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 92000
+    createdAtTicks: 638964838010167847
+  - rowId: 443fb593-6440-4d82-b487-96983313e20a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 77000
+    createdAtTicks: 638964838010167847
+  - rowId: 96a26db8-7e79-4b41-b41c-125fd540c464
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 82000
+    createdAtTicks: 638964838010167847
+  - rowId: 78a64091-9150-4057-a1af-be2d00d38e87
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 72000
+    createdAtTicks: 638964838010167847
+  - rowId: ac3606a8-1443-4460-8866-957ba9b6fe79
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 69000
+    createdAtTicks: 638964838010167847
+  - rowId: 69b88e7a-f290-4a68-ae3b-3c99b1c55df0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 112000
+    createdAtTicks: 638964838010167847
+  - rowId: 4595d2b8-8cdf-4783-80db-492d25895c68
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 87000
+    createdAtTicks: 638964838010167847
+  - rowId: af71d06f-d6de-43ad-8a48-00a59f216528
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 75000
+    createdAtTicks: 638964838010167847
+  - rowId: f54f18be-16e1-48b9-9414-806b575916c4
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 102000
+    createdAtTicks: 638964838010167847
+  - rowId: 8b15af7c-5ce4-4fbf-9965-0ff6ce191858
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 79000
+    createdAtTicks: 638964838010167847
+  - rowId: b077027c-f774-49fc-a5f3-93fe7d2241f7
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 72000
+    createdAtTicks: 638964838010167847
+  - rowId: b7735fd2-bb50-4de6-84a6-41937bf80637
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 85000
+    createdAtTicks: 638964838010167847
+  - rowId: e6b41f20-3ce7-4788-be10-eb6e493202e0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 87000
+    createdAtTicks: 638964838010167847
+  - rowId: b850bf80-f207-4838-9f20-d571c74e8cbd
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 89000
+    createdAtTicks: 638964838010167847
+  - rowId: d7879c9c-529e-4b4f-806e-9128a4ee2762
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 68000
+    createdAtTicks: 638964838010167847
+  - rowId: e578e00d-00a4-40dc-8ffd-74f238801799
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 93000
+    createdAtTicks: 638964838010167847
+  - rowId: 19d91086-2777-4401-854d-c474919ee060
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 78000
+    createdAtTicks: 638964838010167847
+  - rowId: 573cdc7e-cfa3-47f6-a32e-9931d5415df6
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 83000
+    createdAtTicks: 638964838010167847
+  - rowId: 31f255c7-4745-4f5f-9789-cdc290ef8ecc
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 73000
+    createdAtTicks: 638964838010167847
+  - rowId: 26d9e6b9-4d31-4f7b-9dd0-356a308364c0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 70000
+    createdAtTicks: 638964838010167847
+  - rowId: 9d678dc1-60e0-447e-a7fe-1d1394b1cbc4
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 113000
+    createdAtTicks: 638964838010167847
+  - rowId: 7bd06964-67bb-4cd4-8674-20a62189aa3f
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 88000
+    createdAtTicks: 638964838010167847
+  - rowId: b353d8df-1781-4f61-87a3-327b3153f125
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 76000
+    createdAtTicks: 638964838010167847
+  - rowId: 784a130b-0776-4f52-96ee-d596c50570d0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 103000
+    createdAtTicks: 638964838010167847
+  - rowId: 3e2bd1d9-d9ab-4fd7-bb85-f707e288a9c0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 80000
+    createdAtTicks: 638964838010167847
+  - rowId: 9f345bee-8bbe-4c65-82e6-6b01e354863a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 73000
+    createdAtTicks: 638964838010167847
+  - rowId: cf379fd1-b8e3-4b2e-a526-40b1550f9175
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 86000
+    createdAtTicks: 638964838010167847
+  - rowId: c7c9dbb2-727e-4167-a684-168bffd9d372
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 88000
+    createdAtTicks: 638964838010167847
+  - rowId: b02917d4-3237-4e35-9166-67ac60d2c2b7
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 90000
+    createdAtTicks: 638964838010167847
+  - rowId: 376d4c3f-a8c8-4037-b363-48ead03d9eb6
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 69000
+    createdAtTicks: 638964838010167847
+  - rowId: 580ef02a-bb51-4362-b762-f805385d5d80
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 94000
+    createdAtTicks: 638964838010167847
+  - rowId: e309b4a2-50c3-42c7-9080-296719e129f7
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 79000
+    createdAtTicks: 638964838010167847
+  - rowId: 83b03057-0e15-494e-9497-3c86745154e5
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 84000
+    createdAtTicks: 638964838010167847
+  - rowId: 3ac4db5d-406b-4bdd-8b34-43ea7eb67ba8
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 74000
+    createdAtTicks: 638964838010167847
+  - rowId: 37f6dd1c-27aa-44cc-a20d-0576a562cf64
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 71000
+    createdAtTicks: 638964838010167847
+  - rowId: 42775f45-b775-41c6-af72-ca738dcf4faf
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 114000
+    createdAtTicks: 638964838010167847
+  - rowId: b2f6e9bf-8e61-466e-88c1-f47e95b3ef06
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 89000
+    createdAtTicks: 638964838010167847
+  - rowId: 533b9bbc-cf8e-4905-82f9-5c716d217810
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 77000
+    createdAtTicks: 638964838010167847
+  - rowId: c4e5b510-55fb-4287-8cdd-ed2019ab8468
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 104000
+    createdAtTicks: 638964838010167847
+  - rowId: 2f700a63-a7e4-4451-b70b-86af700b5d72
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 81000
+    createdAtTicks: 638964838010167847
+  - rowId: b7b01273-2349-411e-9129-117595e28cc8
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 74000
+    createdAtTicks: 638964838010167847
+  - rowId: d434ef7e-b07b-4af9-8159-f3bfdb0a02d5
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 87000
+    createdAtTicks: 638964838010167847
+  - rowId: 5315e6df-d64f-4308-810b-cb10530bd8c6
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 89000
+    createdAtTicks: 638964838010167847
+  - rowId: 02be8b80-515b-4ea2-b73b-97a1cbbc3c4f
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 91000
+    createdAtTicks: 638964838010167847
+  - rowId: 642047e1-563c-4eea-b749-097cad510525
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 70000
+    createdAtTicks: 638964838010167847
+  - rowId: da17619b-56e4-4dfa-9b26-55cb6ae3739a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 95000
+    createdAtTicks: 638964838010167847
+  - rowId: ce140c4a-e750-4e56-b9dc-dbba9a6d6395
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 80000
+    createdAtTicks: 638964838010167847
+  - rowId: a97e88d5-9dc0-49c0-8e0d-fc0ac509df23
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 85000
+    createdAtTicks: 638964838010167847
+  - rowId: da394c85-090c-4fc7-b3d5-43fefdb825da
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 75000
+    createdAtTicks: 638964838010167847
+  - rowId: 305e6aab-2594-4c8e-b13a-db81aef0c0c0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 72000
+    createdAtTicks: 638964838010167847
+  - rowId: 9b200b0e-df2a-4f2b-b38b-b000b551308e
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 115000
+    createdAtTicks: 638964838010167847
+  - rowId: 493432a4-4c3a-417a-b3af-a848bb86b129
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 90000
+    createdAtTicks: 638964838010167847
+  - rowId: 3fb8e9a3-7d9b-4f05-8589-343081c05977
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 78000
+    createdAtTicks: 638964838010167847
+  - rowId: 66fe0be8-756e-480b-b3b2-1da99edcdf12
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 105000
+    createdAtTicks: 638964838010167847
+  - rowId: 53ebe624-afd4-4cf1-a280-cc6577557c75
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 82000
+    createdAtTicks: 638964838010167847
+  - rowId: 4d57c85a-0c0e-4752-a4bf-4e221f56c1ca
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 75000
+    createdAtTicks: 638964838010167847
+  - rowId: 33bed923-2564-49e2-9954-4fc532c2b2af
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 88000
+    createdAtTicks: 638964838010167847
+  - rowId: 8022274a-eb0c-4c5b-bfe5-2a49cac42575
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 90000
+    createdAtTicks: 638964838010167847
+  - rowId: e68e6a04-28be-421f-bbc8-9b8ae9dac91f
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 92000
+    createdAtTicks: 638964838010167847
+  - rowId: cd08f5bf-2906-4ed4-afa9-10f0853d562b
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 71000
+    createdAtTicks: 638964838010167847
+  - rowId: 95c41222-d1d1-4ec8-b2f1-aa86764df605
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 96000
+    createdAtTicks: 638964838010167847
+  - rowId: 135658b1-1915-42b0-a975-08ccd5cc701d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 81000
+    createdAtTicks: 638964838010167847
+  - rowId: ecce9c55-0c33-43e9-81d7-fec4f5a31100
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 86000
+    createdAtTicks: 638964838010167847
+  - rowId: b39f3cab-e99a-4b9a-ab72-cfb2ad7ce15d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 76000
+    createdAtTicks: 638964838010167847
+  - rowId: e108192b-3488-4f92-9799-4bf32b8f6f2a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 73000
+    createdAtTicks: 638964838010167847
+  - rowId: 4f3cdd77-5ffa-4583-9aec-36484768258b
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 116000
+    createdAtTicks: 638964838010167847
+  - rowId: ebdeb574-bf8a-47f6-8192-6e09478d206f
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 91000
+    createdAtTicks: 638964838010167847
+  - rowId: 9dc10344-347e-485f-9dbd-e6627783d3bf
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 79000
+    createdAtTicks: 638964838010167847
+  - rowId: dccddffa-1b6a-439b-9740-0d5870726989
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 106000
+    createdAtTicks: 638964838010167847
+  - rowId: c2ae90af-de30-44df-b43e-907de6e15d39
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 83000
+    createdAtTicks: 638964838010167847
+  - rowId: c50c416c-8999-43c8-86b1-aae09d01b4fa
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 76000
+    createdAtTicks: 638964838010167847
+  - rowId: 200cba47-7252-4141-83d5-06130b6f3e8f
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 89000
+    createdAtTicks: 638964838010167847
+  - rowId: 6d7bc04a-e03b-449b-b72d-14704ebddf66
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 91000
+    createdAtTicks: 638964838010167847
+  - rowId: 33a16050-0a41-42f3-9b85-73f7015b749d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 93000
+    createdAtTicks: 638964838010167847
+  - rowId: d1c06209-836a-491a-99d8-c57df343b207
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 72000
+    createdAtTicks: 638964838010173464
+  - rowId: 34a0d85a-3dbe-4f87-b141-33e78129fbb0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 97000
+    createdAtTicks: 638964838010173464
+  - rowId: 00a8c0e5-b152-4bb4-bb99-05b608228c3d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 82000
+    createdAtTicks: 638964838010173464
+  - rowId: fe5155d4-c6cc-450b-a8d4-753692902ed0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 87000
+    createdAtTicks: 638964838010173464
+  - rowId: 9a287892-95e1-4000-91e7-84ebe2254c75
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 77000
+    createdAtTicks: 638964838010173464
+  - rowId: 7b43cb16-bfff-4aa2-85ac-75a761d4dfdb
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 74000
+    createdAtTicks: 638964838010173464
+  - rowId: 6ba05843-f2b7-4f96-8596-a299221ee380
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 117000
+    createdAtTicks: 638964838010173464
+  - rowId: 35842938-970c-4f19-a4a7-a508922c9492
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 92000
+    createdAtTicks: 638964838010173464
+  - rowId: fccc3f45-d2ec-4888-ac0a-272bbfcc6296
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 80000
+    createdAtTicks: 638964838010173464
+  - rowId: 1d4f40f3-5c61-4bc9-b28a-16e9fc666cff
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 107000
+    createdAtTicks: 638964838010173464
+  - rowId: 46c1fe2f-916f-4c2a-aa54-7c4c5477e0ff
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 84000
+    createdAtTicks: 638964838010173464
+  - rowId: b6579731-4902-4330-b4f0-17c0f06561f9
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 77000
+    createdAtTicks: 638964838010173464
+  - rowId: 6aa72173-e06f-4afe-b994-0cab94127c7f
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 90000
+    createdAtTicks: 638964838010173464
+  - rowId: 3573cc7e-7f80-433b-b1be-3842224a7b36
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 92000
+    createdAtTicks: 638964838010173464
+  - rowId: bf181a20-aa30-464b-befc-81d83f084e9d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 94000
+    createdAtTicks: 638964838010173464
+  - rowId: e20b9a20-d827-4e5a-ab55-a134771c63f3
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 73000
+    createdAtTicks: 638964838010173464
+  - rowId: 0e55a0c1-ab7f-4fa8-b9c6-442ea1e9ce37
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 98000
+    createdAtTicks: 638964838010173464
+  - rowId: c67808ad-b29e-48cd-bb55-70ec1b161fe9
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 83000
+    createdAtTicks: 638964838010173464
+  - rowId: 7c261c19-23ea-45f6-939a-c6c88a385086
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 88000
+    createdAtTicks: 638964838010173464
+  - rowId: 164d9c67-c1c5-4f79-92d0-9641f8ab15e3
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 78000
+    createdAtTicks: 638964838010173464
+  - rowId: 492db9f2-6a11-4fa2-9254-a2689c86f0ea
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 75000
+    createdAtTicks: 638964838010173464
+  - rowId: 7ff01fa9-878d-45e1-b96e-f17fece11be3
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 118000
+    createdAtTicks: 638964838010173464
+  - rowId: 98f85bf0-6c0a-4088-a14a-207f2bbee783
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 93000
+    createdAtTicks: 638964838010173464
+  - rowId: 24bc7f68-b2b7-495e-8a66-d3dc086116cf
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 81000
+    createdAtTicks: 638964838010173464
+  - rowId: 07c89f99-33b9-4e65-b4dc-b3598b4b84f3
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 108000
+    createdAtTicks: 638964838010173464
+  - rowId: 863cb606-a984-45ef-b90a-563b8944db43
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 85000
+    createdAtTicks: 638964838010173464
+  - rowId: 121b2f72-33db-43f2-8638-d9ffc18159f6
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 78000
+    createdAtTicks: 638964838010173464
+  - rowId: 534f9fdd-ea11-48d7-b709-4d9dc71f657a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 91000
+    createdAtTicks: 638964838010173464
+  - rowId: e4ab4e95-bcb0-40c2-b312-b84e5df17601
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 93000
+    createdAtTicks: 638964838010173464
+  - rowId: 04e89b99-f2ee-46b9-a56f-2ec102e6dc79
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 95000
+    createdAtTicks: 638964838010173464
+  - rowId: cadab557-a30f-4243-a2e4-97444d1881ba
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 74000
+    createdAtTicks: 638964838010173464
+  - rowId: c89cce7c-4e83-4e3e-bd84-160510be6361
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 99000
+    createdAtTicks: 638964838010173464
+  - rowId: 85348e0a-80d3-4c2f-8428-dd82206116b3
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 84000
+    createdAtTicks: 638964838010173464
+  - rowId: 90cf9a18-1a44-46a2-a13d-2b19af7ebcbf
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 89000
+    createdAtTicks: 638964838010173464
+  - rowId: 9a4e7a0c-07c9-489c-ab55-94db7b4ee3ea
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 79000
+    createdAtTicks: 638964838010173464
+  - rowId: 9d4939bb-7974-4974-8dfd-d40754181f1d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 76000
+    createdAtTicks: 638964838010173464
+  - rowId: 3e9d7ef0-b39c-4716-b938-797e131d0400
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 119000
+    createdAtTicks: 638964838010173464
+  - rowId: 24d23b72-ad2f-491e-89d2-69e4ad99a19d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 94000
+    createdAtTicks: 638964838010173464
+  - rowId: b8c8abdc-6581-474e-9c66-79afcefc6684
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 82000
+    createdAtTicks: 638964838010173464
+  - rowId: aa97ce5a-de62-4155-9149-7c41a820531d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 109000
+    createdAtTicks: 638964838010173464
+  - rowId: 676be594-f2d1-4176-87ed-7593383bfda2
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 86000
+    createdAtTicks: 638964838010173464
+  - rowId: 7bc69969-a26d-4afd-85ff-1cec9ce8edea
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 79000
+    createdAtTicks: 638964838010173464
+  - rowId: 1c2a51af-718e-4259-88cd-6fa06dd275ff
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 92000
+    createdAtTicks: 638964838010173464
+  - rowId: cfdbc2f9-58b0-458c-a5b1-f1bbbe19187a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 94000
+    createdAtTicks: 638964838010173464
+  - rowId: f11407ce-7d18-43ff-8141-3ba39d305f1a
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 96000
+    createdAtTicks: 638964838010173464
+  - rowId: a2dc0f55-08c7-4d97-ad7d-93debc0e5ec2
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 75000
+    createdAtTicks: 638964838010173464
+  - rowId: edde4313-a0b3-4a2f-9d78-a72525140886
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 100000
+    createdAtTicks: 638964838010173464
+  - rowId: 87a9e739-7ed4-4ce1-99f7-eb3afb6864cb
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
+      - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+      - 85000
+    createdAtTicks: 638964838010173464
+  - rowId: b140c834-5014-41f1-ba58-035ee5c17b33
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
+      - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
+      - 90000
+    createdAtTicks: 638964838010173464
+  - rowId: 48eca73d-8315-447a-aaa5-bcc9e027e01c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
+      - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
+      - 80000
+    createdAtTicks: 638964838010173464
+  - rowId: 36c15eb0-5189-4a0c-9ea6-efba75c731e7
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
+      - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
+      - 77000
+    createdAtTicks: 638964838010173464
+  - rowId: ede98fa1-dbcd-4088-9a88-7a5ee37741eb
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 120000
+    createdAtTicks: 638964838010173464
+  - rowId: 39c4ede5-4592-4fe5-8fe7-6a14cd05a5c0
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
+      - 95000
+    createdAtTicks: 638964838010173464
+  - rowId: 2fa48a92-3797-4ba4-bdf8-ba665339be89
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
+      - 83000
+    createdAtTicks: 638964838010173464
+  - rowId: e9776e90-078f-4c80-8bb4-95ecb7cee34c
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
+      - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
+      - 110000
+    createdAtTicks: 638964838010173464
+  - rowId: bc14af26-949d-4427-ac9a-40cc18e412ec
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043E\u0432"
+      - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
+      - 87000
+    createdAtTicks: 638964838010173464
+  - rowId: ce8205b4-b5a9-4325-b9e7-509824698786
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
+      - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
+      - 80000
+    createdAtTicks: 638964838010173464
+  - rowId: 66880b04-f007-4ab4-8ae1-d4a582ee30fd
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
+      - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+      - 93000
+    createdAtTicks: 638964838010173464
+  - rowId: d2ad9c02-26dd-49ff-889d-58d7c478062d
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
+      - "\u042E\u0440\u0438\u0441\u0442"
+      - 95000
+    createdAtTicks: 638964838010173464
+  - rowId: 5e1ff311-ab6a-4259-928c-ec0730a0e226
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
+      - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
+      - 97000
+    createdAtTicks: 638964838010173464
+  - rowId: a82df7ce-83e1-4139-a468-a7c6e18351e8
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
+      - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
+      - 76000
+    createdAtTicks: 638964838010173464
+  - rowId: adc24178-6e33-44ab-9004-bf921c9af801
+    cellValuesSerialized:
+      keys:
+      - col_0
+      - col_1
+      - col_2
+      - col_3
+      values:
+      - "\u0416\u0430\u043D\u043D\u0430"
+      - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
+      - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+      - 101000
+    createdAtTicks: 638964838010173464
+  lastModifiedTicks: 638964838493185443

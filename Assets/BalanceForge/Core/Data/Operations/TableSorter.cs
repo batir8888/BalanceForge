@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using BalanceForge.Core.Data;
 
 namespace BalanceForge.Data.Operations
@@ -39,33 +38,83 @@ namespace BalanceForge.Data.Operations
     
     public class TableSorter
     {
+        // Optimized sort using Array.Sort instead of LINQ
         public static List<BalanceRow> Sort(List<BalanceRow> rows, string columnId, SortDirection direction, ColumnType columnType)
         {
-            if (direction == SortDirection.None)
+            if (direction == SortDirection.None || rows.Count <= 1)
                 return rows;
             
-            var sorted = rows.OrderBy<BalanceRow, object>(row =>
+            // Pre-warm deserialization for all rows
+            foreach (var row in rows)
             {
-                var value = row.GetValue(columnId);
-                if (value == null) return null;
+                row.EnsureDeserialized();
+            }
+            
+            // Convert to array for faster sorting
+            var array = rows.ToArray();
+            
+            // Create comparer based on column type
+            var comparer = CreateComparer(columnId, columnType, direction);
+            
+            // Use Array.Sort - much faster than LINQ OrderBy
+            Array.Sort(array, comparer);
+            
+            return new List<BalanceRow>(array);
+        }
+        
+        private static IComparer<BalanceRow> CreateComparer(string columnId, ColumnType columnType, SortDirection direction)
+        {
+            return new RowComparer(columnId, columnType, direction);
+        }
+        
+        private class RowComparer : IComparer<BalanceRow>
+        {
+            private readonly string columnId;
+            private readonly ColumnType columnType;
+            private readonly int directionMultiplier;
+            
+            public RowComparer(string columnId, ColumnType columnType, SortDirection direction)
+            {
+                this.columnId = columnId;
+                this.columnType = columnType;
+                this.directionMultiplier = direction == SortDirection.Ascending ? 1 : -1;
+            }
+            
+            public int Compare(BalanceRow x, BalanceRow y)
+            {
+                var valueX = x.GetValue(columnId);
+                var valueY = y.GetValue(columnId);
                 
+                if (valueX == null && valueY == null) return 0;
+                if (valueX == null) return -directionMultiplier;
+                if (valueY == null) return directionMultiplier;
+                
+                int result = CompareValues(valueX, valueY);
+                return result * directionMultiplier;
+            }
+            
+            private int CompareValues(object x, object y)
+            {
                 switch (columnType)
                 {
                     case ColumnType.Integer:
-                        return int.TryParse(value.ToString(), out int intVal) ? intVal : 0;
+                        if (int.TryParse(x.ToString(), out int intX) && int.TryParse(y.ToString(), out int intY))
+                            return intX.CompareTo(intY);
+                        break;
+                        
                     case ColumnType.Float:
-                        return float.TryParse(value.ToString(), out float floatVal) ? floatVal : 0f;
+                        if (float.TryParse(x.ToString(), out float floatX) && float.TryParse(y.ToString(), out float floatY))
+                            return floatX.CompareTo(floatY);
+                        break;
+                        
                     case ColumnType.Boolean:
-                        return bool.TryParse(value.ToString(), out bool boolVal) && boolVal ? 1 : 0;
-                    default:
-                        return value.ToString();
+                        if (bool.TryParse(x.ToString(), out bool boolX) && bool.TryParse(y.ToString(), out bool boolY))
+                            return boolX.CompareTo(boolY);
+                        break;
                 }
-            }).ToList();
-            
-            if (direction == SortDirection.Descending)
-                sorted.Reverse();
-            
-            return sorted;
+                
+                return string.Compare(x.ToString(), y.ToString(), StringComparison.OrdinalIgnoreCase);
+            }
         }
     }
 }

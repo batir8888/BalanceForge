@@ -35,16 +35,76 @@ namespace BalanceForge.Editor.UI
         // Context Menu
         private GenericMenu contextMenu;
         
+        // Virtual scrolling optimization
+        private float rowHeight = 22f;
+        private float columnWidth = 150f;
+        private float headerHeight = 40f;
+        private int visibleStartIndex = 0;
+        private int visibleEndIndex = 0;
+        private Rect scrollViewRect;
+        
+        // OPTIMIZATIONS
+        private const int CACHE_SIZE_LIMIT = 500;
+        private const int VISIBLE_ROW_BUFFER = 5;
+        private const float REPAINT_THROTTLE = 0.05f;
+        
+        private Dictionary<string, object> cellValueCache = new Dictionary<string, object>();
+        private Dictionary<string, GUIContent> guiContentCache = new Dictionary<string, GUIContent>();
+        
+        private int lastCacheFrame = -1;
+        private double lastRepaintTime = 0;
+        private bool isDirty = false;
+        
+        // Cached styles
+        private GUIStyle cellStyle;
+        private GUIStyle headerStyle;
+        private bool stylesInitialized = false;
+        
+        private int frameCounter = 0;
+        
         [MenuItem("Window/BalanceForge/Table Editor")]
         public static void ShowWindow()
         {
-            GetWindow<BalanceTableEditorWindow>("Balance Table Editor");
+            var window = GetWindow<BalanceTableEditorWindow>("Balance Table Editor");
+            window.minSize = new Vector2(600, 400);
         }
         
         private void OnEnable()
         {
             undoRedoService = new UndoRedoService();
             displayedRows = new List<BalanceRow>();
+            frameCounter = 0;
+            InitializeStyles();
+        }
+        
+        private void InitializeStyles()
+        {
+            if (stylesInitialized) return;
+            
+            cellStyle = new GUIStyle(EditorStyles.label)
+            {
+                padding = new RectOffset(4, 4, 2, 2),
+                alignment = TextAnchor.MiddleLeft,
+                clipping = TextClipping.Clip
+            };
+            
+            headerStyle = new GUIStyle(EditorStyles.toolbarButton)
+            {
+                alignment = TextAnchor.MiddleCenter,
+                fontStyle = FontStyle.Bold
+            };
+            
+            stylesInitialized = true;
+        }
+        
+        private void OnInspectorUpdate()
+        {
+            if (isDirty && EditorApplication.timeSinceStartup - lastRepaintTime > REPAINT_THROTTLE)
+            {
+                Repaint();
+                isDirty = false;
+                lastRepaintTime = EditorApplication.timeSinceStartup;
+            }
         }
         
         public void LoadTable(BalanceTable table)
@@ -52,31 +112,72 @@ namespace BalanceForge.Editor.UI
             currentTable = table;
             RefreshDisplayedRows();
             undoRedoService.Clear();
+            ClearAllCaches();
+        }
+        
+        private void ClearAllCaches()
+        {
+            cellValueCache.Clear();
+            guiContentCache.Clear();
+            lastCacheFrame = -1;
         }
         
         private void OnGUI()
         {
-            // Handle keyboard shortcuts
+            if (Event.current.type == EventType.Layout)
+            {
+                frameCounter++;
+                if (frameCounter != lastCacheFrame)
+                {
+                    cellValueCache.Clear();
+                    lastCacheFrame = frameCounter;
+                    
+                    if (guiContentCache.Count > CACHE_SIZE_LIMIT)
+                    {
+                        guiContentCache.Clear();
+                    }
+                }
+            }
+            
             HandleKeyboardShortcuts();
-            
             DrawToolbar();
-            
             EditorGUILayout.Space();
             
             if (currentTable != null)
             {
-                // Check if file is editable
                 if (!IsFileEditable())
                 {
                     EditorGUILayout.HelpBox("This file is read-only. You cannot make changes.", MessageType.Warning);
                 }
+                
+                // Debug info
+                EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
+                EditorGUILayout.LabelField($"Total: {currentTable.Rows.Count}", GUILayout.Width(100));
+                EditorGUILayout.LabelField($"Displayed: {displayedRows?.Count ?? 0}", GUILayout.Width(100));
+                if (displayedRows != null && displayedRows.Count > 0)
+                {
+                    EditorGUILayout.LabelField($"Visible: {visibleEndIndex - visibleStartIndex + 1}", GUILayout.Width(100));
+                }
+                GUILayout.FlexibleSpace();
+                EditorGUILayout.EndHorizontal();
+                EditorGUILayout.Space(3);
                 
                 if (showFilterPanel)
                 {
                     DrawFilterPanel();
                 }
                 
-                DrawTable();
+                if (showValidation && validationResult != null && validationResult.HasErrors())
+                {
+                    EditorGUILayout.HelpBox($"Found {validationResult.Errors.Count} validation errors", MessageType.Warning);
+                    if (GUILayout.Button("Hide Validation"))
+                    {
+                        showValidation = false;
+                    }
+                    EditorGUILayout.Space();
+                }
+                
+                DrawOptimizedTable();
                 DrawStatusBar();
             }
             else
@@ -90,30 +191,28 @@ namespace BalanceForge.Editor.UI
             var e = Event.current;
             if (e.type == EventType.KeyDown)
             {
-                // Copy (Ctrl/Cmd + C)
+                bool handled = false;
+                
                 if ((e.control || e.command) && e.keyCode == KeyCode.C)
                 {
                     HandleCopy();
-                    e.Use();
+                    handled = true;
                 }
-                // Paste (Ctrl/Cmd + V)
                 else if ((e.control || e.command) && e.keyCode == KeyCode.V)
                 {
                     HandlePaste();
-                    e.Use();
+                    handled = true;
                 }
-                // Undo (Ctrl/Cmd + Z)
                 else if ((e.control || e.command) && e.keyCode == KeyCode.Z && !e.shift)
                 {
                     if (undoRedoService.CanUndo())
                     {
                         undoRedoService.Undo();
                         RefreshDisplayedRows();
-                        Repaint();
+                        isDirty = true;
                     }
-                    e.Use();
+                    handled = true;
                 }
-                // Redo (Ctrl/Cmd + Shift + Z or Ctrl/Cmd + Y)
                 else if (((e.control || e.command) && e.shift && e.keyCode == KeyCode.Z) ||
                          ((e.control || e.command) && e.keyCode == KeyCode.Y))
                 {
@@ -121,50 +220,294 @@ namespace BalanceForge.Editor.UI
                     {
                         undoRedoService.Redo();
                         RefreshDisplayedRows();
-                        Repaint();
+                        isDirty = true;
                     }
-                    e.Use();
+                    handled = true;
                 }
-                // Delete
                 else if (e.keyCode == KeyCode.Delete)
                 {
                     HandleDeleteSelected();
+                    handled = true;
+                }
+                
+                if (handled)
+                {
                     e.Use();
                 }
             }
         }
         
-        private void HandleCopy()
+        // ИСПРАВЛЕНО: Используем только GUI методы без смешивания с GUILayout
+        private void DrawOptimizedTable()
         {
-            if (!string.IsNullOrEmpty(focusedCellRowId) && !string.IsNullOrEmpty(focusedCellColumnId))
+            if (displayedRows == null || displayedRows.Count == 0)
             {
-                var row = currentTable.Rows.FirstOrDefault(r => r.RowId == focusedCellRowId);
-                if (row != null)
+                EditorGUILayout.HelpBox("No data to display. Add rows or adjust filters.", MessageType.Info);
+                
+                if (currentTable != null && GUILayout.Button("Add 10 Test Rows", GUILayout.Height(30)))
                 {
-                    var value = row.GetValue(focusedCellColumnId);
-                    ClipboardService.Copy(focusedCellColumnId, value);
-                    Debug.Log($"Copied value from {focusedCellColumnId}");
+                    for (int i = 0; i < 10; i++)
+                    {
+                        var row = currentTable.AddRow();
+                        foreach (var column in currentTable.Columns)
+                        {
+                            object defaultValue = column.DataType switch
+                            {
+                                ColumnType.String => $"Value_{i}",
+                                ColumnType.Integer => i * 100,
+                                ColumnType.Float => i * 10.5f,
+                                ColumnType.Boolean => i % 2 == 0,
+                                _ => $"Data_{i}"
+                            };
+                            row.SetValue(column.ColumnId, defaultValue);
+                        }
+                    }
+                    RefreshDisplayedRows();
+                    Repaint();
                 }
+                return;
+            }
+            
+            scrollViewRect = GUILayoutUtility.GetRect(
+                GUIContent.none, 
+                GUIStyle.none, 
+                GUILayout.ExpandWidth(true), 
+                GUILayout.ExpandHeight(true),
+                GUILayout.MinHeight(200)
+            );
+            
+            float contentHeight = headerHeight + displayedRows.Count * rowHeight;
+            float contentWidth = Mathf.Max(scrollViewRect.width, 20 + columnWidth * currentTable.Columns.Count);
+            
+            scrollPosition = GUI.BeginScrollView(
+                scrollViewRect, 
+                scrollPosition, 
+                new Rect(0, 0, contentWidth, contentHeight)
+            );
+            
+            DrawTableHeaderDirect();
+            
+            int rawStart = Mathf.FloorToInt((scrollPosition.y - headerHeight) / rowHeight);
+            int rawEnd = Mathf.CeilToInt((scrollPosition.y + scrollViewRect.height - headerHeight) / rowHeight);
+            
+            visibleStartIndex = Mathf.Max(0, rawStart - VISIBLE_ROW_BUFFER);
+            visibleEndIndex = Mathf.Min(displayedRows.Count - 1, rawEnd + VISIBLE_ROW_BUFFER);
+            
+            // Draw visible rows using direct GUI
+            for (int i = visibleStartIndex; i <= visibleEndIndex && i < displayedRows.Count; i++)
+            {
+                DrawTableRowDirect(i, displayedRows[i]);
+            }
+            
+            GUI.EndScrollView();
+        }
+        
+        // ИСПРАВЛЕНО: Прямая отрисовка заголовка без GUILayout внутри
+        private void DrawTableHeaderDirect()
+        {
+            float contentWidth = Mathf.Max(scrollViewRect.width, 20 + columnWidth * currentTable.Columns.Count);
+            var headerRect = new Rect(0, 0, contentWidth, headerHeight);
+            
+            EditorGUI.DrawRect(headerRect, new Color(0.22f, 0.22f, 0.22f, 1f));
+            
+            float xPos = 5;
+            float yPos = (headerHeight - 20) / 2;
+            
+            // Select all checkbox
+            bool allSelected = displayedRows.Count > 0 && displayedRows.All(r => selectedRowIds.Contains(r.RowId));
+            var checkRect = new Rect(xPos, yPos, 20, 20);
+            bool newAllSelected = EditorGUI.Toggle(checkRect, allSelected);
+            
+            if (newAllSelected != allSelected)
+            {
+                if (newAllSelected)
+                {
+                    foreach (var row in displayedRows)
+                        selectedRowIds.Add(row.RowId);
+                }
+                else
+                {
+                    selectedRowIds.Clear();
+                }
+            }
+            
+            xPos += 25;
+            
+            // Column headers
+            foreach (var column in currentTable.Columns)
+            {
+                string headerText = column.DisplayName;
+                if (sortingState.SortColumnId == column.ColumnId)
+                {
+                    headerText += sortingState.Direction == SortDirection.Ascending ? " ▲" : " ▼";
+                }
+                
+                string cacheKey = $"header_{column.ColumnId}_{headerText}";
+                GUIContent content;
+                if (!guiContentCache.TryGetValue(cacheKey, out content))
+                {
+                    content = new GUIContent(headerText);
+                    guiContentCache[cacheKey] = content;
+                }
+                
+                var buttonRect = new Rect(xPos, 2, columnWidth, headerHeight - 4);
+                if (GUI.Button(buttonRect, content, headerStyle))
+                {
+                    sortingState.Toggle(column.ColumnId);
+                    RefreshDisplayedRows();
+                    isDirty = true;
+                }
+                
+                xPos += columnWidth;
+            }
+            
+            // Separator
+            var separatorRect = new Rect(0, headerHeight - 2, contentWidth, 1);
+            EditorGUI.DrawRect(separatorRect, new Color(0.5f, 0.5f, 0.5f, 0.5f));
+        }
+        
+        // ИСПРАВЛЕНО: Прямая отрисовка строки без GUILayout внутри
+        private void DrawTableRowDirect(int index, BalanceRow row)
+        {
+            float yPos = headerHeight + index * rowHeight;
+            float contentWidth = Mathf.Max(scrollViewRect.width, 20 + columnWidth * currentTable.Columns.Count);
+            var rowRect = new Rect(0, yPos, contentWidth, rowHeight);
+            
+            // Alternate row colors
+            if (index % 2 == 0)
+            {
+                EditorGUI.DrawRect(rowRect, new Color(0.22f, 0.22f, 0.22f, 1f));
+            }
+            else
+            {
+                EditorGUI.DrawRect(rowRect, new Color(0.25f, 0.25f, 0.25f, 1f));
+            }
+            
+            float xPos = 5;
+            
+            // Selection checkbox
+            bool isSelected = selectedRowIds.Contains(row.RowId);
+            var checkRect = new Rect(xPos, yPos + 1, 20, 20);
+            bool newSelected = EditorGUI.Toggle(checkRect, isSelected);
+            
+            if (newSelected != isSelected)
+            {
+                if (newSelected)
+                    selectedRowIds.Add(row.RowId);
+                else
+                    selectedRowIds.Remove(row.RowId);
+                isDirty = true;
+            }
+            
+            xPos += 25;
+            
+            // Draw cells
+            GUI.enabled = IsFileEditable();
+            foreach (var column in currentTable.Columns)
+            {
+                DrawCellDirect(row, column, new Rect(xPos, yPos + 1, columnWidth, rowHeight - 2));
+                xPos += columnWidth;
+            }
+            GUI.enabled = true;
+        }
+        
+        private void DrawCellDirect(BalanceRow row, ColumnDefinition column, Rect cellRect)
+        {
+            string cacheKey = $"{row.RowId}_{column.ColumnId}";
+            object value;
+            
+            if (!cellValueCache.TryGetValue(cacheKey, out value))
+            {
+                value = row.GetValue(column.ColumnId);
+                cellValueCache[cacheKey] = value;
+            }
+            
+            bool isFocused = row.RowId == focusedCellRowId && column.ColumnId == focusedCellColumnId;
+            
+            if (Event.current.type == EventType.MouseDown && cellRect.Contains(Event.current.mousePosition))
+            {
+                focusedCellRowId = row.RowId;
+                focusedCellColumnId = column.ColumnId;
+                isDirty = true;
+                Event.current.Use();
+            }
+            
+            if (isFocused)
+            {
+                EditorGUI.DrawRect(cellRect, new Color(0.3f, 0.5f, 0.8f, 0.4f));
+            }
+            
+            object newValue = DrawCellByType(cellRect, column, value);
+            
+            if (!Equals(value, newValue))
+            {
+                var command = new EditCellCommand(currentTable, row.RowId, column.ColumnId, value, newValue);
+                undoRedoService.ExecuteCommand(command);
+                cellValueCache[cacheKey] = newValue;
+                
+                if (!column.Validate(newValue))
+                {
+                    EditorUtility.DisplayDialog("Validation Error", 
+                        $"Invalid value for {column.DisplayName}", "OK");
+                }
+            }
+            
+            if (Event.current.type == EventType.ContextClick && cellRect.Contains(Event.current.mousePosition))
+            {
+                ShowCellContextMenu(column.ColumnId, value);
+                Event.current.Use();
             }
         }
         
-        private void HandlePaste()
+        private object DrawCellByType(Rect position, ColumnDefinition column, object value)
         {
-            if (!IsFileEditable()) return;
-            
-            if (!string.IsNullOrEmpty(focusedCellRowId) && !string.IsNullOrEmpty(focusedCellColumnId))
+            switch (column.DataType)
             {
-                var row = currentTable.Rows.FirstOrDefault(r => r.RowId == focusedCellRowId);
-                if (row != null && ClipboardService.CanPaste(focusedCellColumnId))
-                {
-                    var oldValue = row.GetValue(focusedCellColumnId);
-                    var newValue = ClipboardService.Paste(focusedCellColumnId);
+                case ColumnType.String:
+                    return EditorGUI.TextField(position, value?.ToString() ?? "");
                     
-                    var command = new EditCellCommand(currentTable, focusedCellRowId, focusedCellColumnId, oldValue, newValue);
-                    undoRedoService.ExecuteCommand(command);
-                    RefreshDisplayedRows();
-                    Debug.Log($"Pasted value to {focusedCellColumnId}");
-                }
+                case ColumnType.Integer:
+                    int intVal = value != null ? System.Convert.ToInt32(value) : 0;
+                    return EditorGUI.IntField(position, intVal);
+                    
+                case ColumnType.Float:
+                    float floatVal = value != null ? System.Convert.ToSingle(value) : 0f;
+                    return EditorGUI.FloatField(position, floatVal);
+                    
+                case ColumnType.Boolean:
+                    bool boolVal = value != null && System.Convert.ToBoolean(value);
+                    return EditorGUI.Toggle(position, boolVal);
+                    
+                case ColumnType.Color:
+                    Color colorVal = value is Color ? (Color)value : Color.white;
+                    return EditorGUI.ColorField(position, colorVal);
+                    
+                case ColumnType.Vector2:
+                    Vector2 vec2Val = value is Vector2 ? (Vector2)value : Vector2.zero;
+                    return EditorGUI.Vector2Field(position, "", vec2Val);
+                    
+                case ColumnType.Vector3:
+                    Vector3 vec3Val = value is Vector3 ? (Vector3)value : Vector3.zero;
+                    return EditorGUI.Vector3Field(position, "", vec3Val);
+                    
+                case ColumnType.AssetReference:
+                    return EditorGUI.ObjectField(position,
+                        value as UnityEngine.Object,
+                        column.GetAssetType(),
+                        false);
+                        
+                case ColumnType.Enum:
+                    if (column.EnumDefinition != null && column.EnumDefinition.Values.Count > 0)
+                    {
+                        var currentIndex = column.EnumDefinition.GetIndex(value?.ToString() ?? "");
+                        if (currentIndex < 0) currentIndex = 0;
+                        var newIndex = EditorGUI.Popup(position, currentIndex, column.EnumDefinition.Values.ToArray());
+                        return column.EnumDefinition.Values[newIndex];
+                    }
+                    return EditorGUI.TextField(position, value?.ToString() ?? "");
+                    
+                default:
+                    return value;
             }
         }
         
@@ -172,19 +515,15 @@ namespace BalanceForge.Editor.UI
         {
             EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
             
-            // Table selection
             var newTable = (BalanceTable)EditorGUILayout.ObjectField(
-                currentTable, 
-                typeof(BalanceTable), 
-                false,
-                GUILayout.Width(200)
-            );
+                currentTable, typeof(BalanceTable), false, GUILayout.Width(200));
             
             if (newTable != currentTable)
             {
                 currentTable = newTable;
                 RefreshDisplayedRows();
                 undoRedoService.Clear();
+                ClearAllCaches();
             }
             
             GUILayout.FlexibleSpace();
@@ -193,7 +532,6 @@ namespace BalanceForge.Editor.UI
             {
                 GUI.enabled = IsFileEditable();
                 
-                // Add Row
                 if (GUILayout.Button("Add Row", EditorStyles.toolbarButton))
                 {
                     var newRow = currentTable.AddRow();
@@ -202,7 +540,6 @@ namespace BalanceForge.Editor.UI
                     RefreshDisplayedRows();
                 }
                 
-                // Delete Selected Rows
                 if (GUILayout.Button("Delete Selected", EditorStyles.toolbarButton))
                 {
                     HandleDeleteSelected();
@@ -212,27 +549,23 @@ namespace BalanceForge.Editor.UI
                 
                 GUILayout.Space(10);
                 
-                // Filter
                 bool newShowFilter = GUILayout.Toggle(showFilterPanel, "Filter", EditorStyles.toolbarButton);
                 if (newShowFilter != showFilterPanel)
                 {
                     showFilterPanel = newShowFilter;
                 }
                 
-                // Validate
                 if (GUILayout.Button("Validate", EditorStyles.toolbarButton))
                 {
                     validationResult = currentTable.ValidateData();
                     showValidation = true;
                 }
                 
-                // Import/Export
                 if (GUILayout.Button("Import/Export", EditorStyles.toolbarButton))
                 {
                     ShowImportExportMenu();
                 }
                 
-                // Save
                 if (GUILayout.Button("Save", EditorStyles.toolbarButton))
                 {
                     SaveTable();
@@ -240,20 +573,19 @@ namespace BalanceForge.Editor.UI
                 
                 GUILayout.Space(10);
                 
-                // Undo/Redo
                 GUI.enabled = undoRedoService.CanUndo();
                 if (GUILayout.Button("Undo", EditorStyles.toolbarButton))
                 {
                     undoRedoService.Undo();
                     RefreshDisplayedRows();
-                    Repaint();
+                    isDirty = true;
                 }
                 GUI.enabled = undoRedoService.CanRedo();
                 if (GUILayout.Button("Redo", EditorStyles.toolbarButton))
                 {
                     undoRedoService.Redo();
                     RefreshDisplayedRows();
-                    Repaint();
+                    isDirty = true;
                 }
                 GUI.enabled = true;
             }
@@ -273,7 +605,6 @@ namespace BalanceForge.Editor.UI
                 var condition = filterConditions[i];
                 EditorGUILayout.BeginHorizontal();
                 
-                // Column selection
                 var columnNames = currentTable.Columns.Select(c => c.DisplayName).ToArray();
                 var columnIndex = System.Array.FindIndex(columnNames, name => 
                     currentTable.Columns.FirstOrDefault(c => c.DisplayName == name)?.ColumnId == condition.ColumnId);
@@ -284,10 +615,7 @@ namespace BalanceForge.Editor.UI
                     condition.ColumnId = currentTable.Columns[newColumnIndex].ColumnId;
                 }
                 
-                // Operator
                 condition.Operator = (FilterOperator)EditorGUILayout.EnumPopup(condition.Operator, GUILayout.Width(100));
-                
-                // Value
                 condition.Value = EditorGUILayout.TextField(condition.Value?.ToString() ?? "", GUILayout.Width(150));
                 
                 if (GUILayout.Button("Remove", GUILayout.Width(60)))
@@ -327,204 +655,46 @@ namespace BalanceForge.Editor.UI
             EditorGUILayout.Space();
         }
         
-        private void DrawTable()
+        private void HandleCopy()
         {
-            if (showValidation && validationResult != null && validationResult.HasErrors())
+            if (!string.IsNullOrEmpty(focusedCellRowId) && !string.IsNullOrEmpty(focusedCellColumnId))
             {
-                EditorGUILayout.HelpBox($"Found {validationResult.Errors.Count} validation errors", MessageType.Warning);
-                if (GUILayout.Button("Hide Validation"))
+                var row = currentTable.Rows.FirstOrDefault(r => r.RowId == focusedCellRowId);
+                if (row != null)
                 {
-                    showValidation = false;
-                }
-                EditorGUILayout.Space();
-            }
-            
-            scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
-            
-            // Draw header
-            EditorGUILayout.BeginHorizontal();
-            
-            // Select all checkbox
-            bool allSelected = displayedRows.Count > 0 && displayedRows.All(r => selectedRowIds.Contains(r.RowId));
-            bool newAllSelected = EditorGUILayout.Toggle(allSelected, GUILayout.Width(20));
-            if (newAllSelected != allSelected)
-            {
-                if (newAllSelected)
-                {
-                    foreach (var row in displayedRows)
-                        selectedRowIds.Add(row.RowId);
-                }
-                else
-                {
-                    selectedRowIds.Clear();
+                    var value = row.GetValue(focusedCellColumnId);
+                    ClipboardService.Copy(focusedCellColumnId, value);
                 }
             }
+        }
+        
+        private void HandlePaste()
+        {
+            if (!IsFileEditable()) return;
             
-            // Column headers (clickable for sorting)
-            foreach (var column in currentTable.Columns)
+            if (!string.IsNullOrEmpty(focusedCellRowId) && !string.IsNullOrEmpty(focusedCellColumnId))
             {
-                string headerText = column.DisplayName;
-                if (sortingState.SortColumnId == column.ColumnId)
+                var row = currentTable.Rows.FirstOrDefault(r => r.RowId == focusedCellRowId);
+                if (row != null && ClipboardService.CanPaste(focusedCellColumnId))
                 {
-                    headerText += sortingState.Direction == SortDirection.Ascending ? " ▲" : " ▼";
-                }
-                
-                if (GUILayout.Button(headerText, EditorStyles.toolbarButton, GUILayout.Width(150)))
-                {
-                    sortingState.Toggle(column.ColumnId);
+                    var oldValue = row.GetValue(focusedCellColumnId);
+                    var newValue = ClipboardService.Paste(focusedCellColumnId);
+                    
+                    var command = new EditCellCommand(currentTable, focusedCellRowId, focusedCellColumnId, oldValue, newValue);
+                    undoRedoService.ExecuteCommand(command);
                     RefreshDisplayedRows();
                 }
             }
-            
-            EditorGUILayout.EndHorizontal();
-            
-            // Draw separator
-            EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
-            
-            // Draw rows
-            foreach (var row in displayedRows)
-            {
-                EditorGUILayout.BeginHorizontal();
-                
-                // Selection checkbox
-                bool isSelected = selectedRowIds.Contains(row.RowId);
-                bool newSelected = EditorGUILayout.Toggle(isSelected, GUILayout.Width(20));
-                if (newSelected != isSelected)
-                {
-                    if (newSelected)
-                        selectedRowIds.Add(row.RowId);
-                    else
-                        selectedRowIds.Remove(row.RowId);
-                }
-                
-                // Draw cells
-                foreach (var column in currentTable.Columns)
-                {
-                    GUI.enabled = IsFileEditable();
-                    
-                    // Track focused cell
-                    if (Event.current.type == EventType.MouseDown && 
-                        GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition))
-                    {
-                        focusedCellRowId = row.RowId;
-                        focusedCellColumnId = column.ColumnId;
-                    }
-                    
-                    var oldValue = row.GetValue(column.ColumnId);
-                    var newValue = DrawCell(column, oldValue, row.RowId == focusedCellRowId && column.ColumnId == focusedCellColumnId);
-                    
-                    if (!Equals(oldValue, newValue))
-                    {
-                        var command = new EditCellCommand(currentTable, row.RowId, column.ColumnId, oldValue, newValue);
-                        undoRedoService.ExecuteCommand(command);
-                        
-                        // Auto-validate on change
-                        var columnDef = currentTable.GetColumn(column.ColumnId);
-                        if (!columnDef.Validate(newValue))
-                        {
-                            EditorUtility.DisplayDialog("Validation Error", 
-                                $"Invalid value for {column.DisplayName}", "OK");
-                        }
-                    }
-                    
-                    GUI.enabled = true;
-                }
-                
-                EditorGUILayout.EndHorizontal();
-            }
-            
-            EditorGUILayout.EndScrollView();
-        }
-        
-        private object DrawCell(ColumnDefinition column, object value, bool isFocused)
-        {
-            object newValue = value;
-            
-            // Highlight focused cell
-            if (isFocused)
-            {
-                GUI.backgroundColor = Color.cyan * 0.3f;
-            }
-            
-            switch (column.DataType)
-            {
-                case ColumnType.String:
-                    newValue = EditorGUILayout.TextField(value?.ToString() ?? "", GUILayout.Width(150));
-                    break;
-                case ColumnType.Integer:
-                    int intVal = value != null ? System.Convert.ToInt32(value) : 0;
-                    newValue = EditorGUILayout.IntField(intVal, GUILayout.Width(150));
-                    break;
-                case ColumnType.Float:
-                    float floatVal = value != null ? System.Convert.ToSingle(value) : 0f;
-                    newValue = EditorGUILayout.FloatField(floatVal, GUILayout.Width(150));
-                    break;
-                case ColumnType.Boolean:
-                    bool boolVal = value != null && System.Convert.ToBoolean(value);
-                    newValue = EditorGUILayout.Toggle(boolVal, GUILayout.Width(150));
-                    break;
-                case ColumnType.Color:
-                    Color colorVal = value is Color ? (Color)value : Color.white;
-                    newValue = EditorGUILayout.ColorField(colorVal, GUILayout.Width(150));
-                    break;
-                case ColumnType.Vector2:
-                    Vector2 vec2Val = value is Vector2 ? (Vector2)value : Vector2.zero;
-                    newValue = EditorGUILayout.Vector2Field("", vec2Val, GUILayout.Width(150));
-                    break;
-                case ColumnType.Vector3:
-                    Vector3 vec3Val = value is Vector3 ? (Vector3)value : Vector3.zero;
-                    newValue = EditorGUILayout.Vector3Field("", vec3Val, GUILayout.Width(150));
-                    break;
-                case ColumnType.AssetReference:
-                    newValue = EditorGUILayout.ObjectField(
-                        value as UnityEngine.Object,
-                        column.GetAssetType(),
-                        false,
-                        GUILayout.Width(150)
-                    );
-                    break;
-                case ColumnType.Enum:
-                    if (column.EnumDefinition != null && column.EnumDefinition.Values.Count > 0)
-                    {
-                        var currentIndex = column.EnumDefinition.GetIndex(value?.ToString() ?? "");
-                        if (currentIndex < 0) currentIndex = 0;
-                        var newIndex = EditorGUILayout.Popup(currentIndex, column.EnumDefinition.Values.ToArray(), GUILayout.Width(150));
-                        newValue = column.EnumDefinition.Values[newIndex];
-                    }
-                    else
-                    {
-                        newValue = EditorGUILayout.TextField(value?.ToString() ?? "", GUILayout.Width(150));
-                    }
-                    break;
-            }
-            
-            GUI.backgroundColor = Color.white;
-            
-            // Right-click context menu for cell
-            if (Event.current.type == EventType.ContextClick && 
-                GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition))
-            {
-                ShowCellContextMenu(column.ColumnId, value);
-                Event.current.Use();
-            }
-            
-            return newValue;
         }
         
         private void ShowCellContextMenu(string columnId, object value)
         {
             contextMenu = new GenericMenu();
-            contextMenu.AddItem(new GUIContent("Copy"), false, () =>
-            {
-                ClipboardService.Copy(columnId, value);
-            });
+            contextMenu.AddItem(new GUIContent("Copy"), false, () => ClipboardService.Copy(columnId, value));
             
             if (ClipboardService.CanPaste(columnId))
             {
-                contextMenu.AddItem(new GUIContent("Paste"), false, () =>
-                {
-                    HandlePaste();
-                });
+                contextMenu.AddItem(new GUIContent("Paste"), false, HandlePaste);
             }
             else
             {
@@ -548,10 +718,6 @@ namespace BalanceForge.Editor.UI
                     {
                         EditorUtility.DisplayDialog("Success", "Table exported successfully!", "OK");
                     }
-                    else
-                    {
-                        EditorUtility.DisplayDialog("Error", "Failed to export table.", "OK");
-                    }
                 }
             });
             
@@ -565,7 +731,6 @@ namespace BalanceForge.Editor.UI
                     
                     if (importedTable != null)
                     {
-                        // Check structure compatibility
                         var importedColumns = importedTable.Columns.Select(c => c.DisplayName).ToList();
                         if (!currentTable.HasStructure(importedColumns))
                         {
@@ -576,7 +741,6 @@ namespace BalanceForge.Editor.UI
                             if (!proceed) return;
                         }
                         
-                        // Import rows
                         currentTable.Rows.Clear();
                         foreach (var row in importedTable.Rows)
                         {
@@ -600,16 +764,11 @@ namespace BalanceForge.Editor.UI
         
         private void HandleDeleteSelected()
         {
-            if (!IsFileEditable()) return;
+            if (!IsFileEditable() || selectedRowIds.Count == 0) return;
             
-            if (selectedRowIds.Count == 0) return;
-            
-            bool confirm = EditorUtility.DisplayDialog(
-                "Confirm Delete",
+            bool confirm = EditorUtility.DisplayDialog("Confirm Delete",
                 $"Are you sure you want to delete {selectedRowIds.Count} row(s)?",
-                "Delete",
-                "Cancel"
-            );
+                "Delete", "Cancel");
             
             if (confirm)
             {
@@ -631,7 +790,6 @@ namespace BalanceForge.Editor.UI
             
             displayedRows = new List<BalanceRow>(currentTable.Rows);
             
-            // Apply filters
             if (filterConditions.Count > 0)
             {
                 var filter = new CompositeFilter(filterLogicalOp);
@@ -642,15 +800,21 @@ namespace BalanceForge.Editor.UI
                 displayedRows = filter.Apply(displayedRows);
             }
             
-            // Apply sorting
             if (sortingState.Direction != SortDirection.None && !string.IsNullOrEmpty(sortingState.SortColumnId))
             {
                 var column = currentTable.GetColumn(sortingState.SortColumnId);
                 if (column != null)
                 {
-                    displayedRows = TableSorter.Sort(displayedRows, sortingState.SortColumnId, sortingState.Direction, column.DataType);
+                    displayedRows = TableSorter.Sort(
+                        displayedRows, 
+                        sortingState.SortColumnId, 
+                        sortingState.Direction, 
+                        column.DataType
+                    );
                 }
             }
+            
+            ClearAllCaches();
         }
         
         private bool IsFileEditable()
@@ -658,20 +822,15 @@ namespace BalanceForge.Editor.UI
             if (currentTable == null) return false;
             
             string path = AssetDatabase.GetAssetPath(currentTable);
-            if (string.IsNullOrEmpty(path)) return false;
+            if (string.IsNullOrEmpty(path) || path.StartsWith("Packages/")) return false;
             
-            // Check if file is in Packages folder (read-only)
-            if (path.StartsWith("Packages/")) return false;
-            
-            // Check version control status if needed
-            // This is a simplified check - you might want to integrate with your VCS
             return !AssetDatabase.IsOpenForEdit(path, StatusQueryOptions.ForceUpdate) || 
                    AssetDatabase.IsOpenForEdit(path, StatusQueryOptions.UseCachedIfPossible);
         }
         
         private void SaveTable()
         {
-            if (currentTable != null)
+            if (currentTable)
             {
                 EditorUtility.SetDirty(currentTable);
                 AssetDatabase.SaveAssets();
@@ -682,9 +841,9 @@ namespace BalanceForge.Editor.UI
         private void DrawStatusBar()
         {
             EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
-            GUILayout.Label($"Total Rows: {currentTable.Rows.Count} | Displayed: {displayedRows.Count} | Selected: {selectedRowIds.Count}");
+            GUILayout.Label($"Total: {currentTable.Rows.Count} | Displayed: {displayedRows.Count} | Selected: {selectedRowIds.Count} | Visible: {visibleEndIndex - visibleStartIndex + 1}");
             GUILayout.FlexibleSpace();
-            GUILayout.Label($"Last Modified: {currentTable.LastModified:yyyy-MM-dd HH:mm:ss}");
+            GUILayout.Label($"Modified: {currentTable.LastModified:yyyy-MM-dd HH:mm:ss}");
             EditorGUILayout.EndHorizontal();
         }
     }

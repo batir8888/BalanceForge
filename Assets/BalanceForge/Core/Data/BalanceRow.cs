@@ -12,6 +12,7 @@ namespace BalanceForge.Core.Data
         [SerializeField] private long createdAtTicks;
         
         [NonSerialized] private Dictionary<string, object> cellValues;
+        [NonSerialized] private bool isDeserialized = false;
         
         public string RowId => rowId;
         public DateTime CreatedAt => new DateTime(createdAtTicks);
@@ -22,22 +23,35 @@ namespace BalanceForge.Core.Data
             cellValues = new Dictionary<string, object>();
             cellValuesSerialized = new SerializableDictionary<string, string>();
             createdAtTicks = DateTime.Now.Ticks;
+            isDeserialized = true;
         }
         
         public object GetValue(string columnId)
         {
-            if (cellValues == null)
+            // Lazy deserialization
+            if (!isDeserialized)
+            {
                 DeserializeCellValues();
-                
-            return cellValues.TryGetValue(columnId, out var value) ? value : null;
+                isDeserialized = true;
+            }
+            
+            return cellValues != null && cellValues.TryGetValue(columnId, out var value) ? value : null;
         }
         
         public void SetValue(string columnId, object value)
         {
             if (cellValues == null)
+            {
                 cellValues = new Dictionary<string, object>();
-                
+                isDeserialized = true;
+            }
+            
             cellValues[columnId] = value;
+            
+            // Update serialized version
+            if (cellValuesSerialized == null)
+                cellValuesSerialized = new SerializableDictionary<string, string>();
+            
             cellValuesSerialized[columnId] = value?.ToString() ?? string.Empty;
         }
         
@@ -49,11 +63,13 @@ namespace BalanceForge.Core.Data
                 createdAtTicks = DateTime.Now.Ticks
             };
             
-            if (cellValues != null)
+            // Clone from serialized data to avoid unnecessary deserialization
+            if (cellValuesSerialized != null)
             {
-                foreach (var kvp in cellValues)
+                clone.cellValuesSerialized = new SerializableDictionary<string, string>();
+                foreach (var kvp in cellValuesSerialized)
                 {
-                    clone.SetValue(kvp.Key, kvp.Value);
+                    clone.cellValuesSerialized[kvp.Key] = kvp.Value;
                 }
             }
             
@@ -62,10 +78,27 @@ namespace BalanceForge.Core.Data
         
         private void DeserializeCellValues()
         {
-            cellValues = new Dictionary<string, object>();
-            foreach (var kvp in cellValuesSerialized)
+            if (cellValues == null)
+                cellValues = new Dictionary<string, object>();
+            else
+                cellValues.Clear();
+            
+            if (cellValuesSerialized != null)
             {
-                cellValues[kvp.Key] = kvp.Value;
+                foreach (var kvp in cellValuesSerialized)
+                {
+                    cellValues[kvp.Key] = kvp.Value;
+                }
+            }
+        }
+        
+        // Optimization: Pre-warm deserialization for batch operations
+        public void EnsureDeserialized()
+        {
+            if (!isDeserialized)
+            {
+                DeserializeCellValues();
+                isDeserialized = true;
             }
         }
     }

@@ -19,17 +19,29 @@ MonoBehaviour:
     displayName: Name
     dataType: 0
     isRequired: 1
-    defaultValueSerialized: null
+    defaultValueSerialized: 
+    enumDefinition:
+      enumName: 
+      values: []
+    assetType: 
   - columnId: 1
     displayName: hp
     dataType: 1
     isRequired: 0
     defaultValueSerialized: 10
+    enumDefinition:
+      enumName: 
+      values: []
+    assetType: 
   - columnId: 2
     displayName: damage
     dataType: 7
     isRequired: 0
     defaultValueSerialized: 
+    enumDefinition:
+      enumName: 
+      values: []
+    assetType: 
   rows:
   - rowId: 2efe7d7e-f2f0-4870-a4a8-647401eeb2a1
     cellValuesSerialized:
