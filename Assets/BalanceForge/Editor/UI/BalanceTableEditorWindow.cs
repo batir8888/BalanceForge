@@ -209,6 +209,11 @@ namespace BalanceForge.Editor.UI
                     {
                         undoRedoService.Undo();
                         RefreshDisplayedRows();
+                        
+                        // КРИТИЧНО: Сохраняем изменения
+                        EditorUtility.SetDirty(currentTable);
+                        AssetDatabase.SaveAssets();
+                        
                         isDirty = true;
                     }
                     handled = true;
@@ -220,6 +225,11 @@ namespace BalanceForge.Editor.UI
                     {
                         undoRedoService.Redo();
                         RefreshDisplayedRows();
+                        
+                        // КРИТИЧНО: Сохраняем изменения
+                        EditorUtility.SetDirty(currentTable);
+                        AssetDatabase.SaveAssets();
+                        
                         isDirty = true;
                     }
                     handled = true;
@@ -262,6 +272,11 @@ namespace BalanceForge.Editor.UI
                             row.SetValue(column.ColumnId, defaultValue);
                         }
                     }
+                    
+                    // КРИТИЧНО: Сохраняем изменения
+                    EditorUtility.SetDirty(currentTable);
+                    AssetDatabase.SaveAssets();
+                    
                     RefreshDisplayedRows();
                     Repaint();
                 }
@@ -424,34 +439,49 @@ namespace BalanceForge.Editor.UI
             
             bool isFocused = row.RowId == focusedCellRowId && column.ColumnId == focusedCellColumnId;
             
+            // Handle mouse click for focus
             if (Event.current.type == EventType.MouseDown && cellRect.Contains(Event.current.mousePosition))
             {
                 focusedCellRowId = row.RowId;
                 focusedCellColumnId = column.ColumnId;
+                GUI.FocusControl($"cell_{cacheKey}");
                 isDirty = true;
-                Event.current.Use();
+                Repaint();
             }
             
+            // Draw focus background
             if (isFocused)
             {
                 EditorGUI.DrawRect(cellRect, new Color(0.3f, 0.5f, 0.8f, 0.4f));
             }
             
+            // Set control name for focus management
+            GUI.SetNextControlName($"cell_{cacheKey}");
+            
+            // Draw cell with change detection
+            EditorGUI.BeginChangeCheck();
             object newValue = DrawCellByType(cellRect, column, value);
             
-            if (!Equals(value, newValue))
+            if (EditorGUI.EndChangeCheck())
             {
                 var command = new EditCellCommand(currentTable, row.RowId, column.ColumnId, value, newValue);
                 undoRedoService.ExecuteCommand(command);
                 cellValueCache[cacheKey] = newValue;
+                
+                // КРИТИЧНО: Пометить таблицу как изменённую для сохранения
+                EditorUtility.SetDirty(currentTable);
+                AssetDatabase.SaveAssets();
                 
                 if (!column.Validate(newValue))
                 {
                     EditorUtility.DisplayDialog("Validation Error", 
                         $"Invalid value for {column.DisplayName}", "OK");
                 }
+                
+                Repaint();
             }
             
+            // Context menu
             if (Event.current.type == EventType.ContextClick && cellRect.Contains(Event.current.mousePosition))
             {
                 ShowCellContextMenu(column.ColumnId, value);
@@ -461,53 +491,76 @@ namespace BalanceForge.Editor.UI
         
         private object DrawCellByType(Rect position, ColumnDefinition column, object value)
         {
-            switch (column.DataType)
+            try
             {
-                case ColumnType.String:
-                    return EditorGUI.TextField(position, value?.ToString() ?? "");
-                    
-                case ColumnType.Integer:
-                    int intVal = value != null ? System.Convert.ToInt32(value) : 0;
-                    return EditorGUI.IntField(position, intVal);
-                    
-                case ColumnType.Float:
-                    float floatVal = value != null ? System.Convert.ToSingle(value) : 0f;
-                    return EditorGUI.FloatField(position, floatVal);
-                    
-                case ColumnType.Boolean:
-                    bool boolVal = value != null && System.Convert.ToBoolean(value);
-                    return EditorGUI.Toggle(position, boolVal);
-                    
-                case ColumnType.Color:
-                    Color colorVal = value is Color ? (Color)value : Color.white;
-                    return EditorGUI.ColorField(position, colorVal);
-                    
-                case ColumnType.Vector2:
-                    Vector2 vec2Val = value is Vector2 ? (Vector2)value : Vector2.zero;
-                    return EditorGUI.Vector2Field(position, "", vec2Val);
-                    
-                case ColumnType.Vector3:
-                    Vector3 vec3Val = value is Vector3 ? (Vector3)value : Vector3.zero;
-                    return EditorGUI.Vector3Field(position, "", vec3Val);
-                    
-                case ColumnType.AssetReference:
-                    return EditorGUI.ObjectField(position,
-                        value as UnityEngine.Object,
-                        column.GetAssetType(),
-                        false);
+                switch (column.DataType)
+                {
+                    case ColumnType.String:
+                        return EditorGUI.TextField(position, value?.ToString() ?? "");
                         
-                case ColumnType.Enum:
-                    if (column.EnumDefinition != null && column.EnumDefinition.Values.Count > 0)
-                    {
-                        var currentIndex = column.EnumDefinition.GetIndex(value?.ToString() ?? "");
-                        if (currentIndex < 0) currentIndex = 0;
-                        var newIndex = EditorGUI.Popup(position, currentIndex, column.EnumDefinition.Values.ToArray());
-                        return column.EnumDefinition.Values[newIndex];
-                    }
-                    return EditorGUI.TextField(position, value?.ToString() ?? "");
-                    
-                default:
-                    return value;
+                    case ColumnType.Integer:
+                        int intVal = 0;
+                        if (value != null)
+                        {
+                            if (value is int) intVal = (int)value;
+                            else int.TryParse(value.ToString(), out intVal);
+                        }
+                        return EditorGUI.IntField(position, intVal);
+                        
+                    case ColumnType.Float:
+                        float floatVal = 0f;
+                        if (value != null)
+                        {
+                            if (value is float) floatVal = (float)value;
+                            else float.TryParse(value.ToString(), out floatVal);
+                        }
+                        return EditorGUI.FloatField(position, floatVal);
+                        
+                    case ColumnType.Boolean:
+                        bool boolVal = false;
+                        if (value != null)
+                        {
+                            if (value is bool) boolVal = (bool)value;
+                            else bool.TryParse(value.ToString(), out boolVal);
+                        }
+                        return EditorGUI.Toggle(position, boolVal);
+                        
+                    case ColumnType.Color:
+                        Color colorVal = value is Color ? (Color)value : Color.white;
+                        return EditorGUI.ColorField(position, colorVal);
+                        
+                    case ColumnType.Vector2:
+                        Vector2 vec2Val = value is Vector2 ? (Vector2)value : Vector2.zero;
+                        return EditorGUI.Vector2Field(position, "", vec2Val);
+                        
+                    case ColumnType.Vector3:
+                        Vector3 vec3Val = value is Vector3 ? (Vector3)value : Vector3.zero;
+                        return EditorGUI.Vector3Field(position, "", vec3Val);
+                        
+                    case ColumnType.AssetReference:
+                        return EditorGUI.ObjectField(position,
+                            value as UnityEngine.Object,
+                            column.GetAssetType(),
+                            false);
+                            
+                    case ColumnType.Enum:
+                        if (column.EnumDefinition != null && column.EnumDefinition.Values.Count > 0)
+                        {
+                            var currentIndex = column.EnumDefinition.GetIndex(value?.ToString() ?? "");
+                            if (currentIndex < 0) currentIndex = 0;
+                            var newIndex = EditorGUI.Popup(position, currentIndex, column.EnumDefinition.Values.ToArray());
+                            return column.EnumDefinition.Values[newIndex];
+                        }
+                        return EditorGUI.TextField(position, value?.ToString() ?? "");
+                        
+                    default:
+                        return EditorGUI.TextField(position, value?.ToString() ?? "");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogWarning($"Error drawing cell: {ex.Message}");
+                return value;
             }
         }
         
@@ -538,6 +591,10 @@ namespace BalanceForge.Editor.UI
                     var command = new AddRowCommand(currentTable, newRow);
                     undoRedoService.ExecuteCommand(command);
                     RefreshDisplayedRows();
+                    
+                    // КРИТИЧНО: Сохраняем изменения
+                    EditorUtility.SetDirty(currentTable);
+                    AssetDatabase.SaveAssets();
                 }
                 
                 if (GUILayout.Button("Delete Selected", EditorStyles.toolbarButton))
@@ -578,6 +635,11 @@ namespace BalanceForge.Editor.UI
                 {
                     undoRedoService.Undo();
                     RefreshDisplayedRows();
+                    
+                    // КРИТИЧНО: Сохраняем изменения
+                    EditorUtility.SetDirty(currentTable);
+                    AssetDatabase.SaveAssets();
+                    
                     isDirty = true;
                 }
                 GUI.enabled = undoRedoService.CanRedo();
@@ -585,6 +647,11 @@ namespace BalanceForge.Editor.UI
                 {
                     undoRedoService.Redo();
                     RefreshDisplayedRows();
+                    
+                    // КРИТИЧНО: Сохраняем изменения
+                    EditorUtility.SetDirty(currentTable);
+                    AssetDatabase.SaveAssets();
+                    
                     isDirty = true;
                 }
                 GUI.enabled = true;
@@ -747,6 +814,10 @@ namespace BalanceForge.Editor.UI
                             currentTable.Rows.Add(row);
                         }
                         
+                        // КРИТИЧНО: Сохраняем изменения
+                        EditorUtility.SetDirty(currentTable);
+                        AssetDatabase.SaveAssets();
+                        
                         RefreshDisplayedRows();
                         EditorUtility.DisplayDialog("Success", "Data imported successfully!", "OK");
                     }
@@ -777,6 +848,10 @@ namespace BalanceForge.Editor.UI
                 undoRedoService.ExecuteCommand(command);
                 selectedRowIds.Clear();
                 RefreshDisplayedRows();
+                
+                // КРИТИЧНО: Сохраняем изменения
+                EditorUtility.SetDirty(currentTable);
+                AssetDatabase.SaveAssets();
             }
         }
         

@@ -44,12 +44,6 @@ namespace BalanceForge.Data.Operations
             if (direction == SortDirection.None || rows.Count <= 1)
                 return rows;
             
-            // Pre-warm deserialization for all rows
-            foreach (var row in rows)
-            {
-                row.EnsureDeserialized();
-            }
-            
             // Convert to array for faster sorting
             var array = rows.ToArray();
             

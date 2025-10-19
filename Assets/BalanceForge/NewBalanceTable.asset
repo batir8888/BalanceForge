@@ -43,48 +43,114 @@ MonoBehaviour:
       values: []
     assetType: 
   rows:
-  - rowId: 2efe7d7e-f2f0-4870-a4a8-647401eeb2a1
+  - rowId: 795938dc-0cd1-4427-9117-9bac4cb0c93f
     cellValuesSerialized:
       keys:
       - 0
       - 1
       - 2
       values:
-      - Skeleton
-      - 2
-      - (0.00, 0.00)
-    createdAtTicks: 638963876660555130
-  - rowId: 4facb179-b90a-4340-9050-6e7a7afb0839
+      - Value_0
+      - 0
+      - Data_0
+    createdAtTicks: 638964866122999884
+  - rowId: 1757a802-913d-4a4d-838e-2e8d78b4eef7
     cellValuesSerialized:
       keys:
       - 0
       - 1
       - 2
       values:
-      - Orc
-      - 10
-      - (0.00, 0.00)
-    createdAtTicks: 638963876669639184
-  - rowId: 039214ae-028c-44fb-8163-b72b921d5206
+      - Value_1
+      - 100
+      - Data_1
+    createdAtTicks: 638964866123010282
+  - rowId: ec654402-af28-4a4c-8a03-a3cd73411ef9
     cellValuesSerialized:
       keys:
       - 0
       - 1
       - 2
       values:
-      - Wolf
-      - 5
-      - (0.00, 0.00)
-    createdAtTicks: 638963876674041000
-  - rowId: 61ec1a99-9df2-4ebb-908a-6f17f2464cd6
+      - Value_2
+      - 200
+      - Data_2
+    createdAtTicks: 638964866123010282
+  - rowId: 1d73a41f-e305-493c-b0c0-19fa376074e8
     cellValuesSerialized:
       keys:
       - 0
       - 1
       - 2
       values:
-      - Mamoth
-      - 20
-      - (0.00, 0.00)
-    createdAtTicks: 638963876676238103
-  lastModifiedTicks: 638963878705018053
+      - Value_3
+      - 300
+      - Data_3
+    createdAtTicks: 638964866123010282
+  - rowId: 9ca21fe8-b01d-4677-b5ac-570e68907f95
+    cellValuesSerialized:
+      keys:
+      - 0
+      - 1
+      - 2
+      values:
+      - Value_4
+      - 400
+      - Data_4
+    createdAtTicks: 638964866123010282
+  - rowId: 7c760bec-d8be-41db-8b2e-6067ede1ac10
+    cellValuesSerialized:
+      keys:
+      - 0
+      - 1
+      - 2
+      values:
+      - Value_5
+      - 500
+      - Data_5
+    createdAtTicks: 638964866123010282
+  - rowId: 0fb7a513-111f-4d3c-98e9-29b21e522f6e
+    cellValuesSerialized:
+      keys:
+      - 0
+      - 1
+      - 2
+      values:
+      - Value_6
+      - 600
+      - Data_6
+    createdAtTicks: 638964866123010282
+  - rowId: e6720f97-ba27-44fe-93d9-df1e384e8a7f
+    cellValuesSerialized:
+      keys:
+      - 0
+      - 1
+      - 2
+      values:
+      - Value_7
+      - 700
+      - Data_7
+    createdAtTicks: 638964866123010282
+  - rowId: 3b7ae61d-095f-4c04-896f-fa6151021e1e
+    cellValuesSerialized:
+      keys:
+      - 0
+      - 1
+      - 2
+      values:
+      - Value_8
+      - 800
+      - Data_8
+    createdAtTicks: 638964866123010282
+  - rowId: eafe3f08-fe01-417c-93ae-55c352c6c162
+    cellValuesSerialized:
+      keys:
+      - 0
+      - 1
+      - 2
+      values:
+      - Value_9
+      - 900
+      - Data_9
+    createdAtTicks: 638964866123010282
+  lastModifiedTicks: 638964866123010282
