@@ -51,6 +51,33 @@ MonoBehaviour:
       enumName: 
       values: []
     assetType: 
+  - columnId: col_4
+    displayName: Color
+    dataType: 6
+    isRequired: 0
+    defaultValueSerialized: 
+    enumDefinition:
+      enumName: 
+      values: []
+    assetType: 
+  - columnId: col_5
+    displayName: Asset
+    dataType: 5
+    isRequired: 0
+    defaultValueSerialized: 
+    enumDefinition:
+      enumName: 
+      values: []
+    assetType: 
+  - columnId: col_6
+    displayName: Asset
+    dataType: 8
+    isRequired: 0
+    defaultValueSerialized: 
+    enumDefinition:
+      enumName: 
+      values: []
+    assetType: 
   rows:
   - rowId: c02cdd02-4e28-423d-9baf-cf7b1af6fb69
     cellValuesSerialized:
@@ -59,11 +86,30 @@ MonoBehaviour:
       - col_1
       - col_2
       - col_3
+      - col_4
+      - col_5
+      - col_6
       values:
       - "\u0418\u0432\u0430\u043D"
       - "\u0418\u0432\u0430\u043D\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 50000
+      - '{"r":1.0,"g":0.0,"b":0.0,"a":1.0}'
+      - 1
+      - '{"x":1.0,"y":0.0,"z":1.0}'
+    cellTypesMap:
+      keys:
+      - col_4
+      - col_5
+      values:
+      - Color
+      - AssetReference
+    assetReferences:
+    - {fileID: 102900000, guid: ee7cbcc85cae55048881c9cbbb479df5, type: 3}
+    - {fileID: 11500000, guid: 2c0e1a600bdc4b73b4e086e5b8827cef, type: 3}
+    assetReferenceKeys:
+    - AssetReference_43590
+    - AssetReference_18034
     createdAtTicks: 638964843420735853
   - rowId: b03a0cb0-f378-42fa-a8b2-a311a2e068c5
     cellValuesSerialized:
@@ -72,11 +118,20 @@ MonoBehaviour:
       - col_1
       - col_2
       - col_3
+      - col_6
       values:
       - "\u041F\u0435\u0442\u0440"
       - "\u041F\u0435\u0442\u0440\u043E\u0432"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 700000
+      - '{"x":2.0,"y":3.0,"z":1.0}'
+    cellTypesMap:
+      keys:
+      - col_6
+      values:
+      - Vector3
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 19f8ecbf-5176-4a7a-b62b-46e8ac2a5efd
     cellValuesSerialized:
@@ -90,6 +145,11 @@ MonoBehaviour:
       - "\u0421\u0438\u0434\u043E\u0440\u043E\u0432\u0430"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 60000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 02ebb18a-c47e-47f4-ae6b-fffc5968401d
     cellValuesSerialized:
@@ -103,6 +163,11 @@ MonoBehaviour:
       - "\u041A\u0443\u0437\u043D\u0435\u0446\u043E\u0432\u0430"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 65000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 37b36a78-a573-4000-844d-c2a5866df5bc
     cellValuesSerialized:
@@ -116,6 +181,11 @@ MonoBehaviour:
       - "\u0412\u043E\u043B\u043A\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 55000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: edf4cf68-b768-46fe-a239-87dbc9ff05d1
     cellValuesSerialized:
@@ -129,6 +199,11 @@ MonoBehaviour:
       - "\u0421\u043C\u0438\u0440\u043D\u043E\u0432\u0430"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 52000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: c5d27c49-1df0-41f8-aa8b-711dbc3390ad
     cellValuesSerialized:
@@ -142,6 +217,11 @@ MonoBehaviour:
       - "\u041A\u043E\u0437\u043B\u043E\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 95000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 6a37a234-e2ab-4da0-893e-4212b42d41fc
     cellValuesSerialized:
@@ -155,6 +235,11 @@ MonoBehaviour:
       - "\u041D\u043E\u0432\u0438\u043A\u043E\u0432\u0430"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 70000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 1d0693d0-1ca2-423b-a081-c992efdf33cf
     cellValuesSerialized:
@@ -168,6 +253,11 @@ MonoBehaviour:
       - "\u041C\u043E\u0440\u043E\u0437\u043E\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 58000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 86117d19-8cd5-4b0e-933d-d381f6d8cddb
     cellValuesSerialized:
@@ -181,6 +271,11 @@ MonoBehaviour:
       - "\u0424\u0435\u0434\u043E\u0440\u043E\u0432\u0430"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 85000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 1df3aa63-15d5-4988-9624-7e51add1de58
     cellValuesSerialized:
@@ -194,6 +289,11 @@ MonoBehaviour:
       - "\u041E\u0440\u043B\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 62000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 561206ce-0401-4758-b2bd-8d30df00f83d
     cellValuesSerialized:
@@ -207,6 +307,11 @@ MonoBehaviour:
       - "\u041B\u0435\u0431\u0435\u0434\u0435\u0432\u0430"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 55000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 699319e6-31e9-4ae0-9a78-a86f90638a26
     cellValuesSerialized:
@@ -220,6 +325,11 @@ MonoBehaviour:
       - "\u0421\u043E\u043A\u043E\u043B\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 68000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: ce6569c9-44bf-49f1-a943-c19b9f6c33c6
     cellValuesSerialized:
@@ -233,6 +343,11 @@ MonoBehaviour:
       - "\u041F\u0430\u0432\u043B\u043E\u0432\u0430"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 70000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 37ff2d5b-e2c8-46e3-9f15-ab40a91e4b93
     cellValuesSerialized:
@@ -246,6 +361,11 @@ MonoBehaviour:
       - "\u0412\u043E\u0440\u043E\u0431\u044C\u0435\u0432"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 72000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 5c93679f-0293-4182-bcce-23ba0772210a
     cellValuesSerialized:
@@ -259,6 +379,11 @@ MonoBehaviour:
       - "\u0413\u0430\u0432\u0440\u0438\u043B\u043E\u0432\u0430"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 51000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: d6909f02-8fb9-4062-8752-dd6696bf52db
     cellValuesSerialized:
@@ -272,6 +397,11 @@ MonoBehaviour:
       - "\u0414\u0430\u043D\u0438\u043B\u043E\u0432"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 76000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 95944ae4-4e3c-4051-9683-73130f4a6276
     cellValuesSerialized:
@@ -285,6 +415,11 @@ MonoBehaviour:
       - "\u0415\u0444\u0438\u043C\u043E\u0432\u0430"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 61000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: fc19a499-bcc8-4bb8-b6c4-fc00702b68ff
     cellValuesSerialized:
@@ -298,6 +433,11 @@ MonoBehaviour:
       - "\u0416\u0434\u0430\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 66000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 32a7c4d8-ba32-4934-9925-4872f0dde906
     cellValuesSerialized:
@@ -311,6 +451,11 @@ MonoBehaviour:
       - "\u0417\u0430\u0439\u0446\u0435\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 56000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: cecc77ba-c3b7-4aa0-bf1b-023ba40765c7
     cellValuesSerialized:
@@ -324,6 +469,11 @@ MonoBehaviour:
       - "\u0418\u0432\u0430\u043D\u043E\u0432\u0430"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 53000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 14e14b87-f411-4f53-b977-95a4db407aba
     cellValuesSerialized:
@@ -337,6 +487,11 @@ MonoBehaviour:
       - "\u041A\u0443\u043B\u0430\u043A\u043E\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 96000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 5c3cce7a-8e26-4a5c-b026-d9bc5ca203c4
     cellValuesSerialized:
@@ -350,6 +505,11 @@ MonoBehaviour:
       - "\u041B\u0430\u0437\u0430\u0440\u0435\u0432\u0430"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 71000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 0b9b6394-7db9-44df-9957-92685e9d826d
     cellValuesSerialized:
@@ -363,6 +523,11 @@ MonoBehaviour:
       - "\u041C\u0430\u043A\u0430\u0440\u043E\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 59000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 30d79d74-dc88-4ffd-8ba0-97214c6b7295
     cellValuesSerialized:
@@ -376,6 +541,11 @@ MonoBehaviour:
       - "\u041D\u0438\u043A\u0438\u0442\u0438\u043D\u0430"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 86000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 1b542f76-668e-4a36-909c-7729cb64f68f
     cellValuesSerialized:
@@ -389,6 +559,11 @@ MonoBehaviour:
       - "\u041E\u0440\u0435\u0445\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 63000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 322e09ca-48a0-4e83-8293-011bd9c879d7
     cellValuesSerialized:
@@ -402,6 +577,11 @@ MonoBehaviour:
       - "\u041F\u0430\u043D\u043E\u0432\u0430"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 56000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 4a81b74f-ccae-4c4c-a2d3-fb1ae8a78490
     cellValuesSerialized:
@@ -415,6 +595,11 @@ MonoBehaviour:
       - "\u0420\u043E\u043C\u0430\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 69000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 2136556e-d57b-457b-afd2-84595afe2a58
     cellValuesSerialized:
@@ -428,6 +613,11 @@ MonoBehaviour:
       - "\u0421\u0435\u0440\u0433\u0435\u0435\u0432\u0430"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 71000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 2641271f-6796-4870-addb-7dd44c0aac27
     cellValuesSerialized:
@@ -441,6 +631,11 @@ MonoBehaviour:
       - "\u0422\u0438\u0442\u043E\u0432"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 73000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 11e45bd5-1c37-4bde-a4f5-4dfcb76ee929
     cellValuesSerialized:
@@ -454,6 +649,11 @@ MonoBehaviour:
       - "\u0423\u0433\u0430\u0440\u043E\u0432\u0430"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 52000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 142f4962-7989-420d-a2bd-572639cf72fa
     cellValuesSerialized:
@@ -467,6 +667,11 @@ MonoBehaviour:
       - "\u0424\u0435\u0434\u043E\u0440\u043E\u0432"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 77000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: b9c14faf-5fed-42c8-834c-65217ffcefc7
     cellValuesSerialized:
@@ -480,6 +685,11 @@ MonoBehaviour:
       - "\u0425\u0440\u043E\u043C\u043E\u0432\u0430"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 62000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 9d95441f-7006-4c00-8c3f-56bc4b155c9d
     cellValuesSerialized:
@@ -493,6 +703,11 @@ MonoBehaviour:
       - "\u0426\u0432\u0435\u0442\u043A\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 67000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 360c08b3-770c-45e1-b1aa-d563b7eac182
     cellValuesSerialized:
@@ -506,6 +721,11 @@ MonoBehaviour:
       - "\u0427\u0435\u0440\u043D\u043E\u0432\u0430"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 57000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: c17f53d4-7766-401d-ac28-99e04b8e9664
     cellValuesSerialized:
@@ -519,6 +739,11 @@ MonoBehaviour:
       - "\u0429\u0435\u0440\u0431\u0430\u043A\u043E\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 54000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 13d10ad8-fa00-40aa-af14-8cbe24aa5184
     cellValuesSerialized:
@@ -532,6 +757,11 @@ MonoBehaviour:
       - "\u042E\u0440\u043E\u0432\u0430"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 97000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 0920cbaf-80c3-4a6b-807f-7d0fd58cee58
     cellValuesSerialized:
@@ -545,6 +775,11 @@ MonoBehaviour:
       - "\u042F\u0431\u043B\u043E\u043A\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 72000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 8dea02e1-765b-4490-979d-2fa6732800b5
     cellValuesSerialized:
@@ -558,6 +793,11 @@ MonoBehaviour:
       - "\u0410\u0431\u0440\u0430\u043C\u043E\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 60000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: f832031d-37b3-4122-bb7f-b16c919d27bf
     cellValuesSerialized:
@@ -571,6 +811,11 @@ MonoBehaviour:
       - "\u0411\u043E\u0433\u0434\u0430\u043D\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 87000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 68b20e69-5064-46ea-a131-0bc1f7bb6c83
     cellValuesSerialized:
@@ -584,6 +829,11 @@ MonoBehaviour:
       - "\u0412\u0430\u043B\u0435\u043D\u0442\u0438\u043D\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 64000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: b6a839b7-5356-43c0-8dc2-9bacfc0a6a81
     cellValuesSerialized:
@@ -597,6 +847,11 @@ MonoBehaviour:
       - "\u0413\u0430\u0432\u0440\u0438\u043B\u043E\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 57000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: ce149688-d4aa-4f51-b49f-9ef61da9d822
     cellValuesSerialized:
@@ -610,6 +865,11 @@ MonoBehaviour:
       - "\u0414\u043E\u0440\u043E\u0445\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 70000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: d9196163-b452-4e88-8342-98145b138342
     cellValuesSerialized:
@@ -623,6 +883,11 @@ MonoBehaviour:
       - "\u0415\u043B\u0438\u0441\u0435\u0435\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 72000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 6ce063d2-975d-4f4a-b51b-ce306cffa38d
     cellValuesSerialized:
@@ -636,6 +901,11 @@ MonoBehaviour:
       - "\u0416\u0443\u0440\u0430\u0432\u043B\u0435\u0432"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 74000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: eda4684f-8ee9-4ea1-ac87-e7bbff74c1ca
     cellValuesSerialized:
@@ -649,6 +919,11 @@ MonoBehaviour:
       - "\u0417\u0443\u0431\u0430\u0440\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 53000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: ef0e57ea-f225-4515-8aa1-b3dbe345b246
     cellValuesSerialized:
@@ -662,6 +937,11 @@ MonoBehaviour:
       - "\u0418\u0432\u0430\u043D\u043E\u0432"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 78000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: fe86ed07-220c-4155-bc2d-a9b5855e9b64
     cellValuesSerialized:
@@ -675,6 +955,11 @@ MonoBehaviour:
       - "\u041A\u043E\u043A\u043E\u0448\u043A\u0438\u043D"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 63000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 3bfd2c58-de78-4fc8-a011-321a1af4371d
     cellValuesSerialized:
@@ -688,6 +973,11 @@ MonoBehaviour:
       - "\u041B\u0435\u0431\u0435\u0434\u0435\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 68000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 5711a09d-907b-4303-92f9-831bd28de12a
     cellValuesSerialized:
@@ -701,6 +991,11 @@ MonoBehaviour:
       - "\u041C\u0435\u0434\u0432\u0435\u0434\u0435\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 58000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: fffff369-5067-4032-b992-cf4e0f003dfb
     cellValuesSerialized:
@@ -714,6 +1009,11 @@ MonoBehaviour:
       - "\u041D\u0435\u0441\u0442\u0435\u0440\u043E\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 55000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 70e8d80d-9a89-4d64-abb3-eeda305142b3
     cellValuesSerialized:
@@ -727,6 +1027,11 @@ MonoBehaviour:
       - "\u041E\u0440\u043B\u043E\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 98000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 7c9b99b8-ef3f-45c0-95ee-bd7e03b8515e
     cellValuesSerialized:
@@ -740,6 +1045,11 @@ MonoBehaviour:
       - "\u041F\u0430\u043D\u0444\u0438\u043B\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 73000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: cfd72bd5-82d2-436c-a61d-140e5a3dc6a2
     cellValuesSerialized:
@@ -753,6 +1063,11 @@ MonoBehaviour:
       - "\u0420\u0443\u0431\u0446\u043E\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 61000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: b78d122f-ca2b-45ee-a78f-9b6f7f3c8920
     cellValuesSerialized:
@@ -766,6 +1081,11 @@ MonoBehaviour:
       - "\u0421\u0430\u0444\u043E\u043D\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 88000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 621ab015-e4c7-4fa7-a7a9-6e6fcc8cd01f
     cellValuesSerialized:
@@ -779,6 +1099,11 @@ MonoBehaviour:
       - "\u0422\u0438\u0445\u043E\u043D\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 65000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 5d48cff0-d174-43e9-a42d-548f4a3d4185
     cellValuesSerialized:
@@ -792,6 +1117,11 @@ MonoBehaviour:
       - "\u0423\u0434\u0430\u043B\u043E\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 58000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 160b1a78-cbd9-4d4d-a01e-f3ab44906d6e
     cellValuesSerialized:
@@ -805,6 +1135,11 @@ MonoBehaviour:
       - "\u0424\u0435\u0434\u043E\u0440\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 71000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: c80d78bc-1780-41a5-b3f2-7838c9b08830
     cellValuesSerialized:
@@ -818,6 +1153,11 @@ MonoBehaviour:
       - "\u0425\u0430\u043B\u0430\u0442\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 73000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: b92007e6-d9b7-40dd-a740-abbdfafcd16c
     cellValuesSerialized:
@@ -831,6 +1171,11 @@ MonoBehaviour:
       - "\u0426\u0432\u0435\u0442\u043A\u043E\u0432"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 75000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: c1f6ff69-a48d-4b50-92de-a384be14d0ea
     cellValuesSerialized:
@@ -844,6 +1189,11 @@ MonoBehaviour:
       - "\u0427\u0435\u0440\u0435\u0434\u043D\u0438\u043A\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 54000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 934619f3-6982-4bab-be5f-d4f39441f8b5
     cellValuesSerialized:
@@ -857,6 +1207,11 @@ MonoBehaviour:
       - "\u0427\u0443\u0433\u0443\u043D\u043E\u0432"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 79000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: a60760c1-94ea-4a18-bc58-a2ccb90bd5a7
     cellValuesSerialized:
@@ -870,6 +1225,11 @@ MonoBehaviour:
       - "\u0428\u0430\u0440\u0430\u043F\u043E\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 64000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: cda26245-689e-437e-b32e-f56126a6d020
     cellValuesSerialized:
@@ -883,6 +1243,11 @@ MonoBehaviour:
       - "\u0429\u0443\u043A\u0438\u043D"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 69000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: d7d44fed-38e5-4605-9563-cfb3357658d0
     cellValuesSerialized:
@@ -896,6 +1261,11 @@ MonoBehaviour:
       - "\u042E\u0434\u0438\u043D"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 59000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: d3f571bf-c872-4737-99fd-91140c6763fb
     cellValuesSerialized:
@@ -909,6 +1279,11 @@ MonoBehaviour:
       - "\u042F\u043A\u043E\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 56000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: c2f4ee27-2eac-4932-881c-eae6ed4eaea4
     cellValuesSerialized:
@@ -922,6 +1297,11 @@ MonoBehaviour:
       - "\u042F\u043A\u0443\u0448\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 99000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: c478c0b2-4560-491d-ac91-360cbe0790b3
     cellValuesSerialized:
@@ -935,6 +1315,11 @@ MonoBehaviour:
       - "\u042F\u043D\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 74000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: d3957fc5-b152-4356-ab96-54ed4c6d7fcb
     cellValuesSerialized:
@@ -948,6 +1333,11 @@ MonoBehaviour:
       - "\u0410\u0431\u0440\u0430\u043C\u0435\u0446"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 62000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: e841e301-f973-46fd-b97c-adad0d17afe7
     cellValuesSerialized:
@@ -961,6 +1351,11 @@ MonoBehaviour:
       - "\u0410\u0432\u043A\u0441\u0435\u043D\u0442\u044C\u0435\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 89000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 302bd821-107a-42bd-bad5-0c0c186906fe
     cellValuesSerialized:
@@ -974,6 +1369,11 @@ MonoBehaviour:
       - "\u0410\u0432\u0440\u0430\u0430\u043C\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 66000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 46a30ebd-9d7e-4546-b101-c67536e6b989
     cellValuesSerialized:
@@ -987,6 +1387,11 @@ MonoBehaviour:
       - "\u0410\u0432\u043A\u0441\u0435\u043D\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 59000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 9484c5ad-d8fe-49dd-a833-8902243c441f
     cellValuesSerialized:
@@ -1000,6 +1405,11 @@ MonoBehaviour:
       - "\u0410\u0432\u0441\u0442\u0440\u0438\u0439\u0441\u043A\u0438\u0439"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 72000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 7572f4ff-c258-45b7-a5cd-2f8ea2078b8d
     cellValuesSerialized:
@@ -1013,6 +1423,11 @@ MonoBehaviour:
       - "\u0410\u0433\u0435\u0435\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 74000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 433a981a-0395-4f5a-a528-d24093866590
     cellValuesSerialized:
@@ -1026,6 +1441,11 @@ MonoBehaviour:
       - "\u0410\u0433\u0435\u0435\u043D\u043A\u043E\u0432"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 76000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 8495f8f4-a158-4518-a744-1dcc8e3b9ab3
     cellValuesSerialized:
@@ -1039,6 +1459,11 @@ MonoBehaviour:
       - "\u0410\u0439\u0442\u0443\u0433\u0430\u043D\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 55000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: fd28f888-3bd7-4c96-a468-a0e61d3faf34
     cellValuesSerialized:
@@ -1052,6 +1477,11 @@ MonoBehaviour:
       - "\u0410\u043A\u0441\u0430\u043A\u043E\u0432"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 80000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 47f50690-fe4e-43da-9b58-ad7bd19dddad
     cellValuesSerialized:
@@ -1065,6 +1495,11 @@ MonoBehaviour:
       - "\u0410\u043A\u0441\u0435\u043D\u043E\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 65000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 30204a95-b3c7-4bad-815d-80fc4a3234a2
     cellValuesSerialized:
@@ -1078,6 +1513,11 @@ MonoBehaviour:
       - "\u0410\u043B\u0430\u0431\u0435\u0440\u0434\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 70000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 2d3e8e8d-9d6f-434e-9110-2b3334b87c12
     cellValuesSerialized:
@@ -1091,6 +1531,11 @@ MonoBehaviour:
       - "\u0410\u043B\u0431\u0430\u043D\u0446\u0435\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 60000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: e03787e5-935b-416f-bb0d-165e538db950
     cellValuesSerialized:
@@ -1104,6 +1549,11 @@ MonoBehaviour:
       - "\u0410\u043B\u044C\u0431\u0435\u0440\u0442\u043E\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 57000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: e65a3fc1-aa8f-4964-9e09-990a5a373cd8
     cellValuesSerialized:
@@ -1117,6 +1567,11 @@ MonoBehaviour:
       - "\u0410\u043B\u044C\u043F\u0430\u0442\u043E\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 100000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: d0e69524-0db9-4f17-a3a1-a8cd4fb99b45
     cellValuesSerialized:
@@ -1130,6 +1585,11 @@ MonoBehaviour:
       - "\u0410\u043C\u0430\u0440\u043A\u043E\u0432\u0438\u0447"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 75000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 84bd8d06-7fda-4b8a-abaa-fadf8e43cdf2
     cellValuesSerialized:
@@ -1143,6 +1603,11 @@ MonoBehaviour:
       - "\u0410\u043C\u0432\u0440\u043E\u0441\u0438\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 63000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 8ef18845-e030-4571-afce-b09316f0315f
     cellValuesSerialized:
@@ -1156,6 +1621,11 @@ MonoBehaviour:
       - "\u0410\u043D\u0430\u043D\u044C\u0435\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 90000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 3db276c9-2496-48d4-a590-3af4f83cee98
     cellValuesSerialized:
@@ -1169,6 +1639,11 @@ MonoBehaviour:
       - "\u0410\u043D\u0441\u0438\u043C\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 67000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 7cc5f7c6-29f5-409a-8b2a-100e08561053
     cellValuesSerialized:
@@ -1182,6 +1657,11 @@ MonoBehaviour:
       - "\u0410\u043D\u0442\u0438\u043F\u043E\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 60000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 2045836a-c02a-485e-81ea-1b7675fe0ecc
     cellValuesSerialized:
@@ -1195,6 +1675,11 @@ MonoBehaviour:
       - "\u0410\u043D\u0442\u0440\u043E\u0441\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 73000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 469adedc-87b3-4fdd-9656-b48e62e0239f
     cellValuesSerialized:
@@ -1208,6 +1693,11 @@ MonoBehaviour:
       - "\u0410\u043D\u0446\u044B\u0444\u0435\u0440\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 75000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: d7ee3c47-d064-451a-bfbf-9d081d3070ea
     cellValuesSerialized:
@@ -1221,6 +1711,11 @@ MonoBehaviour:
       - "\u0410\u043F\u0443\u0445\u0442\u0438\u043D"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 77000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: cc040129-2b65-4b12-9b62-589865e26f23
     cellValuesSerialized:
@@ -1234,6 +1729,11 @@ MonoBehaviour:
       - "\u0410\u0440\u0430\u043A\u0435\u043B\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 56000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 6fb330ac-a0e7-4e10-9149-9c95a770ccdb
     cellValuesSerialized:
@@ -1247,6 +1747,11 @@ MonoBehaviour:
       - "\u0410\u0440\u0445\u0430\u043D\u0433\u0435\u043B\u043E\u0432"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 81000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 463d4a44-88c4-4126-9d21-bcfd93101bb5
     cellValuesSerialized:
@@ -1260,6 +1765,11 @@ MonoBehaviour:
       - "\u0410\u0440\u0448\u0430\u043A\u043E\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 66000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: fcde68ea-77ea-4506-b90d-315fc08e27cf
     cellValuesSerialized:
@@ -1273,6 +1783,11 @@ MonoBehaviour:
       - "\u0410\u0440\u0445\u0438\u043F\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 71000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: be1fe75a-9b52-47d5-9a7b-aeefdf3f5484
     cellValuesSerialized:
@@ -1286,6 +1801,11 @@ MonoBehaviour:
       - "\u0410\u0440\u0438\u0441\u0442\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 61000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 7624df5c-1ee5-422a-bfbc-bc4eebea49b0
     cellValuesSerialized:
@@ -1299,6 +1819,11 @@ MonoBehaviour:
       - "\u0410\u0440\u0442\u0430\u043C\u043E\u043D\u043E\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 58000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 606c21dd-d718-46d6-b0cd-23824cd95357
     cellValuesSerialized:
@@ -1312,6 +1837,11 @@ MonoBehaviour:
       - "\u0410\u0440\u0442\u0430\u0441\u0435\u0441\u043E\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 101000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: f0506417-8617-46b5-8d5d-9bc3f60a6532
     cellValuesSerialized:
@@ -1325,6 +1855,11 @@ MonoBehaviour:
       - "\u0410\u0440\u0442\u0435\u043C\u044C\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 76000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 9ab748fb-fa0f-47dd-8f7e-bd05970d2866
     cellValuesSerialized:
@@ -1338,6 +1873,11 @@ MonoBehaviour:
       - "\u0410\u0440\u0442\u044E\u0445\u043E\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 64000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 03e29aef-39f6-4df7-9c92-63f81ec835c3
     cellValuesSerialized:
@@ -1351,6 +1891,11 @@ MonoBehaviour:
       - "\u0410\u0440\u0445\u0438\u043F\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 91000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: f7df14aa-5ea0-4cdb-8970-c2a5a1261251
     cellValuesSerialized:
@@ -1364,6 +1909,11 @@ MonoBehaviour:
       - "\u0410\u0440\u0447\u0430\u043A\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 68000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 7b63cdd2-b37c-4dc3-836e-863fc1dfd093
     cellValuesSerialized:
@@ -1377,6 +1927,11 @@ MonoBehaviour:
       - "\u0410\u0441\u0435\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 61000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 5071df53-8d89-4fe0-931b-4e9a4f35ab63
     cellValuesSerialized:
@@ -1390,6 +1945,11 @@ MonoBehaviour:
       - "\u0410\u0441\u0442\u0430\u0448\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 74000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 806020bf-b7de-4a74-8224-0819710fcc8b
     cellValuesSerialized:
@@ -1403,6 +1963,11 @@ MonoBehaviour:
       - "\u0410\u0442\u0430\u043C\u0430\u043D\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 76000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 2295da26-71bb-4921-b991-e6afc4b3da61
     cellValuesSerialized:
@@ -1416,6 +1981,11 @@ MonoBehaviour:
       - "\u0410\u0442\u0442\u0430\u0435\u0432"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 78000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: e84810b1-b760-4435-adb2-ae53675e1c06
     cellValuesSerialized:
@@ -1429,6 +1999,11 @@ MonoBehaviour:
       - "\u0410\u0444\u0430\u043D\u0430\u0441\u0438\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 57000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 538a66b7-8950-4237-9a93-33792ebe700c
     cellValuesSerialized:
@@ -1442,6 +2017,11 @@ MonoBehaviour:
       - "\u0410\u0444\u0430\u043D\u0430\u0441\u044C\u0435\u0432"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 82000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 1ca2c588-4b8f-442d-90e4-134613421d0b
     cellValuesSerialized:
@@ -1455,6 +2035,11 @@ MonoBehaviour:
       - "\u0410\u0444\u0438\u043C\u043E\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 67000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: db455f7f-9eb5-4fe5-8dba-d4170358bbf3
     cellValuesSerialized:
@@ -1468,6 +2053,11 @@ MonoBehaviour:
       - "\u0410\u0444\u043E\u043D\u0438\u043D"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 72000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: c7d64f4a-d0e3-4d50-ad36-9ea1af27357c
     cellValuesSerialized:
@@ -1481,6 +2071,11 @@ MonoBehaviour:
       - "\u0410\u0445\u0440\u0430\u043C\u0435\u0435\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 62000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 1ef8e022-cb11-47b5-8467-90441a52a96f
     cellValuesSerialized:
@@ -1494,6 +2089,11 @@ MonoBehaviour:
       - "\u0410\u0445\u043C\u0430\u043D\u043E\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 59000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: f4351f17-fed6-4065-95ac-342dd89628bd
     cellValuesSerialized:
@@ -1507,6 +2107,11 @@ MonoBehaviour:
       - "\u0410\u0445\u043C\u0435\u0434\u043E\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 102000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 67d241e5-8dbb-4172-a2e2-d7d4c0b5e0fe
     cellValuesSerialized:
@@ -1520,6 +2125,11 @@ MonoBehaviour:
       - "\u0410\u0445\u043C\u0435\u0434\u0443\u043B\u0438\u043D"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 77000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 254d7739-206c-4419-9c11-e1982624787c
     cellValuesSerialized:
@@ -1533,6 +2143,11 @@ MonoBehaviour:
       - "\u0410\u0445\u043C\u0435\u0442\u043E\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 65000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 687f29d6-6e17-4575-a605-09bd4f02fdf8
     cellValuesSerialized:
@@ -1546,6 +2161,11 @@ MonoBehaviour:
       - "\u0410\u0445\u043C\u0435\u0442\u044C\u0435\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 92000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: a17ff78b-eb38-47ed-8294-db2af31d7564
     cellValuesSerialized:
@@ -1559,6 +2179,11 @@ MonoBehaviour:
       - "\u0410\u0445\u043C\u0435\u0442\u043E\u0432\u0441\u043A\u0438\u0439"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 69000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 3b328897-c92e-4481-a64e-5b8ae62c0da3
     cellValuesSerialized:
@@ -1572,6 +2197,11 @@ MonoBehaviour:
       - "\u0410\u0445\u043C\u0435\u0442\u0447\u0438\u043D"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 62000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: ca692169-f460-49c8-8c2e-4ebaa8e2dad8
     cellValuesSerialized:
@@ -1585,6 +2215,11 @@ MonoBehaviour:
       - "\u0410\u0445\u043F\u0430\u0435\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 75000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: f91a23cc-aa92-4009-ab3d-123e1a501883
     cellValuesSerialized:
@@ -1598,6 +2233,11 @@ MonoBehaviour:
       - "\u0410\u0445\u0440\u0438\u043C\u0441\u043A\u0438\u0439"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 77000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 3a2f40dd-4d5d-45df-ab61-054fc8f26e7c
     cellValuesSerialized:
@@ -1611,6 +2251,11 @@ MonoBehaviour:
       - "\u0410\u0445\u0440\u043E\u043C\u0435\u0435\u0432"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 79000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 0c41c6ab-f942-4188-b47c-f4bc106d2210
     cellValuesSerialized:
@@ -1624,6 +2269,11 @@ MonoBehaviour:
       - "\u0410\u0445\u0440\u043E\u043C\u043E\u0432\u0438\u0447"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 58000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: e8b10649-8f8e-4402-a965-9739f8110502
     cellValuesSerialized:
@@ -1637,6 +2287,11 @@ MonoBehaviour:
       - "\u0410\u0445\u0440\u0443\u0441\u0442\u0438\u043D\u0441\u043A\u0438\u0439"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 83000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 0ca6be8a-f22b-4fb3-91d7-623745c6dcaa
     cellValuesSerialized:
@@ -1650,6 +2305,11 @@ MonoBehaviour:
       - "\u0410\u0445\u0440\u0443\u0446\u043A\u0438\u0439"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 68000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: d85f81f2-ac57-478a-8a1e-2edb81abecde
     cellValuesSerialized:
@@ -1663,6 +2323,11 @@ MonoBehaviour:
       - "\u0410\u0445\u0443\u0431\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 73000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 8bbc33a4-8f4d-4668-9757-dd915ed720c4
     cellValuesSerialized:
@@ -1676,6 +2341,11 @@ MonoBehaviour:
       - "\u0410\u0445\u044B\u043B\u043E\u0432\u0430"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 63000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 989c5924-a32d-477d-a573-133922310190
     cellValuesSerialized:
@@ -1689,6 +2359,11 @@ MonoBehaviour:
       - "\u0410\u0445\u044B\u0442\u043E\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 60000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 5c4ea21a-7c48-4536-93c0-03ca318ebc56
     cellValuesSerialized:
@@ -1702,6 +2377,11 @@ MonoBehaviour:
       - "\u0410\u0445\u044E\u0440\u043E\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 103000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 45306089-af8a-46ad-8e17-c26310ce2b5c
     cellValuesSerialized:
@@ -1715,6 +2395,11 @@ MonoBehaviour:
       - "\u0410\u0445\u044F\u043C\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 78000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 02e3f475-8b05-4fbf-b658-b6107fb908b6
     cellValuesSerialized:
@@ -1728,6 +2413,11 @@ MonoBehaviour:
       - "\u0410\u0445\u044F\u0437\u043E\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 66000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 0965616b-6785-40f7-bdd2-f062d15c6ce1
     cellValuesSerialized:
@@ -1741,6 +2431,11 @@ MonoBehaviour:
       - "\u0410\u0445\u044F\u0440\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 93000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 8c161727-edfb-44b7-bbaa-35cc496c637f
     cellValuesSerialized:
@@ -1754,6 +2449,11 @@ MonoBehaviour:
       - "\u0410\u0445\u044F\u0445\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 70000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 5cd2151c-3255-49c1-b83f-05e90e66c036
     cellValuesSerialized:
@@ -1767,6 +2467,11 @@ MonoBehaviour:
       - "\u0410\u0448\u0438\u0440\u043E\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 63000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 1f15afd9-d74d-4903-a800-71aaa1428b43
     cellValuesSerialized:
@@ -1780,6 +2485,11 @@ MonoBehaviour:
       - "\u0410\u0448\u0438\u0442\u043A\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 76000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 30c8fa26-257d-4629-bc7c-27a22eb92349
     cellValuesSerialized:
@@ -1793,6 +2503,11 @@ MonoBehaviour:
       - "\u0410\u0448\u043C\u0430\u0440\u0438\u043D"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 78000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 169e0c2e-ab20-4485-987d-efc9849548f6
     cellValuesSerialized:
@@ -1806,6 +2521,11 @@ MonoBehaviour:
       - "\u0410\u0448\u043D\u044F\u043A\u043E\u0432"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 80000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 0b886881-96d3-46c2-9bab-abb34f690a9f
     cellValuesSerialized:
@@ -1819,6 +2539,11 @@ MonoBehaviour:
       - "\u0410\u0448\u0442\u0430\u0440\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 59000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 824ff392-2a37-42fe-9981-fdc8aeb7ecf1
     cellValuesSerialized:
@@ -1832,6 +2557,11 @@ MonoBehaviour:
       - "\u0410\u0448\u0443\u0440\u043A\u043E\u0432"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 84000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: e9bd3d93-0264-499d-9aec-25ac9e910e8d
     cellValuesSerialized:
@@ -1845,6 +2575,11 @@ MonoBehaviour:
       - "\u0410\u0448\u0445\u0430\u0440\u043E\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 69000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 50ab25c2-146b-419d-b693-25dc48fdbea8
     cellValuesSerialized:
@@ -1858,6 +2593,11 @@ MonoBehaviour:
       - "\u0410\u0449\u0435\u0443\u043B\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 74000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 56ba27f8-363f-4839-b4a4-319d3ffc4b65
     cellValuesSerialized:
@@ -1871,6 +2611,11 @@ MonoBehaviour:
       - "\u0410\u0449\u0438\u043A"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 64000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: e6903c55-f65f-428b-8010-c1ba8f97173e
     cellValuesSerialized:
@@ -1884,6 +2629,11 @@ MonoBehaviour:
       - "\u0410\u0449\u0443\u0440\u043A\u043E\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 61000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: d7776b2f-80bd-4428-b06e-22a6fc547767
     cellValuesSerialized:
@@ -1897,6 +2647,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0440\u043E\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 104000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 4fc945d3-6404-43c6-b02d-c3db657e9fc0
     cellValuesSerialized:
@@ -1910,6 +2665,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0440\u044C\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 79000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 6fe9a69f-3042-4163-b0fa-e25ed438a4fb
     cellValuesSerialized:
@@ -1923,6 +2683,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0440\u0446\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 67000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 9dab6dd9-d284-4e45-a65c-41580a3922ac
     cellValuesSerialized:
@@ -1936,6 +2701,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0440\u044C\u0435\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 94000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 47a19cf0-7133-4a76-b732-bf62cb3c1370
     cellValuesSerialized:
@@ -1949,6 +2719,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0440\u0446\u0435\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 71000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: a842d7b8-1bad-4ae3-ab0d-1883c95d62a5
     cellValuesSerialized:
@@ -1962,6 +2737,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0440\u0446\u044B\u043D"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 64000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 6173e059-1404-4f2a-b823-59f1c7be08b5
     cellValuesSerialized:
@@ -1975,6 +2755,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 77000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 1f194cc5-48c4-4085-8899-95804fa8d589
     cellValuesSerialized:
@@ -1988,6 +2773,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 79000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 2c4b5a95-8f58-49ef-9c8b-7a13f39572cb
     cellValuesSerialized:
@@ -2001,6 +2791,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 81000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: d32ffe1b-7c3c-4269-be58-ff07984e1247
     cellValuesSerialized:
@@ -2014,6 +2809,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 60000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 34af0095-2278-474b-a4fd-348f1bfc305e
     cellValuesSerialized:
@@ -2027,6 +2827,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0440\u0446\u0435\u0432"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 85000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420742053
   - rowId: 5aba63cc-35e8-4f72-9d3a-1fb8c9bc253f
     cellValuesSerialized:
@@ -2040,6 +2845,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 70000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 0b2fe9dc-9758-4a8b-a166-5616ba3375ea
     cellValuesSerialized:
@@ -2053,6 +2863,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 75000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 3ff85242-da08-472e-865e-0994de5ac281
     cellValuesSerialized:
@@ -2066,6 +2881,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 65000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 47f27793-2691-46fd-b44f-3863c1624d66
     cellValuesSerialized:
@@ -2079,6 +2899,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 62000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 7314585d-c0ec-4f68-ba5b-f3e0a06c3034
     cellValuesSerialized:
@@ -2092,6 +2917,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 105000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 792bf8c3-2694-439a-9b35-e92bfaaee9dd
     cellValuesSerialized:
@@ -2105,6 +2935,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 80000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a00a6afa-0868-4303-8a6b-4bf90a06c8e8
     cellValuesSerialized:
@@ -2118,6 +2953,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 68000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c5d43d7b-aefe-4b6b-8f0c-157da8ddec6e
     cellValuesSerialized:
@@ -2131,6 +2971,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 95000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: d78a5398-0632-4e26-8e41-28a8ab4e832b
     cellValuesSerialized:
@@ -2144,6 +2989,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 72000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 0bf9898e-9047-403e-b954-32a610cad134
     cellValuesSerialized:
@@ -2157,6 +3007,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0440\u043E\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 65000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: d9d5d5b9-4a59-488d-ab07-c45efdf598a9
     cellValuesSerialized:
@@ -2170,6 +3025,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 78000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 82e593d1-f2a1-4f43-818e-a79d841afdd0
     cellValuesSerialized:
@@ -2183,6 +3043,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 80000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: bb71426a-f96d-4518-a4a7-07a1d247193e
     cellValuesSerialized:
@@ -2196,6 +3061,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 82000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 974d8241-b276-408d-ac4c-636f7a1bd2f1
     cellValuesSerialized:
@@ -2209,6 +3079,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 61000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 9b23f27a-b7ee-4915-8422-03fc0e0b6449
     cellValuesSerialized:
@@ -2222,6 +3097,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 86000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 904ce4ba-25b2-481e-a7df-b46c49a65e2b
     cellValuesSerialized:
@@ -2235,6 +3115,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 71000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 6c422e7f-e16b-4e13-a770-e3ec2d575935
     cellValuesSerialized:
@@ -2248,6 +3133,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 76000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 0ca4f9ec-3e72-420a-bb7f-088ba87a21d1
     cellValuesSerialized:
@@ -2261,6 +3151,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 66000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: d30ec103-6db7-4411-9f42-ec10703ed361
     cellValuesSerialized:
@@ -2274,6 +3169,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 63000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 5d5a5572-18a7-40ce-872a-4104e6f1a4f6
     cellValuesSerialized:
@@ -2287,6 +3187,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 106000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 14d60195-9456-41ed-a090-44b1d37698f5
     cellValuesSerialized:
@@ -2300,6 +3205,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 81000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 4843bc39-8114-431a-ba6b-51f137d9df91
     cellValuesSerialized:
@@ -2313,6 +3223,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 69000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c6c5eeea-8a04-4839-ad34-5ab46e06bbcf
     cellValuesSerialized:
@@ -2326,6 +3241,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 96000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 7922709b-e19a-4f2b-88be-5b53e080d47e
     cellValuesSerialized:
@@ -2339,6 +3259,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 73000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 7a06f6a1-3c20-431c-aa4c-da2cf5e019ba
     cellValuesSerialized:
@@ -2352,6 +3277,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 66000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c0581f80-c99c-4514-b762-45eaac391a6f
     cellValuesSerialized:
@@ -2365,6 +3295,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 79000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: fb189186-1e9f-4baf-9f55-9429cef24211
     cellValuesSerialized:
@@ -2378,6 +3313,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 81000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 4f27d33c-8753-4638-a744-045e81e1376c
     cellValuesSerialized:
@@ -2391,6 +3331,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 83000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: f1800e3d-bdb2-4c83-aa7a-955736a20384
     cellValuesSerialized:
@@ -2404,6 +3349,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 62000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 46f063da-001b-47d4-bf70-deca0d83ab37
     cellValuesSerialized:
@@ -2417,6 +3367,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 87000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: b6128341-faad-4079-bb53-032e0ad182f5
     cellValuesSerialized:
@@ -2430,6 +3385,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 72000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a252652f-6fcd-4a1a-86b9-d55d3ae917d7
     cellValuesSerialized:
@@ -2443,6 +3403,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 77000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c1c00a66-4918-4fa6-b904-d0533515d4b9
     cellValuesSerialized:
@@ -2456,6 +3421,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 67000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 923b0af3-b892-41ac-b324-31e2efbbe4a0
     cellValuesSerialized:
@@ -2469,6 +3439,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 64000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c8c8ae21-6591-4145-b143-2af59db45539
     cellValuesSerialized:
@@ -2482,6 +3457,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 107000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: d3b3bb9d-4799-48de-9860-0fc0473bc659
     cellValuesSerialized:
@@ -2495,6 +3475,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 82000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 79af3f90-59ce-4125-93e1-f9cba004b254
     cellValuesSerialized:
@@ -2508,6 +3493,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 70000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 900aa072-a9c5-4ad7-ace7-00946e02c1b2
     cellValuesSerialized:
@@ -2521,6 +3511,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 97000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: e3de560a-1710-4fcf-a9be-8d8fc80e0f0e
     cellValuesSerialized:
@@ -2534,6 +3529,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 74000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 7a3fc9ac-b651-41ec-b128-402455a358eb
     cellValuesSerialized:
@@ -2547,6 +3547,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 67000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 943c347e-952c-4b72-9900-0b13481d8d35
     cellValuesSerialized:
@@ -2560,6 +3565,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 80000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 9d45051f-4546-4b9d-b41f-b2a56094ec5b
     cellValuesSerialized:
@@ -2573,6 +3583,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 82000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 43ce9ed4-3a56-4715-ac19-fcc690601bd4
     cellValuesSerialized:
@@ -2586,6 +3601,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 84000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: d7a6e3f0-f425-474d-846f-3ba050bae438
     cellValuesSerialized:
@@ -2599,6 +3619,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 63000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 4c095908-b884-4938-bf83-ae9ba7e50826
     cellValuesSerialized:
@@ -2612,6 +3637,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 88000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 64b9e069-bc3e-40de-bcdc-4464bc75934f
     cellValuesSerialized:
@@ -2625,6 +3655,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 73000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a2993246-580c-4b69-80cf-b3201c19dbd9
     cellValuesSerialized:
@@ -2638,6 +3673,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 78000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 0db19a06-1272-4cc4-a6d8-843378f7947a
     cellValuesSerialized:
@@ -2651,6 +3691,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 68000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a6693915-6e23-44dc-a32d-ea3b200a0265
     cellValuesSerialized:
@@ -2664,6 +3709,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 65000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 07084b0c-80f0-4f94-9e05-af58e6d04c11
     cellValuesSerialized:
@@ -2677,6 +3727,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 108000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 813f7c12-0b03-43e1-88ef-e72d742634b4
     cellValuesSerialized:
@@ -2690,6 +3745,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 83000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 264af79d-b4c0-405d-b4f1-687ea74c2707
     cellValuesSerialized:
@@ -2703,6 +3763,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 71000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 55948b1c-7d7c-4dd9-af68-4b26e2869a9c
     cellValuesSerialized:
@@ -2716,6 +3781,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 98000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a0859872-bb36-48f9-9123-4bd2fb26959c
     cellValuesSerialized:
@@ -2729,6 +3799,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 75000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: e67f54fd-5efe-4b3e-92d9-643103dc996d
     cellValuesSerialized:
@@ -2742,6 +3817,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 68000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 9b7885ad-6ae8-4d93-80bf-9ebc04f59c48
     cellValuesSerialized:
@@ -2755,6 +3835,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 81000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c69558e5-03cf-4624-b3eb-701d85b15884
     cellValuesSerialized:
@@ -2768,6 +3853,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 83000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 25f1127a-6cfa-4c17-a3a2-dc53ab568e88
     cellValuesSerialized:
@@ -2781,6 +3871,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 85000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a29599cb-ee9e-4839-a2ca-00e67d845bdb
     cellValuesSerialized:
@@ -2794,6 +3889,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 64000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 73c41032-a957-402f-bbb5-f5eb69e9d6ad
     cellValuesSerialized:
@@ -2807,6 +3907,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 89000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c2b2eacf-661c-4bbe-907f-765fc6123f19
     cellValuesSerialized:
@@ -2820,6 +3925,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 74000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: d69e34b3-adfc-4425-bf61-b57fc686fd58
     cellValuesSerialized:
@@ -2833,6 +3943,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 79000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a8138f08-d364-465c-8113-dec6a8739618
     cellValuesSerialized:
@@ -2846,6 +3961,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 69000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 8df3151e-cc24-4ebc-ad3f-d3a59463610d
     cellValuesSerialized:
@@ -2859,6 +3979,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 66000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c9c0e824-952e-4401-a865-b45002122623
     cellValuesSerialized:
@@ -2872,6 +3997,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 109000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 3ca48c11-2847-46ad-a280-f1f27b560471
     cellValuesSerialized:
@@ -2885,6 +4015,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 84000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a9543ae4-4f6d-4274-9380-cddce087ee82
     cellValuesSerialized:
@@ -2898,6 +4033,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 72000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 9845e86b-291b-4f78-beed-301de90e54c8
     cellValuesSerialized:
@@ -2911,6 +4051,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 99000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: cf674d15-1fd8-45b8-a4b8-5db921ab0bb6
     cellValuesSerialized:
@@ -2924,6 +4069,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 76000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 53cfde04-e9c4-445a-a9c4-06025aa24412
     cellValuesSerialized:
@@ -2937,6 +4087,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 69000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 8489d522-c92c-481b-b814-f2817802b1e5
     cellValuesSerialized:
@@ -2950,6 +4105,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 82000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 1c54a0ec-c3c2-4b20-b2fd-1a788a0effd4
     cellValuesSerialized:
@@ -2963,6 +4123,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 84000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 7b4aef35-1456-4382-b107-dfc215aa1f50
     cellValuesSerialized:
@@ -2976,6 +4141,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 86000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 86f16c00-771d-4d5f-816e-4b586eb8191a
     cellValuesSerialized:
@@ -2989,6 +4159,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 65000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 4e41b213-10e3-49bf-9b46-c1bce6eb98ef
     cellValuesSerialized:
@@ -3002,6 +4177,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 90000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: eed24c56-6cf1-4041-b685-0bdbd4d7b3fe
     cellValuesSerialized:
@@ -3015,6 +4195,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 75000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: fe3093ed-2b13-485f-b4df-d74981917f6a
     cellValuesSerialized:
@@ -3028,6 +4213,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 80000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: da293766-87d8-4ba3-86a3-4b74ba14015c
     cellValuesSerialized:
@@ -3041,6 +4231,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 70000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 679afa57-1913-43bb-b66c-32b66df563d1
     cellValuesSerialized:
@@ -3054,6 +4249,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 67000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a8e6aa08-d319-423b-b3c2-98246d027e3e
     cellValuesSerialized:
@@ -3067,6 +4267,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 110000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: af6491a6-23e8-467b-8590-1a9f4446e237
     cellValuesSerialized:
@@ -3080,6 +4285,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 85000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 4333f41e-713c-4419-815f-cd3930bfce08
     cellValuesSerialized:
@@ -3093,6 +4303,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 73000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: eeab61d9-f7b7-4e9a-9670-d7c4036116ad
     cellValuesSerialized:
@@ -3106,6 +4321,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 100000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 635294c2-feb3-4c8f-a863-52d5e80420b3
     cellValuesSerialized:
@@ -3119,6 +4339,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 77000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 3d42c8b9-3d1f-4679-b5a7-11899cd1044e
     cellValuesSerialized:
@@ -3132,6 +4357,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 70000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a872222d-7ccf-48c5-9f42-a3dfe5683601
     cellValuesSerialized:
@@ -3145,6 +4375,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 83000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 2b435544-0228-410e-939f-a8d609d173db
     cellValuesSerialized:
@@ -3158,6 +4393,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 85000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 7f708da5-b47f-4137-a574-4ce8c8b89eaf
     cellValuesSerialized:
@@ -3171,6 +4411,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 87000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: efd676c7-2923-4ef0-994a-06f893a90274
     cellValuesSerialized:
@@ -3184,6 +4429,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 66000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: bf70fba9-8c18-48a6-98d7-6d942609eb1e
     cellValuesSerialized:
@@ -3197,6 +4447,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 91000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: f487736c-f0d5-4889-9319-ef3a960c2b1f
     cellValuesSerialized:
@@ -3210,6 +4465,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 76000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 47064cf6-99a2-46fa-aa86-59282ffb5a78
     cellValuesSerialized:
@@ -3223,6 +4483,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 81000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a8fdcfad-e8df-4bc4-afb2-d85b070cd1b8
     cellValuesSerialized:
@@ -3236,6 +4501,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 71000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 6ff9fc54-7e60-43db-a57e-2bee776fc45f
     cellValuesSerialized:
@@ -3249,6 +4519,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 68000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 373ad009-2721-443e-80bf-322656da929b
     cellValuesSerialized:
@@ -3262,6 +4537,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 111000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 439d6673-aa1d-45b7-ba3f-9d33687878c3
     cellValuesSerialized:
@@ -3275,6 +4555,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 86000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c01f7def-ef61-4036-8f28-284a41431939
     cellValuesSerialized:
@@ -3288,6 +4573,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 74000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: b4c6f576-05c8-4d3e-aba6-9e9077f1c621
     cellValuesSerialized:
@@ -3301,6 +4591,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 101000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 64973b9c-b738-4b6d-bfac-7817beaf47ac
     cellValuesSerialized:
@@ -3314,6 +4609,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 78000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: db5f884b-b4ec-4cdc-a227-1cdded838ee2
     cellValuesSerialized:
@@ -3327,6 +4627,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 71000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 6fcba426-489a-428f-8813-a9cca5bae020
     cellValuesSerialized:
@@ -3340,6 +4645,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 84000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c8f9ee93-5413-41e3-8672-5f5e70106a1d
     cellValuesSerialized:
@@ -3353,6 +4663,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 86000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: b06bf40e-193b-4ed9-8c28-1318e76f9714
     cellValuesSerialized:
@@ -3366,6 +4681,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 88000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: dc54a8bb-1003-4cc5-a136-ab170e10c23e
     cellValuesSerialized:
@@ -3379,6 +4699,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 67000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: cc5e8aaa-e921-4703-b10f-5bb1086dc818
     cellValuesSerialized:
@@ -3392,6 +4717,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 92000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 21572313-56f5-4057-b187-f1832787301c
     cellValuesSerialized:
@@ -3405,6 +4735,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 77000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 568a6576-01e2-4973-bccf-7c7b19f18118
     cellValuesSerialized:
@@ -3418,6 +4753,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 82000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 4a911602-97d9-4165-9897-7e4a2e425670
     cellValuesSerialized:
@@ -3431,6 +4771,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 72000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 17886384-0305-43c8-b5b0-a8a998cc720c
     cellValuesSerialized:
@@ -3444,6 +4789,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 69000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 4755ef08-d05b-4b22-b730-90971a125526
     cellValuesSerialized:
@@ -3457,6 +4807,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 112000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 4e9eb728-7473-44f2-80e2-6ec293d6cf1f
     cellValuesSerialized:
@@ -3470,6 +4825,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 87000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 9f4fd16b-e15e-4cb3-bcc2-420d0dcdef1f
     cellValuesSerialized:
@@ -3483,6 +4843,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 75000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: b1c55ce4-755a-42fd-ad44-a274039e4cdc
     cellValuesSerialized:
@@ -3496,6 +4861,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 102000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 349a2516-ef9f-4cab-a750-1deba6329dcb
     cellValuesSerialized:
@@ -3509,6 +4879,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 79000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: f120a76c-d077-4375-b965-359d3fe86c26
     cellValuesSerialized:
@@ -3522,6 +4897,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 72000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: b0c78264-f89d-40f7-bdd8-ac6ef4507046
     cellValuesSerialized:
@@ -3535,6 +4915,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 85000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a01de4b4-5f31-4fe9-8ef3-4d8a067562be
     cellValuesSerialized:
@@ -3548,6 +4933,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 87000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 78160c4b-f6c2-4fce-b14a-92eecae111f3
     cellValuesSerialized:
@@ -3561,6 +4951,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 89000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 42678295-1823-45f6-92c4-48e82c5a08f7
     cellValuesSerialized:
@@ -3574,6 +4969,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 68000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 4de0f475-4c79-4296-bfd1-7b2cb982a4b7
     cellValuesSerialized:
@@ -3587,6 +4987,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 93000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c3656cda-0e2a-40ab-97b4-b29326bc5b7c
     cellValuesSerialized:
@@ -3600,6 +5005,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 78000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a6a34daf-e1b5-4f9b-944f-d24de55b1936
     cellValuesSerialized:
@@ -3613,6 +5023,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 83000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: ef40a08c-aaac-48e9-ab4e-85054904cc56
     cellValuesSerialized:
@@ -3626,6 +5041,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 73000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a430be64-f324-4b06-a6e2-c64aef21e883
     cellValuesSerialized:
@@ -3639,6 +5059,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 70000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: ec9c01a3-4814-4653-81f2-cb1a399e13c6
     cellValuesSerialized:
@@ -3652,6 +5077,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 113000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 1aa53ba8-3e3b-47ef-b599-417a279868d1
     cellValuesSerialized:
@@ -3665,6 +5095,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 88000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 2fc41cb7-5efb-45e6-b3b2-596652491f0e
     cellValuesSerialized:
@@ -3678,6 +5113,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 76000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 52207585-b9a2-4f51-ab6f-e39b36a0d0c2
     cellValuesSerialized:
@@ -3691,6 +5131,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 103000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: f19e6ee6-3410-4f3c-9132-331d7494b447
     cellValuesSerialized:
@@ -3704,6 +5149,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 80000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 7bfef9cb-f87f-4eec-b243-043d7eeb5983
     cellValuesSerialized:
@@ -3717,6 +5167,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 73000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 480964d4-9e79-4f4e-8ccd-7785ef30c6f2
     cellValuesSerialized:
@@ -3730,6 +5185,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 86000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 26b5b8c6-1c74-4582-bb8e-50458b779e0d
     cellValuesSerialized:
@@ -3743,6 +5203,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 88000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 746142a8-cdbf-4803-ac19-c5cc76c2ebe8
     cellValuesSerialized:
@@ -3756,6 +5221,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 90000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: d0e18e3a-169a-42e9-bc46-a91a057023ec
     cellValuesSerialized:
@@ -3769,6 +5239,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 69000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 239c05ec-1552-4c01-88e6-9a0e4c13006a
     cellValuesSerialized:
@@ -3782,6 +5257,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 94000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c7c59833-8e21-4c03-ae41-84043be8a680
     cellValuesSerialized:
@@ -3795,6 +5275,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 79000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 66aa530d-0cc2-4db2-a82b-e9b5f90131f5
     cellValuesSerialized:
@@ -3808,6 +5293,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 84000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 4ee2331f-e9e1-471d-99b8-52c4e33aeda1
     cellValuesSerialized:
@@ -3821,6 +5311,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 74000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 1aeb0106-8550-43d4-8a91-27b73dccf3b6
     cellValuesSerialized:
@@ -3834,6 +5329,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 71000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 6f749b1f-7a5b-4bf5-9f24-ae0039fd93f8
     cellValuesSerialized:
@@ -3847,6 +5347,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 114000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 4b074d10-9172-4126-a34d-0226f5998e8d
     cellValuesSerialized:
@@ -3860,6 +5365,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 89000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 415b59a1-95ea-445e-8bf1-2b280dfb3f38
     cellValuesSerialized:
@@ -3873,6 +5383,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 77000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: fa33b05b-4324-43cc-babb-411f4a0081ed
     cellValuesSerialized:
@@ -3886,6 +5401,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 104000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 802f72e1-e2aa-4840-82fb-806dd7005ca6
     cellValuesSerialized:
@@ -3899,6 +5419,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 81000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 6dfe5023-2e71-4178-aff4-724b86be92ca
     cellValuesSerialized:
@@ -3912,6 +5437,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 74000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 912e302b-710a-4d03-a4d2-267b657fbe70
     cellValuesSerialized:
@@ -3925,6 +5455,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 87000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: fbc8686f-8316-43ff-bbad-3a165b364787
     cellValuesSerialized:
@@ -3938,6 +5473,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 89000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 7ca35289-b956-4aff-86b3-f58497a729e0
     cellValuesSerialized:
@@ -3951,6 +5491,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 91000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 6e877641-4094-4266-bc1c-0f3bf0fe0ff7
     cellValuesSerialized:
@@ -3964,6 +5509,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 70000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 55b3c14b-d33f-44b2-bc99-cbc2ac92f5ad
     cellValuesSerialized:
@@ -3977,6 +5527,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 95000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 17b136ec-90d0-4f8a-86d7-144cfc65de2b
     cellValuesSerialized:
@@ -3990,6 +5545,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 80000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 6a9e3ae0-2672-4e09-8e3d-f899241902a2
     cellValuesSerialized:
@@ -4003,6 +5563,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 85000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 59fe7a92-2def-4a08-9a23-2db99383c262
     cellValuesSerialized:
@@ -4016,6 +5581,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 75000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 6217654b-32e7-466a-8f05-4c8c9dc64d66
     cellValuesSerialized:
@@ -4029,6 +5599,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 72000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 646cf625-e14c-4fbc-a0fd-63b2a613fa7f
     cellValuesSerialized:
@@ -4042,6 +5617,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 115000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 3b3badbc-38fb-48a7-ab6d-7e29c9243f23
     cellValuesSerialized:
@@ -4055,6 +5635,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 90000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: be166548-b32c-4fab-9cc9-3d553ecc9619
     cellValuesSerialized:
@@ -4068,6 +5653,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 78000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: d0ef6722-05b7-4788-afb5-c5f81dcb0c22
     cellValuesSerialized:
@@ -4081,6 +5671,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 105000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 5dcdf20d-d9bb-48b3-aee6-aef968a5fef5
     cellValuesSerialized:
@@ -4094,6 +5689,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 82000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: e93ccfe0-7435-4139-8f51-1979b500ee00
     cellValuesSerialized:
@@ -4107,6 +5707,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 75000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: e6d583bb-5a80-4aaa-8580-60dd8056564d
     cellValuesSerialized:
@@ -4120,6 +5725,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 88000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c066150c-305b-4154-959a-8f078acabc68
     cellValuesSerialized:
@@ -4133,6 +5743,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 90000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 00921beb-1163-49c9-8a79-c87d97dc6e33
     cellValuesSerialized:
@@ -4146,6 +5761,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 92000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 14469e0f-0d39-46ed-9099-e7ed79ebf42e
     cellValuesSerialized:
@@ -4159,6 +5779,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 71000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: f220cdb9-52af-4b4f-b0cc-77be73d7efcb
     cellValuesSerialized:
@@ -4172,6 +5797,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 96000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: d409bd54-d038-4bff-be16-3ce6bbfd33e7
     cellValuesSerialized:
@@ -4185,6 +5815,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 81000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 987109db-7cc7-4e72-9d30-cde522f1f5a9
     cellValuesSerialized:
@@ -4198,6 +5833,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 86000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 8bcd35e6-9a3f-4882-b366-886603827cf1
     cellValuesSerialized:
@@ -4211,6 +5851,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 76000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 40a1df5b-7c09-4828-843d-248b3580f55a
     cellValuesSerialized:
@@ -4224,6 +5869,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 73000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 2c7d69ce-2167-46b4-9607-379f7d7c9db0
     cellValuesSerialized:
@@ -4237,6 +5887,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 116000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 2ba1e95b-8444-4820-b869-c038cfb797c0
     cellValuesSerialized:
@@ -4250,6 +5905,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 91000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c7b7403a-9f5e-433d-bf28-d62ff3ae57d3
     cellValuesSerialized:
@@ -4263,6 +5923,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 79000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c53fc7ec-83cc-473b-b1da-9707b652355d
     cellValuesSerialized:
@@ -4276,6 +5941,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 106000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: d9221402-480d-4f7c-886b-008e44313d1d
     cellValuesSerialized:
@@ -4289,6 +5959,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 83000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 92288ef1-f7d5-4fc0-96db-5ae0778c3807
     cellValuesSerialized:
@@ -4302,6 +5977,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 76000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 49e24b46-2117-40ef-b4a0-2bb8040e49c3
     cellValuesSerialized:
@@ -4315,6 +5995,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 89000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 25d26e5b-bc3f-490d-b48b-721644514d38
     cellValuesSerialized:
@@ -4328,6 +6013,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 91000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c8a9ec83-37cc-444a-a0d5-0e27ebf1106b
     cellValuesSerialized:
@@ -4341,6 +6031,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 93000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c7aafa12-cfa2-40c3-8144-0515400de5d0
     cellValuesSerialized:
@@ -4354,6 +6049,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 72000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: b0b7a1df-e3e1-472f-ae24-e2f7311dc5b6
     cellValuesSerialized:
@@ -4367,6 +6067,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 97000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 925daa1e-cd27-4cbe-a77e-7a2bf2c4fd53
     cellValuesSerialized:
@@ -4380,6 +6085,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 82000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: ae53632f-d0c8-4db5-af8e-a4113997245a
     cellValuesSerialized:
@@ -4393,6 +6103,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 87000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 6d09ad12-4edf-4eab-a122-0cb9a80c77f0
     cellValuesSerialized:
@@ -4406,6 +6121,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 77000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c5850004-d7ea-4d24-8a13-fd5b22c7b926
     cellValuesSerialized:
@@ -4419,6 +6139,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 74000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: dfd70b15-36a8-47fd-8ac1-3d8001a58e37
     cellValuesSerialized:
@@ -4432,6 +6157,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 117000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 28757b1d-b20d-4d81-ba21-e21be2c5907d
     cellValuesSerialized:
@@ -4445,6 +6175,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 92000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 443283df-752a-48cb-8690-91c7c5f3d52e
     cellValuesSerialized:
@@ -4458,6 +6193,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 80000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: e324e98f-aeed-43fc-a924-daf87e6fa803
     cellValuesSerialized:
@@ -4471,6 +6211,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 107000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 2d72f9ec-4634-4dc4-a77b-0291eef77d1b
     cellValuesSerialized:
@@ -4484,6 +6229,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 84000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: b6db9d26-739e-4aa6-92af-5e37ffc75da4
     cellValuesSerialized:
@@ -4497,6 +6247,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 77000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 3c583381-6777-4616-bee2-3afa7ccd4645
     cellValuesSerialized:
@@ -4510,6 +6265,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 90000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 026a40ef-17ee-478b-a731-74ff317fbceb
     cellValuesSerialized:
@@ -4523,6 +6283,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 92000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: cc8dad54-fb05-479a-81ba-ed838bc08e77
     cellValuesSerialized:
@@ -4536,6 +6301,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 94000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: b0778faf-38a5-4a09-b207-0649da4b8423
     cellValuesSerialized:
@@ -4549,6 +6319,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 73000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: e5caef5f-d88e-4dd2-a0a5-1bf03950e79d
     cellValuesSerialized:
@@ -4562,6 +6337,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 98000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 13522a2d-5f0f-4cc3-8c75-7e9a3027a1c5
     cellValuesSerialized:
@@ -4575,6 +6355,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 83000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a29a3618-8be7-43ba-aaa0-1ca6f132100e
     cellValuesSerialized:
@@ -4588,6 +6373,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 88000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: fced6899-1224-43be-b892-77eeea9a84b3
     cellValuesSerialized:
@@ -4601,6 +6391,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 78000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 68562929-e6a6-41ae-9eac-14be9d39d912
     cellValuesSerialized:
@@ -4614,6 +6409,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 75000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 9f29736f-f904-4564-8441-9b668c677975
     cellValuesSerialized:
@@ -4627,6 +6427,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 118000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 491f534a-6a2f-4a0d-bb68-6f31019158f2
     cellValuesSerialized:
@@ -4640,6 +6445,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 93000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 655f28a9-c6a5-450b-a05b-89cfed6ac393
     cellValuesSerialized:
@@ -4653,6 +6463,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 81000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 588159e6-5bd2-481c-ac3e-9f9d56fb2bed
     cellValuesSerialized:
@@ -4666,6 +6481,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 108000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 29538607-a9ee-4a21-93bb-3fd267d21e9d
     cellValuesSerialized:
@@ -4679,6 +6499,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 85000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 1b518e89-92be-4dd7-8d85-58517a74f01a
     cellValuesSerialized:
@@ -4692,6 +6517,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 78000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 36aa673a-d0a1-4d88-9eac-8d5214b77717
     cellValuesSerialized:
@@ -4705,6 +6535,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 91000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 30a5b28c-dc0c-4234-b625-31e643633d48
     cellValuesSerialized:
@@ -4718,6 +6553,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 93000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: f202cd04-8bcc-4d4d-af26-0263ae609808
     cellValuesSerialized:
@@ -4731,6 +6571,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 95000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 799afe8e-0d09-48af-bd37-4f23028e2dfd
     cellValuesSerialized:
@@ -4744,6 +6589,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 74000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 84aa3a70-4235-492c-ac5e-e87a571dcb13
     cellValuesSerialized:
@@ -4757,6 +6607,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 99000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 6aab5429-504d-4360-9ebb-15cf7d9eeabe
     cellValuesSerialized:
@@ -4770,6 +6625,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 84000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a360b42a-f615-40e4-ad02-a9abb243b69a
     cellValuesSerialized:
@@ -4783,6 +6643,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 89000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: e4a10f26-3e50-45df-8a49-29430c64608d
     cellValuesSerialized:
@@ -4796,6 +6661,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 79000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 04628482-2266-42dd-be35-98da5c073b45
     cellValuesSerialized:
@@ -4809,6 +6679,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 76000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 5f93a118-aca5-4bb9-ae7e-10371dbf3bea
     cellValuesSerialized:
@@ -4822,6 +6697,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 119000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: f7e3336a-41cb-46cf-9568-a69455716d7d
     cellValuesSerialized:
@@ -4835,6 +6715,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 94000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 0b0a95b7-9ccc-4aca-a980-534213a60e13
     cellValuesSerialized:
@@ -4848,6 +6733,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 82000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 083f4cc0-df1c-490e-b0e8-c7798c84b3c2
     cellValuesSerialized:
@@ -4861,6 +6751,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 109000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a331e3ad-27e5-41dc-a14e-46129ec3aaa0
     cellValuesSerialized:
@@ -4874,6 +6769,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 86000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: c9464371-e2a0-4bc3-a72f-ca232ea5368c
     cellValuesSerialized:
@@ -4887,6 +6787,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 79000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: a16307dd-4c29-45ee-be4a-636020960190
     cellValuesSerialized:
@@ -4900,6 +6805,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 92000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 0d3c6a53-5fb7-4176-92d1-7436c7662c44
     cellValuesSerialized:
@@ -4913,6 +6823,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 94000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: e7bee341-0a0b-4edd-96b1-00fa1726b898
     cellValuesSerialized:
@@ -4926,6 +6841,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 96000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 30c164df-3956-4598-93f6-839849d63d5f
     cellValuesSerialized:
@@ -4939,6 +6859,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 75000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 9be83586-325c-4138-994e-646f17efde55
     cellValuesSerialized:
@@ -4952,6 +6877,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 100000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 03aedcc8-f40a-4017-b3f6-823f5d8ae0b3
     cellValuesSerialized:
@@ -4965,6 +6895,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0435\u0432"
       - "\u0414\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
       - 85000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 09ac8020-7287-4b2d-98f2-e18252d6135e
     cellValuesSerialized:
@@ -4978,6 +6913,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0443\u0442\u0434\u0438\u043D\u043E\u0432"
       - "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u043A"
       - 90000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 0544c86b-6f48-4dd5-8e78-f80f8c6b4aba
     cellValuesSerialized:
@@ -4991,6 +6931,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0445\u0443\u043B\u043E\u0432"
       - "\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A"
       - 80000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 273352a5-b820-4b95-97d4-668b30d24340
     cellValuesSerialized:
@@ -5004,6 +6949,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044B\u0448\u0435\u0432"
       - "HR \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442"
       - 77000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: f6f9b1f3-d8e4-4df5-9533-01259c6076d6
     cellValuesSerialized:
@@ -5017,6 +6967,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "Senior \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 120000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 71df2e14-a08b-4765-a80a-151a7e72bdde
     cellValuesSerialized:
@@ -5030,6 +6985,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"
       - 95000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: fd38ea54-f72b-4a87-856e-822f510ed13c
     cellValuesSerialized:
@@ -5043,6 +7003,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0411\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440"
       - 83000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: f9442ba3-8487-4769-88d3-1d5ee54a8f04
     cellValuesSerialized:
@@ -5056,6 +7021,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u0443\u043B\u043E\u0432"
       - "\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440 \u043E\u0442\u0434\u0435\u043B\u0430"
       - 110000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: f29bbc95-041c-43a9-a6df-5f494ca011cd
     cellValuesSerialized:
@@ -5069,6 +7039,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043E\u0432"
       - "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442"
       - 87000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: b7053ace-54d6-4186-a249-badcecdcf0af
     cellValuesSerialized:
@@ -5082,6 +7057,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u044C\u0435\u0432"
       - "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433\u0430"
       - 80000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: b27d8626-069c-4143-8407-814ecce7e9bb
     cellValuesSerialized:
@@ -5095,6 +7075,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0442\u0438\u043D\u043E\u0432"
       - "\u0421\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
       - 93000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 11c4f687-f3f9-4dff-8ba7-512521c385af
     cellValuesSerialized:
@@ -5108,6 +7093,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u043A\u043E\u0432"
       - "\u042E\u0440\u0438\u0441\u0442"
       - 95000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: 232a2545-d0eb-407d-897b-70b4b0876a20
     cellValuesSerialized:
@@ -5121,6 +7111,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0446\u043A\u0438\u0439"
       - "\u0418\u043D\u0436\u0435\u043D\u0435\u0440"
       - 97000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: ad4049a5-2aeb-4cc9-b02d-ca4f60676791
     cellValuesSerialized:
@@ -5134,6 +7129,11 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u0435\u0432"
       - "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440"
       - 76000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   - rowId: fc732126-fa6a-4b02-8283-e3a50784897a
     cellValuesSerialized:
@@ -5147,5 +7147,10 @@ MonoBehaviour:
       - "\u0410\u0437\u0430\u0442\u0446\u044B\u043D"
       - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
       - 101000
+    cellTypesMap:
+      keys: []
+      values: []
+    assetReferences: []
+    assetReferenceKeys: []
     createdAtTicks: 638964843420747184
   lastModifiedTicks: 638964838493185443
