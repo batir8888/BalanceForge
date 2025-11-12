@@ -353,6 +353,124 @@ namespace BalanceForge.Tests
         
         #endregion
         
+        #region Filtering Tests
+        
+        [Test]
+        public void Test20_ColumnFilter_Equals_FiltersCorrectly()
+        {
+            // Arrange
+            var rows = CreateTestRows();
+            var condition = new FilterCondition
+            {
+                ColumnId = "name",
+                Operator = FilterOperator.Equals,
+                Value = "Item2"
+            };
+            var filter = new ColumnFilter(condition);
+            
+            // Act
+            var filtered = filter.Apply(rows);
+            
+            // Assert
+            Assert.AreEqual(1, filtered.Count);
+            Assert.AreEqual("Item2", filtered[0].GetValue("name"));
+        }
+        
+        [Test]
+        public void Test21_ColumnFilter_Contains_FiltersCorrectly()
+        {
+            // Arrange
+            var rows = CreateTestRows();
+            var condition = new FilterCondition
+            {
+                ColumnId = "name",
+                Operator = FilterOperator.Contains,
+                Value = "Item"
+            };
+            var filter = new ColumnFilter(condition);
+            
+            // Act
+            var filtered = filter.Apply(rows);
+            
+            // Assert
+            Assert.AreEqual(3, filtered.Count);
+        }
+        
+        [Test]
+        public void Test22_ColumnFilter_GreaterThan_FiltersCorrectly()
+        {
+            // Arrange
+            var rows = CreateTestRows();
+            var condition = new FilterCondition
+            {
+                ColumnId = "value",
+                Operator = FilterOperator.GreaterThan,
+                Value = 20
+            };
+            var filter = new ColumnFilter(condition);
+            
+            // Act
+            var filtered = filter.Apply(rows);
+            
+            // Assert
+            Assert.AreEqual(1, filtered.Count);
+            Assert.AreEqual(30, filtered[0].GetValue("value"));
+        }
+        
+        [Test]
+        public void Test23_CompositeFilter_And_CombinesCorrectly()
+        {
+            // Arrange
+            var rows = CreateTestRows();
+            var filter = new CompositeFilter(LogicalOperator.And);
+            filter.AddFilter(new ColumnFilter(new FilterCondition
+            {
+                ColumnId = "name",
+                Operator = FilterOperator.Contains,
+                Value = "Item"
+            }));
+            filter.AddFilter(new ColumnFilter(new FilterCondition
+            {
+                ColumnId = "value",
+                Operator = FilterOperator.GreaterThan,
+                Value = 15
+            }));
+            
+            // Act
+            var filtered = filter.Apply(rows);
+            
+            // Assert
+            Assert.AreEqual(2, filtered.Count);
+        }
+        
+        #endregion
+        
 
+        
+        #region Helper Methods
+        
+        private List<BalanceRow> CreateTestRows()
+        {
+            var rows = new List<BalanceRow>();
+            
+            var row1 = new BalanceRow();
+            row1.SetValue("name", "Item1");
+            row1.SetValue("value", 10);
+            rows.Add(row1);
+            
+            var row2 = new BalanceRow();
+            row2.SetValue("name", "Item2");
+            row2.SetValue("value", 20);
+            rows.Add(row2);
+            
+            var row3 = new BalanceRow();
+            row3.SetValue("name", "Item3");
+            row3.SetValue("value", 30);
+            rows.Add(row3);
+            
+            return rows;
+        }
+        
+        #endregion
     }
 }
