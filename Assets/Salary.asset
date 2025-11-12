@@ -70,7 +70,7 @@ MonoBehaviour:
       values: []
     assetType: 
   - columnId: col_6
-    displayName: Asset
+    displayName: Position
     dataType: 8
     isRequired: 0
     defaultValueSerialized: 
