@@ -445,7 +445,221 @@ namespace BalanceForge.Tests
         
         #endregion
         
-
+        #region Command Pattern Tests
+        
+        [Test]
+        public void Test24_UndoRedoService_ExecuteCommand_CanUndo()
+        {
+            // Arrange
+            var service = new UndoRedoService();
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Column 1", ColumnType.String));
+            var row = table.AddRow();
+            var command = new EditCellCommand(table, row.RowId, "col1", "old", "new");
+            
+            // Act
+            service.ExecuteCommand(command);
+            
+            // Assert
+            Assert.IsTrue(service.CanUndo());
+            Assert.IsFalse(service.CanRedo());
+        }
+        
+        [Test]
+        public void Test25_UndoRedoService_Undo_RestoresPreviousState()
+        {
+            // Arrange
+            var service = new UndoRedoService();
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Column 1", ColumnType.String));
+            var row = table.AddRow();
+            row.SetValue("col1", "original");
+            
+            var command = new EditCellCommand(table, row.RowId, "col1", "original", "modified");
+            service.ExecuteCommand(command);
+            
+            // Act
+            service.Undo();
+            
+            // Assert
+            Assert.AreEqual("original", row.GetValue("col1"));
+            Assert.IsTrue(service.CanRedo());
+        }
+        
+        [Test]
+        public void Test26_UndoRedoService_Redo_ReappliesCommand()
+        {
+            // Arrange
+            var service = new UndoRedoService();
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Column 1", ColumnType.String));
+            var row = table.AddRow();
+            row.SetValue("col1", "original");
+            
+            var command = new EditCellCommand(table, row.RowId, "col1", "original", "modified");
+            service.ExecuteCommand(command);
+            service.Undo();
+            
+            // Act
+            service.Redo();
+            
+            // Assert
+            Assert.AreEqual("modified", row.GetValue("col1"));
+        }
+        
+        #endregion
+        
+        #region Validation Tests
+        
+        [Test]
+        public void Test27_RangeValidator_ValueInRange_ReturnsTrue()
+        {
+            // Arrange
+            var validator = new RangeValidator(0f, 100f);
+            
+            // Act
+            var result = validator.Validate(50f);
+            
+            // Assert
+            Assert.IsTrue(result);
+        }
+        
+        [Test]
+        public void Test28_RangeValidator_ValueOutOfRange_ReturnsFalse()
+        {
+            // Arrange
+            var validator = new RangeValidator(0f, 100f);
+            
+            // Act
+            var resultBelow = validator.Validate(-10f);
+            var resultAbove = validator.Validate(150f);
+            
+            // Assert
+            Assert.IsFalse(resultBelow);
+            Assert.IsFalse(resultAbove);
+        }
+        
+        [Test]
+        public void Test29_RequiredValidator_NonEmptyValue_ReturnsTrue()
+        {
+            // Arrange
+            var validator = new RequiredValidator();
+            
+            // Act
+            var result = validator.Validate("some value");
+            
+            // Assert
+            Assert.IsTrue(result);
+        }
+        
+        [Test]
+        public void Test30_RequiredValidator_EmptyValue_ReturnsFalse()
+        {
+            // Arrange
+            var validator = new RequiredValidator();
+            
+            // Act
+            var resultNull = validator.Validate(null);
+            var resultEmpty = validator.Validate("");
+            
+            // Assert
+            Assert.IsFalse(resultNull);
+            Assert.IsFalse(resultEmpty);
+        }
+        
+        [Test]
+        public void Test31_RegexValidator_MatchingPattern_ReturnsTrue()
+        {
+            // Arrange
+            var validator = new RegexValidator(@"^\d{3}-\d{3}-\d{4}$");
+            
+            // Act
+            var result = validator.Validate("123-456-7890");
+            
+            // Assert
+            Assert.IsTrue(result);
+        }
+        
+        [Test]
+        public void Test32_RegexValidator_NonMatchingPattern_ReturnsFalse()
+        {
+            // Arrange
+            var validator = new RegexValidator(@"^\d{3}-\d{3}-\d{4}$");
+            
+            // Act
+            var result = validator.Validate("invalid");
+            
+            // Assert
+            Assert.IsFalse(result);
+        }
+        
+        #endregion
+        
+        #region Performance Tests
+        
+        [Test]
+        public void Test33_BalanceTable_LargeDataset_PerformsWell()
+        {
+            // Arrange
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Column 1", ColumnType.String));
+            table.AddColumn(new ColumnDefinition("col2", "Column 2", ColumnType.Integer));
+            
+            var startTime = System.DateTime.Now;
+            
+            // Act - Add 1000 rows
+            for (int i = 0; i < 1000; i++)
+            {
+                var row = table.AddRow();
+                row.SetValue("col1", $"Value_{i}");
+                row.SetValue("col2", i);
+            }
+            
+            var duration = (System.DateTime.Now - startTime).TotalMilliseconds;
+            
+            // Assert
+            Assert.AreEqual(1000, table.Rows.Count);
+            Assert.Less(duration, 5000, "Should complete in less than 5 seconds");
+        }
+        
+        [Test]
+        public void Test34_BalanceRow_RapidUpdates_MaintainsConsistency()
+        {
+            // Arrange
+            var row = new BalanceRow();
+            
+            // Act - Rapid updates
+            for (int i = 0; i < 100; i++)
+            {
+                row.SetValue("testCol", i);
+            }
+            
+            // Assert
+            Assert.AreEqual(99, row.GetValue("testCol"));
+        }
+        
+        [Test]
+        public void Test35_SerializableDictionary_LargeDataset_HandlesCorrectly()
+        {
+            // Arrange
+            var dict = new SerializableDictionary<string, string>();
+            
+            // Act
+            for (int i = 0; i < 1000; i++)
+            {
+                dict[$"key_{i}"] = $"value_{i}";
+            }
+            
+            dict.OnBeforeSerialize();
+            dict.Clear();
+            dict.OnAfterDeserialize();
+            
+            // Assert
+            Assert.AreEqual(1000, dict.Count);
+            Assert.AreEqual("value_500", dict["key_500"]);
+        }
+        
+        #endregion
         
         #region Helper Methods
         
