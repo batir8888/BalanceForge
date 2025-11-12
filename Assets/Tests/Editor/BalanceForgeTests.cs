@@ -256,6 +256,103 @@ namespace BalanceForge.Tests
         
         #endregion
         
+        #region Sorting Tests
+        
+        [Test]
+        public void Test16_TableSorter_IntegerAscending_CorrectOrder()
+        {
+            // Arrange
+            var rows = new List<BalanceRow>();
+            var values = new[] { 3, 1, 4, 2, 5 };
+            foreach (var val in values)
+            {
+                var row = new BalanceRow();
+                row.SetValue("intCol", val);
+                rows.Add(row);
+            }
+            
+            // Act
+            var sorted = TableSorter.Sort(rows, "intCol", SortDirection.Ascending, ColumnType.Integer);
+            
+            // Assert
+            for (int i = 0; i < sorted.Count; i++)
+            {
+                Assert.AreEqual(i + 1, sorted[i].GetValue("intCol"));
+            }
+        }
+        
+        [Test]
+        public void Test17_TableSorter_IntegerDescending_CorrectOrder()
+        {
+            // Arrange
+            var rows = new List<BalanceRow>();
+            var values = new[] { 3, 1, 4, 2, 5 };
+            foreach (var val in values)
+            {
+                var row = new BalanceRow();
+                row.SetValue("intCol", val);
+                rows.Add(row);
+            }
+            
+            // Act
+            var sorted = TableSorter.Sort(rows, "intCol", SortDirection.Descending, ColumnType.Integer);
+            
+            // Assert
+            for (int i = 0; i < sorted.Count; i++)
+            {
+                Assert.AreEqual(5 - i, sorted[i].GetValue("intCol"));
+            }
+        }
+        
+        [Test]
+        public void Test18_TableSorter_StringAscending_CorrectOrder()
+        {
+            // Arrange
+            var rows = new List<BalanceRow>();
+            var values = new[] { "Gamma", "Alpha", "Omega", "Beta" };
+            foreach (var val in values)
+            {
+                var row = new BalanceRow();
+                row.SetValue("strCol", val);
+                rows.Add(row);
+            }
+            
+            // Act
+            var sorted = TableSorter.Sort(rows, "strCol", SortDirection.Ascending, ColumnType.String);
+            
+            // Assert
+            Assert.AreEqual("Alpha", sorted[0].GetValue("strCol").ToString());
+            Assert.AreEqual("Beta", sorted[1].GetValue("strCol").ToString());
+            Assert.AreEqual("Gamma", sorted[2].GetValue("strCol").ToString());
+            Assert.AreEqual("Omega", sorted[3].GetValue("strCol").ToString());
+        }
+        
+        [Test]
+        public void Test19_TableSorter_NullValues_HandlesGracefully()
+        {
+            // Arrange
+            var rows = new List<BalanceRow>();
+            
+            var row1 = new BalanceRow();
+            row1.SetValue("col", 5);
+            rows.Add(row1);
+            
+            var row2 = new BalanceRow();
+            row2.SetValue("col", null);
+            rows.Add(row2);
+            
+            var row3 = new BalanceRow();
+            row3.SetValue("col", 3);
+            rows.Add(row3);
+            
+            // Act & Assert - Should not throw
+            var sorted = TableSorter.Sort(rows, "col", SortDirection.Ascending, ColumnType.Integer);
+            Assert.IsNotNull(sorted);
+            Assert.AreEqual(3, sorted.Count);
+        }
+        
+        #endregion
+        
 
     }
 }
