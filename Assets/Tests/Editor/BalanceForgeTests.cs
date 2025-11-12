@@ -175,6 +175,87 @@ namespace BalanceForge.Tests
         
         #endregion
         
+        #region BalanceTable Core Tests
+        
+        [Test]
+        public void Test11_BalanceTable_AddColumn_Succeeds()
+        {
+            // Arrange
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            var column = new ColumnDefinition("col1", "Column 1", ColumnType.String);
+            
+            // Act
+            table.AddColumn(column);
+            
+            // Assert
+            Assert.AreEqual(1, table.Columns.Count);
+            Assert.AreEqual("Column 1", table.Columns[0].DisplayName);
+        }
+        
+        [Test]
+        public void Test12_BalanceTable_AddRow_Succeeds()
+        {
+            // Arrange
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Column 1", ColumnType.String, false, "default"));
+            
+            // Act
+            var row = table.AddRow();
+            
+            // Assert
+            Assert.IsNotNull(row);
+            Assert.AreEqual(1, table.Rows.Count);
+            Assert.AreEqual("default", row.GetValue("col1"));
+        }
+        
+        [Test]
+        public void Test13_BalanceTable_RemoveRow_Succeeds()
+        {
+            // Arrange
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Column 1", ColumnType.String));
+            var row = table.AddRow();
+            
+            // Act
+            var removed = table.RemoveRow(row.RowId);
+            
+            // Assert
+            Assert.IsTrue(removed);
+            Assert.AreEqual(0, table.Rows.Count);
+        }
+        
+        [Test]
+        public void Test14_BalanceTable_RemoveNonExistentRow_ReturnsFalse()
+        {
+            // Arrange
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            
+            // Act
+            var removed = table.RemoveRow("non-existent");
+            
+            // Assert
+            Assert.IsFalse(removed);
+        }
+        
+        [Test]
+        public void Test15_BalanceTable_ValidateRequiredField_Fails()
+        {
+            // Arrange
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Required", ColumnType.String, true));
+            var row = table.AddRow();
+            row.SetValue("col1", "");
+            
+            // Act
+            var result = table.ValidateData();
+            
+            // Assert
+            Assert.IsFalse(result.IsValid);
+            Assert.Greater(result.Errors.Count, 0);
+        }
+        
+        #endregion
+        
 
     }
 }
