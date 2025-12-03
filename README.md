@@ -34,4 +34,6 @@
 
 ## Инструкция пользователя
 
+[Инструкция в формате Markdown](user_instruction.md)
 
+[Инструкция в формате PDF](user_instruction.md.pdf)
