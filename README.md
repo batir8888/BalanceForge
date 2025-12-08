@@ -37,3 +37,9 @@
 [Инструкция в формате Markdown](user_instruction.md)
 
 [Инструкция в формате PDF](user_instruction.md.pdf)
+
+## Документация
+
+[PDF](Assets/docs/refman.pdf)
+
+[HTML](Assets/docs/hmtl/index.html)
