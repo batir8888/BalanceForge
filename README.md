@@ -42,4 +42,5 @@
 
 [PDF](Assets/docs/refman.pdf)
 
-[HTML](Assets/docs/hmtl/index.html)
+[HTML](Assets/docs/html/index.html)
+
