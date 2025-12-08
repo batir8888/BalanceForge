@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>BalanceForge: Класс BalanceForge.Core.Data.BalanceRow</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">BalanceForge<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Balance Table Management System for Unity</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classBalanceForge_1_1Core_1_1Data_1_1BalanceRow.html','','classBalanceForge_1_1Core_1_1Data_1_1BalanceRow-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс BalanceForge.Core.Data.BalanceRow</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Представляет строку таблицы баланса с поддержкой различных типов данных и Unity Object ссылок. Обеспечивает сериализацию и десериализацию значений ячеек с сохранением информации о типах. Поддерживает примитивные типы (int, float, bool), Vector2/3, Color и Asset References.  
+ <a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a8bb41ac2fb55b8ea42a815f384d64bed" id="r_a8bb41ac2fb55b8ea42a815f384d64bed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bb41ac2fb55b8ea42a815f384d64bed">BalanceRow</a> ()</td></tr>
+<tr class="memdesc:a8bb41ac2fb55b8ea42a815f384d64bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализирует новый экземпляр класса <a class="el" href="classBalanceForge_1_1Core_1_1Data_1_1BalanceRow.html" title="Представляет строку таблицы баланса с поддержкой различных типов данных и Unity Object ссылок....">BalanceRow</a>. Создает уникальный ID и инициализирует необходимые словари.  <br /></td></tr>
+<tr class="memitem:a9a24ad0a270fa9be6bed18cb1c8b2ebb" id="r_a9a24ad0a270fa9be6bed18cb1c8b2ebb"><td class="memItemLeft" align="right" valign="top">object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a24ad0a270fa9be6bed18cb1c8b2ebb">GetValue</a> (string columnId)</td></tr>
+<tr class="memdesc:a9a24ad0a270fa9be6bed18cb1c8b2ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает значение ячейки по идентификатору столбца. Автоматически десериализует значения из сохраненных данных при необходимости.  <br /></td></tr>
+<tr class="memitem:a071f8f3ff88ff4e298e7119aa3016f07" id="r_a071f8f3ff88ff4e298e7119aa3016f07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a071f8f3ff88ff4e298e7119aa3016f07">SetValue</a> (string columnId, object value)</td></tr>
+<tr class="memdesc:a071f8f3ff88ff4e298e7119aa3016f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает значение ячейки для указанного столбца. Автоматически определяет тип, сериализует значение и обновляет оба словаря (runtime и сохраненный).  <br /></td></tr>
+<tr class="memitem:af1abea10eb310c77bf00fe15f6bafa24" id="r_af1abea10eb310c77bf00fe15f6bafa24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a8bb41ac2fb55b8ea42a815f384d64bed">BalanceRow</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1abea10eb310c77bf00fe15f6bafa24">Clone</a> ()</td></tr>
+<tr class="memdesc:af1abea10eb310c77bf00fe15f6bafa24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создает глубокую копию строки с новым ID и текущей временной меткой. Копирует все значения ячеек, типы и asset references.  <br /></td></tr>
+<tr class="memitem:ab9293cddfdbc3678d25b79b266651b0a" id="r_ab9293cddfdbc3678d25b79b266651b0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9293cddfdbc3678d25b79b266651b0a">OnBeforeSerialize</a> ()</td></tr>
+<tr class="memdesc:ab9293cddfdbc3678d25b79b266651b0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызывается Unity перед сохранением для синхронизации runtime словаря с сериализованным словарем. Гарантирует что все значения из cellValues будут сохранены с правильными типами.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
+Свойства</h2></td></tr>
+<tr class="memitem:ab5697546ad2c0b6c29e52196adf8da92" id="r_ab5697546ad2c0b6c29e52196adf8da92"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5697546ad2c0b6c29e52196adf8da92">RowId</a><code> [get]</code></td></tr>
+<tr class="memdesc:ab5697546ad2c0b6c29e52196adf8da92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает уникальный идентификатор строки.  <br /></td></tr>
+<tr class="memitem:a0c35bcd320884d01df0b76e468e5f13a" id="r_a0c35bcd320884d01df0b76e468e5f13a"><td class="memItemLeft" align="right" valign="top">DateTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c35bcd320884d01df0b76e468e5f13a">CreatedAt</a><code> [get]</code></td></tr>
+<tr class="memdesc:a0c35bcd320884d01df0b76e468e5f13a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает дату и время создания строки в UTC.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Представляет строку таблицы баланса с поддержкой различных типов данных и Unity Object ссылок. Обеспечивает сериализацию и десериализацию значений ячеек с сохранением информации о типах. Поддерживает примитивные типы (int, float, bool), Vector2/3, Color и Asset References. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="a8bb41ac2fb55b8ea42a815f384d64bed" name="a8bb41ac2fb55b8ea42a815f384d64bed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bb41ac2fb55b8ea42a815f384d64bed">&#9670;&#160;</a></span>BalanceRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BalanceForge.Core.Data.BalanceRow.BalanceRow </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Инициализирует новый экземпляр класса <a class="el" href="classBalanceForge_1_1Core_1_1Data_1_1BalanceRow.html" title="Представляет строку таблицы баланса с поддержкой различных типов данных и Unity Object ссылок....">BalanceRow</a>. Создает уникальный ID и инициализирует необходимые словари. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="af1abea10eb310c77bf00fe15f6bafa24" name="af1abea10eb310c77bf00fe15f6bafa24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1abea10eb310c77bf00fe15f6bafa24">&#9670;&#160;</a></span>Clone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a8bb41ac2fb55b8ea42a815f384d64bed">BalanceRow</a> BalanceForge.Core.Data.BalanceRow.Clone </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Создает глубокую копию строки с новым ID и текущей временной меткой. Копирует все значения ячеек, типы и asset references. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Новый клон строки с независимыми данными.</dd></dl>
+
+</div>
+</div>
+<a id="a9a24ad0a270fa9be6bed18cb1c8b2ebb" name="a9a24ad0a270fa9be6bed18cb1c8b2ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a24ad0a270fa9be6bed18cb1c8b2ebb">&#9670;&#160;</a></span>GetValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">object BalanceForge.Core.Data.BalanceRow.GetValue </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>columnId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получает значение ячейки по идентификатору столбца. Автоматически десериализует значения из сохраненных данных при необходимости. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">columnId</td><td>Идентификатор столбца.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Значение ячейки в правильном типе или null если значение не найдено.</dd></dl>
+
+</div>
+</div>
+<a id="ab9293cddfdbc3678d25b79b266651b0a" name="ab9293cddfdbc3678d25b79b266651b0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9293cddfdbc3678d25b79b266651b0a">&#9670;&#160;</a></span>OnBeforeSerialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BalanceForge.Core.Data.BalanceRow.OnBeforeSerialize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Вызывается Unity перед сохранением для синхронизации runtime словаря с сериализованным словарем. Гарантирует что все значения из cellValues будут сохранены с правильными типами. </p>
+
+</div>
+</div>
+<a id="a071f8f3ff88ff4e298e7119aa3016f07" name="a071f8f3ff88ff4e298e7119aa3016f07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a071f8f3ff88ff4e298e7119aa3016f07">&#9670;&#160;</a></span>SetValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BalanceForge.Core.Data.BalanceRow.SetValue </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>columnId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Устанавливает значение ячейки для указанного столбца. Автоматически определяет тип, сериализует значение и обновляет оба словаря (runtime и сохраненный). </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">columnId</td><td>Идентификатор столбца.</td></tr>
+    <tr><td class="paramname">value</td><td>Значение для установки (поддерживаются int, float, bool, string, Vector2, Vector3, Color, UnityEngine.Object).</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-property-members" id="doc-property-members"></a><h2 id="header-doc-property-members" class="groupheader">Полный список свойств</h2>
+<a id="a0c35bcd320884d01df0b76e468e5f13a" name="a0c35bcd320884d01df0b76e468e5f13a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c35bcd320884d01df0b76e468e5f13a">&#9670;&#160;</a></span>CreatedAt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DateTime BalanceForge.Core.Data.BalanceRow.CreatedAt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает дату и время создания строки в UTC. </p>
+
+</div>
+</div>
+<a id="ab5697546ad2c0b6c29e52196adf8da92" name="ab5697546ad2c0b6c29e52196adf8da92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5697546ad2c0b6c29e52196adf8da92">&#9670;&#160;</a></span>RowId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BalanceForge.Core.Data.BalanceRow.RowId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает уникальный идентификатор строки. </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>BalanceForge/Core/Data/<a class="el" href="BalanceRow_8cs.html">BalanceRow.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespaceBalanceForge.html">BalanceForge</a></li><li class="navelem"><a href="namespaceBalanceForge_1_1Core.html">Core</a></li><li class="navelem"><a href="namespaceBalanceForge_1_1Core_1_1Data.html">Data</a></li><li class="navelem"><a href="classBalanceForge_1_1Core_1_1Data_1_1BalanceRow.html">BalanceRow</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

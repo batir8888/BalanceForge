@@ -7,8 +7,22 @@ using BalanceForge.Core.Data;
 
 namespace BalanceForge.ImportExport
 {
+    /// <summary>
+    /// Импортер таблицы баланса из CSV файлов (Comma-Separated Values).
+    /// Автоматически определяет типы столбцов на основе анализа данных (Integer, Float, Boolean или String).
+    /// Создает новый ScriptableObject BalanceTable на основе содержимого CSV файла.
+    /// Реализует интерфейс IImporter.
+    /// </summary>
     public class CSVImporter : IImporter
     {
+        /// <summary>
+        /// Импортирует CSV файл и создает новую таблицу баланса.
+        /// Первая строка файла интерпретируется как заголовки столбцов.
+        /// Остальные строки интерпретируются как данные строк таблицы.
+        /// Типы столбцов определяются автоматически на основе анализа значений.
+        /// </summary>
+        /// <param name="filePath">Путь к CSV файлу для импорта.</param>
+        /// <returns>Новый объект BalanceTable с импортированными данными или null если импорт не удался.</returns>
         public BalanceTable Import(string filePath)
         {
             if (!CanImport(filePath))
@@ -46,11 +60,24 @@ namespace BalanceForge.ImportExport
             return table;
         }
         
+        /// <summary>
+        /// Проверяет может ли импортер обработать файл.
+        /// Проверяет что расширение файла равно .csv (без учета регистра).
+        /// </summary>
+        /// <param name="filePath">Путь к файлу для проверки.</param>
+        /// <returns>true если файл имеет расширение .csv, иначе false.</returns>
         public bool CanImport(string filePath)
         {
             return Path.GetExtension(filePath).ToLower() == ".csv";
         }
         
+        /// <summary>
+        /// Парсит содержимое CSV файла в список массивов строк.
+        /// Каждая строка файла преобразуется в массив значений разделенных запятыми.
+        /// Пустые строки пропускаются, значения обрезаются от пробелов.
+        /// </summary>
+        /// <param name="content">Содержимое CSV файла в виде строки.</param>
+        /// <returns>Список массивов строк, где каждый массив представляет одну строку CSV.</returns>
         private List<string[]> ParseCSV(string content)
         {
             var result = new List<string[]>();
@@ -67,6 +94,14 @@ namespace BalanceForge.ImportExport
             return result;
         }
         
+        /// <summary>
+        /// Определяет типы данных для столбцов на основе анализа значений в CSV файле.
+        /// Анализирует все значения в каждом столбце и пытается определить если это Boolean, Integer, Float или String.
+        /// Порядок проверки: Boolean → Integer → Float → String (по умолчанию).
+        /// Создает ColumnDefinition объекты с определенными типами и заголовками из первой строки.
+        /// </summary>
+        /// <param name="data">Распарсенные данные CSV в виде списка массивов строк.</param>
+        /// <returns>Список ColumnDefinition объектов с определенными типами для каждого столбца.</returns>
         private List<ColumnDefinition> InferColumnTypes(List<string[]> data)
         {
             var columns = new List<ColumnDefinition>();
@@ -122,6 +157,14 @@ namespace BalanceForge.ImportExport
             return columns;
         }
         
+        /// <summary>
+        /// Парсит строковое значение в объект правильного типа.
+        /// Пустые или пробельные значения возвращаются как null.
+        /// При ошибке парсинга возвращается исходная строка обрезанная от пробелов.
+        /// </summary>
+        /// <param name="value">Строка для парсинга.</param>
+        /// <param name="type">Целевой тип данных.</param>
+        /// <returns>Распарсенное значение нужного типа или исходная строка при ошибке.</returns>
         private object ParseValue(string value, ColumnType type)
         {
             if (string.IsNullOrWhiteSpace(value))
@@ -148,9 +191,24 @@ namespace BalanceForge.ImportExport
         }
     }
     
+    /// <summary>
+    /// Интерфейс для импортеров данных из различных форматов файлов в таблицы баланса.
+    /// Позволяет расширять функциональность добавлением новых импортеров (JSON, XML, Excel и т.д.).
+    /// </summary>
     public interface IImporter
     {
+        /// <summary>
+        /// Импортирует файл и создает новую таблицу баланса.
+        /// </summary>
+        /// <param name="filePath">Путь к файлу для импорта.</param>
+        /// <returns>Новый объект BalanceTable с импортированными данными или null если импорт не удался.</returns>
         BalanceTable Import(string filePath);
+        
+        /// <summary>
+        /// Проверяет может ли импортер обработать файл по его расширению или другим критериям.
+        /// </summary>
+        /// <param name="filePath">Путь к файлу для проверки поддержки.</param>
+        /// <returns>true если импортер может обработать этот файл, иначе false.</returns>
         bool CanImport(string filePath);
     }
 }

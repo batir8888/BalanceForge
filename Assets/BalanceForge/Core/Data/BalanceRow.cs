@@ -4,21 +4,63 @@ using UnityEngine;
 
 namespace BalanceForge.Core.Data
 {
+    /// <summary>
+    /// Представляет строку таблицы баланса с поддержкой различных типов данных и Unity Object ссылок.
+    /// Обеспечивает сериализацию и десериализацию значений ячеек с сохранением информации о типах.
+    /// Поддерживает примитивные типы (int, float, bool), Vector2/3, Color и Asset References.
+    /// </summary>
     [Serializable]
     public class BalanceRow
     {
+        /// <summary>
+        /// Уникальный идентификатор строки.
+        /// </summary>
         [SerializeField] private string rowId;
+        
+        /// <summary>
+        /// Сериализованные значения ячеек в формате строк для хранения.
+        /// </summary>
         [SerializeField] private SerializableDictionary<string, string> cellValuesSerialized;
-        [SerializeField] private SerializableDictionary<string, string> cellTypesMap; // НОВОЕ: Храним типы для правильной десериализации
-        [SerializeField] private List<UnityEngine.Object> assetReferences = new List<UnityEngine.Object>(); // НОВОЕ: Для Unity Objects
-        [SerializeField] private List<string> assetReferenceKeys = new List<string>(); // НОВОЕ: Ключи для asset references
+        
+        /// <summary>
+        /// Карта типов данных для каждого столбца, используется при десериализации для правильного восстановления типов.
+        /// </summary>
+        [SerializeField] private SerializableDictionary<string, string> cellTypesMap;
+        
+        /// <summary>
+        /// Список ссылок на Unity Objects (префабы, материалы, текстуры и т.д.).
+        /// </summary>
+        [SerializeField] private List<UnityEngine.Object> assetReferences = new List<UnityEngine.Object>();
+        
+        /// <summary>
+        /// Ключи для соответствия между ячейками и asset references.
+        /// </summary>
+        [SerializeField] private List<string> assetReferenceKeys = new List<string>();
+        
+        /// <summary>
+        /// Timestamp создания строки в формате Ticks для Unity сериализации.
+        /// </summary>
         [SerializeField] private long createdAtTicks;
         
+        /// <summary>
+        /// Runtime словарь значений ячеек. Используется для быстрого доступа и не сохраняется.
+        /// </summary>
         [NonSerialized] private Dictionary<string, object> cellValues;
         
+        /// <summary>
+        /// Получает уникальный идентификатор строки.
+        /// </summary>
         public string RowId => rowId;
+        
+        /// <summary>
+        /// Получает дату и время создания строки в UTC.
+        /// </summary>
         public DateTime CreatedAt => new DateTime(createdAtTicks);
         
+        /// <summary>
+        /// Инициализирует новый экземпляр класса BalanceRow.
+        /// Создает уникальный ID и инициализирует необходимые словари.
+        /// </summary>
         public BalanceRow()
         {
             rowId = Guid.NewGuid().ToString();
@@ -28,6 +70,12 @@ namespace BalanceForge.Core.Data
             createdAtTicks = DateTime.UtcNow.Ticks;
         }
         
+        /// <summary>
+        /// Получает значение ячейки по идентификатору столбца.
+        /// Автоматически десериализует значения из сохраненных данных при необходимости.
+        /// </summary>
+        /// <param name="columnId">Идентификатор столбца.</param>
+        /// <returns>Значение ячейки в правильном типе или null если значение не найдено.</returns>
         public object GetValue(string columnId)
         {
             // КРИТИЧНО: Всегда десериализуем из сохранённых данных
@@ -37,6 +85,12 @@ namespace BalanceForge.Core.Data
             return cellValues.TryGetValue(columnId, out var value) ? value : null;
         }
         
+        /// <summary>
+        /// Устанавливает значение ячейки для указанного столбца.
+        /// Автоматически определяет тип, сериализует значение и обновляет оба словаря (runtime и сохраненный).
+        /// </summary>
+        /// <param name="columnId">Идентификатор столбца.</param>
+        /// <param name="value">Значение для установки (поддерживаются int, float, bool, string, Vector2, Vector3, Color, UnityEngine.Object).</param>
         public void SetValue(string columnId, object value)
         {
             if (cellValues == null)
@@ -60,6 +114,11 @@ namespace BalanceForge.Core.Data
             cellValuesSerialized[columnId] = serializedValue;
         }
         
+        /// <summary>
+        /// Создает глубокую копию строки с новым ID и текущей временной меткой.
+        /// Копирует все значения ячеек, типы и asset references.
+        /// </summary>
+        /// <returns>Новый клон строки с независимыми данными.</returns>
         public BalanceRow Clone()
         {
             var clone = new BalanceRow
@@ -103,6 +162,10 @@ namespace BalanceForge.Core.Data
             return clone;
         }
         
+        /// <summary>
+        /// Десериализует все значения ячеек из сохраненного формата в runtime словарь.
+        /// Учитывает информацию о типах для правильного восстановления объектов.
+        /// </summary>
         private void DeserializeCellValues()
         {
             cellValues = new Dictionary<string, object>();
@@ -127,6 +190,11 @@ namespace BalanceForge.Core.Data
             }
         }
         
+        /// <summary>
+        /// Определяет строковое представление типа для переданного значения.
+        /// </summary>
+        /// <param name="value">Объект для определения типа.</param>
+        /// <returns>Строка с именем типа (String, Integer, Float, Boolean, Vector2, Vector3, Color, AssetReference).</returns>
         private string GetTypeName(object value)
         {
             if (value == null) return "String";
@@ -143,6 +211,14 @@ namespace BalanceForge.Core.Data
             return "String";
         }
         
+        /// <summary>
+        /// Сериализует значение в строку в зависимости от его типа.
+        /// Для Unity Objects сохраняет ссылку в списки assetReferences и assetReferenceKeys.
+        /// Для Vector и Color использует JsonUtility.
+        /// </summary>
+        /// <param name="value">Значение для сериализации.</param>
+        /// <param name="typeName">Тип значения для выбора правильного способа сериализации.</param>
+        /// <returns>Строковое представление значения.</returns>
         private string SerializeValue(object value, string typeName)
         {
             if (value == null) 
@@ -186,6 +262,14 @@ namespace BalanceForge.Core.Data
             }
         }
         
+        /// <summary>
+        /// Десериализует строку в объект правильного типа.
+        /// Обрабатывает ошибки парсинга, возвращая значение по умолчанию для типа.
+        /// </summary>
+        /// <param name="serialized">Строковое представление значения.</param>
+        /// <param name="typeName">Тип для десериализации.</param>
+        /// <param name="columnId">Идентификатор столбца (для логирования ошибок).</param>
+        /// <returns>Десериализованное значение или значение по умолчанию для типа.</returns>
         private object DeserializeValue(string serialized, string typeName, string columnId)
         {
             if (string.IsNullOrEmpty(serialized))
@@ -237,6 +321,11 @@ namespace BalanceForge.Core.Data
             }
         }
         
+        /// <summary>
+        /// Получает значение по умолчанию для указанного типа данных.
+        /// </summary>
+        /// <param name="typeName">Тип для которого требуется значение по умолчанию.</param>
+        /// <returns>Значение по умолчанию: 0 для Integer, 0f для Float, false для Boolean, zero вектора/цвета, null для AssetReference, пустая строка для String.</returns>
         private object GetDefaultForType(string typeName)
         {
             switch (typeName)
@@ -252,12 +341,21 @@ namespace BalanceForge.Core.Data
             }
         }
         
+        /// <summary>
+        /// Генерирует уникальный ключ для asset reference на основе ID столбца и Instance ID объекта.
+        /// </summary>
+        /// <param name="columnId">Идентификатор столбца.</param>
+        /// <param name="obj">Unity Object для получения Instance ID.</param>
+        /// <returns>Уникальный ключ в формате "columnId_instanceId".</returns>
         private string GetAssetKey(string columnId, UnityEngine.Object obj)
         {
             return $"{columnId}_{obj.GetInstanceID()}";
         }
         
-        // Unity вызывает это перед сохранением
+        /// <summary>
+        /// Вызывается Unity перед сохранением для синхронизации runtime словаря с сериализованным словарем.
+        /// Гарантирует что все значения из cellValues будут сохранены с правильными типами.
+        /// </summary>
         public void OnBeforeSerialize()
         {
             // Убеждаемся что cellValuesSerialized актуален
@@ -277,37 +375,87 @@ namespace BalanceForge.Core.Data
         }
     }
     
-    // Вспомогательные классы для сериализации Unity типов
+    /// <summary>
+    /// Вспомогательная структура для сериализации Vector2 с использованием JsonUtility.
+    /// Необходима так как Unity не сериализует Vector2 напрямую в JSON.
+    /// </summary>
     [Serializable]
     public struct Vector2Serializable
     {
+        /// <summary>X компонент вектора.</summary>
         public float x;
+        /// <summary>Y компонент вектора.</summary>
         public float y;
         
+        /// <summary>
+        /// Преобразует структуру обратно в Vector2.
+        /// </summary>
+        /// <returns>Vector2 с компонентами из структуры.</returns>
         public Vector2 ToVector2() => new Vector2(x, y);
+        
+        /// <summary>
+        /// Создает серализуемую структуру из Vector2.
+        /// </summary>
+        /// <param name="v">Исходный Vector2.</param>
+        /// <returns>Vector2Serializable с скопированными компонентами.</returns>
         public static Vector2Serializable FromVector2(Vector2 v) => new Vector2Serializable { x = v.x, y = v.y };
     }
     
+    /// <summary>
+    /// Вспомогательная структура для сериализации Vector3 с использованием JsonUtility.
+    /// Необходима так как Unity не сериализует Vector3 напрямую в JSON.
+    /// </summary>
     [Serializable]
     public struct Vector3Serializable
     {
+        /// <summary>X компонент вектора.</summary>
         public float x;
+        /// <summary>Y компонент вектора.</summary>
         public float y;
+        /// <summary>Z компонент вектора.</summary>
         public float z;
         
+        /// <summary>
+        /// Преобразует структуру обратно в Vector3.
+        /// </summary>
+        /// <returns>Vector3 с компонентами из структуры.</returns>
         public Vector3 ToVector3() => new Vector3(x, y, z);
+        
+        /// <summary>
+        /// Создает сериализуемую структуру из Vector3.
+        /// </summary>
+        /// <param name="v">Исходный Vector3.</param>
+        /// <returns>Vector3Serializable с скопированными компонентами.</returns>
         public static Vector3Serializable FromVector3(Vector3 v) => new Vector3Serializable { x = v.x, y = v.y, z = v.z };
     }
     
+    /// <summary>
+    /// Вспомогательная структура для сериализации Color с использованием JsonUtility.
+    /// Необходима так как Unity не сериализует Color напрямую в JSON.
+    /// </summary>
     [Serializable]
     public struct ColorSerializable
     {
+        /// <summary>Красный компонент цвета (0-1).</summary>
         public float r;
+        /// <summary>Зеленый компонент цвета (0-1).</summary>
         public float g;
+        /// <summary>Синий компонент цвета (0-1).</summary>
         public float b;
+        /// <summary>Альфа (прозрачность) компонент цвета (0-1).</summary>
         public float a;
         
+        /// <summary>
+        /// Преобразует структуру обратно в Color.
+        /// </summary>
+        /// <returns>Color с компонентами из структуры.</returns>
         public Color ToColor() => new Color(r, g, b, a);
+        
+        /// <summary>
+        /// Создает сериализуемую структуру из Color.
+        /// </summary>
+        /// <param name="c">Исходный Color.</param>
+        /// <returns>ColorSerializable с скопированными компонентами.</returns>
         public static ColorSerializable FromColor(Color c) => new ColorSerializable { r = c.r, g = c.g, b = c.b, a = c.a };
     }
 }

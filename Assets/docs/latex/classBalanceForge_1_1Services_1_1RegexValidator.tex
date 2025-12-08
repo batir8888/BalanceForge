@@ -1,0 +1,94 @@
+\doxysection{Класс Balance\+Forge.\+Services.\+Regex\+Validator}
+\hypertarget{classBalanceForge_1_1Services_1_1RegexValidator}{}\label{classBalanceForge_1_1Services_1_1RegexValidator}\index{BalanceForge.Services.RegexValidator@{BalanceForge.Services.RegexValidator}}
+
+
+Валидатор для проверки, что значение соответствует регулярному выражению. Используется для валидации строк по сложным шаблонам (email, URL, специальные форматы и т.\+д.). Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Services_1_1IValidator}{IValidator}.  
+
+
+Граф наследования\+:Balance\+Forge.\+Services.\+Regex\+Validator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classBalanceForge_1_1Services_1_1RegexValidator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBalanceForge_1_1Services_1_1RegexValidator_a74860495015571f51e4bf92f218a8b37}{Regex\+Validator}} (string pattern)
+\begin{DoxyCompactList}\small\item\em Инициализирует новый экземпляр \doxylink{classBalanceForge_1_1Services_1_1RegexValidator}{Regex\+Validator} с указанным регулярным выражением. Компилирует регулярное выражение при создании для оптимизации последующих проверок. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBalanceForge_1_1Services_1_1RegexValidator_af83ac15fa369e815fcfaa209150b0fa5}{Validate}} (object value)
+\begin{DoxyCompactList}\small\item\em Проверяет, соответствует ли значение регулярному выражению. Преобразует значение в строку перед проверкой. Null значения считаются невалидными. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classBalanceForge_1_1Services_1_1RegexValidator_a808d54e72951ac5ffd188492f2f9377c}{Get\+Error\+Message}} ()
+\begin{DoxyCompactList}\small\item\em Получает сообщение об ошибке с информацией о требуемом шаблоне. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Валидатор для проверки, что значение соответствует регулярному выражению. Используется для валидации строк по сложным шаблонам (email, URL, специальные форматы и т.\+д.). Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Services_1_1IValidator}{IValidator}. 
+
+\label{doc-constructors}
+\Hypertarget{classBalanceForge_1_1Services_1_1RegexValidator_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classBalanceForge_1_1Services_1_1RegexValidator_a74860495015571f51e4bf92f218a8b37}\index{BalanceForge.Services.RegexValidator@{BalanceForge.Services.RegexValidator}!RegexValidator@{RegexValidator}}
+\index{RegexValidator@{RegexValidator}!BalanceForge.Services.RegexValidator@{BalanceForge.Services.RegexValidator}}
+\doxysubsubsection{\texorpdfstring{RegexValidator()}{RegexValidator()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Services_1_1RegexValidator_a74860495015571f51e4bf92f218a8b37} 
+Balance\+Forge.\+Services.\+Regex\+Validator.\+Regex\+Validator (\begin{DoxyParamCaption}\item[{string}]{pattern}{}\end{DoxyParamCaption})}
+
+
+
+Инициализирует новый экземпляр \doxylink{classBalanceForge_1_1Services_1_1RegexValidator}{Regex\+Validator} с указанным регулярным выражением. Компилирует регулярное выражение при создании для оптимизации последующих проверок. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pattern} & Регулярное выражение для проверки значений.\\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classBalanceForge_1_1Services_1_1RegexValidator_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{classBalanceForge_1_1Services_1_1RegexValidator_a808d54e72951ac5ffd188492f2f9377c}\index{BalanceForge.Services.RegexValidator@{BalanceForge.Services.RegexValidator}!GetErrorMessage@{GetErrorMessage}}
+\index{GetErrorMessage@{GetErrorMessage}!BalanceForge.Services.RegexValidator@{BalanceForge.Services.RegexValidator}}
+\doxysubsubsection{\texorpdfstring{GetErrorMessage()}{GetErrorMessage()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Services_1_1RegexValidator_a808d54e72951ac5ffd188492f2f9377c} 
+string Balance\+Forge.\+Services.\+Regex\+Validator.\+Get\+Error\+Message (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получает сообщение об ошибке с информацией о требуемом шаблоне. 
+
+\begin{DoxyReturn}{Возвращает}
+Строка с описанием регулярного выражения которому должно соответствовать значение.
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{interfaceBalanceForge_1_1Services_1_1IValidator_a99f0faafa71ccbfaf15b04bf4c963f59}{Balance\+Forge.\+Services.\+IValidator}}.
+
+\Hypertarget{classBalanceForge_1_1Services_1_1RegexValidator_af83ac15fa369e815fcfaa209150b0fa5}\index{BalanceForge.Services.RegexValidator@{BalanceForge.Services.RegexValidator}!Validate@{Validate}}
+\index{Validate@{Validate}!BalanceForge.Services.RegexValidator@{BalanceForge.Services.RegexValidator}}
+\doxysubsubsection{\texorpdfstring{Validate()}{Validate()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Services_1_1RegexValidator_af83ac15fa369e815fcfaa209150b0fa5} 
+bool Balance\+Forge.\+Services.\+Regex\+Validator.\+Validate (\begin{DoxyParamCaption}\item[{object}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Проверяет, соответствует ли значение регулярному выражению. Преобразует значение в строку перед проверкой. Null значения считаются невалидными. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em value} & Значение для проверки.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если значение соответствует регулярному выражению, иначе false.
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{interfaceBalanceForge_1_1Services_1_1IValidator_af37581322f7a549a387e72d4f6ee9f9e}{Balance\+Forge.\+Services.\+IValidator}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Balance\+Forge/\+Services/\mbox{\hyperlink{Validators_8cs}{Validators.\+cs}}\end{DoxyCompactItemize}

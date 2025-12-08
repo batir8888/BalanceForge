@@ -1,0 +1,55 @@
+\doxysection{Класс Balance\+Forge.\+Import\+Export.\+CSVExporter}
+\hypertarget{classBalanceForge_1_1ImportExport_1_1CSVExporter}{}\label{classBalanceForge_1_1ImportExport_1_1CSVExporter}\index{BalanceForge.ImportExport.CSVExporter@{BalanceForge.ImportExport.CSVExporter}}
+
+
+Экспортер таблицы баланса в формат CSV (Comma-\/\+Separated Values). Преобразует данные таблицы в текстовый формат CSV с заголовками столбцов и строками данных. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1ImportExport_1_1IExporter}{IExporter}.  
+
+
+Граф наследования\+:Balance\+Forge.\+Import\+Export.\+CSVExporter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classBalanceForge_1_1ImportExport_1_1CSVExporter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classBalanceForge_1_1ImportExport_1_1CSVExporter_a3e12e143dbe890d21e34129f6cba7b10}{Export}} (\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable}{Balance\+Table}} table, string file\+Path)
+\begin{DoxyCompactList}\small\item\em Экспортирует таблицу баланса в CSV файл. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Экспортер таблицы баланса в формат CSV (Comma-\/\+Separated Values). Преобразует данные таблицы в текстовый формат CSV с заголовками столбцов и строками данных. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1ImportExport_1_1IExporter}{IExporter}. 
+
+\label{doc-func-members}
+\Hypertarget{classBalanceForge_1_1ImportExport_1_1CSVExporter_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{classBalanceForge_1_1ImportExport_1_1CSVExporter_a3e12e143dbe890d21e34129f6cba7b10}\index{BalanceForge.ImportExport.CSVExporter@{BalanceForge.ImportExport.CSVExporter}!Export@{Export}}
+\index{Export@{Export}!BalanceForge.ImportExport.CSVExporter@{BalanceForge.ImportExport.CSVExporter}}
+\doxysubsubsection{\texorpdfstring{Export()}{Export()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1ImportExport_1_1CSVExporter_a3e12e143dbe890d21e34129f6cba7b10} 
+bool Balance\+Forge.\+Import\+Export.\+CSVExporter.\+Export (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable}{Balance\+Table}}}]{table}{, }\item[{string}]{file\+Path}{}\end{DoxyParamCaption})}
+
+
+
+Экспортирует таблицу баланса в CSV файл. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em table} & Таблица баланса для экспорта.\\
+\hline
+{\em file\+Path} & Полный путь к файлу где сохранить CSV.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если экспорт выполнен успешно, иначе false при ошибке.
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{interfaceBalanceForge_1_1ImportExport_1_1IExporter_a0d5ed31cc6020688fb7d0c18dec02179}{Balance\+Forge.\+Import\+Export.\+IExporter}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Balance\+Forge/\+Import\+Export/\mbox{\hyperlink{CSVExporter_8cs}{CSVExporter.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>BalanceForge: Класс BalanceForge.Core.Data.ColumnDefinition</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">BalanceForge<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Balance Table Management System for Unity</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classBalanceForge_1_1Core_1_1Data_1_1ColumnDefinition.html','','classBalanceForge_1_1Core_1_1Data_1_1ColumnDefinition-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс BalanceForge.Core.Data.ColumnDefinition</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Определяет схему столбца таблицы баланса, включая тип данных, валидацию и значение по умолчанию. Поддерживает сериализацию/десериализацию различных типов (примитивы, Vector, Color, Enum, Asset References). Может содержать кастомный валидатор для проверки значений.  
+ <a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a8135a0f22fc911f0f40a7063880c6ad1" id="r_a8135a0f22fc911f0f40a7063880c6ad1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8135a0f22fc911f0f40a7063880c6ad1">ColumnDefinition</a> (string id, string name, <a class="el" href="namespaceBalanceForge_1_1Core_1_1Data.html#ac4a077c5c7eadcbd7efb29ff7d59fde7">ColumnType</a> type, bool required=false, object defaultValue=null)</td></tr>
+<tr class="memdesc:a8135a0f22fc911f0f40a7063880c6ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализирует новый экземпляр класса <a class="el" href="classBalanceForge_1_1Core_1_1Data_1_1ColumnDefinition.html" title="Определяет схему столбца таблицы баланса, включая тип данных, валидацию и значение по умолчанию....">ColumnDefinition</a>.  <br /></td></tr>
+<tr class="memitem:a0a1911e15c1abf423e7c1d4802ee9a05" id="r_a0a1911e15c1abf423e7c1d4802ee9a05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a1911e15c1abf423e7c1d4802ee9a05">SetAssetType</a> (Type type)</td></tr>
+<tr class="memdesc:a0a1911e15c1abf423e7c1d4802ee9a05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает тип Unity Object для Asset Reference столбцов. Сохраняет assembly-qualified имя типа для восстановления при десериализации.  <br /></td></tr>
+<tr class="memitem:a077181171b2613ed0f94dc94a0a74757" id="r_a077181171b2613ed0f94dc94a0a74757"><td class="memItemLeft" align="right" valign="top">Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a077181171b2613ed0f94dc94a0a74757">GetAssetType</a> ()</td></tr>
+<tr class="memdesc:a077181171b2613ed0f94dc94a0a74757"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает тип Unity Object для Asset Reference столбцов. Десериализует сохраненное assembly-qualified имя типа.  <br /></td></tr>
+<tr class="memitem:a655b655abc8f3910f4893c0ce69ed7e5" id="r_a655b655abc8f3910f4893c0ce69ed7e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a655b655abc8f3910f4893c0ce69ed7e5">Validate</a> (object value)</td></tr>
+<tr class="memdesc:a655b655abc8f3910f4893c0ce69ed7e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет соответствие значения правилам валидации столбца. Если столбец обязательный, проверяет что значение не null и не пусто. Если установлен кастомный валидатор, также выполняет его проверку.  <br /></td></tr>
+<tr class="memitem:a5104d863f3ac4e19aa7bd7a18c3c206d" id="r_a5104d863f3ac4e19aa7bd7a18c3c206d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5104d863f3ac4e19aa7bd7a18c3c206d">GetTypeName</a> ()</td></tr>
+<tr class="memdesc:a5104d863f3ac4e19aa7bd7a18c3c206d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает строковое представление типа данных столбца.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
+Свойства</h2></td></tr>
+<tr class="memitem:ae6ba83d70679787a575aff84e2b7a85d" id="r_ae6ba83d70679787a575aff84e2b7a85d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6ba83d70679787a575aff84e2b7a85d">ColumnId</a><code> [get]</code></td></tr>
+<tr class="memdesc:ae6ba83d70679787a575aff84e2b7a85d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает уникальный идентификатор столбца.  <br /></td></tr>
+<tr class="memitem:a7f5f89999f63032534c8f7931dab721b" id="r_a7f5f89999f63032534c8f7931dab721b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f5f89999f63032534c8f7931dab721b">DisplayName</a><code> [get]</code></td></tr>
+<tr class="memdesc:a7f5f89999f63032534c8f7931dab721b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает человекочитаемое имя столбца.  <br /></td></tr>
+<tr class="memitem:a148058bfecab2bee456a7be27c2e5dcc" id="r_a148058bfecab2bee456a7be27c2e5dcc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceBalanceForge_1_1Core_1_1Data.html#ac4a077c5c7eadcbd7efb29ff7d59fde7">ColumnType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a148058bfecab2bee456a7be27c2e5dcc">DataType</a><code> [get]</code></td></tr>
+<tr class="memdesc:a148058bfecab2bee456a7be27c2e5dcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает тип данных столбца.  <br /></td></tr>
+<tr class="memitem:a2264435d81be522e0625b4115327b9e3" id="r_a2264435d81be522e0625b4115327b9e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2264435d81be522e0625b4115327b9e3">IsRequired</a><code> [get]</code></td></tr>
+<tr class="memdesc:a2264435d81be522e0625b4115327b9e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает значение указывающее является ли столбец обязательным.  <br /></td></tr>
+<tr class="memitem:aac8a73b0f2103d654bce928ae1393f94" id="r_aac8a73b0f2103d654bce928ae1393f94"><td class="memItemLeft" align="right" valign="top">EnumDefinition&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac8a73b0f2103d654bce928ae1393f94">EnumDefinition</a><code> [get]</code></td></tr>
+<tr class="memdesc:aac8a73b0f2103d654bce928ae1393f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает определение перечисления для столбцов типа Enum.  <br /></td></tr>
+<tr class="memitem:aff798c74c737e2624b8f3f36319b5570" id="r_aff798c74c737e2624b8f3f36319b5570"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff798c74c737e2624b8f3f36319b5570">AssetType</a><code> [get]</code></td></tr>
+<tr class="memdesc:aff798c74c737e2624b8f3f36319b5570"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает тип Unity Object для Asset Reference столбцов.  <br /></td></tr>
+<tr class="memitem:aa9e44b5402928a7472fb55613219340f" id="r_aa9e44b5402928a7472fb55613219340f"><td class="memItemLeft" align="right" valign="top">object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9e44b5402928a7472fb55613219340f">DefaultValue</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:aa9e44b5402928a7472fb55613219340f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает или устанавливает значение по умолчанию для столбца. При получении десериализует сохраненное значение в правильный тип. При установке сериализует значение в строку для хранения.  <br /></td></tr>
+<tr class="memitem:a46bb9ba55f28c16243a2b2816a13481f" id="r_a46bb9ba55f28c16243a2b2816a13481f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interfaceBalanceForge_1_1Services_1_1IValidator.html">IValidator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46bb9ba55f28c16243a2b2816a13481f">Validator</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a46bb9ba55f28c16243a2b2816a13481f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает или устанавливает кастомный валидатор для проверки значений ячеек в этом столбце.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Определяет схему столбца таблицы баланса, включая тип данных, валидацию и значение по умолчанию. Поддерживает сериализацию/десериализацию различных типов (примитивы, Vector, Color, Enum, Asset References). Может содержать кастомный валидатор для проверки значений. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="a8135a0f22fc911f0f40a7063880c6ad1" name="a8135a0f22fc911f0f40a7063880c6ad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8135a0f22fc911f0f40a7063880c6ad1">&#9670;&#160;</a></span>ColumnDefinition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BalanceForge.Core.Data.ColumnDefinition.ColumnDefinition </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceBalanceForge_1_1Core_1_1Data.html#ac4a077c5c7eadcbd7efb29ff7d59fde7">ColumnType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>required</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>defaultValue</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Инициализирует новый экземпляр класса <a class="el" href="classBalanceForge_1_1Core_1_1Data_1_1ColumnDefinition.html" title="Определяет схему столбца таблицы баланса, включая тип данных, валидацию и значение по умолчанию....">ColumnDefinition</a>. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Уникальный идентификатор столбца.</td></tr>
+    <tr><td class="paramname">name</td><td>Человекочитаемое имя столбца для отображения в UI.</td></tr>
+    <tr><td class="paramname">type</td><td>Тип данных столбца.</td></tr>
+    <tr><td class="paramname">required</td><td>Является ли столбец обязательным (по умолчанию false).</td></tr>
+    <tr><td class="paramname">defaultValue</td><td>Значение по умолчанию для новых строк (по умолчанию null).</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a077181171b2613ed0f94dc94a0a74757" name="a077181171b2613ed0f94dc94a0a74757"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a077181171b2613ed0f94dc94a0a74757">&#9670;&#160;</a></span>GetAssetType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Type BalanceForge.Core.Data.ColumnDefinition.GetAssetType </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получает тип Unity Object для Asset Reference столбцов. Десериализует сохраненное assembly-qualified имя типа. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Тип для Asset Reference или UnityEngine.Object если тип не удалось восстановить.</dd></dl>
+
+</div>
+</div>
+<a id="a5104d863f3ac4e19aa7bd7a18c3c206d" name="a5104d863f3ac4e19aa7bd7a18c3c206d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5104d863f3ac4e19aa7bd7a18c3c206d">&#9670;&#160;</a></span>GetTypeName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BalanceForge.Core.Data.ColumnDefinition.GetTypeName </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получает строковое представление типа данных столбца. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Строка с именем типа данных (String, Integer, Float, Vector2 и т.д.).</dd></dl>
+
+</div>
+</div>
+<a id="a0a1911e15c1abf423e7c1d4802ee9a05" name="a0a1911e15c1abf423e7c1d4802ee9a05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a1911e15c1abf423e7c1d4802ee9a05">&#9670;&#160;</a></span>SetAssetType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BalanceForge.Core.Data.ColumnDefinition.SetAssetType </td>
+          <td>(</td>
+          <td class="paramtype">Type</td>          <td class="paramname"><span class="paramname"><em>type</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Устанавливает тип Unity Object для Asset Reference столбцов. Сохраняет assembly-qualified имя типа для восстановления при десериализации. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>Тип Union Object (например, Prefab, Material, Texture2D). Если null, используется базовый UnityEngine.Object.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a655b655abc8f3910f4893c0ce69ed7e5" name="a655b655abc8f3910f4893c0ce69ed7e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a655b655abc8f3910f4893c0ce69ed7e5">&#9670;&#160;</a></span>Validate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BalanceForge.Core.Data.ColumnDefinition.Validate </td>
+          <td>(</td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверяет соответствие значения правилам валидации столбца. Если столбец обязательный, проверяет что значение не null и не пусто. Если установлен кастомный валидатор, также выполняет его проверку. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Значение для проверки.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если значение проходит всю валидацию, иначе false.</dd></dl>
+
+</div>
+</div>
+<a name="doc-property-members" id="doc-property-members"></a><h2 id="header-doc-property-members" class="groupheader">Полный список свойств</h2>
+<a id="aff798c74c737e2624b8f3f36319b5570" name="aff798c74c737e2624b8f3f36319b5570"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff798c74c737e2624b8f3f36319b5570">&#9670;&#160;</a></span>AssetType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BalanceForge.Core.Data.ColumnDefinition.AssetType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает тип Unity Object для Asset Reference столбцов. </p>
+
+</div>
+</div>
+<a id="ae6ba83d70679787a575aff84e2b7a85d" name="ae6ba83d70679787a575aff84e2b7a85d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6ba83d70679787a575aff84e2b7a85d">&#9670;&#160;</a></span>ColumnId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BalanceForge.Core.Data.ColumnDefinition.ColumnId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает уникальный идентификатор столбца. </p>
+
+</div>
+</div>
+<a id="a148058bfecab2bee456a7be27c2e5dcc" name="a148058bfecab2bee456a7be27c2e5dcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a148058bfecab2bee456a7be27c2e5dcc">&#9670;&#160;</a></span>DataType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceBalanceForge_1_1Core_1_1Data.html#ac4a077c5c7eadcbd7efb29ff7d59fde7">ColumnType</a> BalanceForge.Core.Data.ColumnDefinition.DataType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает тип данных столбца. </p>
+
+</div>
+</div>
+<a id="aa9e44b5402928a7472fb55613219340f" name="aa9e44b5402928a7472fb55613219340f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9e44b5402928a7472fb55613219340f">&#9670;&#160;</a></span>DefaultValue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">object BalanceForge.Core.Data.ColumnDefinition.DefaultValue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает или устанавливает значение по умолчанию для столбца. При получении десериализует сохраненное значение в правильный тип. При установке сериализует значение в строку для хранения. </p>
+
+</div>
+</div>
+<a id="a7f5f89999f63032534c8f7931dab721b" name="a7f5f89999f63032534c8f7931dab721b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f5f89999f63032534c8f7931dab721b">&#9670;&#160;</a></span>DisplayName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BalanceForge.Core.Data.ColumnDefinition.DisplayName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает человекочитаемое имя столбца. </p>
+
+</div>
+</div>
+<a id="aac8a73b0f2103d654bce928ae1393f94" name="aac8a73b0f2103d654bce928ae1393f94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac8a73b0f2103d654bce928ae1393f94">&#9670;&#160;</a></span>EnumDefinition</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EnumDefinition BalanceForge.Core.Data.ColumnDefinition.EnumDefinition</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает определение перечисления для столбцов типа Enum. </p>
+
+</div>
+</div>
+<a id="a2264435d81be522e0625b4115327b9e3" name="a2264435d81be522e0625b4115327b9e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2264435d81be522e0625b4115327b9e3">&#9670;&#160;</a></span>IsRequired</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BalanceForge.Core.Data.ColumnDefinition.IsRequired</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает значение указывающее является ли столбец обязательным. </p>
+
+</div>
+</div>
+<a id="a46bb9ba55f28c16243a2b2816a13481f" name="a46bb9ba55f28c16243a2b2816a13481f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46bb9ba55f28c16243a2b2816a13481f">&#9670;&#160;</a></span>Validator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interfaceBalanceForge_1_1Services_1_1IValidator.html">IValidator</a> BalanceForge.Core.Data.ColumnDefinition.Validator</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает или устанавливает кастомный валидатор для проверки значений ячеек в этом столбце. </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>BalanceForge/Core/Data/<a class="el" href="ColumnDefinition_8cs.html">ColumnDefinition.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespaceBalanceForge.html">BalanceForge</a></li><li class="navelem"><a href="namespaceBalanceForge_1_1Core.html">Core</a></li><li class="navelem"><a href="namespaceBalanceForge_1_1Core_1_1Data.html">Data</a></li><li class="navelem"><a href="classBalanceForge_1_1Core_1_1Data_1_1ColumnDefinition.html">ColumnDefinition</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

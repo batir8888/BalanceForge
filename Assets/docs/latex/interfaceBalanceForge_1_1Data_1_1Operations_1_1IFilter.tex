@@ -1,0 +1,53 @@
+\doxysection{Интерфейс Balance\+Forge.\+Data.\+Operations.\+IFilter}
+\hypertarget{interfaceBalanceForge_1_1Data_1_1Operations_1_1IFilter}{}\label{interfaceBalanceForge_1_1Data_1_1Operations_1_1IFilter}\index{BalanceForge.Data.Operations.IFilter@{BalanceForge.Data.Operations.IFilter}}
+
+
+Интерфейс для применения фильтров к списку строк баланса.  
+
+
+Граф наследования\+:Balance\+Forge.\+Data.\+Operations.\+IFilter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.951219cm]{interfaceBalanceForge_1_1Data_1_1Operations_1_1IFilter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} $>$ \mbox{\hyperlink{interfaceBalanceForge_1_1Data_1_1Operations_1_1IFilter_a9728bd4c9fb66d260287b2214b38d8db}{Apply}} (List$<$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} $>$ rows)
+\begin{DoxyCompactList}\small\item\em Применяет фильтр к списку строк. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Интерфейс для применения фильтров к списку строк баланса. 
+
+\label{doc-func-members}
+\Hypertarget{interfaceBalanceForge_1_1Data_1_1Operations_1_1IFilter_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{interfaceBalanceForge_1_1Data_1_1Operations_1_1IFilter_a9728bd4c9fb66d260287b2214b38d8db}\index{BalanceForge.Data.Operations.IFilter@{BalanceForge.Data.Operations.IFilter}!Apply@{Apply}}
+\index{Apply@{Apply}!BalanceForge.Data.Operations.IFilter@{BalanceForge.Data.Operations.IFilter}}
+\doxysubsubsection{\texorpdfstring{Apply()}{Apply()}}
+{\footnotesize\ttfamily \label{interfaceBalanceForge_1_1Data_1_1Operations_1_1IFilter_a9728bd4c9fb66d260287b2214b38d8db} 
+List$<$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} $>$ Balance\+Forge.\+Data.\+Operations.\+IFilter.\+Apply (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} $>$}]{rows}{}\end{DoxyParamCaption})}
+
+
+
+Применяет фильтр к списку строк. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em rows} & Список строк баланса для фильтрации.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Отфильтрованный список строк баланса.
+\end{DoxyReturn}
+
+
+Замещается в \mbox{\hyperlink{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter_aef5b2f226483a97e0307107bd9551b69}{Balance\+Forge.\+Data.\+Operations.\+Column\+Filter}} и \mbox{\hyperlink{classBalanceForge_1_1Data_1_1Operations_1_1CompositeFilter_a0ba9bc3457b645c12c40a01a31fa7984}{Balance\+Forge.\+Data.\+Operations.\+Composite\+Filter}}.
+
+
+
+Объявления и описания членов интерфейса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Balance\+Forge/\+Core/\+Data/\+Operations/\mbox{\hyperlink{Filtering_8cs}{Filtering.\+cs}}\end{DoxyCompactItemize}

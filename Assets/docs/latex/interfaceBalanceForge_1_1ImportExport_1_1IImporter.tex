@@ -1,0 +1,77 @@
+\doxysection{Интерфейс Balance\+Forge.\+Import\+Export.\+IImporter}
+\hypertarget{interfaceBalanceForge_1_1ImportExport_1_1IImporter}{}\label{interfaceBalanceForge_1_1ImportExport_1_1IImporter}\index{BalanceForge.ImportExport.IImporter@{BalanceForge.ImportExport.IImporter}}
+
+
+Интерфейс для импортеров данных из различных форматов файлов в таблицы баланса. Позволяет расширять функциональность добавлением новых импортеров (JSON, XML, Excel и т.\+д.).  
+
+
+Граф наследования\+:Balance\+Forge.\+Import\+Export.\+IImporter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfaceBalanceForge_1_1ImportExport_1_1IImporter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable}{Balance\+Table}} \mbox{\hyperlink{interfaceBalanceForge_1_1ImportExport_1_1IImporter_adc94d940886b5b95d79e4f4d1c34a9b3}{Import}} (string file\+Path)
+\begin{DoxyCompactList}\small\item\em Импортирует файл и создает новую таблицу баланса. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{interfaceBalanceForge_1_1ImportExport_1_1IImporter_a202b0f514d53472dc04b76edffbe53f0}{Can\+Import}} (string file\+Path)
+\begin{DoxyCompactList}\small\item\em Проверяет может ли импортер обработать файл по его расширению или другим критериям. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Интерфейс для импортеров данных из различных форматов файлов в таблицы баланса. Позволяет расширять функциональность добавлением новых импортеров (JSON, XML, Excel и т.\+д.). 
+
+\label{doc-func-members}
+\Hypertarget{interfaceBalanceForge_1_1ImportExport_1_1IImporter_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{interfaceBalanceForge_1_1ImportExport_1_1IImporter_a202b0f514d53472dc04b76edffbe53f0}\index{BalanceForge.ImportExport.IImporter@{BalanceForge.ImportExport.IImporter}!CanImport@{CanImport}}
+\index{CanImport@{CanImport}!BalanceForge.ImportExport.IImporter@{BalanceForge.ImportExport.IImporter}}
+\doxysubsubsection{\texorpdfstring{CanImport()}{CanImport()}}
+{\footnotesize\ttfamily \label{interfaceBalanceForge_1_1ImportExport_1_1IImporter_a202b0f514d53472dc04b76edffbe53f0} 
+bool Balance\+Forge.\+Import\+Export.\+IImporter.\+Can\+Import (\begin{DoxyParamCaption}\item[{string}]{file\+Path}{}\end{DoxyParamCaption})}
+
+
+
+Проверяет может ли импортер обработать файл по его расширению или другим критериям. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em file\+Path} & Путь к файлу для проверки поддержки.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если импортер может обработать этот файл, иначе false.
+\end{DoxyReturn}
+
+
+Замещается в \mbox{\hyperlink{classBalanceForge_1_1ImportExport_1_1CSVImporter_aae909ab0c780bf5a824aabc0e4187c6b}{Balance\+Forge.\+Import\+Export.\+CSVImporter}}.
+
+\Hypertarget{interfaceBalanceForge_1_1ImportExport_1_1IImporter_adc94d940886b5b95d79e4f4d1c34a9b3}\index{BalanceForge.ImportExport.IImporter@{BalanceForge.ImportExport.IImporter}!Import@{Import}}
+\index{Import@{Import}!BalanceForge.ImportExport.IImporter@{BalanceForge.ImportExport.IImporter}}
+\doxysubsubsection{\texorpdfstring{Import()}{Import()}}
+{\footnotesize\ttfamily \label{interfaceBalanceForge_1_1ImportExport_1_1IImporter_adc94d940886b5b95d79e4f4d1c34a9b3} 
+\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable}{Balance\+Table}} Balance\+Forge.\+Import\+Export.\+IImporter.\+Import (\begin{DoxyParamCaption}\item[{string}]{file\+Path}{}\end{DoxyParamCaption})}
+
+
+
+Импортирует файл и создает новую таблицу баланса. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em file\+Path} & Путь к файлу для импорта.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Новый объект \doxylink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable}{Balance\+Table} с импортированными данными или null если импорт не удался.
+\end{DoxyReturn}
+
+
+Замещается в \mbox{\hyperlink{classBalanceForge_1_1ImportExport_1_1CSVImporter_af0dff0c2d0a38ade30f5ce4e8472b588}{Balance\+Forge.\+Import\+Export.\+CSVImporter}}.
+
+
+
+Объявления и описания членов интерфейса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Balance\+Forge/\+Import\+Export/\mbox{\hyperlink{CSVImporter_8cs}{CSVImporter.\+cs}}\end{DoxyCompactItemize}

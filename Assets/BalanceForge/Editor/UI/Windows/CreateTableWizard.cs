@@ -6,12 +6,33 @@ using BalanceForge.Core.Data;
 
 namespace BalanceForge.Editor.Windows
 {
+    /// <summary>
+    /// EditorWindow для создания новых таблиц баланса с интерактивным интерфейсом.
+    /// Позволяет пользователю определить имя таблицы, добавить и настроить столбцы с различными типами данных.
+    /// Поддерживает настройку перечислений (Enum) и типов Asset Reference.
+    /// Доступен через меню Assets > Create > BalanceForge > Balance Table Wizard.
+    /// </summary>
     public class CreateTableWizard : EditorWindow
     {
+        /// <summary>
+        /// Имя создаваемой таблицы.
+        /// </summary>
         private string tableName = "NewBalanceTable";
+        
+        /// <summary>
+        /// Список определений столбцов для новой таблицы.
+        /// </summary>
         private List<ColumnDefinition> columns = new List<ColumnDefinition>();
+        
+        /// <summary>
+        /// Позиция прокрутки для области со списком столбцов.
+        /// </summary>
         private Vector2 scrollPosition;
         
+        /// <summary>
+        /// Открывает окно Create Table Wizard.
+        /// Регистрируется в меню Assets/Create/BalanceForge/Balance Table Wizard.
+        /// </summary>
         [MenuItem("Assets/Create/BalanceForge/Balance Table Wizard")]
         public static void ShowWindow()
         {
@@ -19,6 +40,10 @@ namespace BalanceForge.Editor.Windows
             window.minSize = new Vector2(500, 400);
         }
         
+        /// <summary>
+        /// Вызывается Unity когда окно включается.
+        /// Инициализирует список столбцов с столбцом ID по умолчанию если он пуст.
+        /// </summary>
         private void OnEnable()
         {
             if (columns.Count == 0)
@@ -28,6 +53,11 @@ namespace BalanceForge.Editor.Windows
             }
         }
         
+        /// <summary>
+        /// Рисует UI интерфейс окна Create Table Wizard.
+        /// Обеспечивает редактирование имени таблицы, добавление/удаление столбцов, настройку их параметров.
+        /// Для типа Enum позволяет редактировать список значений.
+        /// </summary>
         private void OnGUI()
         {
             EditorGUILayout.LabelField("Create New Balance Table", EditorStyles.boldLabel);
@@ -138,6 +168,11 @@ namespace BalanceForge.Editor.Windows
             EditorGUILayout.EndHorizontal();
         }
         
+        /// <summary>
+        /// Создает новый ScriptableObject BalanceTable с указанными параметрами.
+        /// Открывает диалог сохранения файла и сохраняет таблицу в Assets папку.
+        /// После создания открывает таблицу в BalanceTableEditorWindow и закрывает Wizard.
+        /// </summary>
         private void CreateTable()
         {
             var table = ScriptableObject.CreateInstance<BalanceTable>();

@@ -1,0 +1,75 @@
+\doxysection{Класс Balance\+Forge.\+Data.\+Operations.\+Column\+Filter}
+\hypertarget{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter}{}\label{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter}\index{BalanceForge.Data.Operations.ColumnFilter@{BalanceForge.Data.Operations.ColumnFilter}}
+
+
+Фильтр для одного столбца на основе одного условия. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Data_1_1Operations_1_1IFilter}{IFilter} для применения фильтра к списку строк.  
+
+
+Граф наследования\+:Balance\+Forge.\+Data.\+Operations.\+Column\+Filter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter_a350701bb0d22008b315395fd955fecc0}{Column\+Filter}} (\mbox{\hyperlink{classBalanceForge_1_1Data_1_1Operations_1_1FilterCondition}{Filter\+Condition}} condition)
+\begin{DoxyCompactList}\small\item\em Инициализирует новый экземпляр класса \doxylink{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter}{Column\+Filter}. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} $>$ \mbox{\hyperlink{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter_aef5b2f226483a97e0307107bd9551b69}{Apply}} (List$<$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} $>$ rows)
+\begin{DoxyCompactList}\small\item\em Применяет условие фильтра к списку строк. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Фильтр для одного столбца на основе одного условия. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Data_1_1Operations_1_1IFilter}{IFilter} для применения фильтра к списку строк. 
+
+\label{doc-constructors}
+\Hypertarget{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter_a350701bb0d22008b315395fd955fecc0}\index{BalanceForge.Data.Operations.ColumnFilter@{BalanceForge.Data.Operations.ColumnFilter}!ColumnFilter@{ColumnFilter}}
+\index{ColumnFilter@{ColumnFilter}!BalanceForge.Data.Operations.ColumnFilter@{BalanceForge.Data.Operations.ColumnFilter}}
+\doxysubsubsection{\texorpdfstring{ColumnFilter()}{ColumnFilter()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter_a350701bb0d22008b315395fd955fecc0} 
+Balance\+Forge.\+Data.\+Operations.\+Column\+Filter.\+Column\+Filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBalanceForge_1_1Data_1_1Operations_1_1FilterCondition}{Filter\+Condition}}}]{condition}{}\end{DoxyParamCaption})}
+
+
+
+Инициализирует новый экземпляр класса \doxylink{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter}{Column\+Filter}. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em condition} & Условие фильтрации для применения.\\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter_aef5b2f226483a97e0307107bd9551b69}\index{BalanceForge.Data.Operations.ColumnFilter@{BalanceForge.Data.Operations.ColumnFilter}!Apply@{Apply}}
+\index{Apply@{Apply}!BalanceForge.Data.Operations.ColumnFilter@{BalanceForge.Data.Operations.ColumnFilter}}
+\doxysubsubsection{\texorpdfstring{Apply()}{Apply()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Data_1_1Operations_1_1ColumnFilter_aef5b2f226483a97e0307107bd9551b69} 
+List$<$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} $>$ Balance\+Forge.\+Data.\+Operations.\+Column\+Filter.\+Apply (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} $>$}]{rows}{}\end{DoxyParamCaption})}
+
+
+
+Применяет условие фильтра к списку строк. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em rows} & Список строк баланса для фильтрации.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Список строк, соответствующих условию фильтра.
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{interfaceBalanceForge_1_1Data_1_1Operations_1_1IFilter_a9728bd4c9fb66d260287b2214b38d8db}{Balance\+Forge.\+Data.\+Operations.\+IFilter}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Balance\+Forge/\+Core/\+Data/\+Operations/\mbox{\hyperlink{Filtering_8cs}{Filtering.\+cs}}\end{DoxyCompactItemize}

@@ -4,8 +4,19 @@ using BalanceForge.Core.Data;
 
 namespace BalanceForge.ImportExport
 {
+    /// <summary>
+    /// Экспортер таблицы баланса в формат CSV (Comma-Separated Values).
+    /// Преобразует данные таблицы в текстовый формат CSV с заголовками столбцов и строками данных.
+    /// Реализует интерфейс IExporter.
+    /// </summary>
     public class CSVExporter : IExporter
     {
+        /// <summary>
+        /// Экспортирует таблицу баланса в CSV файл.
+        /// </summary>
+        /// <param name="table">Таблица баланса для экспорта.</param>
+        /// <param name="filePath">Полный путь к файлу где сохранить CSV.</param>
+        /// <returns>true если экспорт выполнен успешно, иначе false при ошибке.</returns>
         public bool Export(BalanceTable table, string filePath)
         {
             try
@@ -20,6 +31,13 @@ namespace BalanceForge.ImportExport
             }
         }
         
+        /// <summary>
+        /// Преобразует таблицу баланса в строку CSV формата.
+        /// Первая строка содержит названия столбцов (DisplayName), остальные строки содержат данные.
+        /// Значения разделены запятыми, null значения экспортируются как пустые строки.
+        /// </summary>
+        /// <param name="table">Таблица баланса для преобразования.</param>
+        /// <returns>Строка в формате CSV с заголовками и данными.</returns>
         private string ConvertToCSV(BalanceTable table)
         {
             var sb = new StringBuilder();
@@ -50,8 +68,18 @@ namespace BalanceForge.ImportExport
         }
     }
     
+    /// <summary>
+    /// Интерфейс для экспортеров данных таблиц баланса в различные форматы файлов.
+    /// Позволяет расширять функциональность добавлением новых экспортеров (JSON, XML и т.д.).
+    /// </summary>
     public interface IExporter
     {
+        /// <summary>
+        /// Экспортирует таблицу баланса в файл.
+        /// </summary>
+        /// <param name="table">Таблица баланса для экспорта.</param>
+        /// <param name="filePath">Путь к файлу для сохранения экспортированных данных.</param>
+        /// <returns>true если экспорт выполнен успешно, иначе false.</returns>
         bool Export(BalanceTable table, string filePath);
     }
 }

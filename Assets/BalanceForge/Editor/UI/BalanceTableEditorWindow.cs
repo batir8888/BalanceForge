@@ -10,58 +10,179 @@ using System.Linq;
 
 namespace BalanceForge.Editor.UI
 {
+    /// <summary>
+    /// Главное окно редактора для редактирования таблиц баланса в Unity Editor.
+    /// Предоставляет интерфейс для просмотра, редактирования, сортировки и фильтрации строк и столбцов.
+    /// Поддерживает операции Undo/Redo, импорт/экспорт CSV, валидацию данных и копирование/вставку.
+    /// Оптимизирован для работы с большими таблицами благодаря виртуальной прокрутке и кэшированию.
+    /// Доступен через меню Window > BalanceForge > Table Editor.
+    /// </summary>
     public class BalanceTableEditorWindow : EditorWindow
     {
+        /// <summary>
+        /// Текущая редактируемая таблица баланса.
+        /// </summary>
         private BalanceTable currentTable;
+        
+        /// <summary>
+        /// Сервис управления операциями Undo/Redo.
+        /// </summary>
         private UndoRedoService undoRedoService;
+        
+        /// <summary>
+        /// Позиция прокрутки окна таблицы.
+        /// </summary>
         private Vector2 scrollPosition;
+        
+        /// <summary>
+        /// Флаг отображения панели валидации.
+        /// </summary>
         private bool showValidation = false;
+        
+        /// <summary>
+        /// Результат последней проверки валидации.
+        /// </summary>
         private ValidationResult validationResult;
         
-        // Sorting
+        /// <summary>
+        /// Состояние сортировки таблицы (текущий столбец и направление).
+        /// </summary>
         private SortingState sortingState = new SortingState();
+        
+        /// <summary>
+        /// Список строк для отображения, применены фильтры и сортировка.
+        /// </summary>
         private List<BalanceRow> displayedRows;
         
-        // Filtering
+        /// <summary>
+        /// Флаг видимости панели фильтрации.
+        /// </summary>
         private bool showFilterPanel = false;
+        
+        /// <summary>
+        /// Список условий фильтрации, применяемых к таблице.
+        /// </summary>
         private List<FilterCondition> filterConditions = new List<FilterCondition>();
+        
+        /// <summary>
+        /// Логический оператор для комбинирования фильтров (And или Or).
+        /// </summary>
         private LogicalOperator filterLogicalOp = LogicalOperator.And;
         
-        // Selection
+        /// <summary>
+        /// Набор ID выбранных строк для массовых операций.
+        /// </summary>
         private HashSet<string> selectedRowIds = new HashSet<string>();
+        
+        /// <summary>
+        /// ID строки с текущей сфокусированной ячейкой.
+        /// </summary>
         private string focusedCellRowId;
+        
+        /// <summary>
+        /// ID столбца с текущей сфокусированной ячейкой.
+        /// </summary>
         private string focusedCellColumnId;
         
-        // Context Menu
+        /// <summary>
+        /// Контекстное меню для операций с ячейками.
+        /// </summary>
         private GenericMenu contextMenu;
         
-        // Virtual scrolling optimization
+        /// <summary>
+        /// Высота одной строки в пикселях.
+        /// </summary>
         private float rowHeight = 22f;
+        
+        /// <summary>
+        /// Ширина одного столбца в пикселях.
+        /// </summary>
         private float columnWidth = 150f;
+        
+        /// <summary>
+        /// Высота заголовка таблицы в пикселях.
+        /// </summary>
         private float headerHeight = 40f;
+        
+        /// <summary>
+        /// Индекс первой видимой строки (виртуальная прокрутка).
+        /// </summary>
         private int visibleStartIndex = 0;
+        
+        /// <summary>
+        /// Индекс последней видимой строки (виртуальная прокрутка).
+        /// </summary>
         private int visibleEndIndex = 0;
+        
+        /// <summary>
+        /// Прямоугольник области прокрутки для расчета видимости.
+        /// </summary>
         private Rect scrollViewRect;
         
-        // OPTIMIZATIONS
+        /// <summary>
+        /// Максимальный размер кэша GUIContent для оптимизации памяти.
+        /// </summary>
         private const int CACHE_SIZE_LIMIT = 500;
+        
+        /// <summary>
+        /// Количество дополнительных строк буфера вокруг видимой области для плавной прокрутки.
+        /// </summary>
         private const int VISIBLE_ROW_BUFFER = 5;
+        
+        /// <summary>
+        /// Минимальный интервал между перерисовками в секундах для ограничения частоты обновлений.
+        /// </summary>
         private const float REPAINT_THROTTLE = 0.05f;
         
+        /// <summary>
+        /// Кэш значений ячеек для избежания повторных вызовов GetValue.
+        /// </summary>
         private Dictionary<string, object> cellValueCache = new Dictionary<string, object>();
+        
+        /// <summary>
+        /// Кэш GUIContent объектов для заголовков и текстового содержимого.
+        /// </summary>
         private Dictionary<string, GUIContent> guiContentCache = new Dictionary<string, GUIContent>();
         
+        /// <summary>
+        /// Номер фрейма последней очистки кэша значений ячеек.
+        /// </summary>
         private int lastCacheFrame = -1;
+        
+        /// <summary>
+        /// Время последней перерисовки для throttling обновлений.
+        /// </summary>
         private double lastRepaintTime = 0;
+        
+        /// <summary>
+        /// Флаг указывающий что окно требует перерисовки.
+        /// </summary>
         private bool isDirty = false;
         
-        // Cached styles
+        /// <summary>
+        /// Кэшированный стиль для ячеек таблицы.
+        /// </summary>
         private GUIStyle cellStyle;
+        
+        /// <summary>
+        /// Кэшированный стиль для заголовков столбцов.
+        /// </summary>
         private GUIStyle headerStyle;
+        
+        /// <summary>
+        /// Флаг инициализации стилей GUI.
+        /// </summary>
         private bool stylesInitialized = false;
         
+        /// <summary>
+        /// Счетчик фреймов для отслеживания обновлений состояния.
+        /// </summary>
         private int frameCounter = 0;
         
+        /// <summary>
+        /// Открывает окно Balance Table Editor.
+        /// Регистрируется в меню Window/BalanceForge/Table Editor.
+        /// </summary>
         [MenuItem("Window/BalanceForge/Table Editor")]
         public static void ShowWindow()
         {
@@ -69,6 +190,10 @@ namespace BalanceForge.Editor.UI
             window.minSize = new Vector2(600, 400);
         }
         
+        /// <summary>
+        /// Вызывается Unity когда окно включается.
+        /// Инициализирует сервис Undo/Redo, список отображаемых строк и стили GUI.
+        /// </summary>
         private void OnEnable()
         {
             undoRedoService = new UndoRedoService();
@@ -77,6 +202,10 @@ namespace BalanceForge.Editor.UI
             InitializeStyles();
         }
         
+        /// <summary>
+        /// Инициализирует кэшированные стили GUI для ячеек и заголовков.
+        /// Выполняется только один раз при первом вызове.
+        /// </summary>
         private void InitializeStyles()
         {
             if (stylesInitialized) return;
@@ -97,6 +226,10 @@ namespace BalanceForge.Editor.UI
             stylesInitialized = true;
         }
         
+        /// <summary>
+        /// Вызывается Inspector для обновления окна.
+        /// Регулирует частоту перерисовок в соответствии с REPAINT_THROTTLE для оптимизации производительности.
+        /// </summary>
         private void OnInspectorUpdate()
         {
             if (isDirty && EditorApplication.timeSinceStartup - lastRepaintTime > REPAINT_THROTTLE)
@@ -107,6 +240,11 @@ namespace BalanceForge.Editor.UI
             }
         }
         
+        /// <summary>
+        /// Загружает таблицу баланса в редактор.
+        /// Обновляет отображаемые строки, очищает историю Undo/Redo и все кэши.
+        /// </summary>
+        /// <param name="table">Таблица баланса для загрузки.</param>
         public void LoadTable(BalanceTable table)
         {
             currentTable = table;
@@ -115,6 +253,10 @@ namespace BalanceForge.Editor.UI
             ClearAllCaches();
         }
         
+        /// <summary>
+        /// Очищает все кэши значений ячеек и GUI контента.
+        /// Вызывается при загрузке новой таблицы или обновлении данных.
+        /// </summary>
         private void ClearAllCaches()
         {
             cellValueCache.Clear();
@@ -122,6 +264,11 @@ namespace BalanceForge.Editor.UI
             lastCacheFrame = -1;
         }
         
+        /// <summary>
+        /// Основной метод для отрисовки UI окна.
+        /// Обрабатывает горячие клавиши, рисует панель инструментов, таблицу и строку состояния.
+        /// Автоматически управляет кэшами и оптимизацией производительности.
+        /// </summary>
         private void OnGUI()
         {
             if (Event.current.type == EventType.Layout)
@@ -186,6 +333,10 @@ namespace BalanceForge.Editor.UI
             }
         }
         
+        /// <summary>
+        /// Обрабатывает горячие клавиши для операций редактирования и управления таблицей.
+        /// Поддерживает: Copy (Ctrl+C), Paste (Ctrl+V), Undo (Ctrl+Z), Redo (Ctrl+Shift+Z, Ctrl+Y), Delete.
+        /// </summary>
         private void HandleKeyboardShortcuts()
         {
             var e = Event.current;
@@ -247,7 +398,11 @@ namespace BalanceForge.Editor.UI
             }
         }
         
-        // ИСПРАВЛЕНО: Используем только GUI методы без смешивания с GUILayout
+        /// <summary>
+        /// Рисует оптимизированную таблицу с виртуальной прокруткой.
+        /// Отображает только видимые строки плюс буфер для плавности при прокрутке.
+        /// Использует прямые вызовы GUI вместо GUILayout для лучшей производительности.
+        /// </summary>
         private void DrawOptimizedTable()
         {
             if (displayedRows == null || displayedRows.Count == 0)
@@ -317,7 +472,10 @@ namespace BalanceForge.Editor.UI
             GUI.EndScrollView();
         }
         
-        // ИСПРАВЛЕНО: Прямая отрисовка заголовка без GUILayout внутри
+        /// <summary>
+        /// Рисует заголовок таблицы с кнопками для сортировки и выбора всех строк.
+        /// Использует прямые вызовы GUI для интеграции с виртуальной прокруткой.
+        /// </summary>
         private void DrawTableHeaderDirect()
         {
             float contentWidth = Mathf.Max(scrollViewRect.width, 20 + columnWidth * currentTable.Columns.Count);
@@ -381,7 +539,12 @@ namespace BalanceForge.Editor.UI
             EditorGUI.DrawRect(separatorRect, new Color(0.5f, 0.5f, 0.5f, 0.5f));
         }
         
-        // ИСПРАВЛЕНО: Прямая отрисовка строки без GUILayout внутри
+        /// <summary>
+        /// Рисует одну строку таблицы с чередованием цветов фона для удобства чтения.
+        /// Отображает чекбокс для выделения и редактируемые ячейки для каждого столбца.
+        /// </summary>
+        /// <param name="index">Индекс строки в displayedRows.</param>
+        /// <param name="row">Объект BalanceRow для отрисовки.</param>
         private void DrawTableRowDirect(int index, BalanceRow row)
         {
             float yPos = headerHeight + index * rowHeight;
@@ -426,6 +589,14 @@ namespace BalanceForge.Editor.UI
             GUI.enabled = true;
         }
         
+        /// <summary>
+        /// Рисует одну ячейку таблицы с поддержкой различных типов данных.
+        /// Обрабатывает фокус, редактирование, валидацию и контекстное меню.
+        /// Использует кэш для оптимизации частых вызовов GetValue.
+        /// </summary>
+        /// <param name="row">Строка содержащая ячейку.</param>
+        /// <param name="column">Определение столбца для определения типа редактора.</param>
+        /// <param name="cellRect">Прямоугольник для отрисовки ячейки.</param>
         private void DrawCellDirect(BalanceRow row, ColumnDefinition column, Rect cellRect)
         {
             string cacheKey = $"{row.RowId}_{column.ColumnId}";
@@ -489,6 +660,14 @@ namespace BalanceForge.Editor.UI
             }
         }
         
+        /// <summary>
+        /// Рисует редактор значения ячейки в зависимости от типа столбца.
+        /// Поддерживает все типы данных: String, Integer, Float, Boolean, Color, Vector2/3, Asset Reference, Enum.
+        /// </summary>
+        /// <param name="position">Прямоугольник для отрисовки редактора.</param>
+        /// <param name="column">Определение столбца для определения типа.</param>
+        /// <param name="value">Текущее значение ячейки.</param>
+        /// <returns>Новое значение после редактирования или исходное значение если ошибка.</returns>
         private object DrawCellByType(Rect position, ColumnDefinition column, object value)
         {
             try
@@ -564,6 +743,10 @@ namespace BalanceForge.Editor.UI
             }
         }
         
+        /// <summary>
+        /// Рисует панель инструментов с кнопками для управления таблицей.
+        /// Содержит: выбор таблицы, добавление/удаление строк, фильтрацию, валидацию, импорт/экспорт, сохранение, undo/redo.
+        /// </summary>
         private void DrawToolbar()
         {
             EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
@@ -660,6 +843,10 @@ namespace BalanceForge.Editor.UI
             EditorGUILayout.EndHorizontal();
         }
         
+        /// <summary>
+        /// Рисует панель фильтрации с возможностью добавления, удаления и настройки условий фильтра.
+        /// Позволяет комбинировать фильтры логическими операторами And/Or.
+        /// </summary>
         private void DrawFilterPanel()
         {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
@@ -722,6 +909,9 @@ namespace BalanceForge.Editor.UI
             EditorGUILayout.Space();
         }
         
+        /// <summary>
+        /// Обрабатывает операцию копирования значения сфокусированной ячейки в буфер обмена.
+        /// </summary>
         private void HandleCopy()
         {
             if (!string.IsNullOrEmpty(focusedCellRowId) && !string.IsNullOrEmpty(focusedCellColumnId))
@@ -735,6 +925,10 @@ namespace BalanceForge.Editor.UI
             }
         }
         
+        /// <summary>
+        /// Обрабатывает операцию вставки значения из буфера обмена в сфокусированную ячейку.
+        /// Создает команду для Undo/Redo и выполняет валидацию нового значения.
+        /// </summary>
         private void HandlePaste()
         {
             if (!IsFileEditable()) return;
@@ -754,6 +948,11 @@ namespace BalanceForge.Editor.UI
             }
         }
         
+        /// <summary>
+        /// Отображает контекстное меню для ячейки с операциями Copy/Paste.
+        /// </summary>
+        /// <param name="columnId">ID столбца для определения типа данных при вставке.</param>
+        /// <param name="value">Текущее значение ячейки для копирования.</param>
         private void ShowCellContextMenu(string columnId, object value)
         {
             contextMenu = new GenericMenu();
@@ -771,6 +970,11 @@ namespace BalanceForge.Editor.UI
             contextMenu.ShowAsContext();
         }
         
+        /// <summary>
+        /// Отображает меню импорта/экспорта данных таблицы.
+        /// Поддерживает экспорт в CSV и импорт из CSV с проверкой структуры.
+        /// Планируется добавление поддержки JSON.
+        /// </summary>
         private void ShowImportExportMenu()
         {
             var menu = new GenericMenu();
@@ -833,6 +1037,10 @@ namespace BalanceForge.Editor.UI
             menu.ShowAsContext();
         }
         
+        /// <summary>
+        /// Обрабатывает удаление выбранных строк после подтверждения пользователя.
+        /// Создает команду MultiDeleteCommand для поддержки Undo/Redo.
+        /// </summary>
         private void HandleDeleteSelected()
         {
             if (!IsFileEditable() || selectedRowIds.Count == 0) return;
@@ -855,6 +1063,11 @@ namespace BalanceForge.Editor.UI
             }
         }
         
+        /// <summary>
+        /// Обновляет список отображаемых строк с применением фильтров и сортировки.
+        /// Вызывается при загрузке таблицы, изменении фильтров, сортировке или редактировании данных.
+        /// Очищает все кэши после обновления.
+        /// </summary>
         private void RefreshDisplayedRows()
         {
             if (currentTable == null)
@@ -892,6 +1105,11 @@ namespace BalanceForge.Editor.UI
             ClearAllCaches();
         }
         
+        /// <summary>
+        /// Проверяет может ли пользователь редактировать текущий файл таблицы.
+        /// Возвращает false если файл только для чтения или расположен в папке Packages.
+        /// </summary>
+        /// <returns>true если файл доступен для редактирования, иначе false.</returns>
         private bool IsFileEditable()
         {
             if (currentTable == null) return false;
@@ -903,6 +1121,10 @@ namespace BalanceForge.Editor.UI
                    AssetDatabase.IsOpenForEdit(path, StatusQueryOptions.UseCachedIfPossible);
         }
         
+        /// <summary>
+        /// Сохраняет текущую таблицу в Asset Database.
+        /// Помечает объект как изменённый и сохраняет все изменения.
+        /// </summary>
         private void SaveTable()
         {
             if (currentTable)
@@ -913,6 +1135,10 @@ namespace BalanceForge.Editor.UI
             }
         }
         
+        /// <summary>
+        /// Рисует строку состояния с информацией о таблице.
+        /// Отображает: количество строк, отфильтрованных строк, выбранных строк, видимых строк и время последнего изменения.
+        /// </summary>
         private void DrawStatusBar()
         {
             EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);

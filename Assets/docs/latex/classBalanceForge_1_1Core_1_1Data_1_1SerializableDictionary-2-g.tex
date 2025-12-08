@@ -1,0 +1,53 @@
+\doxysection{Шаблон класса Balance\+Forge.\+Core.\+Data.\+Serializable\+Dictionary\texorpdfstring{$<$}{<} TKey, TValue \texorpdfstring{$>$}{>}}
+\hypertarget{classBalanceForge_1_1Core_1_1Data_1_1SerializableDictionary-2-g}{}\label{classBalanceForge_1_1Core_1_1Data_1_1SerializableDictionary-2-g}\index{BalanceForge.Core.Data.SerializableDictionary$<$ TKey, TValue $>$@{BalanceForge.Core.Data.SerializableDictionary$<$ TKey, TValue $>$}}
+
+
+Сериализуемый словарь для Unity, поддерживающий сохранение и загрузку из сцен и Scriptable\+Objects. Наследует от Dictionary\texorpdfstring{$<$}{<}TKey, TValue\texorpdfstring{$>$}{>} и реализует ISerialization\+Callback\+Receiver для интеграции с системой сериализации Unity. Преобразует словарь в два отдельных списка (ключи и значения) для сериализации, так как Unity не может напрямую сериализовать Dictionary.  
+
+
+Граф наследования\+:Balance\+Forge.\+Core.\+Data.\+Serializable\+Dictionary\texorpdfstring{$<$}{<} TKey, TValue \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.428571cm]{classBalanceForge_1_1Core_1_1Data_1_1SerializableDictionary-2-g}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1SerializableDictionary-2-g_af57edbf4d06899a728a3bfadf65148d7}{On\+Before\+Serialize}} ()
+\begin{DoxyCompactList}\small\item\em Вызывается Unity перед сохранением объекта. Копирует все пары ключ-\/значение из словаря в списки keys и values для сериализации. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1SerializableDictionary-2-g_a885b252d8e3a2c006c69acd6f2c1b33e}{On\+After\+Deserialize}} ()
+\begin{DoxyCompactList}\small\item\em Вызывается Unity после загрузки сериализованных данных. Восстанавливает словарь из списков keys и values, восстанавливая исходные пары ключ-\/значение. Использует Math.\+Min для защиты от несовпадения размеров списков. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Сериализуемый словарь для Unity, поддерживающий сохранение и загрузку из сцен и Scriptable\+Objects. Наследует от Dictionary\texorpdfstring{$<$}{<}TKey, TValue\texorpdfstring{$>$}{>} и реализует ISerialization\+Callback\+Receiver для интеграции с системой сериализации Unity. Преобразует словарь в два отдельных списка (ключи и значения) для сериализации, так как Unity не может напрямую сериализовать Dictionary. 
+
+\label{doc-func-members}
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1SerializableDictionary-2-g_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1SerializableDictionary-2-g_a885b252d8e3a2c006c69acd6f2c1b33e}\index{BalanceForge.Core.Data.SerializableDictionary$<$ TKey, TValue $>$@{BalanceForge.Core.Data.SerializableDictionary$<$ TKey, TValue $>$}!OnAfterDeserialize@{OnAfterDeserialize}}
+\index{OnAfterDeserialize@{OnAfterDeserialize}!BalanceForge.Core.Data.SerializableDictionary$<$ TKey, TValue $>$@{BalanceForge.Core.Data.SerializableDictionary$<$ TKey, TValue $>$}}
+\doxysubsubsection{\texorpdfstring{OnAfterDeserialize()}{OnAfterDeserialize()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1SerializableDictionary-2-g_a885b252d8e3a2c006c69acd6f2c1b33e} 
+void Balance\+Forge.\+Core.\+Data.\+Serializable\+Dictionary$<$ TKey, TValue $>$.On\+After\+Deserialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Вызывается Unity после загрузки сериализованных данных. Восстанавливает словарь из списков keys и values, восстанавливая исходные пары ключ-\/значение. Использует Math.\+Min для защиты от несовпадения размеров списков. 
+
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1SerializableDictionary-2-g_af57edbf4d06899a728a3bfadf65148d7}\index{BalanceForge.Core.Data.SerializableDictionary$<$ TKey, TValue $>$@{BalanceForge.Core.Data.SerializableDictionary$<$ TKey, TValue $>$}!OnBeforeSerialize@{OnBeforeSerialize}}
+\index{OnBeforeSerialize@{OnBeforeSerialize}!BalanceForge.Core.Data.SerializableDictionary$<$ TKey, TValue $>$@{BalanceForge.Core.Data.SerializableDictionary$<$ TKey, TValue $>$}}
+\doxysubsubsection{\texorpdfstring{OnBeforeSerialize()}{OnBeforeSerialize()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1SerializableDictionary-2-g_af57edbf4d06899a728a3bfadf65148d7} 
+void Balance\+Forge.\+Core.\+Data.\+Serializable\+Dictionary$<$ TKey, TValue $>$.On\+Before\+Serialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Вызывается Unity перед сохранением объекта. Копирует все пары ключ-\/значение из словаря в списки keys и values для сериализации. 
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Balance\+Forge/\+Core/\+Data/\mbox{\hyperlink{SerializableDictionary_8cs}{Serializable\+Dictionary.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>BalanceForge: Интерфейс BalanceForge.Services.ICommand</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">BalanceForge<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Balance Table Management System for Unity</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('interfaceBalanceForge_1_1Services_1_1ICommand.html','','interfaceBalanceForge_1_1Services_1_1ICommand-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Интерфейс BalanceForge.Services.ICommand</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Интерфейс для команд поддерживающих операции Undo/Redo. Каждая команда инкапсулирует действие которое можно выполнить и отменить.  
+ <a href="#details">Подробнее...</a></p>
+<div class="dynheader">
+Граф наследования:BalanceForge.Services.ICommand:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="interfaceBalanceForge_1_1Services_1_1ICommand.png" usemap="#BalanceForge_2EServices_2EICommand_map" alt=""/>
+  <map id="BalanceForge_2EServices_2EICommand_map" name="BalanceForge_2EServices_2EICommand_map">
+<area href="classBalanceForge_1_1Services_1_1AddRowCommand.html" title="Команда для добавления новой строки в таблицу баланса. Реализует интерфейс ICommand для поддержки Und..." alt="BalanceForge.Services.AddRowCommand" shape="rect" coords="0,56,268,80"/>
+<area href="classBalanceForge_1_1Services_1_1DeleteRowCommand.html" title="Команда для удаления одной строки из таблицы баланса. Сохраняет индекс строки для восстановления исхо..." alt="BalanceForge.Services.DeleteRowCommand" shape="rect" coords="278,56,546,80"/>
+<area href="classBalanceForge_1_1Services_1_1EditCellCommand.html" title="Команда для редактирования значения ячейки в таблице баланса. Сохраняет старое и новое значение для п..." alt="BalanceForge.Services.EditCellCommand" shape="rect" coords="556,56,824,80"/>
+<area href="classBalanceForge_1_1Services_1_1MultiDeleteCommand.html" title="Команда для удаления нескольких строк из таблицы баланса одновременно. Сохраняет индексы всех удаляем..." alt="BalanceForge.Services.MultiDeleteCommand" shape="rect" coords="834,56,1102,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a3125793fafaf19bc197626cc243a8587" id="r_a3125793fafaf19bc197626cc243a8587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3125793fafaf19bc197626cc243a8587">Execute</a> ()</td></tr>
+<tr class="memdesc:a3125793fafaf19bc197626cc243a8587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выполняет команду и применяет изменения к таблице.  <br /></td></tr>
+<tr class="memitem:afa9a895c42cacb66d9777dc90813a94e" id="r_afa9a895c42cacb66d9777dc90813a94e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa9a895c42cacb66d9777dc90813a94e">Undo</a> ()</td></tr>
+<tr class="memdesc:afa9a895c42cacb66d9777dc90813a94e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отменяет команду восстанавливая предыдущее состояние.  <br /></td></tr>
+<tr class="memitem:a847279f7175bbd5ba35bf805e11fd3d4" id="r_a847279f7175bbd5ba35bf805e11fd3d4"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a847279f7175bbd5ba35bf805e11fd3d4">GetDescription</a> ()</td></tr>
+<tr class="memdesc:a847279f7175bbd5ba35bf805e11fd3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает описание команды для отображения в UI (например, в истории Undo/Redo).  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс для команд поддерживающих операции Undo/Redo. Каждая команда инкапсулирует действие которое можно выполнить и отменить. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a3125793fafaf19bc197626cc243a8587" name="a3125793fafaf19bc197626cc243a8587"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3125793fafaf19bc197626cc243a8587">&#9670;&#160;</a></span>Execute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BalanceForge.Services.ICommand.Execute </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Выполняет команду и применяет изменения к таблице. </p>
+
+<p>Замещается в <a class="el" href="classBalanceForge_1_1Services_1_1AddRowCommand.html#a8814705e576161a729c401967b731102">BalanceForge.Services.AddRowCommand</a>, <a class="el" href="classBalanceForge_1_1Services_1_1DeleteRowCommand.html#acb65f6dfa2b549cd4565fc67a830522a">BalanceForge.Services.DeleteRowCommand</a>, <a class="el" href="classBalanceForge_1_1Services_1_1EditCellCommand.html#afe08d89d1a2c5a9db3e8fab8035d55c9">BalanceForge.Services.EditCellCommand</a> и <a class="el" href="classBalanceForge_1_1Services_1_1MultiDeleteCommand.html#a664fbfc886ce4c305fc6e575b6008989">BalanceForge.Services.MultiDeleteCommand</a>.</p>
+
+</div>
+</div>
+<a id="a847279f7175bbd5ba35bf805e11fd3d4" name="a847279f7175bbd5ba35bf805e11fd3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a847279f7175bbd5ba35bf805e11fd3d4">&#9670;&#160;</a></span>GetDescription()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BalanceForge.Services.ICommand.GetDescription </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получает описание команды для отображения в UI (например, в истории Undo/Redo). </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Строка с кратким описанием действия команды.</dd></dl>
+
+<p>Замещается в <a class="el" href="classBalanceForge_1_1Services_1_1AddRowCommand.html#ac7164a787c55fe8c115aec830fbc7950">BalanceForge.Services.AddRowCommand</a>, <a class="el" href="classBalanceForge_1_1Services_1_1DeleteRowCommand.html#a5bf69b484c10d92635660aeb1ed6eab1">BalanceForge.Services.DeleteRowCommand</a>, <a class="el" href="classBalanceForge_1_1Services_1_1EditCellCommand.html#a411632f9d280628bb1ef61c3aeadbd09">BalanceForge.Services.EditCellCommand</a> и <a class="el" href="classBalanceForge_1_1Services_1_1MultiDeleteCommand.html#a51b547de0a3f9a8929b0dc7cf085bc74">BalanceForge.Services.MultiDeleteCommand</a>.</p>
+
+</div>
+</div>
+<a id="afa9a895c42cacb66d9777dc90813a94e" name="afa9a895c42cacb66d9777dc90813a94e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa9a895c42cacb66d9777dc90813a94e">&#9670;&#160;</a></span>Undo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BalanceForge.Services.ICommand.Undo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отменяет команду восстанавливая предыдущее состояние. </p>
+
+<p>Замещается в <a class="el" href="classBalanceForge_1_1Services_1_1AddRowCommand.html#a90620f5aa5a0363f242bae9064a990ab">BalanceForge.Services.AddRowCommand</a>, <a class="el" href="classBalanceForge_1_1Services_1_1DeleteRowCommand.html#aa9c8f08b83816cfd916e0f14929e36de">BalanceForge.Services.DeleteRowCommand</a>, <a class="el" href="classBalanceForge_1_1Services_1_1EditCellCommand.html#acd3d586c9783c4c5d786a7c394192943">BalanceForge.Services.EditCellCommand</a> и <a class="el" href="classBalanceForge_1_1Services_1_1MultiDeleteCommand.html#ae71a24f1f8c64ac8a41882129b6ebec0">BalanceForge.Services.MultiDeleteCommand</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов интерфейса находятся в файле:<ul>
+<li>BalanceForge/Services/<a class="el" href="Commands_8cs.html">Commands.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespaceBalanceForge.html">BalanceForge</a></li><li class="navelem"><a href="namespaceBalanceForge_1_1Services.html">Services</a></li><li class="navelem"><a href="interfaceBalanceForge_1_1Services_1_1ICommand.html">ICommand</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

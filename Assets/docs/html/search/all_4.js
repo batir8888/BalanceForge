@@ -1,0 +1,16 @@
+var searchData=
+[
+  ['editcellcommand_0',['EditCellCommand',['../classBalanceForge_1_1Services_1_1EditCellCommand.html',1,'BalanceForge.Services.EditCellCommand'],['../classBalanceForge_1_1Services_1_1EditCellCommand.html#a4a6666462ce3d7b9cee00d0c6704c2e9',1,'BalanceForge.Services.EditCellCommand.EditCellCommand()']]],
+  ['endswith_1',['EndsWith',['../namespaceBalanceForge_1_1Data_1_1Operations.html#a54b29a8b689ccee2e032054372f702eda213068b7e25d045126e9b1702fae80db',1,'BalanceForge::Data::Operations']]],
+  ['enum_2',['Enum',['../namespaceBalanceForge_1_1Core_1_1Data.html#ac4a077c5c7eadcbd7efb29ff7d59fde7acf20423ed48998082c20099488a0917c',1,'BalanceForge::Core::Data']]],
+  ['enumdefinition_3',['EnumDefinition',['../classBalanceForge_1_1Core_1_1Data_1_1EnumDefinition.html',1,'BalanceForge.Core.Data.EnumDefinition'],['../classBalanceForge_1_1Core_1_1Data_1_1ColumnDefinition.html#aac8a73b0f2103d654bce928ae1393f94',1,'BalanceForge.Core.Data.ColumnDefinition.EnumDefinition'],['../classBalanceForge_1_1Core_1_1Data_1_1EnumDefinition.html#a257e1a6c61c4c5e857f7ea4ea07144ff',1,'BalanceForge.Core.Data.EnumDefinition.EnumDefinition()']]],
+  ['enumdefinition_2ecs_4',['EnumDefinition.cs',['../EnumDefinition_8cs.html',1,'']]],
+  ['enumname_5',['EnumName',['../classBalanceForge_1_1Core_1_1Data_1_1EnumDefinition.html#a6b5e29a4b522a862edc1956b8fd396aa',1,'BalanceForge::Core::Data::EnumDefinition']]],
+  ['equals_6',['Equals',['../namespaceBalanceForge_1_1Data_1_1Operations.html#a54b29a8b689ccee2e032054372f702eda0ccb67e7eaae09d9e4078d161eeca100',1,'BalanceForge::Data::Operations']]],
+  ['error_7',['Error',['../namespaceBalanceForge_1_1Core_1_1Data.html#a8bf639737512f86c913051d934077cdfa902b0d55fddef6f8d651fe1035b7d4bd',1,'BalanceForge::Core::Data']]],
+  ['errors_8',['Errors',['../classBalanceForge_1_1Core_1_1Data_1_1ValidationResult.html#a6c0cdd09983d58935fa50b6311b3e747',1,'BalanceForge::Core::Data::ValidationResult']]],
+  ['errorseverity_9',['ErrorSeverity',['../namespaceBalanceForge_1_1Core_1_1Data.html#a8bf639737512f86c913051d934077cdf',1,'BalanceForge::Core::Data']]],
+  ['execute_10',['Execute',['../interfaceBalanceForge_1_1Services_1_1ICommand.html#a3125793fafaf19bc197626cc243a8587',1,'BalanceForge.Services.ICommand.Execute()'],['../classBalanceForge_1_1Services_1_1AddRowCommand.html#a8814705e576161a729c401967b731102',1,'BalanceForge.Services.AddRowCommand.Execute()'],['../classBalanceForge_1_1Services_1_1EditCellCommand.html#afe08d89d1a2c5a9db3e8fab8035d55c9',1,'BalanceForge.Services.EditCellCommand.Execute()'],['../classBalanceForge_1_1Services_1_1DeleteRowCommand.html#acb65f6dfa2b549cd4565fc67a830522a',1,'BalanceForge.Services.DeleteRowCommand.Execute()'],['../classBalanceForge_1_1Services_1_1MultiDeleteCommand.html#a664fbfc886ce4c305fc6e575b6008989',1,'BalanceForge.Services.MultiDeleteCommand.Execute()']]],
+  ['executecommand_11',['ExecuteCommand',['../classBalanceForge_1_1Services_1_1UndoRedoService.html#a556b9c1270aaa3835e7c741d45e2afe2',1,'BalanceForge::Services::UndoRedoService']]],
+  ['export_12',['Export',['../classBalanceForge_1_1ImportExport_1_1CSVExporter.html#a3e12e143dbe890d21e34129f6cba7b10',1,'BalanceForge.ImportExport.CSVExporter.Export()'],['../interfaceBalanceForge_1_1ImportExport_1_1IExporter.html#a0d5ed31cc6020688fb7d0c18dec02179',1,'BalanceForge.ImportExport.IExporter.Export()']]]
+];

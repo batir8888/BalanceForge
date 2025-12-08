@@ -1,0 +1,241 @@
+\doxysection{Класс Balance\+Forge.\+Core.\+Data.\+Balance\+Table}
+\hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable}{}\label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+
+
+Scriptable\+Object для управления таблицей баланса, содержащей определения столбцов и строки данных. Поддерживает операции создания, удаления и валидации строк и столбцов. Автоматически отслеживает время последнего изменения. Доступен для создания через Unity Editor меню\+: \doxylink{namespaceBalanceForge}{Balance\+Forge} \texorpdfstring{$>$}{>} Balance Table.  
+
+
+Граф наследования\+:Balance\+Forge.\+Core.\+Data.\+Balance\+Table\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a715626e6e38c98f516f4793541559c9e}{Add\+Column}} (\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1ColumnDefinition}{Column\+Definition}} column)
+\begin{DoxyCompactList}\small\item\em Добавляет новый столбец в таблицу. Инициализирует значение по умолчанию для всех существующих строк. Обновляет временную метку последнего изменения. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_ae3d6504b3c91a146b56e9f47dabd9127}{Remove\+Column}} (string column\+Id)
+\begin{DoxyCompactList}\small\item\em Удаляет столбец из таблицы по его идентификатору. Очищает значения этого столбца во всех строках (устанавливает null). Обновляет временную метку последнего изменения. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a0eea69c9d56bedaa0a6feee758b64297}{Add\+Row}} ()
+\begin{DoxyCompactList}\small\item\em Добавляет новую строку в таблицу. Инициализирует все значения ячеек значениями по умолчанию из определений столбцов. Обновляет временную метку последнего изменения. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a7771bbb1aa4d5992385c473b6ad2a575}{Remove\+Row}} (string row\+Id)
+\begin{DoxyCompactList}\small\item\em Удаляет строку из таблицы по её идентификатору. Обновляет временную метку последнего изменения при успешном удалении. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_ae53598744a01fc46854b033b6884a5d4}{Get\+Row}} (int index)
+\begin{DoxyCompactList}\small\item\em Получает строку по индексу в списке. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1ColumnDefinition}{Column\+Definition}} \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a7ab71e4417eafba82e61db86c7940239}{Get\+Column}} (string column\+Id)
+\begin{DoxyCompactList}\small\item\em Получает определение столбца по его идентификатору. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1ValidationResult}{Validation\+Result}} \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_afcec64d197f5ffb1f0e12dead6f8e218}{Validate\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Проверяет все данные таблицы на соответствие правилам валидации определенным в столбцах. Создает детальный отчет об ошибках и предупреждениях валидации. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_addeed5c096d86418f889cb136a9c6dd8}{Has\+Structure}} (List$<$ string $>$ column\+Names)
+\begin{DoxyCompactList}\small\item\em Проверяет соответствие структуры таблицы списку имен столбцов. Сравнивает количество столбцов и их отображаемые имена в том же порядке. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Свойства}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_abea77cbdeea84a59c02c8b073733568c}{Table\+Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Получает или устанавливает человекочитаемое имя таблицы. Установка значения автоматически обновляет временную метку последнего изменения. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a022f6e88aec5dd8ce43ac6aa92a10d65}{Table\+Id}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Получает уникальный идентификатор таблицы. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1ColumnDefinition}{Column\+Definition}} $>$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a4dfa0dcece6c1a6249035a6fab9102a3}{Columns}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Получает список определений столбцов таблицы. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} $>$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a594f2b189ab22965f0474b05aaf34842}{Rows}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Получает список строк данных таблицы. \end{DoxyCompactList}\item 
+Date\+Time \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a44eb24c6746e1d1f94f116cc509c10cd}{Last\+Modified}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Получает дату и время последнего изменения таблицы. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Scriptable\+Object для управления таблицей баланса, содержащей определения столбцов и строки данных. Поддерживает операции создания, удаления и валидации строк и столбцов. Автоматически отслеживает время последнего изменения. Доступен для создания через Unity Editor меню\+: \doxylink{namespaceBalanceForge}{Balance\+Forge} \texorpdfstring{$>$}{>} Balance Table. 
+
+\label{doc-func-members}
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a715626e6e38c98f516f4793541559c9e}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}!AddColumn@{AddColumn}}
+\index{AddColumn@{AddColumn}!BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+\doxysubsubsection{\texorpdfstring{AddColumn()}{AddColumn()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a715626e6e38c98f516f4793541559c9e} 
+void Balance\+Forge.\+Core.\+Data.\+Balance\+Table.\+Add\+Column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1ColumnDefinition}{Column\+Definition}}}]{column}{}\end{DoxyParamCaption})}
+
+
+
+Добавляет новый столбец в таблицу. Инициализирует значение по умолчанию для всех существующих строк. Обновляет временную метку последнего изменения. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em column} & Определение столбца для добавления.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a0eea69c9d56bedaa0a6feee758b64297}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}!AddRow@{AddRow}}
+\index{AddRow@{AddRow}!BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+\doxysubsubsection{\texorpdfstring{AddRow()}{AddRow()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a0eea69c9d56bedaa0a6feee758b64297} 
+\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} Balance\+Forge.\+Core.\+Data.\+Balance\+Table.\+Add\+Row (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Добавляет новую строку в таблицу. Инициализирует все значения ячеек значениями по умолчанию из определений столбцов. Обновляет временную метку последнего изменения. 
+
+\begin{DoxyReturn}{Возвращает}
+Новая добавленная строка баланса.
+\end{DoxyReturn}
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a7ab71e4417eafba82e61db86c7940239}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}!GetColumn@{GetColumn}}
+\index{GetColumn@{GetColumn}!BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+\doxysubsubsection{\texorpdfstring{GetColumn()}{GetColumn()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a7ab71e4417eafba82e61db86c7940239} 
+\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1ColumnDefinition}{Column\+Definition}} Balance\+Forge.\+Core.\+Data.\+Balance\+Table.\+Get\+Column (\begin{DoxyParamCaption}\item[{string}]{column\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Получает определение столбца по его идентификатору. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em column\+Id} & Идентификатор столбца для поиска.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Определение столбца или null если столбец с таким ID не найден.
+\end{DoxyReturn}
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_ae53598744a01fc46854b033b6884a5d4}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}!GetRow@{GetRow}}
+\index{GetRow@{GetRow}!BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+\doxysubsubsection{\texorpdfstring{GetRow()}{GetRow()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_ae53598744a01fc46854b033b6884a5d4} 
+\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} Balance\+Forge.\+Core.\+Data.\+Balance\+Table.\+Get\+Row (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+Получает строку по индексу в списке. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em index} & Индекс строки (0-\/based).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Строка баланса по указанному индексу или null если индекс выходит за границы списка.
+\end{DoxyReturn}
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_addeed5c096d86418f889cb136a9c6dd8}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}!HasStructure@{HasStructure}}
+\index{HasStructure@{HasStructure}!BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+\doxysubsubsection{\texorpdfstring{HasStructure()}{HasStructure()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_addeed5c096d86418f889cb136a9c6dd8} 
+bool Balance\+Forge.\+Core.\+Data.\+Balance\+Table.\+Has\+Structure (\begin{DoxyParamCaption}\item[{List$<$ string $>$}]{column\+Names}{}\end{DoxyParamCaption})}
+
+
+
+Проверяет соответствие структуры таблицы списку имен столбцов. Сравнивает количество столбцов и их отображаемые имена в том же порядке. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em column\+Names} & Список ожидаемых отображаемых имен столбцов в правильном порядке.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если таблица имеет точно такую же структуру столбцов, иначе false.
+\end{DoxyReturn}
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_ae3d6504b3c91a146b56e9f47dabd9127}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}!RemoveColumn@{RemoveColumn}}
+\index{RemoveColumn@{RemoveColumn}!BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+\doxysubsubsection{\texorpdfstring{RemoveColumn()}{RemoveColumn()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_ae3d6504b3c91a146b56e9f47dabd9127} 
+void Balance\+Forge.\+Core.\+Data.\+Balance\+Table.\+Remove\+Column (\begin{DoxyParamCaption}\item[{string}]{column\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Удаляет столбец из таблицы по его идентификатору. Очищает значения этого столбца во всех строках (устанавливает null). Обновляет временную метку последнего изменения. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em column\+Id} & Идентификатор столбца для удаления.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a7771bbb1aa4d5992385c473b6ad2a575}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}!RemoveRow@{RemoveRow}}
+\index{RemoveRow@{RemoveRow}!BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+\doxysubsubsection{\texorpdfstring{RemoveRow()}{RemoveRow()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a7771bbb1aa4d5992385c473b6ad2a575} 
+bool Balance\+Forge.\+Core.\+Data.\+Balance\+Table.\+Remove\+Row (\begin{DoxyParamCaption}\item[{string}]{row\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Удаляет строку из таблицы по её идентификатору. Обновляет временную метку последнего изменения при успешном удалении. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em row\+Id} & Идентификатор строки для удаления.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если строка была найдена и удалена, иначе false.
+\end{DoxyReturn}
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_afcec64d197f5ffb1f0e12dead6f8e218}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}!ValidateData@{ValidateData}}
+\index{ValidateData@{ValidateData}!BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+\doxysubsubsection{\texorpdfstring{ValidateData()}{ValidateData()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_afcec64d197f5ffb1f0e12dead6f8e218} 
+\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1ValidationResult}{Validation\+Result}} Balance\+Forge.\+Core.\+Data.\+Balance\+Table.\+Validate\+Data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Проверяет все данные таблицы на соответствие правилам валидации определенным в столбцах. Создает детальный отчет об ошибках и предупреждениях валидации. 
+
+\begin{DoxyReturn}{Возвращает}
+Объект \doxylink{classBalanceForge_1_1Core_1_1Data_1_1ValidationResult}{Validation\+Result}, содержащий список найденных ошибок и статус валидации.
+\end{DoxyReturn}
+
+
+\label{doc-property-members}
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_doc-property-members}
+\doxysubsection{Полный список свойств}
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a4dfa0dcece6c1a6249035a6fab9102a3}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}!Columns@{Columns}}
+\index{Columns@{Columns}!BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+\doxysubsubsection{\texorpdfstring{Columns}{Columns}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a4dfa0dcece6c1a6249035a6fab9102a3} 
+List$<$\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1ColumnDefinition}{Column\+Definition}}$>$ Balance\+Forge.\+Core.\+Data.\+Balance\+Table.\+Columns\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Получает список определений столбцов таблицы. 
+
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a44eb24c6746e1d1f94f116cc509c10cd}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}!LastModified@{LastModified}}
+\index{LastModified@{LastModified}!BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+\doxysubsubsection{\texorpdfstring{LastModified}{LastModified}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a44eb24c6746e1d1f94f116cc509c10cd} 
+Date\+Time Balance\+Forge.\+Core.\+Data.\+Balance\+Table.\+Last\+Modified\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Получает дату и время последнего изменения таблицы. 
+
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a594f2b189ab22965f0474b05aaf34842}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}!Rows@{Rows}}
+\index{Rows@{Rows}!BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+\doxysubsubsection{\texorpdfstring{Rows}{Rows}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a594f2b189ab22965f0474b05aaf34842} 
+List$<$\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}}$>$ Balance\+Forge.\+Core.\+Data.\+Balance\+Table.\+Rows\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Получает список строк данных таблицы. 
+
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a022f6e88aec5dd8ce43ac6aa92a10d65}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}!TableId@{TableId}}
+\index{TableId@{TableId}!BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+\doxysubsubsection{\texorpdfstring{TableId}{TableId}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_a022f6e88aec5dd8ce43ac6aa92a10d65} 
+string Balance\+Forge.\+Core.\+Data.\+Balance\+Table.\+Table\+Id\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Получает уникальный идентификатор таблицы. 
+
+\Hypertarget{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_abea77cbdeea84a59c02c8b073733568c}\index{BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}!TableName@{TableName}}
+\index{TableName@{TableName}!BalanceForge.Core.Data.BalanceTable@{BalanceForge.Core.Data.BalanceTable}}
+\doxysubsubsection{\texorpdfstring{TableName}{TableName}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable_abea77cbdeea84a59c02c8b073733568c} 
+string Balance\+Forge.\+Core.\+Data.\+Balance\+Table.\+Table\+Name\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Получает или устанавливает человекочитаемое имя таблицы. Установка значения автоматически обновляет временную метку последнего изменения. 
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Balance\+Forge/\+Core/\+Data/\mbox{\hyperlink{BalanceTable_8cs}{Balance\+Table.\+cs}}\end{DoxyCompactItemize}

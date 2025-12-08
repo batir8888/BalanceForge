@@ -1,0 +1,755 @@
+\begin{theindex}
+
+  \item {a}
+    \subitem {BalanceForge.Core.Data.ColorSerializable}, \hyperpage{40}
+  \item {AddColumn}
+    \subitem {BalanceForge.Core.Data.BalanceTable}, \hyperpage{33}
+  \item {AddError}
+    \subitem {BalanceForge.Core.Data.ValidationResult}, \hyperpage{77}
+  \item {AddFilter}
+    \subitem {BalanceForge.Data.Operations.CompositeFilter}, 
+		\hyperpage{47}
+  \item {AddRow}
+    \subitem {BalanceForge.Core.Data.BalanceTable}, \hyperpage{33}
+  \item {AddRowCommand}
+    \subitem {BalanceForge.Services.AddRowCommand}, \hyperpage{24}
+  \item {AddValue}
+    \subitem {BalanceForge.Core.Data.EnumDefinition}, \hyperpage{55}
+  \item {And}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{20}
+  \item {Apply}
+    \subitem {BalanceForge.Data.Operations.ColumnFilter}, 
+		\hyperpage{45}
+    \subitem {BalanceForge.Data.Operations.CompositeFilter}, 
+		\hyperpage{47}
+    \subitem {BalanceForge.Data.Operations.IFilter}, \hyperpage{60}
+  \item {Ascending}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{21}
+  \item {AssetReference}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{19}
+  \item {AssetType}
+    \subitem {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{43}
+
+  \indexspace
+
+  \item {b}
+    \subitem {BalanceForge.Core.Data.ColorSerializable}, \hyperpage{40}
+  \item {BalanceForge}, \hyperpage{17}
+  \item {BalanceForge.Core}, \hyperpage{17}
+  \item {BalanceForge.Core.Data}, \hyperpage{17}
+    \subitem {AssetReference}, \hyperpage{19}
+    \subitem {Boolean}, \hyperpage{19}
+    \subitem {Color}, \hyperpage{19}
+    \subitem {ColumnType}, \hyperpage{18}
+    \subitem {Critical}, \hyperpage{19}
+    \subitem {Enum}, \hyperpage{19}
+    \subitem {Error}, \hyperpage{19}
+    \subitem {ErrorSeverity}, \hyperpage{19}
+    \subitem {Float}, \hyperpage{18}
+    \subitem {Integer}, \hyperpage{18}
+    \subitem {String}, \hyperpage{18}
+    \subitem {Vector2}, \hyperpage{19}
+    \subitem {Vector3}, \hyperpage{19}
+    \subitem {Warning}, \hyperpage{19}
+  \item {BalanceForge.Core.Data.BalanceRow}, \hyperpage{29}
+    \subitem {BalanceRow}, \hyperpage{30}
+    \subitem {Clone}, \hyperpage{30}
+    \subitem {CreatedAt}, \hyperpage{31}
+    \subitem {GetValue}, \hyperpage{30}
+    \subitem {OnBeforeSerialize}, \hyperpage{30}
+    \subitem {RowId}, \hyperpage{31}
+    \subitem {SetValue}, \hyperpage{31}
+  \item {BalanceForge.Core.Data.BalanceTable}, \hyperpage{31}
+    \subitem {AddColumn}, \hyperpage{33}
+    \subitem {AddRow}, \hyperpage{33}
+    \subitem {Columns}, \hyperpage{35}
+    \subitem {GetColumn}, \hyperpage{33}
+    \subitem {GetRow}, \hyperpage{33}
+    \subitem {HasStructure}, \hyperpage{34}
+    \subitem {LastModified}, \hyperpage{35}
+    \subitem {RemoveColumn}, \hyperpage{34}
+    \subitem {RemoveRow}, \hyperpage{34}
+    \subitem {Rows}, \hyperpage{35}
+    \subitem {TableId}, \hyperpage{35}
+    \subitem {TableName}, \hyperpage{36}
+    \subitem {ValidateData}, \hyperpage{35}
+  \item {BalanceForge.Core.Data.ColorSerializable}, \hyperpage{39}
+    \subitem {a}, \hyperpage{40}
+    \subitem {b}, \hyperpage{40}
+    \subitem {FromColor}, \hyperpage{39}
+    \subitem {g}, \hyperpage{40}
+    \subitem {r}, \hyperpage{40}
+    \subitem {ToColor}, \hyperpage{39}
+  \item {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{40}
+    \subitem {AssetType}, \hyperpage{43}
+    \subitem {ColumnDefinition}, \hyperpage{42}
+    \subitem {ColumnId}, \hyperpage{43}
+    \subitem {DataType}, \hyperpage{43}
+    \subitem {DefaultValue}, \hyperpage{43}
+    \subitem {DisplayName}, \hyperpage{44}
+    \subitem {EnumDefinition}, \hyperpage{44}
+    \subitem {GetAssetType}, \hyperpage{42}
+    \subitem {GetTypeName}, \hyperpage{42}
+    \subitem {IsRequired}, \hyperpage{44}
+    \subitem {SetAssetType}, \hyperpage{42}
+    \subitem {Validate}, \hyperpage{43}
+    \subitem {Validator}, \hyperpage{44}
+  \item {BalanceForge.Core.Data.EnumDefinition}, \hyperpage{53}
+    \subitem {AddValue}, \hyperpage{55}
+    \subitem {EnumDefinition}, \hyperpage{54}
+    \subitem {EnumName}, \hyperpage{55}
+    \subitem {GetIndex}, \hyperpage{55}
+    \subitem {RemoveValue}, \hyperpage{55}
+    \subitem {Values}, \hyperpage{55}
+  \item {BalanceForge.Core.Data.SerializableDictionary$<$ TKey, TValue $>$}, 
+		\hyperpage{70}
+    \subitem {OnAfterDeserialize}, \hyperpage{70}
+    \subitem {OnBeforeSerialize}, \hyperpage{70}
+  \item {BalanceForge.Core.Data.ValidationError}, \hyperpage{75}
+    \subitem {ColumnId}, \hyperpage{76}
+    \subitem {Message}, \hyperpage{76}
+    \subitem {RowId}, \hyperpage{76}
+    \subitem {Severity}, \hyperpage{76}
+    \subitem {ValidationError}, \hyperpage{75}
+  \item {BalanceForge.Core.Data.ValidationResult}, \hyperpage{76}
+    \subitem {AddError}, \hyperpage{77}
+    \subitem {Errors}, \hyperpage{78}
+    \subitem {HasErrors}, \hyperpage{77}
+    \subitem {IsValid}, \hyperpage{78}
+    \subitem {ValidationResult}, \hyperpage{77}
+  \item {BalanceForge.Core.Data.Vector2Serializable}, \hyperpage{78}
+    \subitem {FromVector2}, \hyperpage{79}
+    \subitem {ToVector2}, \hyperpage{79}
+    \subitem {x}, \hyperpage{79}
+    \subitem {y}, \hyperpage{79}
+  \item {BalanceForge.Core.Data.Vector3Serializable}, \hyperpage{80}
+    \subitem {FromVector3}, \hyperpage{80}
+    \subitem {ToVector3}, \hyperpage{80}
+    \subitem {x}, \hyperpage{81}
+    \subitem {y}, \hyperpage{81}
+    \subitem {z}, \hyperpage{81}
+  \item {BalanceForge.Data}, \hyperpage{19}
+  \item {BalanceForge.Data.Operations}, \hyperpage{19}
+    \subitem {And}, \hyperpage{20}
+    \subitem {Ascending}, \hyperpage{21}
+    \subitem {Contains}, \hyperpage{20}
+    \subitem {Descending}, \hyperpage{21}
+    \subitem {EndsWith}, \hyperpage{20}
+    \subitem {Equals}, \hyperpage{20}
+    \subitem {FilterOperator}, \hyperpage{20}
+    \subitem {GreaterThan}, \hyperpage{20}
+    \subitem {LessThan}, \hyperpage{20}
+    \subitem {LogicalOperator}, \hyperpage{20}
+    \subitem {None}, \hyperpage{21}
+    \subitem {NotEquals}, \hyperpage{20}
+    \subitem {Or}, \hyperpage{20}
+    \subitem {SortDirection}, \hyperpage{20}
+    \subitem {StartsWith}, \hyperpage{20}
+  \item {BalanceForge.Data.Operations.ColumnFilter}, \hyperpage{44}
+    \subitem {Apply}, \hyperpage{45}
+    \subitem {ColumnFilter}, \hyperpage{45}
+  \item {BalanceForge.Data.Operations.CompositeFilter}, \hyperpage{46}
+    \subitem {AddFilter}, \hyperpage{47}
+    \subitem {Apply}, \hyperpage{47}
+    \subitem {CompositeFilter}, \hyperpage{46}
+  \item {BalanceForge.Data.Operations.FilterCondition}, \hyperpage{56}
+    \subitem {ColumnId}, \hyperpage{57}
+    \subitem {Matches}, \hyperpage{56}
+    \subitem {Operator}, \hyperpage{57}
+    \subitem {Value}, \hyperpage{57}
+  \item {BalanceForge.Data.Operations.IFilter}, \hyperpage{59}
+    \subitem {Apply}, \hyperpage{60}
+  \item {BalanceForge.Data.Operations.SortingState}, \hyperpage{71}
+    \subitem {Direction}, \hyperpage{71}
+    \subitem {SortColumnId}, \hyperpage{71}
+    \subitem {Toggle}, \hyperpage{71}
+  \item {BalanceForge.Data.Operations.TableSorter}, \hyperpage{72}
+    \subitem {Sort}, \hyperpage{72}
+  \item {BalanceForge.ImportExport}, \hyperpage{21}
+  \item {BalanceForge.ImportExport.CSVExporter}, \hyperpage{47}
+    \subitem {Export}, \hyperpage{48}
+  \item {BalanceForge.ImportExport.CSVImporter}, \hyperpage{48}
+    \subitem {CanImport}, \hyperpage{49}
+    \subitem {Import}, \hyperpage{49}
+  \item {BalanceForge.ImportExport.IExporter}, \hyperpage{58}
+    \subitem {Export}, \hyperpage{59}
+  \item {BalanceForge.ImportExport.IImporter}, \hyperpage{60}
+    \subitem {CanImport}, \hyperpage{61}
+    \subitem {Import}, \hyperpage{61}
+  \item {BalanceForge.Services}, \hyperpage{21}
+  \item {BalanceForge.Services.AddRowCommand}, \hyperpage{23}
+    \subitem {AddRowCommand}, \hyperpage{24}
+    \subitem {Execute}, \hyperpage{24}
+    \subitem {GetDescription}, \hyperpage{24}
+    \subitem {Undo}, \hyperpage{24}
+  \item {BalanceForge.Services.ClipboardService}, \hyperpage{36}
+    \subitem {CanPaste}, \hyperpage{37}
+    \subitem {Clear}, \hyperpage{37}
+    \subitem {Copy}, \hyperpage{37}
+    \subitem {CopyMultiple}, \hyperpage{38}
+    \subitem {Paste}, \hyperpage{38}
+    \subitem {PasteMultiple}, \hyperpage{38}
+  \item {BalanceForge.Services.DeleteRowCommand}, \hyperpage{50}
+    \subitem {DeleteRowCommand}, \hyperpage{51}
+    \subitem {Execute}, \hyperpage{51}
+    \subitem {GetDescription}, \hyperpage{51}
+    \subitem {Undo}, \hyperpage{51}
+  \item {BalanceForge.Services.EditCellCommand}, \hyperpage{52}
+    \subitem {EditCellCommand}, \hyperpage{52}
+    \subitem {Execute}, \hyperpage{53}
+    \subitem {GetDescription}, \hyperpage{53}
+    \subitem {Undo}, \hyperpage{53}
+  \item {BalanceForge.Services.ICommand}, \hyperpage{57}
+    \subitem {Execute}, \hyperpage{58}
+    \subitem {GetDescription}, \hyperpage{58}
+    \subitem {Undo}, \hyperpage{58}
+  \item {BalanceForge.Services.IValidator}, \hyperpage{62}
+    \subitem {GetErrorMessage}, \hyperpage{62}
+    \subitem {Validate}, \hyperpage{62}
+  \item {BalanceForge.Services.MultiDeleteCommand}, \hyperpage{63}
+    \subitem {Execute}, \hyperpage{64}
+    \subitem {GetDescription}, \hyperpage{64}
+    \subitem {MultiDeleteCommand}, \hyperpage{64}
+    \subitem {Undo}, \hyperpage{64}
+  \item {BalanceForge.Services.RangeValidator}, \hyperpage{65}
+    \subitem {GetErrorMessage}, \hyperpage{66}
+    \subitem {RangeValidator}, \hyperpage{66}
+    \subitem {Validate}, \hyperpage{66}
+  \item {BalanceForge.Services.RegexValidator}, \hyperpage{67}
+    \subitem {GetErrorMessage}, \hyperpage{68}
+    \subitem {RegexValidator}, \hyperpage{67}
+    \subitem {Validate}, \hyperpage{68}
+  \item {BalanceForge.Services.RequiredValidator}, \hyperpage{68}
+    \subitem {GetErrorMessage}, \hyperpage{69}
+    \subitem {Validate}, \hyperpage{69}
+  \item {BalanceForge.Services.UndoRedoService}, \hyperpage{73}
+    \subitem {CanRedo}, \hyperpage{73}
+    \subitem {CanUndo}, \hyperpage{73}
+    \subitem {Clear}, \hyperpage{74}
+    \subitem {ExecuteCommand}, \hyperpage{74}
+    \subitem {Redo}, \hyperpage{74}
+    \subitem {Undo}, \hyperpage{74}
+  \item {BalanceForge.Tests}, \hyperpage{22}
+  \item {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{25}
+    \subitem {Test01\_BalanceRow\_StringValue\_Success}, \hyperpage{25}
+    \subitem {Test02\_BalanceRow\_IntegerValue\_Success}, 
+		\hyperpage{25}
+    \subitem {Test03\_BalanceRow\_FloatValue\_Success}, \hyperpage{26}
+    \subitem {Test04\_BalanceRow\_BooleanValue\_Success}, 
+		\hyperpage{26}
+    \subitem {Test05\_BalanceRow\_Vector2Value\_Success}, 
+		\hyperpage{26}
+    \subitem {Test06\_BalanceRow\_Vector3Value\_Success}, 
+		\hyperpage{26}
+    \subitem {Test07\_BalanceRow\_ColorValue\_Success}, \hyperpage{26}
+    \subitem {Test08\_BalanceRow\_NonExistentColumn\_ReturnsNull}, 
+		\hyperpage{26}
+    \subitem {Test09\_BalanceRow\_NullValue\_HandlesCorrectly}, 
+		\hyperpage{26}
+    \subitem {Test10\_BalanceRow\_Clone\_CreatesIndependentCopy}, 
+		\hyperpage{26}
+    \subitem {Test11\_BalanceTable\_AddColumn\_Succeeds}, 
+		\hyperpage{26}
+    \subitem {Test12\_BalanceTable\_AddRow\_Succeeds}, \hyperpage{26}
+    \subitem {Test13\_BalanceTable\_RemoveRow\_Succeeds}, 
+		\hyperpage{27}
+    \subitem {Test14\_BalanceTable\_RemoveNonExistentRow\_ReturnsFalse}, 
+		\hyperpage{27}
+    \subitem {Test15\_BalanceTable\_ValidateRequiredField\_Fails}, 
+		\hyperpage{27}
+    \subitem {Test16\_TableSorter\_IntegerAscending\_CorrectOrder}, 
+		\hyperpage{27}
+    \subitem {Test17\_TableSorter\_IntegerDescending\_CorrectOrder}, 
+		\hyperpage{27}
+    \subitem {Test18\_TableSorter\_StringAscending\_CorrectOrder}, 
+		\hyperpage{27}
+    \subitem {Test19\_TableSorter\_NullValues\_HandlesGracefully}, 
+		\hyperpage{27}
+    \subitem {Test20\_ColumnFilter\_Equals\_FiltersCorrectly}, 
+		\hyperpage{27}
+    \subitem {Test21\_ColumnFilter\_Contains\_FiltersCorrectly}, 
+		\hyperpage{27}
+    \subitem {Test22\_ColumnFilter\_GreaterThan\_FiltersCorrectly}, 
+		\hyperpage{27}
+    \subitem {Test23\_CompositeFilter\_And\_CombinesCorrectly}, 
+		\hyperpage{28}
+    \subitem {Test24\_UndoRedoService\_ExecuteCommand\_CanUndo}, 
+		\hyperpage{28}
+    \subitem {Test25\_UndoRedoService\_Undo\_RestoresPreviousState}, 
+		\hyperpage{28}
+    \subitem {Test26\_UndoRedoService\_Redo\_ReappliesCommand}, 
+		\hyperpage{28}
+    \subitem {Test27\_RangeValidator\_ValueInRange\_ReturnsTrue}, 
+		\hyperpage{28}
+    \subitem {Test28\_RangeValidator\_ValueOutOfRange\_ReturnsFalse}, 
+		\hyperpage{28}
+    \subitem {Test29\_RequiredValidator\_NonEmptyValue\_ReturnsTrue}, 
+		\hyperpage{28}
+    \subitem {Test30\_RequiredValidator\_EmptyValue\_ReturnsFalse}, 
+		\hyperpage{28}
+    \subitem {Test31\_RegexValidator\_MatchingPattern\_ReturnsTrue}, 
+		\hyperpage{28}
+    \subitem {Test32\_RegexValidator\_NonMatchingPattern\_ReturnsFalse}, 
+		\hyperpage{28}
+    \subitem {Test33\_BalanceTable\_LargeDataset\_PerformsWell}, 
+		\hyperpage{29}
+    \subitem {Test34\_BalanceRow\_RapidUpdates\_MaintainsConsistency}, 
+		\hyperpage{29}
+    \subitem {Test35\_SerializableDictionary\_LargeDataset\_HandlesCorrectly}, 
+		\hyperpage{29}
+  \item {BalanceForge/Core/Data/BalanceRow.cs}, \hyperpage{83}
+  \item {BalanceForge/Core/Data/BalanceTable.cs}, \hyperpage{83}
+  \item {BalanceForge/Core/Data/ColumnDefinition.cs}, \hyperpage{84}
+  \item {BalanceForge/Core/Data/ColumnType.cs}, \hyperpage{84}
+  \item {BalanceForge/Core/Data/EnumDefinition.cs}, \hyperpage{84}
+  \item {BalanceForge/Core/Data/Operations/Filtering.cs}, 
+		\hyperpage{85}
+  \item {BalanceForge/Core/Data/Operations/TableSorter.cs}, 
+		\hyperpage{85}
+  \item {BalanceForge/Core/Data/SerializableDictionary.cs}, 
+		\hyperpage{86}
+  \item {BalanceForge/Core/Data/ValidationResult.cs}, \hyperpage{86}
+  \item {BalanceForge/Editor/UI/BalanceTableEditorWindow.cs}, 
+		\hyperpage{87}
+  \item {BalanceForge/Editor/UI/Windows/CreateTableWizard.cs}, 
+		\hyperpage{87}
+  \item {BalanceForge/ImportExport/CSVExporter.cs}, \hyperpage{87}
+  \item {BalanceForge/ImportExport/CSVImporter.cs}, \hyperpage{87}
+  \item {BalanceForge/Services/ClipboardService.cs}, \hyperpage{88}
+  \item {BalanceForge/Services/Commands.cs}, \hyperpage{88}
+  \item {BalanceForge/Services/IValidator.cs}, \hyperpage{88}
+  \item {BalanceForge/Services/UndoRedoService.cs}, \hyperpage{89}
+  \item {BalanceForge/Services/Validators.cs}, \hyperpage{89}
+  \item {BalanceForge/Tests/Editor/BalanceForgeTests.cs}, 
+		\hyperpage{89}
+  \item {BalanceRow}
+    \subitem {BalanceForge.Core.Data.BalanceRow}, \hyperpage{30}
+  \item {Boolean}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{19}
+
+  \indexspace
+
+  \item {CanImport}
+    \subitem {BalanceForge.ImportExport.CSVImporter}, \hyperpage{49}
+    \subitem {BalanceForge.ImportExport.IImporter}, \hyperpage{61}
+  \item {CanPaste}
+    \subitem {BalanceForge.Services.ClipboardService}, \hyperpage{37}
+  \item {CanRedo}
+    \subitem {BalanceForge.Services.UndoRedoService}, \hyperpage{73}
+  \item {CanUndo}
+    \subitem {BalanceForge.Services.UndoRedoService}, \hyperpage{73}
+  \item {Clear}
+    \subitem {BalanceForge.Services.ClipboardService}, \hyperpage{37}
+    \subitem {BalanceForge.Services.UndoRedoService}, \hyperpage{74}
+  \item {Clone}
+    \subitem {BalanceForge.Core.Data.BalanceRow}, \hyperpage{30}
+  \item {Color}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{19}
+  \item {ColumnDefinition}
+    \subitem {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{42}
+  \item {ColumnFilter}
+    \subitem {BalanceForge.Data.Operations.ColumnFilter}, 
+		\hyperpage{45}
+  \item {ColumnId}
+    \subitem {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{43}
+    \subitem {BalanceForge.Core.Data.ValidationError}, \hyperpage{76}
+    \subitem {BalanceForge.Data.Operations.FilterCondition}, 
+		\hyperpage{57}
+  \item {Columns}
+    \subitem {BalanceForge.Core.Data.BalanceTable}, \hyperpage{35}
+  \item {ColumnType}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{18}
+  \item {CompositeFilter}
+    \subitem {BalanceForge.Data.Operations.CompositeFilter}, 
+		\hyperpage{46}
+  \item {Contains}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{20}
+  \item {Copy}
+    \subitem {BalanceForge.Services.ClipboardService}, \hyperpage{37}
+  \item {CopyMultiple}
+    \subitem {BalanceForge.Services.ClipboardService}, \hyperpage{38}
+  \item {CreatedAt}
+    \subitem {BalanceForge.Core.Data.BalanceRow}, \hyperpage{31}
+  \item {Critical}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{19}
+
+  \indexspace
+
+  \item {DataType}
+    \subitem {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{43}
+  \item {DefaultValue}
+    \subitem {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{43}
+  \item {DeleteRowCommand}
+    \subitem {BalanceForge.Services.DeleteRowCommand}, \hyperpage{51}
+  \item {Descending}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{21}
+  \item {Direction}
+    \subitem {BalanceForge.Data.Operations.SortingState}, 
+		\hyperpage{71}
+  \item {DisplayName}
+    \subitem {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{44}
+
+  \indexspace
+
+  \item {EditCellCommand}
+    \subitem {BalanceForge.Services.EditCellCommand}, \hyperpage{52}
+  \item {EndsWith}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{20}
+  \item {Enum}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{19}
+  \item {EnumDefinition}
+    \subitem {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{44}
+    \subitem {BalanceForge.Core.Data.EnumDefinition}, \hyperpage{54}
+  \item {EnumName}
+    \subitem {BalanceForge.Core.Data.EnumDefinition}, \hyperpage{55}
+  \item {Equals}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{20}
+  \item {Error}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{19}
+  \item {Errors}
+    \subitem {BalanceForge.Core.Data.ValidationResult}, \hyperpage{78}
+  \item {ErrorSeverity}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{19}
+  \item {Execute}
+    \subitem {BalanceForge.Services.AddRowCommand}, \hyperpage{24}
+    \subitem {BalanceForge.Services.DeleteRowCommand}, \hyperpage{51}
+    \subitem {BalanceForge.Services.EditCellCommand}, \hyperpage{53}
+    \subitem {BalanceForge.Services.ICommand}, \hyperpage{58}
+    \subitem {BalanceForge.Services.MultiDeleteCommand}, \hyperpage{64}
+  \item {ExecuteCommand}
+    \subitem {BalanceForge.Services.UndoRedoService}, \hyperpage{74}
+  \item {Export}
+    \subitem {BalanceForge.ImportExport.CSVExporter}, \hyperpage{48}
+    \subitem {BalanceForge.ImportExport.IExporter}, \hyperpage{59}
+
+  \indexspace
+
+  \item {FilterOperator}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{20}
+  \item {Float}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{18}
+  \item {FromColor}
+    \subitem {BalanceForge.Core.Data.ColorSerializable}, \hyperpage{39}
+  \item {FromVector2}
+    \subitem {BalanceForge.Core.Data.Vector2Serializable}, 
+		\hyperpage{79}
+  \item {FromVector3}
+    \subitem {BalanceForge.Core.Data.Vector3Serializable}, 
+		\hyperpage{80}
+
+  \indexspace
+
+  \item {g}
+    \subitem {BalanceForge.Core.Data.ColorSerializable}, \hyperpage{40}
+  \item {GetAssetType}
+    \subitem {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{42}
+  \item {GetColumn}
+    \subitem {BalanceForge.Core.Data.BalanceTable}, \hyperpage{33}
+  \item {GetDescription}
+    \subitem {BalanceForge.Services.AddRowCommand}, \hyperpage{24}
+    \subitem {BalanceForge.Services.DeleteRowCommand}, \hyperpage{51}
+    \subitem {BalanceForge.Services.EditCellCommand}, \hyperpage{53}
+    \subitem {BalanceForge.Services.ICommand}, \hyperpage{58}
+    \subitem {BalanceForge.Services.MultiDeleteCommand}, \hyperpage{64}
+  \item {GetErrorMessage}
+    \subitem {BalanceForge.Services.IValidator}, \hyperpage{62}
+    \subitem {BalanceForge.Services.RangeValidator}, \hyperpage{66}
+    \subitem {BalanceForge.Services.RegexValidator}, \hyperpage{68}
+    \subitem {BalanceForge.Services.RequiredValidator}, \hyperpage{69}
+  \item {GetIndex}
+    \subitem {BalanceForge.Core.Data.EnumDefinition}, \hyperpage{55}
+  \item {GetRow}
+    \subitem {BalanceForge.Core.Data.BalanceTable}, \hyperpage{33}
+  \item {GetTypeName}
+    \subitem {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{42}
+  \item {GetValue}
+    \subitem {BalanceForge.Core.Data.BalanceRow}, \hyperpage{30}
+  \item {GreaterThan}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{20}
+
+  \indexspace
+
+  \item {HasErrors}
+    \subitem {BalanceForge.Core.Data.ValidationResult}, \hyperpage{77}
+  \item {HasStructure}
+    \subitem {BalanceForge.Core.Data.BalanceTable}, \hyperpage{34}
+
+  \indexspace
+
+  \item {Import}
+    \subitem {BalanceForge.ImportExport.CSVImporter}, \hyperpage{49}
+    \subitem {BalanceForge.ImportExport.IImporter}, \hyperpage{61}
+  \item {Integer}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{18}
+  \item {IsRequired}
+    \subitem {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{44}
+  \item {IsValid}
+    \subitem {BalanceForge.Core.Data.ValidationResult}, \hyperpage{78}
+
+  \indexspace
+
+  \item {LastModified}
+    \subitem {BalanceForge.Core.Data.BalanceTable}, \hyperpage{35}
+  \item {LessThan}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{20}
+  \item {LogicalOperator}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{20}
+
+  \indexspace
+
+  \item {Matches}
+    \subitem {BalanceForge.Data.Operations.FilterCondition}, 
+		\hyperpage{56}
+  \item {Message}
+    \subitem {BalanceForge.Core.Data.ValidationError}, \hyperpage{76}
+  \item {MultiDeleteCommand}
+    \subitem {BalanceForge.Services.MultiDeleteCommand}, \hyperpage{64}
+
+  \indexspace
+
+  \item {None}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{21}
+  \item {NotEquals}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{20}
+
+  \indexspace
+
+  \item {OnAfterDeserialize}
+    \subitem {BalanceForge.Core.Data.SerializableDictionary$<$ TKey, TValue $>$}, 
+		\hyperpage{70}
+  \item {OnBeforeSerialize}
+    \subitem {BalanceForge.Core.Data.BalanceRow}, \hyperpage{30}
+    \subitem {BalanceForge.Core.Data.SerializableDictionary$<$ TKey, TValue $>$}, 
+		\hyperpage{70}
+  \item {Operator}
+    \subitem {BalanceForge.Data.Operations.FilterCondition}, 
+		\hyperpage{57}
+  \item {Or}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{20}
+
+  \indexspace
+
+  \item {Paste}
+    \subitem {BalanceForge.Services.ClipboardService}, \hyperpage{38}
+  \item {PasteMultiple}
+    \subitem {BalanceForge.Services.ClipboardService}, \hyperpage{38}
+
+  \indexspace
+
+  \item {r}
+    \subitem {BalanceForge.Core.Data.ColorSerializable}, \hyperpage{40}
+  \item {RangeValidator}
+    \subitem {BalanceForge.Services.RangeValidator}, \hyperpage{66}
+  \item {Redo}
+    \subitem {BalanceForge.Services.UndoRedoService}, \hyperpage{74}
+  \item {RegexValidator}
+    \subitem {BalanceForge.Services.RegexValidator}, \hyperpage{67}
+  \item {RemoveColumn}
+    \subitem {BalanceForge.Core.Data.BalanceTable}, \hyperpage{34}
+  \item {RemoveRow}
+    \subitem {BalanceForge.Core.Data.BalanceTable}, \hyperpage{34}
+  \item {RemoveValue}
+    \subitem {BalanceForge.Core.Data.EnumDefinition}, \hyperpage{55}
+  \item {RowId}
+    \subitem {BalanceForge.Core.Data.BalanceRow}, \hyperpage{31}
+    \subitem {BalanceForge.Core.Data.ValidationError}, \hyperpage{76}
+  \item {Rows}
+    \subitem {BalanceForge.Core.Data.BalanceTable}, \hyperpage{35}
+
+  \indexspace
+
+  \item {SetAssetType}
+    \subitem {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{42}
+  \item {SetValue}
+    \subitem {BalanceForge.Core.Data.BalanceRow}, \hyperpage{31}
+  \item {Severity}
+    \subitem {BalanceForge.Core.Data.ValidationError}, \hyperpage{76}
+  \item {Sort}
+    \subitem {BalanceForge.Data.Operations.TableSorter}, \hyperpage{72}
+  \item {SortColumnId}
+    \subitem {BalanceForge.Data.Operations.SortingState}, 
+		\hyperpage{71}
+  \item {SortDirection}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{20}
+  \item {StartsWith}
+    \subitem {BalanceForge.Data.Operations}, \hyperpage{20}
+  \item {String}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{18}
+
+  \indexspace
+
+  \item {TableId}
+    \subitem {BalanceForge.Core.Data.BalanceTable}, \hyperpage{35}
+  \item {TableName}
+    \subitem {BalanceForge.Core.Data.BalanceTable}, \hyperpage{36}
+  \item {Test01\_BalanceRow\_StringValue\_Success}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{25}
+  \item {Test02\_BalanceRow\_IntegerValue\_Success}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{25}
+  \item {Test03\_BalanceRow\_FloatValue\_Success}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{26}
+  \item {Test04\_BalanceRow\_BooleanValue\_Success}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{26}
+  \item {Test05\_BalanceRow\_Vector2Value\_Success}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{26}
+  \item {Test06\_BalanceRow\_Vector3Value\_Success}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{26}
+  \item {Test07\_BalanceRow\_ColorValue\_Success}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{26}
+  \item {Test08\_BalanceRow\_NonExistentColumn\_ReturnsNull}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{26}
+  \item {Test09\_BalanceRow\_NullValue\_HandlesCorrectly}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{26}
+  \item {Test10\_BalanceRow\_Clone\_CreatesIndependentCopy}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{26}
+  \item {Test11\_BalanceTable\_AddColumn\_Succeeds}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{26}
+  \item {Test12\_BalanceTable\_AddRow\_Succeeds}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{26}
+  \item {Test13\_BalanceTable\_RemoveRow\_Succeeds}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{27}
+  \item {Test14\_BalanceTable\_RemoveNonExistentRow\_ReturnsFalse}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{27}
+  \item {Test15\_BalanceTable\_ValidateRequiredField\_Fails}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{27}
+  \item {Test16\_TableSorter\_IntegerAscending\_CorrectOrder}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{27}
+  \item {Test17\_TableSorter\_IntegerDescending\_CorrectOrder}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{27}
+  \item {Test18\_TableSorter\_StringAscending\_CorrectOrder}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{27}
+  \item {Test19\_TableSorter\_NullValues\_HandlesGracefully}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{27}
+  \item {Test20\_ColumnFilter\_Equals\_FiltersCorrectly}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{27}
+  \item {Test21\_ColumnFilter\_Contains\_FiltersCorrectly}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{27}
+  \item {Test22\_ColumnFilter\_GreaterThan\_FiltersCorrectly}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{27}
+  \item {Test23\_CompositeFilter\_And\_CombinesCorrectly}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{28}
+  \item {Test24\_UndoRedoService\_ExecuteCommand\_CanUndo}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{28}
+  \item {Test25\_UndoRedoService\_Undo\_RestoresPreviousState}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{28}
+  \item {Test26\_UndoRedoService\_Redo\_ReappliesCommand}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{28}
+  \item {Test27\_RangeValidator\_ValueInRange\_ReturnsTrue}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{28}
+  \item {Test28\_RangeValidator\_ValueOutOfRange\_ReturnsFalse}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{28}
+  \item {Test29\_RequiredValidator\_NonEmptyValue\_ReturnsTrue}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{28}
+  \item {Test30\_RequiredValidator\_EmptyValue\_ReturnsFalse}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{28}
+  \item {Test31\_RegexValidator\_MatchingPattern\_ReturnsTrue}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{28}
+  \item {Test32\_RegexValidator\_NonMatchingPattern\_ReturnsFalse}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{28}
+  \item {Test33\_BalanceTable\_LargeDataset\_PerformsWell}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{29}
+  \item {Test34\_BalanceRow\_RapidUpdates\_MaintainsConsistency}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{29}
+  \item {Test35\_SerializableDictionary\_LargeDataset\_HandlesCorrectly}
+    \subitem {BalanceForge.Tests.BalanceForgeTests}, \hyperpage{29}
+  \item {ToColor}
+    \subitem {BalanceForge.Core.Data.ColorSerializable}, \hyperpage{39}
+  \item {Toggle}
+    \subitem {BalanceForge.Data.Operations.SortingState}, 
+		\hyperpage{71}
+  \item {ToVector2}
+    \subitem {BalanceForge.Core.Data.Vector2Serializable}, 
+		\hyperpage{79}
+  \item {ToVector3}
+    \subitem {BalanceForge.Core.Data.Vector3Serializable}, 
+		\hyperpage{80}
+
+  \indexspace
+
+  \item {Undo}
+    \subitem {BalanceForge.Services.AddRowCommand}, \hyperpage{24}
+    \subitem {BalanceForge.Services.DeleteRowCommand}, \hyperpage{51}
+    \subitem {BalanceForge.Services.EditCellCommand}, \hyperpage{53}
+    \subitem {BalanceForge.Services.ICommand}, \hyperpage{58}
+    \subitem {BalanceForge.Services.MultiDeleteCommand}, \hyperpage{64}
+    \subitem {BalanceForge.Services.UndoRedoService}, \hyperpage{74}
+
+  \indexspace
+
+  \item {Validate}
+    \subitem {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{43}
+    \subitem {BalanceForge.Services.IValidator}, \hyperpage{62}
+    \subitem {BalanceForge.Services.RangeValidator}, \hyperpage{66}
+    \subitem {BalanceForge.Services.RegexValidator}, \hyperpage{68}
+    \subitem {BalanceForge.Services.RequiredValidator}, \hyperpage{69}
+  \item {ValidateData}
+    \subitem {BalanceForge.Core.Data.BalanceTable}, \hyperpage{35}
+  \item {ValidationError}
+    \subitem {BalanceForge.Core.Data.ValidationError}, \hyperpage{75}
+  \item {ValidationResult}
+    \subitem {BalanceForge.Core.Data.ValidationResult}, \hyperpage{77}
+  \item {Validator}
+    \subitem {BalanceForge.Core.Data.ColumnDefinition}, \hyperpage{44}
+  \item {Value}
+    \subitem {BalanceForge.Data.Operations.FilterCondition}, 
+		\hyperpage{57}
+  \item {Values}
+    \subitem {BalanceForge.Core.Data.EnumDefinition}, \hyperpage{55}
+  \item {Vector2}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{19}
+  \item {Vector3}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{19}
+
+  \indexspace
+
+  \item {Warning}
+    \subitem {BalanceForge.Core.Data}, \hyperpage{19}
+
+  \indexspace
+
+  \item {x}
+    \subitem {BalanceForge.Core.Data.Vector2Serializable}, 
+		\hyperpage{79}
+    \subitem {BalanceForge.Core.Data.Vector3Serializable}, 
+		\hyperpage{81}
+
+  \indexspace
+
+  \item {y}
+    \subitem {BalanceForge.Core.Data.Vector2Serializable}, 
+		\hyperpage{79}
+    \subitem {BalanceForge.Core.Data.Vector3Serializable}, 
+		\hyperpage{81}
+
+  \indexspace
+
+  \item {z}
+    \subitem {BalanceForge.Core.Data.Vector3Serializable}, 
+		\hyperpage{81}
+
+  \indexspace
+
+  \item {Содержание директории BalanceForge}, 
+		\hyperpage{13}
+  \item {Содержание директории BalanceForge/Core}, 
+		\hyperpage{13}
+  \item {Содержание директории BalanceForge/Core/Data}, 
+		\hyperpage{13}
+  \item {Содержание директории BalanceForge/Core/Data/Operations}, 
+		\hyperpage{14}
+  \item {Содержание директории BalanceForge/Editor}, 
+		\hyperpage{14}
+  \item {Содержание директории BalanceForge/Editor/UI}, 
+		\hyperpage{15}
+  \item {Содержание директории BalanceForge/Editor/UI/Windows}, 
+		\hyperpage{15}
+  \item {Содержание директории BalanceForge/ImportExport}, 
+		\hyperpage{14}
+  \item {Содержание директории BalanceForge/Services}, 
+		\hyperpage{14}
+  \item {Содержание директории BalanceForge/Tests}, 
+		\hyperpage{14}
+  \item {Содержание директории BalanceForge/Tests/Editor}, 
+		\hyperpage{14}
+
+\end{theindex}
