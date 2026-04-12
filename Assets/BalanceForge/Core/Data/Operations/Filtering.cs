@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 using BalanceForge.Core.Data;
 
 namespace BalanceForge.Data.Operations
@@ -35,7 +37,9 @@ namespace BalanceForge.Data.Operations
         /// <summary>Начинается с.</summary>
         StartsWith,
         /// <summary>Заканчивается на.</summary>
-        EndsWith
+        EndsWith,
+        /// <summary>Соответствует регулярному выражению (только для String).</summary>
+        Regex,
     }
     
     /// <summary>
@@ -68,9 +72,9 @@ namespace BalanceForge.Data.Operations
             var cellValue = row.GetValue(ColumnId);
             if (cellValue == null) return false;
             
-            string cellStr = cellValue.ToString();
+            string cellStr  = cellValue.ToString();
             string valueStr = Value?.ToString() ?? "";
-            
+
             switch (Operator)
             {
                 case FilterOperator.Equals:
@@ -84,13 +88,19 @@ namespace BalanceForge.Data.Operations
                 case FilterOperator.EndsWith:
                     return cellStr.EndsWith(valueStr, System.StringComparison.OrdinalIgnoreCase);
                 case FilterOperator.GreaterThan:
-                    if (float.TryParse(cellStr, out float cellFloat) && float.TryParse(valueStr, out float valueFloat))
-                        return cellFloat > valueFloat;
-                    return cellStr.CompareTo(valueStr) > 0;
+                    if (float.TryParse(cellStr,  NumberStyles.Float, CultureInfo.InvariantCulture, out float cf1) &&
+                        float.TryParse(valueStr, NumberStyles.Float, CultureInfo.InvariantCulture, out float vf1))
+                        return cf1 > vf1;
+                    return string.Compare(cellStr, valueStr, System.StringComparison.OrdinalIgnoreCase) > 0;
                 case FilterOperator.LessThan:
-                    if (float.TryParse(cellStr, out float cellFloat2) && float.TryParse(valueStr, out float valueFloat2))
-                        return cellFloat2 < valueFloat2;
-                    return cellStr.CompareTo(valueStr) < 0;
+                    if (float.TryParse(cellStr,  NumberStyles.Float, CultureInfo.InvariantCulture, out float cf2) &&
+                        float.TryParse(valueStr, NumberStyles.Float, CultureInfo.InvariantCulture, out float vf2))
+                        return cf2 < vf2;
+                    return string.Compare(cellStr, valueStr, System.StringComparison.OrdinalIgnoreCase) < 0;
+                case FilterOperator.Regex:
+                    if (string.IsNullOrEmpty(valueStr)) return true;
+                    try   { return System.Text.RegularExpressions.Regex.IsMatch(cellStr, valueStr); }
+                    catch { return false; } // невалидный паттерн → строка не проходит
                 default:
                     return false;
             }

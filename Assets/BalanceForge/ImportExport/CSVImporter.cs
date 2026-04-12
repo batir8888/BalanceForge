@@ -1,7 +1,8 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Linq;
+using System.Globalization;
+using System.Text;
 using UnityEngine;
 using BalanceForge.Core.Data;
 
@@ -72,25 +73,77 @@ namespace BalanceForge.ImportExport
         }
         
         /// <summary>
-        /// Парсит содержимое CSV файла в список массивов строк.
-        /// Каждая строка файла преобразуется в массив значений разделенных запятыми.
-        /// Пустые строки пропускаются, значения обрезаются от пробелов.
+        /// Парсит содержимое CSV файла в список массивов строк по стандарту RFC 4180.
+        /// Поддерживает quoted-поля (с запятыми, кавычками и переносами строк внутри),
+        /// строки \r\n и \n. Пустые строки пропускаются.
         /// </summary>
-        /// <param name="content">Содержимое CSV файла в виде строки.</param>
-        /// <returns>Список массивов строк, где каждый массив представляет одну строку CSV.</returns>
         private List<string[]> ParseCSV(string content)
         {
             var result = new List<string[]>();
-            var lines = content.Split('\n');
-            
-            foreach (var line in lines)
+            int pos = 0;
+
+            while (pos < content.Length)
             {
-                if (!string.IsNullOrWhiteSpace(line))
+                var fields = new List<string>();
+
+                // Читаем одну логическую строку (может быть multi-line при quoted-полях)
+                while (true)
                 {
-                    result.Add(line.Split(',').Select(s => s.Trim()).ToArray());
+                    var field = new StringBuilder();
+                    if (pos < content.Length && content[pos] == '"')
+                    {
+                        // Quoted field
+                        pos++; // skip opening quote
+                        while (pos < content.Length)
+                        {
+                            char c = content[pos];
+                            if (c == '"')
+                            {
+                                pos++;
+                                if (pos < content.Length && content[pos] == '"')
+                                {
+                                    field.Append('"'); // escaped quote
+                                    pos++;
+                                }
+                                else
+                                {
+                                    break; // end of quoted field
+                                }
+                            }
+                            else
+                            {
+                                field.Append(c);
+                                pos++;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // Unquoted field — read until comma or line ending
+                        while (pos < content.Length && content[pos] != ',' && content[pos] != '\n' && content[pos] != '\r')
+                        {
+                            field.Append(content[pos]);
+                            pos++;
+                        }
+                    }
+
+                    fields.Add(field.ToString().Trim());
+
+                    if (pos >= content.Length || content[pos] == '\n' || content[pos] == '\r')
+                        break;
+
+                    if (content[pos] == ',')
+                        pos++; // skip separator, read next field
                 }
+
+                // Skip line ending (\r\n or \n)
+                if (pos < content.Length && content[pos] == '\r') pos++;
+                if (pos < content.Length && content[pos] == '\n') pos++;
+
+                if (fields.Count > 0 && !(fields.Count == 1 && string.IsNullOrWhiteSpace(fields[0])))
+                    result.Add(fields.ToArray());
             }
-            
+
             return result;
         }
         
@@ -126,9 +179,9 @@ namespace BalanceForge.ImportExport
                         {
                             var value = data[j][i];
                             
-                            if (!int.TryParse(value, out _))
+                            if (!int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out _))
                                 allInts = false;
-                            if (!float.TryParse(value, out _))
+                            if (!float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out _))
                                 allFloats = false;
                             if (!bool.TryParse(value, out _))
                                 allBools = false;
@@ -175,9 +228,9 @@ namespace BalanceForge.ImportExport
                 switch (type)
                 {
                     case ColumnType.Integer:
-                        return int.Parse(value);
+                        return int.Parse(value, CultureInfo.InvariantCulture);
                     case ColumnType.Float:
-                        return float.Parse(value);
+                        return float.Parse(value, CultureInfo.InvariantCulture);
                     case ColumnType.Boolean:
                         return bool.Parse(value);
                     default:

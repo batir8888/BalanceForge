@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace BalanceForge.Services
@@ -41,7 +42,7 @@ namespace BalanceForge.Services
         {
             if (value == null) return false;
             
-            if (float.TryParse(value.ToString(), out float floatValue))
+            if (float.TryParse(value.ToString(), NumberStyles.Float, CultureInfo.InvariantCulture, out float floatValue))
             {
                 return floatValue >= minValue && floatValue <= maxValue;
             }
@@ -84,7 +85,7 @@ namespace BalanceForge.Services
         public RegexValidator(string pattern)
         {
             this.pattern = pattern;
-            this.regex = new Regex(pattern);
+            this.regex = new Regex(pattern, RegexOptions.Compiled);
         }
         
         /// <summary>

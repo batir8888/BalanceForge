@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 namespace BalanceForge.Core.Data
@@ -10,7 +11,7 @@ namespace BalanceForge.Core.Data
     /// Поддерживает примитивные типы (int, float, bool), Vector2/3, Color и Asset References.
     /// </summary>
     [Serializable]
-    public class BalanceRow
+    public class BalanceRow : ISerializationCallbackReceiver
     {
         /// <summary>
         /// Уникальный идентификатор строки.
@@ -46,6 +47,12 @@ namespace BalanceForge.Core.Data
         /// Runtime словарь значений ячеек. Используется для быстрого доступа и не сохраняется.
         /// </summary>
         [NonSerialized] private Dictionary<string, object> cellValues;
+
+        /// <summary>
+        /// Флаг, указывающий что десериализация из сохранённых данных уже была выполнена.
+        /// Предотвращает повторную десериализацию при каждом обращении к пустым строкам.
+        /// </summary>
+        [NonSerialized] private bool _isDeserialized;
         
         /// <summary>
         /// Получает уникальный идентификатор строки.
@@ -78,10 +85,9 @@ namespace BalanceForge.Core.Data
         /// <returns>Значение ячейки в правильном типе или null если значение не найдено.</returns>
         public object GetValue(string columnId)
         {
-            // КРИТИЧНО: Всегда десериализуем из сохранённых данных
-            if (cellValues == null || cellValues.Count == 0)
+            if (cellValues == null || !_isDeserialized)
                 DeserializeCellValues();
-                
+
             return cellValues.TryGetValue(columnId, out var value) ? value : null;
         }
         
@@ -110,7 +116,7 @@ namespace BalanceForge.Core.Data
             cellTypesMap[columnId] = typeName;
             
             // Сериализуем значение для сохранения
-            string serializedValue = SerializeValue(value, typeName);
+            string serializedValue = SerializeValue(value, typeName, columnId);
             cellValuesSerialized[columnId] = serializedValue;
         }
         
@@ -169,7 +175,8 @@ namespace BalanceForge.Core.Data
         private void DeserializeCellValues()
         {
             cellValues = new Dictionary<string, object>();
-            
+            _isDeserialized = true;
+
             if (cellValuesSerialized == null)
                 return;
             
@@ -219,7 +226,7 @@ namespace BalanceForge.Core.Data
         /// <param name="value">Значение для сериализации.</param>
         /// <param name="typeName">Тип значения для выбора правильного способа сериализации.</param>
         /// <returns>Строковое представление значения.</returns>
-        private string SerializeValue(object value, string typeName)
+        private string SerializeValue(object value, string typeName, string columnId = null)
         {
             if (value == null) 
                 return string.Empty;
@@ -227,10 +234,12 @@ namespace BalanceForge.Core.Data
             switch (typeName)
             {
                 case "String":
-                case "Integer":
-                case "Float":
                 case "Boolean":
                     return value.ToString();
+                case "Integer":
+                    return Convert.ToInt32(value).ToString(CultureInfo.InvariantCulture);
+                case "Float":
+                    return Convert.ToSingle(value).ToString("R", CultureInfo.InvariantCulture);
                     
                 case "Vector2":
                     return JsonUtility.ToJson(Vector2Serializable.FromVector2((Vector2)value));
@@ -245,7 +254,7 @@ namespace BalanceForge.Core.Data
                     // Unity Objects сохраняем отдельно
                     if (value is UnityEngine.Object unityObj)
                     {
-                        string key = GetAssetKey(typeName, unityObj);
+                        string key = GetAssetKey(columnId, unityObj);
                         int index = assetReferenceKeys.IndexOf(key);
                         if (index == -1)
                         {
@@ -280,10 +289,10 @@ namespace BalanceForge.Core.Data
                 switch (typeName)
                 {
                     case "Integer":
-                        return int.Parse(serialized);
-                        
+                        return int.Parse(serialized, CultureInfo.InvariantCulture);
+
                     case "Float":
-                        return float.Parse(serialized);
+                        return float.Parse(serialized, CultureInfo.InvariantCulture);
                         
                     case "Boolean":
                         return bool.Parse(serialized);
@@ -358,20 +367,26 @@ namespace BalanceForge.Core.Data
         /// </summary>
         public void OnBeforeSerialize()
         {
-            // Убеждаемся что cellValuesSerialized актуален
-            if (cellValues != null && cellValuesSerialized != null)
+            if (cellValues == null || cellValuesSerialized == null)
+                return;
+
+            // Синхронизируем ВСЕ значения, включая обновлённые
+            foreach (var kvp in cellValues)
             {
-                // Синхронизируем все значения
-                foreach (var kvp in cellValues)
-                {
-                    if (!cellValuesSerialized.ContainsKey(kvp.Key))
-                    {
-                        string typeName = GetTypeName(kvp.Value);
-                        cellTypesMap[kvp.Key] = typeName;
-                        cellValuesSerialized[kvp.Key] = SerializeValue(kvp.Value, typeName);
-                    }
-                }
+                string typeName = GetTypeName(kvp.Value);
+                cellTypesMap[kvp.Key] = typeName;
+                cellValuesSerialized[kvp.Key] = SerializeValue(kvp.Value, typeName, kvp.Key);
             }
+        }
+
+        /// <summary>
+        /// Вызывается Unity после десериализации для сброса флага, чтобы runtime-словарь
+        /// был перестроен из актуальных сериализованных данных при первом обращении.
+        /// </summary>
+        public void OnAfterDeserialize()
+        {
+            _isDeserialized = false;
+            cellValues = null;
         }
     }
     

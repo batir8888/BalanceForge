@@ -1,8 +1,0 @@
-var searchData=
-[
-  ['editcellcommand_0',['EditCellCommand',['../classBalanceForge_1_1Services_1_1EditCellCommand.html#a4a6666462ce3d7b9cee00d0c6704c2e9',1,'BalanceForge::Services::EditCellCommand']]],
-  ['enumdefinition_1',['EnumDefinition',['../classBalanceForge_1_1Core_1_1Data_1_1EnumDefinition.html#a257e1a6c61c4c5e857f7ea4ea07144ff',1,'BalanceForge::Core::Data::EnumDefinition']]],
-  ['execute_2',['Execute',['../interfaceBalanceForge_1_1Services_1_1ICommand.html#a3125793fafaf19bc197626cc243a8587',1,'BalanceForge.Services.ICommand.Execute()'],['../classBalanceForge_1_1Services_1_1AddRowCommand.html#a8814705e576161a729c401967b731102',1,'BalanceForge.Services.AddRowCommand.Execute()'],['../classBalanceForge_1_1Services_1_1EditCellCommand.html#afe08d89d1a2c5a9db3e8fab8035d55c9',1,'BalanceForge.Services.EditCellCommand.Execute()'],['../classBalanceForge_1_1Services_1_1DeleteRowCommand.html#acb65f6dfa2b549cd4565fc67a830522a',1,'BalanceForge.Services.DeleteRowCommand.Execute()'],['../classBalanceForge_1_1Services_1_1MultiDeleteCommand.html#a664fbfc886ce4c305fc6e575b6008989',1,'BalanceForge.Services.MultiDeleteCommand.Execute()']]],
-  ['executecommand_3',['ExecuteCommand',['../classBalanceForge_1_1Services_1_1UndoRedoService.html#a556b9c1270aaa3835e7c741d45e2afe2',1,'BalanceForge::Services::UndoRedoService']]],
-  ['export_4',['Export',['../classBalanceForge_1_1ImportExport_1_1CSVExporter.html#a3e12e143dbe890d21e34129f6cba7b10',1,'BalanceForge.ImportExport.CSVExporter.Export()'],['../interfaceBalanceForge_1_1ImportExport_1_1IExporter.html#a0d5ed31cc6020688fb7d0c18dec02179',1,'BalanceForge.ImportExport.IExporter.Export()']]]
-];

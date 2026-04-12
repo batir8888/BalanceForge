@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using UnityEngine;
 using BalanceForge.Services;
 
@@ -210,9 +211,9 @@ namespace BalanceForge.Core.Data
                 switch (dataType)
                 {
                     case ColumnType.Integer:
-                        return int.Parse(serialized);
+                        return int.Parse(serialized, CultureInfo.InvariantCulture);
                     case ColumnType.Float:
-                        return float.Parse(serialized);
+                        return float.Parse(serialized, CultureInfo.InvariantCulture);
                     case ColumnType.Boolean:
                         return bool.Parse(serialized);
                     case ColumnType.Vector2:
@@ -248,7 +249,7 @@ namespace BalanceForge.Core.Data
                 case ColumnType.Vector2: return Vector2.zero;
                 case ColumnType.Vector3: return Vector3.zero;
                 case ColumnType.Color: return Color.white;
-                case ColumnType.Enum: return enumDefinition?.Values.Count > 0 ? enumDefinition.Values[0] : "";
+                case ColumnType.Enum: return (enumDefinition != null && enumDefinition.Values != null && enumDefinition.Values.Count > 0) ? enumDefinition.Values[0] : "";
                 default: return string.Empty;
             }
         }

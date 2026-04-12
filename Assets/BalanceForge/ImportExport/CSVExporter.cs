@@ -41,30 +41,42 @@ namespace BalanceForge.ImportExport
         private string ConvertToCSV(BalanceTable table)
         {
             var sb = new StringBuilder();
-            
+
             // Header
             for (int i = 0; i < table.Columns.Count; i++)
             {
-                sb.Append(table.Columns[i].DisplayName);
+                sb.Append(EscapeCSVField(table.Columns[i].DisplayName));
                 if (i < table.Columns.Count - 1)
                     sb.Append(",");
             }
             sb.AppendLine();
-            
+
             // Rows
             foreach (var row in table.Rows)
             {
                 for (int i = 0; i < table.Columns.Count; i++)
                 {
                     var value = row.GetValue(table.Columns[i].ColumnId);
-                    sb.Append(value?.ToString() ?? "");
+                    sb.Append(EscapeCSVField(value?.ToString() ?? ""));
                     if (i < table.Columns.Count - 1)
                         sb.Append(",");
                 }
                 sb.AppendLine();
             }
-            
+
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Экранирует значение поля по стандарту RFC 4180.
+        /// Оборачивает в кавычки если поле содержит запятую, кавычку или перенос строки.
+        /// Удваивает кавычки внутри поля.
+        /// </summary>
+        private static string EscapeCSVField(string field)
+        {
+            if (field.IndexOfAny(new[] { ',', '"', '\n', '\r' }) >= 0)
+                return "\"" + field.Replace("\"", "\"\"") + "\"";
+            return field;
         }
     }
     

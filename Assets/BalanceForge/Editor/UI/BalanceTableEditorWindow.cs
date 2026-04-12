@@ -1,1073 +1,724 @@
 #if UNITY_EDITOR
-using UnityEngine;
-using UnityEditor;
-using BalanceForge.Core.Data;
-using BalanceForge.Services;
-using BalanceForge.Data.Operations;
-using BalanceForge.ImportExport;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
+using UnityEditor.UIElements;
+using UnityEngine;
+using UnityEngine.UIElements;
+using BalanceForge.Core.Data;
+using BalanceForge.Data.Operations;
+using BalanceForge.ImportExport;
+using BalanceForge.Services;
+// Disambiguate from UnityEngine.UIElements.SortDirection
+using BFSortDirection = BalanceForge.Data.Operations.SortDirection;
 
 namespace BalanceForge.Editor.UI
 {
-    /// <summary>
-    /// Главное окно редактора для редактирования таблиц баланса в Unity Editor.
-    /// Предоставляет интерфейс для просмотра, редактирования, сортировки и фильтрации строк и столбцов.
-    /// Поддерживает операции Undo/Redo, импорт/экспорт CSV, валидацию данных и копирование/вставку.
-    /// Оптимизирован для работы с большими таблицами благодаря виртуальной прокрутке и кэшированию.
-    /// Доступен через меню Window > BalanceForge > Table Editor.
-    /// </summary>
     public class BalanceTableEditorWindow : EditorWindow
     {
-        /// <summary>
-        /// Текущая редактируемая таблица баланса.
-        /// </summary>
+        // ── State ────────────────────────────────────────────────
         private BalanceTable currentTable;
-        
-        /// <summary>
-        /// Сервис управления операциями Undo/Redo.
-        /// </summary>
-        private UndoRedoService undoRedoService;
-        
-        /// <summary>
-        /// Позиция прокрутки окна таблицы.
-        /// </summary>
-        private Vector2 scrollPosition;
-        
-        /// <summary>
-        /// Флаг отображения панели валидации.
-        /// </summary>
-        private bool showValidation = false;
-        
-        /// <summary>
-        /// Результат последней проверки валидации.
-        /// </summary>
-        private ValidationResult validationResult;
-        
-        /// <summary>
-        /// Состояние сортировки таблицы (текущий столбец и направление).
-        /// </summary>
-        private SortingState sortingState = new SortingState();
-        
-        /// <summary>
-        /// Список строк для отображения, применены фильтры и сортировка.
-        /// </summary>
-        private List<BalanceRow> displayedRows;
-        
-        /// <summary>
-        /// Флаг видимости панели фильтрации.
-        /// </summary>
-        private bool showFilterPanel = false;
-        
-        /// <summary>
-        /// Список условий фильтрации, применяемых к таблице.
-        /// </summary>
-        private List<FilterCondition> filterConditions = new List<FilterCondition>();
-        
-        /// <summary>
-        /// Логический оператор для комбинирования фильтров (And или Or).
-        /// </summary>
+        private readonly UndoRedoService undoRedoService = new UndoRedoService();
+        private List<BalanceRow> displayedRows = new List<BalanceRow>();
+        private readonly SortingState sortingState = new SortingState();
+        private readonly List<FilterCondition> filterConditions = new List<FilterCondition>();
         private LogicalOperator filterLogicalOp = LogicalOperator.And;
-        
-        /// <summary>
-        /// Набор ID выбранных строк для массовых операций.
-        /// </summary>
-        private HashSet<string> selectedRowIds = new HashSet<string>();
-        
-        /// <summary>
-        /// ID строки с текущей сфокусированной ячейкой.
-        /// </summary>
-        private string focusedCellRowId;
-        
-        /// <summary>
-        /// ID столбца с текущей сфокусированной ячейкой.
-        /// </summary>
-        private string focusedCellColumnId;
-        
-        /// <summary>
-        /// Контекстное меню для операций с ячейками.
-        /// </summary>
-        private GenericMenu contextMenu;
-        
-        /// <summary>
-        /// Высота одной строки в пикселях.
-        /// </summary>
-        private float rowHeight = 22f;
-        
-        /// <summary>
-        /// Ширина одного столбца в пикселях.
-        /// </summary>
-        private float columnWidth = 150f;
-        
-        /// <summary>
-        /// Высота заголовка таблицы в пикселях.
-        /// </summary>
-        private float headerHeight = 40f;
-        
-        /// <summary>
-        /// Индекс первой видимой строки (виртуальная прокрутка).
-        /// </summary>
-        private int visibleStartIndex = 0;
-        
-        /// <summary>
-        /// Индекс последней видимой строки (виртуальная прокрутка).
-        /// </summary>
-        private int visibleEndIndex = 0;
-        
-        /// <summary>
-        /// Прямоугольник области прокрутки для расчета видимости.
-        /// </summary>
-        private Rect scrollViewRect;
-        
-        /// <summary>
-        /// Максимальный размер кэша GUIContent для оптимизации памяти.
-        /// </summary>
-        private const int CACHE_SIZE_LIMIT = 500;
-        
-        /// <summary>
-        /// Количество дополнительных строк буфера вокруг видимой области для плавной прокрутки.
-        /// </summary>
-        private const int VISIBLE_ROW_BUFFER = 5;
-        
-        /// <summary>
-        /// Минимальный интервал между перерисовками в секундах для ограничения частоты обновлений.
-        /// </summary>
-        private const float REPAINT_THROTTLE = 0.05f;
-        
-        /// <summary>
-        /// Кэш значений ячеек для избежания повторных вызовов GetValue.
-        /// </summary>
-        private Dictionary<string, object> cellValueCache = new Dictionary<string, object>();
-        
-        /// <summary>
-        /// Кэш GUIContent объектов для заголовков и текстового содержимого.
-        /// </summary>
-        private Dictionary<string, GUIContent> guiContentCache = new Dictionary<string, GUIContent>();
-        
-        /// <summary>
-        /// Номер фрейма последней очистки кэша значений ячеек.
-        /// </summary>
-        private int lastCacheFrame = -1;
-        
-        /// <summary>
-        /// Время последней перерисовки для throttling обновлений.
-        /// </summary>
-        private double lastRepaintTime = 0;
-        
-        /// <summary>
-        /// Флаг указывающий что окно требует перерисовки.
-        /// </summary>
-        private bool isDirty = false;
-        
-        /// <summary>
-        /// Кэшированный стиль для ячеек таблицы.
-        /// </summary>
-        private GUIStyle cellStyle;
-        
-        /// <summary>
-        /// Кэшированный стиль для заголовков столбцов.
-        /// </summary>
-        private GUIStyle headerStyle;
-        
-        /// <summary>
-        /// Флаг инициализации стилей GUI.
-        /// </summary>
-        private bool stylesInitialized = false;
-        
-        /// <summary>
-        /// Счетчик фреймов для отслеживания обновлений состояния.
-        /// </summary>
-        private int frameCounter = 0;
-        
-        /// <summary>
-        /// Открывает окно Balance Table Editor.
-        /// Регистрируется в меню Window/BalanceForge/Table Editor.
-        /// </summary>
+        private string quickSearchText = "";
+        private bool filterPanelVisible = false;
+
+        // ── UI references ────────────────────────────────────────
+        private MultiColumnListView tableView;
+        private VisualElement tableContainer;
+        private VisualElement filterPanel;
+        private VisualElement validationBanner;
+        private Label statusLabel;
+        private ToolbarButton undoButton;
+        private ToolbarButton redoButton;
+        private ToolbarButton filterButton;
+        private ObjectField tableField;
+
+        private const string StyleSheetPath = "Assets/BalanceForge/Editor/UI/BalanceForgeEditor.uss";
+
+        // ── Entry point ──────────────────────────────────────────
         [MenuItem("Window/BalanceForge/Table Editor")]
         public static void ShowWindow()
         {
-            var window = GetWindow<BalanceTableEditorWindow>("Balance Table Editor");
-            window.minSize = new Vector2(600, 400);
+            var w = GetWindow<BalanceTableEditorWindow>("Balance Table Editor");
+            w.minSize = new Vector2(700, 450);
         }
-        
-        /// <summary>
-        /// Вызывается Unity когда окно включается.
-        /// Инициализирует сервис Undo/Redo, список отображаемых строк и стили GUI.
-        /// </summary>
-        private void OnEnable()
-        {
-            undoRedoService = new UndoRedoService();
-            displayedRows = new List<BalanceRow>();
-            frameCounter = 0;
-            InitializeStyles();
-        }
-        
-        /// <summary>
-        /// Инициализирует кэшированные стили GUI для ячеек и заголовков.
-        /// Выполняется только один раз при первом вызове.
-        /// </summary>
-        private void InitializeStyles()
-        {
-            if (stylesInitialized) return;
-            
-            cellStyle = new GUIStyle(EditorStyles.label)
-            {
-                padding = new RectOffset(4, 4, 2, 2),
-                alignment = TextAnchor.MiddleLeft,
-                clipping = TextClipping.Clip
-            };
-            
-            headerStyle = new GUIStyle(EditorStyles.toolbarButton)
-            {
-                alignment = TextAnchor.MiddleCenter,
-                fontStyle = FontStyle.Bold
-            };
-            
-            stylesInitialized = true;
-        }
-        
-        /// <summary>
-        /// Вызывается Inspector для обновления окна.
-        /// Регулирует частоту перерисовок в соответствии с REPAINT_THROTTLE для оптимизации производительности.
-        /// </summary>
-        private void OnInspectorUpdate()
-        {
-            if (isDirty && EditorApplication.timeSinceStartup - lastRepaintTime > REPAINT_THROTTLE)
-            {
-                Repaint();
-                isDirty = false;
-                lastRepaintTime = EditorApplication.timeSinceStartup;
-            }
-        }
-        
-        /// <summary>
-        /// Загружает таблицу баланса в редактор.
-        /// Обновляет отображаемые строки, очищает историю Undo/Redo и все кэши.
-        /// </summary>
-        /// <param name="table">Таблица баланса для загрузки.</param>
+
+        // ── Public API ───────────────────────────────────────────
         public void LoadTable(BalanceTable table)
         {
             currentTable = table;
-            RefreshDisplayedRows();
             undoRedoService.Clear();
-            ClearAllCaches();
+            filterConditions.Clear();
+            quickSearchText = "";
+            sortingState.SortColumnId = null;
+            sortingState.Direction = BFSortDirection.None;
+
+            if (tableField != null && tableField.value != table)
+                tableField.SetValueWithoutNotify(table);
+
+            RefreshDisplayedRows();
+            RebuildTable();
+            UpdateUndoRedoButtons();
+            UpdateStatusBar();
         }
-        
-        /// <summary>
-        /// Очищает все кэши значений ячеек и GUI контента.
-        /// Вызывается при загрузке новой таблицы или обновлении данных.
-        /// </summary>
-        private void ClearAllCaches()
+
+        // ── CreateGUI ────────────────────────────────────────────
+        private void CreateGUI()
         {
-            cellValueCache.Clear();
-            guiContentCache.Clear();
-            lastCacheFrame = -1;
+            var root = rootVisualElement;
+            var ss = AssetDatabase.LoadAssetAtPath<StyleSheet>(StyleSheetPath);
+            if (ss != null) root.styleSheets.Add(ss);
+
+            root.style.flexDirection = FlexDirection.Column;
+            root.style.flexGrow = 1;
+
+            root.Add(BuildToolbar());
+
+            filterPanel = BuildFilterPanel();
+            filterPanel.style.display = DisplayStyle.None;
+            filterPanel.style.flexShrink = 0;
+            root.Add(filterPanel);
+
+            validationBanner = BuildValidationBanner();
+            validationBanner.style.display = DisplayStyle.None;
+            validationBanner.style.flexShrink = 0;
+            root.Add(validationBanner);
+
+            tableContainer = new VisualElement();
+            tableContainer.style.flexGrow = 1;
+            tableContainer.style.flexShrink = 1;
+            tableContainer.style.overflow = Overflow.Hidden;
+            root.Add(tableContainer);
+
+            root.Add(BuildStatusBar());
+
+            root.RegisterCallback<KeyDownEvent>(OnKeyDown, TrickleDown.TrickleDown);
+
+            RebuildTable();
         }
-        
-        /// <summary>
-        /// Основной метод для отрисовки UI окна.
-        /// Обрабатывает горячие клавиши, рисует панель инструментов, таблицу и строку состояния.
-        /// Автоматически управляет кэшами и оптимизацией производительности.
-        /// </summary>
-        private void OnGUI()
+
+        // ── Toolbar ──────────────────────────────────────────────
+        private Toolbar BuildToolbar()
         {
-            if (Event.current.type == EventType.Layout)
+            var tb = new Toolbar();
+            tb.AddToClassList("bf-toolbar");
+
+            tableField = new ObjectField { objectType = typeof(BalanceTable) };
+            tableField.style.width = 220;
+            tableField.RegisterValueChangedCallback(evt => LoadTable(evt.newValue as BalanceTable));
+            tb.Add(tableField);
+
+            tb.Add(new ToolbarSpacer());
+
+            var addBtn = new ToolbarButton(HandleAddRow) { text = "+ Row" };
+            addBtn.tooltip = "Add a new row  (Ctrl+Enter)";
+            tb.Add(addBtn);
+
+            var delBtn = new ToolbarButton(HandleDeleteSelected) { text = "✕ Delete" };
+            delBtn.tooltip = "Delete selected rows  (Delete)";
+            delBtn.name = "btn-delete";
+            tb.Add(delBtn);
+
+            tb.Add(new ToolbarSpacer());
+
+            var searchField = new ToolbarSearchField();
+            searchField.style.width = 170;
+            searchField.tooltip = "Quick search across all columns";
+            searchField.RegisterValueChangedCallback(evt =>
             {
-                frameCounter++;
-                if (frameCounter != lastCacheFrame)
-                {
-                    cellValueCache.Clear();
-                    lastCacheFrame = frameCounter;
-                    
-                    if (guiContentCache.Count > CACHE_SIZE_LIMIT)
-                    {
-                        guiContentCache.Clear();
-                    }
-                }
-            }
-            
-            HandleKeyboardShortcuts();
-            DrawToolbar();
-            EditorGUILayout.Space();
-            
-            if (currentTable != null)
-            {
-                if (!IsFileEditable())
-                {
-                    EditorGUILayout.HelpBox("This file is read-only. You cannot make changes.", MessageType.Warning);
-                }
-                
-                // Debug info
-                EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
-                EditorGUILayout.LabelField($"Total: {currentTable.Rows.Count}", GUILayout.Width(100));
-                EditorGUILayout.LabelField($"Displayed: {displayedRows?.Count ?? 0}", GUILayout.Width(100));
-                if (displayedRows != null && displayedRows.Count > 0)
-                {
-                    EditorGUILayout.LabelField($"Visible: {visibleEndIndex - visibleStartIndex + 1}", GUILayout.Width(100));
-                }
-                GUILayout.FlexibleSpace();
-                EditorGUILayout.EndHorizontal();
-                EditorGUILayout.Space(3);
-                
-                if (showFilterPanel)
-                {
-                    DrawFilterPanel();
-                }
-                
-                if (showValidation && validationResult != null && validationResult.HasErrors())
-                {
-                    EditorGUILayout.HelpBox($"Found {validationResult.Errors.Count} validation errors", MessageType.Warning);
-                    if (GUILayout.Button("Hide Validation"))
-                    {
-                        showValidation = false;
-                    }
-                    EditorGUILayout.Space();
-                }
-                
-                DrawOptimizedTable();
-                DrawStatusBar();
-            }
-            else
-            {
-                EditorGUILayout.HelpBox("Select a Balance Table to edit or create a new one from Assets menu", MessageType.Info);
-            }
+                quickSearchText = evt.newValue;
+                RefreshDisplayedRows();
+                UpdateStatusBar();
+            });
+            tb.Add(searchField);
+
+            tb.Add(new ToolbarSpacer());
+
+            filterButton = new ToolbarButton(ToggleFilterPanel) { text = "⚙ Filters", name = "filter-toggle" };
+            filterButton.tooltip = "Toggle advanced filter panel";
+            tb.Add(filterButton);
+
+            var validateBtn = new ToolbarButton(HandleValidate) { text = "✓ Validate" };
+            validateBtn.tooltip = "Check all cell values against column rules";
+            tb.Add(validateBtn);
+
+            var ioBtn = new ToolbarButton(ShowImportExportMenu) { text = "Import / Export" };
+            tb.Add(ioBtn);
+
+            var saveBtn = new ToolbarButton(SaveTable) { text = "💾 Save" };
+            saveBtn.tooltip = "Save asset to disk  (Ctrl+S)";
+            tb.Add(saveBtn);
+
+            tb.Add(new ToolbarSpacer());
+
+            undoButton = new ToolbarButton(HandleUndo) { text = "↩ Undo" };
+            undoButton.tooltip = "Undo last action  (Ctrl+Z)";
+            undoButton.SetEnabled(false);
+            tb.Add(undoButton);
+
+            redoButton = new ToolbarButton(HandleRedo) { text = "↪ Redo" };
+            redoButton.tooltip = "Redo  (Ctrl+Y / Ctrl+Shift+Z)";
+            redoButton.SetEnabled(false);
+            tb.Add(redoButton);
+
+            return tb;
         }
-        
-        /// <summary>
-        /// Обрабатывает горячие клавиши для операций редактирования и управления таблицей.
-        /// Поддерживает: Copy (Ctrl+C), Paste (Ctrl+V), Undo (Ctrl+Z), Redo (Ctrl+Shift+Z, Ctrl+Y), Delete.
-        /// </summary>
-        private void HandleKeyboardShortcuts()
+
+        // ── Filter panel ─────────────────────────────────────────
+        private VisualElement BuildFilterPanel()
         {
-            var e = Event.current;
-            if (e.type == EventType.KeyDown)
+            var panel = new VisualElement();
+            panel.AddToClassList("bf-filter-panel");
+            panel.name = "filter-panel";
+
+            var header = new VisualElement();
+            header.AddToClassList("bf-filter-header");
+            header.Add(new Label("Advanced Filters"));
+
+            header.Add(new Label("Combine:"));
+
+            var opField = new EnumField(filterLogicalOp);
+            opField.style.width = 60;
+            opField.style.minWidth = 60;
+            opField.RegisterValueChangedCallback(evt =>
             {
-                bool handled = false;
-                
-                if ((e.control || e.command) && e.keyCode == KeyCode.C)
-                {
-                    HandleCopy();
-                    handled = true;
-                }
-                else if ((e.control || e.command) && e.keyCode == KeyCode.V)
-                {
-                    HandlePaste();
-                    handled = true;
-                }
-                else if ((e.control || e.command) && e.keyCode == KeyCode.Z && !e.shift)
-                {
-                    if (undoRedoService.CanUndo())
-                    {
-                        undoRedoService.Undo();
-                        RefreshDisplayedRows();
-                        
-                        // КРИТИЧНО: Сохраняем изменения
-                        EditorUtility.SetDirty(currentTable);
-                        AssetDatabase.SaveAssets();
-                        
-                        isDirty = true;
-                    }
-                    handled = true;
-                }
-                else if (((e.control || e.command) && e.shift && e.keyCode == KeyCode.Z) ||
-                         ((e.control || e.command) && e.keyCode == KeyCode.Y))
-                {
-                    if (undoRedoService.CanRedo())
-                    {
-                        undoRedoService.Redo();
-                        RefreshDisplayedRows();
-                        
-                        // КРИТИЧНО: Сохраняем изменения
-                        EditorUtility.SetDirty(currentTable);
-                        AssetDatabase.SaveAssets();
-                        
-                        isDirty = true;
-                    }
-                    handled = true;
-                }
-                else if (e.keyCode == KeyCode.Delete)
-                {
-                    HandleDeleteSelected();
-                    handled = true;
-                }
-                
-                if (handled)
-                {
-                    e.Use();
-                }
-            }
+                filterLogicalOp = (LogicalOperator)evt.newValue;
+                RefreshDisplayedRows();
+                UpdateStatusBar();
+            });
+            header.Add(opField);
+
+            var addCondBtn = new Button(() => AddFilterCondition(panel)) { text = "+ Condition" };
+            header.Add(addCondBtn);
+
+            var clearBtn = new Button(() =>
+            {
+                filterConditions.Clear();
+                RebuildFilterRows(panel);
+                RefreshDisplayedRows();
+                UpdateStatusBar();
+            }) { text = "Clear all" };
+            header.Add(clearBtn);
+
+            panel.Add(header);
+
+            var rows = new VisualElement();
+            rows.name = "filter-rows";
+            panel.Add(rows);
+
+            return panel;
         }
-        
-        /// <summary>
-        /// Рисует оптимизированную таблицу с виртуальной прокруткой.
-        /// Отображает только видимые строки плюс буфер для плавности при прокрутке.
-        /// Использует прямые вызовы GUI вместо GUILayout для лучшей производительности.
-        /// </summary>
-        private void DrawOptimizedTable()
+
+        private void AddFilterCondition(VisualElement panel)
         {
-            if (displayedRows == null || displayedRows.Count == 0)
+            if (currentTable == null || currentTable.Columns.Count == 0) return;
+            var firstCol = currentTable.Columns[0];
+            var ops = GetOperatorsForType(firstCol.DataType);
+            filterConditions.Add(new FilterCondition
             {
-                EditorGUILayout.HelpBox("No data to display. Add rows or adjust filters.", MessageType.Info);
-                
-                if (currentTable != null && GUILayout.Button("Add 10 Test Rows", GUILayout.Height(30)))
+                ColumnId = firstCol.ColumnId,
+                Operator = ops[0].op,
+                Value    = ""
+            });
+            RebuildFilterRows(panel);
+        }
+
+        private void RebuildFilterRows(VisualElement panel)
+        {
+            var container = panel.Q("filter-rows");
+            container.Clear();
+
+            if (currentTable == null) return;
+
+            var colNames = currentTable.Columns.Select(c => c.DisplayName).ToList();
+            var colIds   = currentTable.Columns.Select(c => c.ColumnId).ToList();
+
+            for (int i = 0; i < filterConditions.Count; i++)
+            {
+                var cond   = filterConditions[i];
+                var idx    = i; // capture
+
+                // Resolve column type for this condition
+                int colIdx = colIds.IndexOf(cond.ColumnId);
+                if (colIdx < 0) colIdx = 0;
+                var colType = currentTable.Columns[colIdx].DataType;
+
+                // Build operator list for this column type
+                var opList   = GetOperatorsForType(colType);
+                var opLabels = opList.Select(o => o.label).ToList();
+
+                // If current operator is not valid for the column type, reset it
+                if (!opList.Any(o => o.op == cond.Operator))
+                    cond.Operator = opList[0].op;
+
+                int opIdx = opList.FindIndex(o => o.op == cond.Operator);
+                if (opIdx < 0) opIdx = 0;
+
+                // ── Row container ────────────────────────────────────
+                var row = new VisualElement();
+                row.AddToClassList("bf-filter-row");
+
+                // Column picker
+                var colDrop = new DropdownField(colNames, colIdx);
+                colDrop.RegisterValueChangedCallback(evt =>
                 {
-                    for (int i = 0; i < 10; i++)
+                    int ci = colNames.IndexOf(evt.newValue);
+                    if (ci < 0) return;
+
+                    var prevType = currentTable.Columns.FirstOrDefault(c => c.ColumnId == filterConditions[idx].ColumnId)?.DataType;
+                    filterConditions[idx].ColumnId = colIds[ci];
+                    var newType = currentTable.Columns[ci].DataType;
+
+                    // If type changed, reset operator to first valid one and rebuild UI
+                    if (prevType != newType)
                     {
-                        var row = currentTable.AddRow();
-                        foreach (var column in currentTable.Columns)
-                        {
-                            object defaultValue = column.DataType switch
-                            {
-                                ColumnType.String => $"Value_{i}",
-                                ColumnType.Integer => i * 100,
-                                ColumnType.Float => i * 10.5f,
-                                ColumnType.Boolean => i % 2 == 0,
-                                _ => $"Data_{i}"
-                            };
-                            row.SetValue(column.ColumnId, defaultValue);
-                        }
+                        var newOps = GetOperatorsForType(newType);
+                        filterConditions[idx].Operator = newOps[0].op;
+                        RebuildFilterRows(panel);
+                        return;
                     }
-                    
-                    // КРИТИЧНО: Сохраняем изменения
-                    EditorUtility.SetDirty(currentTable);
-                    AssetDatabase.SaveAssets();
-                    
                     RefreshDisplayedRows();
-                    Repaint();
-                }
+                    UpdateStatusBar();
+                });
+
+                // Operator picker (type-filtered)
+                var opDrop = new DropdownField(opLabels, opIdx);
+                opDrop.style.width    = 130;
+                opDrop.style.minWidth = 130;
+                opDrop.RegisterValueChangedCallback(evt =>
+                {
+                    int oi = opLabels.IndexOf(evt.newValue);
+                    if (oi >= 0)
+                    {
+                        filterConditions[idx].Operator = opList[oi].op;
+                        // Update regex validation on the value field
+                        var vf = row.Q<TextField>("filter-val");
+                        if (vf != null) UpdateRegexValidation(vf, filterConditions[idx].Operator, vf.value);
+                    }
+                    RefreshDisplayedRows();
+                    UpdateStatusBar();
+                });
+
+                // Value field
+                var valField = new TextField { value = cond.Value?.ToString() ?? "", isDelayed = true, name = "filter-val" };
+                valField.RegisterValueChangedCallback(evt =>
+                {
+                    filterConditions[idx].Value = evt.newValue;
+                    UpdateRegexValidation(valField, filterConditions[idx].Operator, evt.newValue);
+                    RefreshDisplayedRows();
+                    UpdateStatusBar();
+                });
+                // Validate on initial build
+                UpdateRegexValidation(valField, cond.Operator, cond.Value?.ToString() ?? "");
+
+                // Remove button
+                var removeBtn = new Button(() =>
+                {
+                    filterConditions.RemoveAt(idx);
+                    RebuildFilterRows(panel);
+                    RefreshDisplayedRows();
+                    UpdateStatusBar();
+                }) { text = "✕" };
+                removeBtn.AddToClassList("bf-filter-remove");
+
+                row.Add(colDrop);
+                row.Add(opDrop);
+                row.Add(valField);
+                row.Add(removeBtn);
+                container.Add(row);
+            }
+        }
+
+        // Returns (display label, FilterOperator) pairs valid for the given column type.
+        private static List<(string label, FilterOperator op)> GetOperatorsForType(ColumnType type)
+        {
+            switch (type)
+            {
+                case ColumnType.Integer:
+                case ColumnType.Float:
+                    return new List<(string, FilterOperator)>
+                    {
+                        ("= Equals",        FilterOperator.Equals),
+                        ("≠ Not Equals",    FilterOperator.NotEquals),
+                        ("> Greater Than",  FilterOperator.GreaterThan),
+                        ("< Less Than",     FilterOperator.LessThan),
+                    };
+                case ColumnType.Boolean:
+                case ColumnType.Enum:
+                    return new List<(string, FilterOperator)>
+                    {
+                        ("= Equals",     FilterOperator.Equals),
+                        ("≠ Not Equals", FilterOperator.NotEquals),
+                    };
+                default: // String and everything else
+                    return new List<(string, FilterOperator)>
+                    {
+                        ("∋ Contains",    FilterOperator.Contains),
+                        ("= Equals",      FilterOperator.Equals),
+                        ("≠ Not Equals",  FilterOperator.NotEquals),
+                        ("⊏ Starts With", FilterOperator.StartsWith),
+                        ("⊐ Ends With",   FilterOperator.EndsWith),
+                        ("~ Regex",       FilterOperator.Regex),
+                    };
+            }
+        }
+
+        // Adds/removes the invalid-regex CSS class on the TextField.
+        private static void UpdateRegexValidation(TextField field, FilterOperator op, string value)
+        {
+            if (op != FilterOperator.Regex || string.IsNullOrEmpty(value))
+            {
+                field.RemoveFromClassList("bf-filter-value--regex-invalid");
                 return;
             }
-            
-            scrollViewRect = GUILayoutUtility.GetRect(
-                GUIContent.none, 
-                GUIStyle.none, 
-                GUILayout.ExpandWidth(true), 
-                GUILayout.ExpandHeight(true),
-                GUILayout.MinHeight(200)
-            );
-            
-            float contentHeight = headerHeight + displayedRows.Count * rowHeight;
-            float contentWidth = Mathf.Max(scrollViewRect.width, 20 + columnWidth * currentTable.Columns.Count);
-            
-            scrollPosition = GUI.BeginScrollView(
-                scrollViewRect, 
-                scrollPosition, 
-                new Rect(0, 0, contentWidth, contentHeight)
-            );
-            
-            DrawTableHeaderDirect();
-            
-            int rawStart = Mathf.FloorToInt((scrollPosition.y - headerHeight) / rowHeight);
-            int rawEnd = Mathf.CeilToInt((scrollPosition.y + scrollViewRect.height - headerHeight) / rowHeight);
-            
-            visibleStartIndex = Mathf.Max(0, rawStart - VISIBLE_ROW_BUFFER);
-            visibleEndIndex = Mathf.Min(displayedRows.Count - 1, rawEnd + VISIBLE_ROW_BUFFER);
-            
-            // Draw visible rows using direct GUI
-            for (int i = visibleStartIndex; i <= visibleEndIndex && i < displayedRows.Count; i++)
+            try
             {
-                DrawTableRowDirect(i, displayedRows[i]);
+                System.Text.RegularExpressions.Regex.IsMatch("", value);
+                field.RemoveFromClassList("bf-filter-value--regex-invalid");
             }
-            
-            GUI.EndScrollView();
+            catch
+            {
+                field.AddToClassList("bf-filter-value--regex-invalid");
+            }
         }
-        
-        /// <summary>
-        /// Рисует заголовок таблицы с кнопками для сортировки и выбора всех строк.
-        /// Использует прямые вызовы GUI для интеграции с виртуальной прокруткой.
-        /// </summary>
-        private void DrawTableHeaderDirect()
+
+        // ── Validation banner ────────────────────────────────────
+        private VisualElement BuildValidationBanner()
         {
-            float contentWidth = Mathf.Max(scrollViewRect.width, 20 + columnWidth * currentTable.Columns.Count);
-            var headerRect = new Rect(0, 0, contentWidth, headerHeight);
-            
-            EditorGUI.DrawRect(headerRect, new Color(0.22f, 0.22f, 0.22f, 1f));
-            
-            float xPos = 5;
-            float yPos = (headerHeight - 20) / 2;
-            
-            // Select all checkbox
-            bool allSelected = displayedRows.Count > 0 && displayedRows.All(r => selectedRowIds.Contains(r.RowId));
-            var checkRect = new Rect(xPos, yPos, 20, 20);
-            bool newAllSelected = EditorGUI.Toggle(checkRect, allSelected);
-            
-            if (newAllSelected != allSelected)
-            {
-                if (newAllSelected)
-                {
-                    foreach (var row in displayedRows)
-                        selectedRowIds.Add(row.RowId);
-                }
-                else
-                {
-                    selectedRowIds.Clear();
-                }
-            }
-            
-            xPos += 25;
-            
-            // Column headers
-            foreach (var column in currentTable.Columns)
-            {
-                string headerText = column.DisplayName;
-                if (sortingState.SortColumnId == column.ColumnId)
-                {
-                    headerText += sortingState.Direction == SortDirection.Ascending ? " ▲" : " ▼";
-                }
-                
-                string cacheKey = $"header_{column.ColumnId}_{headerText}";
-                GUIContent content;
-                if (!guiContentCache.TryGetValue(cacheKey, out content))
-                {
-                    content = new GUIContent(headerText);
-                    guiContentCache[cacheKey] = content;
-                }
-                
-                var buttonRect = new Rect(xPos, 2, columnWidth, headerHeight - 4);
-                if (GUI.Button(buttonRect, content, headerStyle))
-                {
-                    sortingState.Toggle(column.ColumnId);
-                    RefreshDisplayedRows();
-                    isDirty = true;
-                }
-                
-                xPos += columnWidth;
-            }
-            
-            // Separator
-            var separatorRect = new Rect(0, headerHeight - 2, contentWidth, 1);
-            EditorGUI.DrawRect(separatorRect, new Color(0.5f, 0.5f, 0.5f, 0.5f));
+            var banner = new VisualElement();
+            banner.AddToClassList("bf-validation-banner");
+
+            var lbl = new Label();
+            lbl.name = "validation-label";
+            banner.Add(lbl);
+
+            var closeBtn = new Button(() => banner.style.display = DisplayStyle.None) { text = "✕" };
+            closeBtn.AddToClassList("bf-validation-close");
+            banner.Add(closeBtn);
+
+            return banner;
         }
-        
-        /// <summary>
-        /// Рисует одну строку таблицы с чередованием цветов фона для удобства чтения.
-        /// Отображает чекбокс для выделения и редактируемые ячейки для каждого столбца.
-        /// </summary>
-        /// <param name="index">Индекс строки в displayedRows.</param>
-        /// <param name="row">Объект BalanceRow для отрисовки.</param>
-        private void DrawTableRowDirect(int index, BalanceRow row)
+
+        // ── Status bar ───────────────────────────────────────────
+        private VisualElement BuildStatusBar()
         {
-            float yPos = headerHeight + index * rowHeight;
-            float contentWidth = Mathf.Max(scrollViewRect.width, 20 + columnWidth * currentTable.Columns.Count);
-            var rowRect = new Rect(0, yPos, contentWidth, rowHeight);
-            
-            // Alternate row colors
-            if (index % 2 == 0)
-            {
-                EditorGUI.DrawRect(rowRect, new Color(0.22f, 0.22f, 0.22f, 1f));
-            }
-            else
-            {
-                EditorGUI.DrawRect(rowRect, new Color(0.25f, 0.25f, 0.25f, 1f));
-            }
-            
-            float xPos = 5;
-            
-            // Selection checkbox
-            bool isSelected = selectedRowIds.Contains(row.RowId);
-            var checkRect = new Rect(xPos, yPos + 1, 20, 20);
-            bool newSelected = EditorGUI.Toggle(checkRect, isSelected);
-            
-            if (newSelected != isSelected)
-            {
-                if (newSelected)
-                    selectedRowIds.Add(row.RowId);
-                else
-                    selectedRowIds.Remove(row.RowId);
-                isDirty = true;
-            }
-            
-            xPos += 25;
-            
-            // Draw cells
-            GUI.enabled = IsFileEditable();
-            foreach (var column in currentTable.Columns)
-            {
-                DrawCellDirect(row, column, new Rect(xPos, yPos + 1, columnWidth, rowHeight - 2));
-                xPos += columnWidth;
-            }
-            GUI.enabled = true;
+            var bar = new VisualElement();
+            bar.AddToClassList("bf-status-bar");
+            statusLabel = new Label("No table loaded");
+            bar.Add(statusLabel);
+            return bar;
         }
-        
-        /// <summary>
-        /// Рисует одну ячейку таблицы с поддержкой различных типов данных.
-        /// Обрабатывает фокус, редактирование, валидацию и контекстное меню.
-        /// Использует кэш для оптимизации частых вызовов GetValue.
-        /// </summary>
-        /// <param name="row">Строка содержащая ячейку.</param>
-        /// <param name="column">Определение столбца для определения типа редактора.</param>
-        /// <param name="cellRect">Прямоугольник для отрисовки ячейки.</param>
-        private void DrawCellDirect(BalanceRow row, ColumnDefinition column, Rect cellRect)
+
+        // ── Table view ───────────────────────────────────────────
+        private void RebuildTable()
         {
-            string cacheKey = $"{row.RowId}_{column.ColumnId}";
-            object value;
-            
-            if (!cellValueCache.TryGetValue(cacheKey, out value))
+            tableContainer.Clear();
+            tableView = null;
+
+            if (currentTable == null)
             {
-                value = row.GetValue(column.ColumnId);
-                cellValueCache[cacheKey] = value;
+                tableContainer.Add(MakeEmptyLabel(
+                    "Select a Balance Table in the toolbar,\nor create one via Assets › Create › BalanceForge."));
+                return;
             }
-            
-            bool isFocused = row.RowId == focusedCellRowId && column.ColumnId == focusedCellColumnId;
-            
-            // Handle mouse click for focus
-            if (Event.current.type == EventType.MouseDown && cellRect.Contains(Event.current.mousePosition))
+
+            if (currentTable.Columns.Count == 0)
             {
-                focusedCellRowId = row.RowId;
-                focusedCellColumnId = column.ColumnId;
-                GUI.FocusControl($"cell_{cacheKey}");
-                isDirty = true;
-                Repaint();
+                tableContainer.Add(MakeEmptyLabel(
+                    "This table has no columns.\nUse Assets › Create › BalanceForge › Balance Table Wizard to set up columns."));
+                return;
             }
-            
-            // Draw focus background
-            if (isFocused)
+
+            tableView = new MultiColumnListView();
+            tableView.style.flexGrow = 1;
+            tableView.itemsSource = displayedRows;
+            tableView.selectionType = SelectionType.Multiple;
+            tableView.reorderable = true;
+            tableView.showAlternatingRowBackgrounds = AlternatingRowBackground.ContentOnly;
+            tableView.showBorder = true;
+            tableView.virtualizationMethod = CollectionVirtualizationMethod.FixedHeight;
+            tableView.fixedItemHeight = 22;
+
+            // Row-number column
+            var numCol = new Column
             {
-                EditorGUI.DrawRect(cellRect, new Color(0.3f, 0.5f, 0.8f, 0.4f));
-            }
-            
-            // Set control name for focus management
-            GUI.SetNextControlName($"cell_{cacheKey}");
-            
-            // Draw cell with change detection
-            EditorGUI.BeginChangeCheck();
-            object newValue = DrawCellByType(cellRect, column, value);
-            
-            if (EditorGUI.EndChangeCheck())
+                name        = "__num",
+                title       = "#",
+                width       = new Length(36, LengthUnit.Pixel),
+                minWidth    = new Length(36, LengthUnit.Pixel),
+                maxWidth    = new Length(36, LengthUnit.Pixel),
+                resizable   = false,
+                sortable    = false,
+                stretchable = false,
+            };
+            numCol.makeCell = () =>
             {
-                var command = new EditCellCommand(currentTable, row.RowId, column.ColumnId, value, newValue);
-                undoRedoService.ExecuteCommand(command);
-                cellValueCache[cacheKey] = newValue;
-                
-                // КРИТИЧНО: Пометить таблицу как изменённую для сохранения
-                EditorUtility.SetDirty(currentTable);
-                AssetDatabase.SaveAssets();
-                
-                if (!column.Validate(newValue))
-                {
-                    EditorUtility.DisplayDialog("Validation Error", 
-                        $"Invalid value for {column.DisplayName}", "OK");
-                }
-                
-                Repaint();
-            }
-            
-            // Context menu
-            if (Event.current.type == EventType.ContextClick && cellRect.Contains(Event.current.mousePosition))
-            {
-                ShowCellContextMenu(column.ColumnId, value);
-                Event.current.Use();
-            }
+                var l = new Label();
+                l.AddToClassList("bf-cell-rownum");
+                return l;
+            };
+            numCol.bindCell = (el, i) => ((Label)el).text = (i + 1).ToString();
+            tableView.columns.Add(numCol);
+
+            // Data columns
+            foreach (var colDef in currentTable.Columns)
+                tableView.columns.Add(BuildColumn(colDef));
+
+            tableView.sortingMode = ColumnSortingMode.Custom;
+            tableView.columnSortingChanged += OnColumnSortingChanged;
+
+            tableContainer.Add(tableView);
+
+            // Empty-state overlay (shown when rows list is empty)
+            var emptyOverlay = MakeEmptyLabel("No rows match the current search or filter.\nPress \"+ Row\" or Ctrl+Enter to add one.");
+            emptyOverlay.name = "empty-overlay";
+            tableContainer.Add(emptyOverlay);
+
+            UpdateEmptyOverlay();
         }
-        
-        /// <summary>
-        /// Рисует редактор значения ячейки в зависимости от типа столбца.
-        /// Поддерживает все типы данных: String, Integer, Float, Boolean, Color, Vector2/3, Asset Reference, Enum.
-        /// </summary>
-        /// <param name="position">Прямоугольник для отрисовки редактора.</param>
-        /// <param name="column">Определение столбца для определения типа.</param>
-        /// <param name="value">Текущее значение ячейки.</param>
-        /// <returns>Новое значение после редактирования или исходное значение если ошибка.</returns>
-        private object DrawCellByType(Rect position, ColumnDefinition column, object value)
+
+        private static Label MakeEmptyLabel(string text)
+        {
+            var l = new Label(text);
+            l.AddToClassList("bf-empty-message");
+            return l;
+        }
+
+        private void UpdateEmptyOverlay()
+        {
+            if (tableContainer == null) return;
+            bool empty = displayedRows == null || displayedRows.Count == 0;
+            tableView?.SetDisplay(!empty);
+            tableContainer.Q("empty-overlay")?.SetDisplay(empty);
+        }
+
+        private Column BuildColumn(ColumnDefinition colDef)
+        {
+            var col = new Column
+            {
+                name        = colDef.ColumnId,
+                title       = colDef.DisplayName,
+                width    = new Length(ColumnWidth(colDef.DataType), LengthUnit.Pixel),
+                minWidth = new Length(50, LengthUnit.Pixel),
+                resizable   = true,
+                sortable    = true,
+                stretchable = false,
+            };
+
+            col.makeHeader = () =>
+            {
+                var lbl = new Label(colDef.DisplayName);
+                lbl.AddToClassList("bf-column-header");
+                lbl.tooltip = $"{colDef.DataType}" + (colDef.IsRequired ? "  (required)" : "");
+                return lbl;
+            };
+
+            col.makeCell   = () => MakeCellElement(colDef);
+            col.bindCell   = (el, i) => BindCell(el, i, colDef);
+
+            return col;
+        }
+
+        private static float ColumnWidth(ColumnType t) => t switch
+        {
+            ColumnType.Boolean       => 60,
+            ColumnType.Integer       => 80,
+            ColumnType.Float         => 90,
+            ColumnType.Color         => 80,
+            ColumnType.Vector2       => 180,
+            ColumnType.Vector3       => 230,
+            ColumnType.AssetReference => 200,
+            _                        => 150,
+        };
+
+        // ── Cell factory ─────────────────────────────────────────
+        // makeCell registers a permanent callback that reads userData set by bindCell.
+        private VisualElement MakeCellElement(ColumnDefinition colDef)
+        {
+            var container = new VisualElement();
+            container.AddToClassList("bf-cell");
+
+            VisualElement field;
+
+            switch (colDef.DataType)
+            {
+                case ColumnType.Integer:
+                {
+                    var f = new IntegerField { isDelayed = true };
+                    f.RegisterValueChangedCallback(evt => CommitCell(container, evt.newValue));
+                    field = f;
+                    break;
+                }
+                case ColumnType.Float:
+                {
+                    var f = new FloatField { isDelayed = true };
+                    f.RegisterValueChangedCallback(evt => CommitCell(container, evt.newValue));
+                    field = f;
+                    break;
+                }
+                case ColumnType.Boolean:
+                {
+                    var f = new Toggle();
+                    f.RegisterValueChangedCallback(evt => CommitCell(container, evt.newValue));
+                    field = f;
+                    break;
+                }
+                case ColumnType.Color:
+                {
+                    var f = new ColorField();
+                    f.RegisterValueChangedCallback(evt => CommitCell(container, evt.newValue));
+                    field = f;
+                    break;
+                }
+                case ColumnType.Vector2:
+                {
+                    var f = new Vector2Field();
+                    f.RegisterValueChangedCallback(evt => CommitCell(container, evt.newValue));
+                    field = f;
+                    break;
+                }
+                case ColumnType.Vector3:
+                {
+                    var f = new Vector3Field();
+                    f.RegisterValueChangedCallback(evt => CommitCell(container, evt.newValue));
+                    field = f;
+                    break;
+                }
+                case ColumnType.AssetReference:
+                {
+                    var f = new ObjectField { objectType = colDef.GetAssetType(), allowSceneObjects = false };
+                    f.RegisterValueChangedCallback(evt => CommitCell(container, evt.newValue));
+                    field = f;
+                    break;
+                }
+                case ColumnType.Enum when colDef.EnumDefinition?.Values?.Count > 0:
+                {
+                    var choices = new List<string>(colDef.EnumDefinition.Values);
+                    var f = new DropdownField(choices, 0);
+                    f.RegisterValueChangedCallback(evt => CommitCell(container, evt.newValue));
+                    field = f;
+                    break;
+                }
+                default:
+                {
+                    var f = new TextField { isDelayed = true };
+                    f.RegisterValueChangedCallback(evt => CommitCell(container, evt.newValue));
+                    field = f;
+                    break;
+                }
+            }
+
+            field.style.flexGrow = 1;
+            field.AddToClassList("bf-cell-field");
+            container.Add(field);
+            return container;
+        }
+
+        // bindCell: set value silently, store row+col in userData for the commit callback.
+        private void BindCell(VisualElement container, int index, ColumnDefinition colDef)
+        {
+            if (index < 0 || index >= displayedRows.Count) return;
+
+            var row   = displayedRows[index];
+            var value = row.GetValue(colDef.ColumnId);
+
+            container.userData = (row, colDef);
+
+            var field = container.Q(className: "bf-cell-field");
+            SetValueWithoutNotify(field, colDef, value);
+
+            container.EnableInClassList("bf-cell--invalid", !colDef.Validate(value));
+            container.SetEnabled(IsFileEditable());
+        }
+
+        private void CommitCell(VisualElement container, object newValue)
+        {
+            if (container.userData is not (BalanceRow row, ColumnDefinition colDef)) return;
+            if (!IsFileEditable()) return;
+
+            var oldValue = row.GetValue(colDef.ColumnId);
+            if (Equals(oldValue, newValue)) return;
+
+            var cmd = new EditCellCommand(currentTable, row.RowId, colDef.ColumnId, oldValue, newValue);
+            undoRedoService.ExecuteCommand(cmd);
+
+            container.EnableInClassList("bf-cell--invalid", !colDef.Validate(newValue));
+
+            EditorUtility.SetDirty(currentTable);
+            AssetDatabase.SaveAssets();
+            UpdateUndoRedoButtons();
+            UpdateStatusBar();
+        }
+
+        private static void SetValueWithoutNotify(VisualElement field, ColumnDefinition colDef, object value)
         {
             try
             {
-                switch (column.DataType)
+                switch (colDef.DataType)
                 {
-                    case ColumnType.String:
-                        return EditorGUI.TextField(position, value?.ToString() ?? "");
-                        
-                    case ColumnType.Integer:
-                        int intVal = 0;
-                        if (value != null)
-                        {
-                            if (value is int) intVal = (int)value;
-                            else int.TryParse(value.ToString(), out intVal);
-                        }
-                        return EditorGUI.IntField(position, intVal);
-                        
-                    case ColumnType.Float:
-                        float floatVal = 0f;
-                        if (value != null)
-                        {
-                            if (value is float) floatVal = (float)value;
-                            else float.TryParse(value.ToString(), out floatVal);
-                        }
-                        return EditorGUI.FloatField(position, floatVal);
-                        
-                    case ColumnType.Boolean:
-                        bool boolVal = false;
-                        if (value != null)
-                        {
-                            if (value is bool) boolVal = (bool)value;
-                            else bool.TryParse(value.ToString(), out boolVal);
-                        }
-                        return EditorGUI.Toggle(position, boolVal);
-                        
-                    case ColumnType.Color:
-                        Color colorVal = value is Color ? (Color)value : Color.white;
-                        return EditorGUI.ColorField(position, colorVal);
-                        
-                    case ColumnType.Vector2:
-                        Vector2 vec2Val = value is Vector2 ? (Vector2)value : Vector2.zero;
-                        return EditorGUI.Vector2Field(position, "", vec2Val);
-                        
-                    case ColumnType.Vector3:
-                        Vector3 vec3Val = value is Vector3 ? (Vector3)value : Vector3.zero;
-                        return EditorGUI.Vector3Field(position, "", vec3Val);
-                        
-                    case ColumnType.AssetReference:
-                        return EditorGUI.ObjectField(position,
-                            value as UnityEngine.Object,
-                            column.GetAssetType(),
-                            false);
-                            
-                    case ColumnType.Enum:
-                        if (column.EnumDefinition != null && column.EnumDefinition.Values.Count > 0)
-                        {
-                            var currentIndex = column.EnumDefinition.GetIndex(value?.ToString() ?? "");
-                            if (currentIndex < 0) currentIndex = 0;
-                            var newIndex = EditorGUI.Popup(position, currentIndex, column.EnumDefinition.Values.ToArray());
-                            return column.EnumDefinition.Values[newIndex];
-                        }
-                        return EditorGUI.TextField(position, value?.ToString() ?? "");
-                        
+                    case ColumnType.Integer when field is IntegerField iF:
+                        iF.SetValueWithoutNotify(value is int iv ? iv : 0);
+                        break;
+                    case ColumnType.Float when field is FloatField fF:
+                        fF.SetValueWithoutNotify(value is float fv ? fv : 0f);
+                        break;
+                    case ColumnType.Boolean when field is Toggle tog:
+                        tog.SetValueWithoutNotify(value is bool bv && bv);
+                        break;
+                    case ColumnType.Color when field is ColorField cf:
+                        cf.SetValueWithoutNotify(value is Color cv ? cv : Color.white);
+                        break;
+                    case ColumnType.Vector2 when field is Vector2Field v2F:
+                        v2F.SetValueWithoutNotify(value is Vector2 v2v ? v2v : Vector2.zero);
+                        break;
+                    case ColumnType.Vector3 when field is Vector3Field v3F:
+                        v3F.SetValueWithoutNotify(value is Vector3 v3v ? v3v : Vector3.zero);
+                        break;
+                    case ColumnType.AssetReference when field is ObjectField oF:
+                        oF.SetValueWithoutNotify(value as Object);
+                        break;
+                    case ColumnType.Enum when field is DropdownField dd:
+                        var sv = value?.ToString() ?? "";
+                        dd.SetValueWithoutNotify(dd.choices.Contains(sv) ? sv : (dd.choices.Count > 0 ? dd.choices[0] : ""));
+                        break;
                     default:
-                        return EditorGUI.TextField(position, value?.ToString() ?? "");
+                        if (field is TextField tf)
+                            tf.SetValueWithoutNotify(value?.ToString() ?? "");
+                        break;
                 }
             }
             catch (System.Exception ex)
             {
-                Debug.LogWarning($"Error drawing cell: {ex.Message}");
-                return value;
+                Debug.LogWarning($"[BalanceForge] SetValueWithoutNotify: {ex.Message}");
             }
         }
-        
-        /// <summary>
-        /// Рисует панель инструментов с кнопками для управления таблицей.
-        /// Содержит: выбор таблицы, добавление/удаление строк, фильтрацию, валидацию, импорт/экспорт, сохранение, undo/redo.
-        /// </summary>
-        private void DrawToolbar()
+
+        // ── Sorting ──────────────────────────────────────────────
+        private void OnColumnSortingChanged()
         {
-            EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
-            
-            var newTable = (BalanceTable)EditorGUILayout.ObjectField(
-                currentTable, typeof(BalanceTable), false, GUILayout.Width(200));
-            
-            if (newTable != currentTable)
+            var descs = tableView?.sortColumnDescriptions;
+            if (descs == null || descs.Count == 0)
             {
-                currentTable = newTable;
-                RefreshDisplayedRows();
-                undoRedoService.Clear();
-                ClearAllCaches();
-            }
-            
-            GUILayout.FlexibleSpace();
-            
-            if (currentTable != null)
-            {
-                GUI.enabled = IsFileEditable();
-                
-                if (GUILayout.Button("Add Row", EditorStyles.toolbarButton))
-                {
-                    var newRow = currentTable.AddRow();
-                    var command = new AddRowCommand(currentTable, newRow);
-                    undoRedoService.ExecuteCommand(command);
-                    RefreshDisplayedRows();
-                    
-                    // КРИТИЧНО: Сохраняем изменения
-                    EditorUtility.SetDirty(currentTable);
-                    AssetDatabase.SaveAssets();
-                }
-                
-                if (GUILayout.Button("Delete Selected", EditorStyles.toolbarButton))
-                {
-                    HandleDeleteSelected();
-                }
-                
-                GUI.enabled = true;
-                
-                GUILayout.Space(10);
-                
-                bool newShowFilter = GUILayout.Toggle(showFilterPanel, "Filter", EditorStyles.toolbarButton);
-                if (newShowFilter != showFilterPanel)
-                {
-                    showFilterPanel = newShowFilter;
-                }
-                
-                if (GUILayout.Button("Validate", EditorStyles.toolbarButton))
-                {
-                    validationResult = currentTable.ValidateData();
-                    showValidation = true;
-                }
-                
-                if (GUILayout.Button("Import/Export", EditorStyles.toolbarButton))
-                {
-                    ShowImportExportMenu();
-                }
-                
-                if (GUILayout.Button("Save", EditorStyles.toolbarButton))
-                {
-                    SaveTable();
-                }
-                
-                GUILayout.Space(10);
-                
-                GUI.enabled = undoRedoService.CanUndo();
-                if (GUILayout.Button("Undo", EditorStyles.toolbarButton))
-                {
-                    undoRedoService.Undo();
-                    RefreshDisplayedRows();
-                    
-                    // КРИТИЧНО: Сохраняем изменения
-                    EditorUtility.SetDirty(currentTable);
-                    AssetDatabase.SaveAssets();
-                    
-                    isDirty = true;
-                }
-                GUI.enabled = undoRedoService.CanRedo();
-                if (GUILayout.Button("Redo", EditorStyles.toolbarButton))
-                {
-                    undoRedoService.Redo();
-                    RefreshDisplayedRows();
-                    
-                    // КРИТИЧНО: Сохраняем изменения
-                    EditorUtility.SetDirty(currentTable);
-                    AssetDatabase.SaveAssets();
-                    
-                    isDirty = true;
-                }
-                GUI.enabled = true;
-            }
-            
-            EditorGUILayout.EndHorizontal();
-        }
-        
-        /// <summary>
-        /// Рисует панель фильтрации с возможностью добавления, удаления и настройки условий фильтра.
-        /// Позволяет комбинировать фильтры логическими операторами And/Or.
-        /// </summary>
-        private void DrawFilterPanel()
-        {
-            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-            EditorGUILayout.LabelField("Filters", EditorStyles.boldLabel);
-            
-            filterLogicalOp = (LogicalOperator)EditorGUILayout.EnumPopup("Combine with", filterLogicalOp);
-            
-            for (int i = 0; i < filterConditions.Count; i++)
-            {
-                var condition = filterConditions[i];
-                EditorGUILayout.BeginHorizontal();
-                
-                var columnNames = currentTable.Columns.Select(c => c.DisplayName).ToArray();
-                var columnIndex = System.Array.FindIndex(columnNames, name => 
-                    currentTable.Columns.FirstOrDefault(c => c.DisplayName == name)?.ColumnId == condition.ColumnId);
-                
-                var newColumnIndex = EditorGUILayout.Popup(columnIndex >= 0 ? columnIndex : 0, columnNames, GUILayout.Width(150));
-                if (newColumnIndex != columnIndex && newColumnIndex >= 0)
-                {
-                    condition.ColumnId = currentTable.Columns[newColumnIndex].ColumnId;
-                }
-                
-                condition.Operator = (FilterOperator)EditorGUILayout.EnumPopup(condition.Operator, GUILayout.Width(100));
-                condition.Value = EditorGUILayout.TextField(condition.Value?.ToString() ?? "", GUILayout.Width(150));
-                
-                if (GUILayout.Button("Remove", GUILayout.Width(60)))
-                {
-                    filterConditions.RemoveAt(i);
-                    RefreshDisplayedRows();
-                    i--;
-                }
-                
-                EditorGUILayout.EndHorizontal();
-            }
-            
-            EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("Add Filter"))
-            {
-                filterConditions.Add(new FilterCondition 
-                { 
-                    ColumnId = currentTable.Columns[0].ColumnId,
-                    Operator = FilterOperator.Contains,
-                    Value = ""
-                });
-            }
-            
-            if (GUILayout.Button("Clear All"))
-            {
-                filterConditions.Clear();
-                RefreshDisplayedRows();
-            }
-            
-            if (GUILayout.Button("Apply"))
-            {
-                RefreshDisplayedRows();
-            }
-            EditorGUILayout.EndHorizontal();
-            
-            EditorGUILayout.EndVertical();
-            EditorGUILayout.Space();
-        }
-        
-        /// <summary>
-        /// Обрабатывает операцию копирования значения сфокусированной ячейки в буфер обмена.
-        /// </summary>
-        private void HandleCopy()
-        {
-            if (!string.IsNullOrEmpty(focusedCellRowId) && !string.IsNullOrEmpty(focusedCellColumnId))
-            {
-                var row = currentTable.Rows.FirstOrDefault(r => r.RowId == focusedCellRowId);
-                if (row != null)
-                {
-                    var value = row.GetValue(focusedCellColumnId);
-                    ClipboardService.Copy(focusedCellColumnId, value);
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Обрабатывает операцию вставки значения из буфера обмена в сфокусированную ячейку.
-        /// Создает команду для Undo/Redo и выполняет валидацию нового значения.
-        /// </summary>
-        private void HandlePaste()
-        {
-            if (!IsFileEditable()) return;
-            
-            if (!string.IsNullOrEmpty(focusedCellRowId) && !string.IsNullOrEmpty(focusedCellColumnId))
-            {
-                var row = currentTable.Rows.FirstOrDefault(r => r.RowId == focusedCellRowId);
-                if (row != null && ClipboardService.CanPaste(focusedCellColumnId))
-                {
-                    var oldValue = row.GetValue(focusedCellColumnId);
-                    var newValue = ClipboardService.Paste(focusedCellColumnId);
-                    
-                    var command = new EditCellCommand(currentTable, focusedCellRowId, focusedCellColumnId, oldValue, newValue);
-                    undoRedoService.ExecuteCommand(command);
-                    RefreshDisplayedRows();
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Отображает контекстное меню для ячейки с операциями Copy/Paste.
-        /// </summary>
-        /// <param name="columnId">ID столбца для определения типа данных при вставке.</param>
-        /// <param name="value">Текущее значение ячейки для копирования.</param>
-        private void ShowCellContextMenu(string columnId, object value)
-        {
-            contextMenu = new GenericMenu();
-            contextMenu.AddItem(new GUIContent("Copy"), false, () => ClipboardService.Copy(columnId, value));
-            
-            if (ClipboardService.CanPaste(columnId))
-            {
-                contextMenu.AddItem(new GUIContent("Paste"), false, HandlePaste);
+                sortingState.SortColumnId = null;
+                sortingState.Direction = BFSortDirection.None;
             }
             else
             {
-                contextMenu.AddDisabledItem(new GUIContent("Paste"));
+                sortingState.SortColumnId = descs[0].columnName;
+                sortingState.Direction = descs[0].direction == UnityEngine.UIElements.SortDirection.Ascending
+                    ? BFSortDirection.Ascending
+                    : BFSortDirection.Descending;
             }
-            
-            contextMenu.ShowAsContext();
+
+            RefreshDisplayedRows();
+            UpdateStatusBar();
         }
-        
-        /// <summary>
-        /// Отображает меню импорта/экспорта данных таблицы.
-        /// Поддерживает экспорт в CSV и импорт из CSV с проверкой структуры.
-        /// Планируется добавление поддержки JSON.
-        /// </summary>
-        private void ShowImportExportMenu()
-        {
-            var menu = new GenericMenu();
-            
-            menu.AddItem(new GUIContent("Export to CSV"), false, () =>
-            {
-                var path = EditorUtility.SaveFilePanel("Export Balance Table", "", currentTable.TableName + ".csv", "csv");
-                if (!string.IsNullOrEmpty(path))
-                {
-                    var exporter = new CSVExporter();
-                    if (exporter.Export(currentTable, path))
-                    {
-                        EditorUtility.DisplayDialog("Success", "Table exported successfully!", "OK");
-                    }
-                }
-            });
-            
-            menu.AddItem(new GUIContent("Import from CSV"), false, () =>
-            {
-                var path = EditorUtility.OpenFilePanel("Import CSV", "", "csv");
-                if (!string.IsNullOrEmpty(path))
-                {
-                    var importer = new CSVImporter();
-                    var importedTable = importer.Import(path);
-                    
-                    if (importedTable != null)
-                    {
-                        var importedColumns = importedTable.Columns.Select(c => c.DisplayName).ToList();
-                        if (!currentTable.HasStructure(importedColumns))
-                        {
-                            bool proceed = EditorUtility.DisplayDialog("Warning", 
-                                "The CSV structure doesn't match the current table. Some data may be lost. Continue?", 
-                                "Continue", "Cancel");
-                            
-                            if (!proceed) return;
-                        }
-                        
-                        currentTable.Rows.Clear();
-                        foreach (var row in importedTable.Rows)
-                        {
-                            currentTable.Rows.Add(row);
-                        }
-                        
-                        // КРИТИЧНО: Сохраняем изменения
-                        EditorUtility.SetDirty(currentTable);
-                        AssetDatabase.SaveAssets();
-                        
-                        RefreshDisplayedRows();
-                        EditorUtility.DisplayDialog("Success", "Data imported successfully!", "OK");
-                    }
-                }
-            });
-            
-            menu.AddSeparator("");
-            menu.AddItem(new GUIContent("Export to JSON"), false, () =>
-            {
-                EditorUtility.DisplayDialog("Info", "JSON export coming soon!", "OK");
-            });
-            
-            menu.ShowAsContext();
-        }
-        
-        /// <summary>
-        /// Обрабатывает удаление выбранных строк после подтверждения пользователя.
-        /// Создает команду MultiDeleteCommand для поддержки Undo/Redo.
-        /// </summary>
-        private void HandleDeleteSelected()
-        {
-            if (!IsFileEditable() || selectedRowIds.Count == 0) return;
-            
-            bool confirm = EditorUtility.DisplayDialog("Confirm Delete",
-                $"Are you sure you want to delete {selectedRowIds.Count} row(s)?",
-                "Delete", "Cancel");
-            
-            if (confirm)
-            {
-                var rowsToDelete = currentTable.Rows.Where(r => selectedRowIds.Contains(r.RowId)).ToList();
-                var command = new MultiDeleteCommand(currentTable, rowsToDelete);
-                undoRedoService.ExecuteCommand(command);
-                selectedRowIds.Clear();
-                RefreshDisplayedRows();
-                
-                // КРИТИЧНО: Сохраняем изменения
-                EditorUtility.SetDirty(currentTable);
-                AssetDatabase.SaveAssets();
-            }
-        }
-        
-        /// <summary>
-        /// Обновляет список отображаемых строк с применением фильтров и сортировки.
-        /// Вызывается при загрузке таблицы, изменении фильтров, сортировке или редактировании данных.
-        /// Очищает все кэши после обновления.
-        /// </summary>
+
+        // ── Data refresh ─────────────────────────────────────────
         private void RefreshDisplayedRows()
         {
             if (currentTable == null)
@@ -1075,78 +726,259 @@ namespace BalanceForge.Editor.UI
                 displayedRows = new List<BalanceRow>();
                 return;
             }
-            
+
             displayedRows = new List<BalanceRow>(currentTable.Rows);
-            
+
+            // Quick search (all columns, case-insensitive)
+            if (!string.IsNullOrEmpty(quickSearchText))
+            {
+                var term = quickSearchText.ToLowerInvariant();
+                displayedRows = displayedRows.Where(row =>
+                    currentTable.Columns.Any(c =>
+                    {
+                        var v = row.GetValue(c.ColumnId);
+                        return v != null && v.ToString().ToLowerInvariant().Contains(term);
+                    })).ToList();
+            }
+
+            // Advanced filters
             if (filterConditions.Count > 0)
             {
-                var filter = new CompositeFilter(filterLogicalOp);
-                foreach (var condition in filterConditions)
-                {
-                    filter.AddFilter(new ColumnFilter(condition));
-                }
-                displayedRows = filter.Apply(displayedRows);
+                var composite = new CompositeFilter(filterLogicalOp);
+                foreach (var cond in filterConditions)
+                    composite.AddFilter(new ColumnFilter(cond));
+                displayedRows = composite.Apply(displayedRows);
             }
-            
-            if (sortingState.Direction != SortDirection.None && !string.IsNullOrEmpty(sortingState.SortColumnId))
+
+            // Sorting
+            if (sortingState.Direction != BFSortDirection.None &&
+                !string.IsNullOrEmpty(sortingState.SortColumnId))
             {
-                var column = currentTable.GetColumn(sortingState.SortColumnId);
-                if (column != null)
-                {
-                    displayedRows = TableSorter.Sort(
-                        displayedRows, 
-                        sortingState.SortColumnId, 
-                        sortingState.Direction, 
-                        column.DataType
-                    );
-                }
+                var col = currentTable.GetColumn(sortingState.SortColumnId);
+                if (col != null)
+                    displayedRows = TableSorter.Sort(displayedRows, sortingState.SortColumnId,
+                        sortingState.Direction, col.DataType);
             }
-            
-            ClearAllCaches();
+
+            if (tableView != null)
+            {
+                tableView.itemsSource = displayedRows;
+                tableView.RefreshItems();
+            }
+
+            UpdateEmptyOverlay();
         }
-        
-        /// <summary>
-        /// Проверяет может ли пользователь редактировать текущий файл таблицы.
-        /// Возвращает false если файл только для чтения или расположен в папке Packages.
-        /// </summary>
-        /// <returns>true если файл доступен для редактирования, иначе false.</returns>
+
+        // ── Actions ──────────────────────────────────────────────
+        private void HandleAddRow()
+        {
+            if (currentTable == null || !IsFileEditable()) return;
+
+            var row = currentTable.AddRow();
+            var cmd = new AddRowCommand(currentTable, row);
+            undoRedoService.ExecuteCommand(cmd);
+
+            EditorUtility.SetDirty(currentTable);
+            AssetDatabase.SaveAssets();
+            RefreshDisplayedRows();
+
+            // Scroll to the new row
+            if (displayedRows.Count > 0)
+                tableView?.ScrollToItem(displayedRows.Count - 1);
+
+            UpdateUndoRedoButtons();
+            UpdateStatusBar();
+        }
+
+        private void HandleDeleteSelected()
+        {
+            if (currentTable == null || !IsFileEditable()) return;
+            var selected = tableView?.selectedItems?.OfType<BalanceRow>().ToList();
+            if (selected == null || selected.Count == 0) return;
+
+            if (!EditorUtility.DisplayDialog("Confirm Delete",
+                    $"Delete {selected.Count} selected row(s)?", "Delete", "Cancel")) return;
+
+            var cmd = new MultiDeleteCommand(currentTable, selected);
+            undoRedoService.ExecuteCommand(cmd);
+
+            EditorUtility.SetDirty(currentTable);
+            AssetDatabase.SaveAssets();
+            RefreshDisplayedRows();
+            UpdateUndoRedoButtons();
+            UpdateStatusBar();
+        }
+
+        private void HandleUndo()
+        {
+            if (!undoRedoService.CanUndo()) return;
+            undoRedoService.Undo();
+            EditorUtility.SetDirty(currentTable);
+            AssetDatabase.SaveAssets();
+            RefreshDisplayedRows();
+            UpdateUndoRedoButtons();
+            UpdateStatusBar();
+        }
+
+        private void HandleRedo()
+        {
+            if (!undoRedoService.CanRedo()) return;
+            undoRedoService.Redo();
+            EditorUtility.SetDirty(currentTable);
+            AssetDatabase.SaveAssets();
+            RefreshDisplayedRows();
+            UpdateUndoRedoButtons();
+            UpdateStatusBar();
+        }
+
+        private void HandleValidate()
+        {
+            if (currentTable == null) return;
+            var result = currentTable.ValidateData();
+            var lbl    = validationBanner.Q<Label>("validation-label");
+
+            if (!result.HasErrors())
+            {
+                lbl.text = "✓  All values are valid.";
+                validationBanner.RemoveFromClassList("bf-validation-banner--error");
+                validationBanner.AddToClassList("bf-validation-banner--ok");
+            }
+            else
+            {
+                lbl.text = $"⚠  {result.Errors.Count} validation error(s). Cells with issues are highlighted in red.";
+                validationBanner.AddToClassList("bf-validation-banner--error");
+                validationBanner.RemoveFromClassList("bf-validation-banner--ok");
+                tableView?.RefreshItems(); // re-bind to show red borders
+            }
+
+            validationBanner.style.display = DisplayStyle.Flex;
+        }
+
+        private void SaveTable()
+        {
+            if (currentTable == null) return;
+            EditorUtility.SetDirty(currentTable);
+            AssetDatabase.SaveAssets();
+        }
+
+        private void ShowImportExportMenu()
+        {
+            var menu = new GenericMenu();
+
+            menu.AddItem(new GUIContent("Export to CSV"), false, () =>
+            {
+                var path = EditorUtility.SaveFilePanel("Export Balance Table", "",
+                    currentTable.TableName + ".csv", "csv");
+                if (string.IsNullOrEmpty(path)) return;
+                if (new CSVExporter().Export(currentTable, path))
+                    EditorUtility.DisplayDialog("Export", "Table exported successfully.", "OK");
+            });
+
+            menu.AddItem(new GUIContent("Import from CSV"), false, () =>
+            {
+                var path = EditorUtility.OpenFilePanel("Import CSV", "", "csv");
+                if (string.IsNullOrEmpty(path)) return;
+
+                var imported = new CSVImporter().Import(path);
+                if (imported == null) { EditorUtility.DisplayDialog("Import", "Failed to parse the CSV file.", "OK"); return; }
+
+                var importedCols = imported.Columns.Select(c => c.DisplayName).ToList();
+                if (!currentTable.HasStructure(importedCols))
+                {
+                    if (!EditorUtility.DisplayDialog("Structure mismatch",
+                            "CSV columns don't match this table. Some data may be lost. Continue?",
+                            "Continue", "Cancel")) return;
+                }
+
+                currentTable.Rows.Clear();
+                foreach (var r in imported.Rows) currentTable.Rows.Add(r);
+                EditorUtility.SetDirty(currentTable);
+                AssetDatabase.SaveAssets();
+                RefreshDisplayedRows();
+                EditorUtility.DisplayDialog("Import", "Data imported successfully.", "OK");
+            });
+
+            menu.AddSeparator("");
+            menu.AddDisabledItem(new GUIContent("Export to JSON  (coming soon)"));
+            menu.ShowAsContext();
+        }
+
+        // ── UI helpers ───────────────────────────────────────────
+        private void ToggleFilterPanel()
+        {
+            filterPanelVisible = !filterPanelVisible;
+            SetFilterPanelVisible(filterPanelVisible);
+        }
+
+        private void SetFilterPanelVisible(bool visible)
+        {
+            filterPanelVisible = visible;
+            if (filterPanel != null)
+                filterPanel.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;
+
+            // Подсветка кнопки как активной/неактивной
+            filterButton?.EnableInClassList("unity-button--active", visible);
+        }
+
+        private void UpdateUndoRedoButtons()
+        {
+            undoButton?.SetEnabled(undoRedoService.CanUndo());
+            redoButton?.SetEnabled(undoRedoService.CanRedo());
+        }
+
+        private void UpdateStatusBar()
+        {
+            if (statusLabel == null) return;
+
+            if (currentTable == null)
+            {
+                statusLabel.text = "No table loaded";
+                return;
+            }
+
+            int total     = currentTable.Rows.Count;
+            int displayed = displayedRows?.Count ?? 0;
+
+            var parts = new List<string> { currentTable.TableName };
+            parts.Add(displayed < total ? $"Showing {displayed} / {total} rows" : $"{total} rows");
+            parts.Add($"Modified {currentTable.LastModified:yyyy-MM-dd HH:mm}");
+
+            statusLabel.text = string.Join("   |   ", parts);
+        }
+
         private bool IsFileEditable()
         {
             if (currentTable == null) return false;
-            
-            string path = AssetDatabase.GetAssetPath(currentTable);
+            var path = AssetDatabase.GetAssetPath(currentTable);
             if (string.IsNullOrEmpty(path) || path.StartsWith("Packages/")) return false;
-            
-            return !AssetDatabase.IsOpenForEdit(path, StatusQueryOptions.ForceUpdate) || 
-                   AssetDatabase.IsOpenForEdit(path, StatusQueryOptions.UseCachedIfPossible);
+            return !AssetDatabase.IsOpenForEdit(path, StatusQueryOptions.ForceUpdate) ||
+                    AssetDatabase.IsOpenForEdit(path, StatusQueryOptions.UseCachedIfPossible);
         }
-        
-        /// <summary>
-        /// Сохраняет текущую таблицу в Asset Database.
-        /// Помечает объект как изменённый и сохраняет все изменения.
-        /// </summary>
-        private void SaveTable()
+
+        // ── Keyboard shortcuts ───────────────────────────────────
+        private void OnKeyDown(KeyDownEvent evt)
         {
-            if (currentTable)
-            {
-                EditorUtility.SetDirty(currentTable);
-                AssetDatabase.SaveAssets();
-                Debug.Log($"Table '{currentTable.TableName}' saved successfully!");
-            }
+            if (currentTable == null) return;
+            bool ctrl = evt.ctrlKey || evt.commandKey;
+
+            if (ctrl && !evt.shiftKey && evt.keyCode == KeyCode.Z)
+            { HandleUndo(); evt.StopPropagation(); }
+            else if ((ctrl && evt.shiftKey && evt.keyCode == KeyCode.Z) || (ctrl && evt.keyCode == KeyCode.Y))
+            { HandleRedo(); evt.StopPropagation(); }
+            else if (ctrl && evt.keyCode == KeyCode.Return)
+            { HandleAddRow(); evt.StopPropagation(); }
+            else if (evt.keyCode == KeyCode.Delete && !ctrl)
+            { HandleDeleteSelected(); evt.StopPropagation(); }
+            else if (ctrl && evt.keyCode == KeyCode.S)
+            { SaveTable(); evt.StopPropagation(); }
         }
-        
-        /// <summary>
-        /// Рисует строку состояния с информацией о таблице.
-        /// Отображает: количество строк, отфильтрованных строк, выбранных строк, видимых строк и время последнего изменения.
-        /// </summary>
-        private void DrawStatusBar()
-        {
-            EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
-            GUILayout.Label($"Total: {currentTable.Rows.Count} | Displayed: {displayedRows.Count} | Selected: {selectedRowIds.Count} | Visible: {visibleEndIndex - visibleStartIndex + 1}");
-            GUILayout.FlexibleSpace();
-            GUILayout.Label($"Modified: {currentTable.LastModified:yyyy-MM-dd HH:mm:ss}");
-            EditorGUILayout.EndHorizontal();
-        }
+    }
+
+    // ── Small extension helper ───────────────────────────────────
+    internal static class VisualElementExtensions
+    {
+        internal static void SetDisplay(this VisualElement el, bool visible) =>
+            el.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;
     }
 }
 #endif

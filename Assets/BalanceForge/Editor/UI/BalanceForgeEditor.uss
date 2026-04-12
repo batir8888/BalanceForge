@@ -1,0 +1,290 @@
+/* ======================================================
+   BalanceForge Editor — UI Toolkit stylesheet
+   ====================================================== */
+
+/* ── Toolbar ─────────────────────────────────────────── */
+.bf-toolbar ObjectField {
+    min-width: 200px;
+}
+
+/* ── Table cells ─────────────────────────────────────── */
+.bf-cell {
+    flex-direction: row;
+    align-items: stretch;
+    flex-grow: 1;
+    padding: 1px 2px;
+}
+
+.bf-cell-field {
+    flex-grow: 1;
+    margin: 0;
+    border-width: 0;
+}
+
+/* Remove inner label margins for compound fields */
+.bf-cell-field .unity-base-field__label {
+    display: none;
+}
+
+.bf-cell-field.unity-toggle {
+    justify-content: center;
+    align-items: center;
+}
+
+/* Invalid cell highlight */
+.bf-cell--invalid > .bf-cell-field {
+    border-width: 1px;
+    border-color: rgb(210, 55, 55);
+    border-radius: 2px;
+}
+
+/* Row number column */
+.bf-cell-rownum {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 10px;
+    -unity-text-align: middle-right;
+    padding-right: 4px;
+    width: 100%;
+}
+
+/* Column header tooltip hint */
+.bf-column-header {
+    -unity-font-style: bold;
+    overflow: hidden;
+    -unity-text-align: middle-left;
+    text-overflow: ellipsis;
+    padding: 0 4px;
+    width: 100%;
+}
+
+/* ── Filter panel ────────────────────────────────────── */
+.bf-filter-panel {
+    flex-shrink: 0;
+    padding: 6px 8px 4px 8px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.bf-filter-header {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+}
+
+.bf-filter-header > Label {
+    -unity-font-style: bold;
+    margin-right: 10px;
+}
+
+.bf-filter-header > EnumField {
+    width: 140px;
+    margin-right: 8px;
+}
+
+.bf-filter-header > Button {
+    margin-right: 4px;
+}
+
+.bf-filter-row {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+.bf-filter-row > DropdownField {
+    width: 140px;
+    margin-right: 4px;
+}
+
+.bf-filter-row > EnumField {
+    width: 110px;
+    margin-right: 4px;
+}
+
+.bf-filter-row > TextField {
+    flex-grow: 1;
+    margin-right: 4px;
+}
+
+.bf-filter-remove {
+    width: 24px;
+    height: 20px;
+    padding: 0;
+    font-size: 12px;
+    color: rgb(210, 80, 80);
+    -unity-font-style: bold;
+    border-width: 0;
+    background-color: transparent;
+}
+
+.bf-filter-remove:hover {
+    background-color: rgba(210, 80, 80, 0.2);
+    border-radius: 3px;
+}
+
+/* Invalid regex pattern indicator */
+.bf-filter-value--regex-invalid {
+    border-width: 1px;
+    border-color: rgb(180, 80, 220);
+    border-radius: 2px;
+}
+
+.bf-filter-value--regex-invalid:focus {
+    border-color: rgb(210, 100, 255);
+}
+
+/* ── Validation banner ───────────────────────────────── */
+.bf-validation-banner {
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 10px;
+    border-bottom-width: 1px;
+}
+
+.bf-validation-banner--error {
+    background-color: rgba(200, 50, 50, 0.18);
+    border-bottom-color: rgba(200, 50, 50, 0.45);
+}
+
+.bf-validation-banner--ok {
+    background-color: rgba(50, 190, 80, 0.18);
+    border-bottom-color: rgba(50, 190, 80, 0.45);
+}
+
+.bf-validation-banner > Label {
+    flex-grow: 1;
+    font-size: 11px;
+}
+
+.bf-validation-close {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border-width: 0;
+    background-color: transparent;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.bf-validation-close:hover {
+    opacity: 1;
+}
+
+/* ── Status bar ──────────────────────────────────────── */
+.bf-status-bar {
+    flex-direction: row;
+    align-items: center;
+    padding: 2px 8px;
+    height: 20px;
+    border-top-width: 1px;
+    border-top-color: rgba(0, 0, 0, 0.3);
+}
+
+.bf-status-bar > Label {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+/* ── Empty / placeholder messages ───────────────────── */
+.bf-empty-message {
+    flex-grow: 1;
+    -unity-text-align: middle-center;
+    color: rgba(255, 255, 255, 0.38);
+    padding: 40px 24px;
+    white-space: normal;
+    font-size: 12px;
+}
+
+/* ── Wizard ──────────────────────────────────────────── */
+.bf-wizard-title {
+    margin-bottom: 8px;
+}
+
+.bf-wizard-col-box {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.08);
+    padding: 7px 8px;
+    margin-bottom: 5px;
+}
+
+.bf-wizard-col-header {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.bf-wizard-col-index {
+    -unity-font-style: bold;
+    flex-grow: 1;
+}
+
+.bf-wizard-remove {
+    color: rgb(210, 80, 80);
+    border-width: 0;
+    background-color: transparent;
+    padding: 0 4px;
+    font-size: 11px;
+}
+
+.bf-wizard-remove:hover {
+    background-color: rgba(210, 80, 80, 0.18);
+    border-radius: 3px;
+}
+
+.bf-wizard-enum-section {
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top-width: 1px;
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.bf-wizard-enum-header {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+.bf-wizard-enum-row {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.bf-wizard-enum-row > TextField {
+    flex-grow: 1;
+    margin-right: 3px;
+}
+
+.bf-wizard-footer {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top-width: 1px;
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.bf-wizard-footer > Button {
+    margin-left: 4px;
+    min-width: 80px;
+}
+
+.bf-wizard-footer > .bf-btn-primary {
+    background-color: rgba(60, 120, 220, 0.6);
+    border-color: rgba(60, 120, 220, 0.9);
+    -unity-font-style: bold;
+}
+
+.bf-wizard-footer > .bf-btn-primary:hover {
+    background-color: rgba(70, 135, 240, 0.75);
+}
+
+.bf-wizard-footer > .bf-btn-primary:disabled {
+    background-color: rgba(60, 60, 60, 0.4);
+    border-color: rgba(60, 60, 60, 0.6);
+    color: rgba(255, 255, 255, 0.3);
+}

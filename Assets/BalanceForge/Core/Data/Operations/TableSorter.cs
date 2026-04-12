@@ -55,6 +55,9 @@ namespace BalanceForge.Data.Operations
                     SortDirection.Descending => SortDirection.None,
                     _ => SortDirection.None
                 };
+
+                if (Direction == SortDirection.None)
+                    SortColumnId = null;
             }
         }
     }
