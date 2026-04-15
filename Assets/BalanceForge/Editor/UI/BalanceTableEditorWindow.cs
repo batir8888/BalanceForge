@@ -9,6 +9,7 @@ using BalanceForge.Core.Data;
 using BalanceForge.Data.Operations;
 using BalanceForge.ImportExport;
 using BalanceForge.Services;
+using BalanceForge.Editor.CodeGen;
 // Disambiguate from UnityEngine.UIElements.SortDirection
 using BFSortDirection = BalanceForge.Data.Operations.SortDirection;
 
@@ -35,6 +36,7 @@ namespace BalanceForge.Editor.UI
         private ToolbarButton undoButton;
         private ToolbarButton redoButton;
         private ToolbarButton filterButton;
+        private ToolbarButton generateCodeButton;
         private ObjectField tableField;
 
         private const string StyleSheetPath = "Assets/BalanceForge/Editor/UI/BalanceForgeEditor.uss";
@@ -148,6 +150,10 @@ namespace BalanceForge.Editor.UI
 
             var ioBtn = new ToolbarButton(ShowImportExportMenu) { text = "Import / Export" };
             tb.Add(ioBtn);
+
+            generateCodeButton = new ToolbarButton(HandleGenerateCode) { text = "<> Generate" };
+            generateCodeButton.tooltip = "Generate strongly-typed C# row class and bake data asset";
+            tb.Add(generateCodeButton);
 
             var saveBtn = new ToolbarButton(SaveTable) { text = "💾 Save" };
             saveBtn.tooltip = "Save asset to disk  (Ctrl+S)";
@@ -901,6 +907,16 @@ namespace BalanceForge.Editor.UI
             menu.AddSeparator("");
             menu.AddDisabledItem(new GUIContent("Export to JSON  (coming soon)"));
             menu.ShowAsContext();
+        }
+
+        private void HandleGenerateCode()
+        {
+            if (currentTable == null)
+            {
+                EditorUtility.DisplayDialog("Generate Code", "Load a Balance Table first.", "OK");
+                return;
+            }
+            CodeGenDialog.Show(currentTable);
         }
 
         // ── UI helpers ───────────────────────────────────────────

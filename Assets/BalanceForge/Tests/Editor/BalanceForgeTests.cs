@@ -8,6 +8,7 @@ using BalanceForge.Core.Data;
 using BalanceForge.Data.Operations;
 using BalanceForge.Services;
 using BalanceForge.ImportExport;
+using BalanceForge.Editor.CodeGen;
 
 namespace BalanceForge.Tests
 {
@@ -1335,6 +1336,269 @@ namespace BalanceForge.Tests
 
         #endregion
 
+        #region CodeGen — ToIdentifier Tests
+
+        [Test]
+        public void Test81_ToIdentifier_SimpleWord_PascalCase()
+        {
+            Assert.AreEqual("Name", BalanceTableCodeGenerator.ToIdentifier("name"));
+        }
+
+        [Test]
+        public void Test82_ToIdentifier_WordsWithSpace_PascalCase()
+        {
+            Assert.AreEqual("HpMax", BalanceTableCodeGenerator.ToIdentifier("hp max"));
+        }
+
+        [Test]
+        public void Test83_ToIdentifier_WordsWithDash_PascalCase()
+        {
+            Assert.AreEqual("HpMax", BalanceTableCodeGenerator.ToIdentifier("hp-max"));
+        }
+
+        [Test]
+        public void Test84_ToIdentifier_WordsWithUnderscores_PascalCase()
+        {
+            Assert.AreEqual("IsActive", BalanceTableCodeGenerator.ToIdentifier("is_active"));
+        }
+
+        [Test]
+        public void Test85_ToIdentifier_StartsWithDigit_UnderscorePrefix()
+        {
+            Assert.AreEqual("_3dSpeed", BalanceTableCodeGenerator.ToIdentifier("3d_speed"));
+        }
+
+        [Test]
+        public void Test86_ToIdentifier_AllSpecialChars_ReturnsColumn()
+        {
+            Assert.AreEqual("Column", BalanceTableCodeGenerator.ToIdentifier("---"));
+        }
+
+        [Test]
+        public void Test87_ToIdentifier_EmptyString_ReturnsColumn()
+        {
+            Assert.AreEqual("Column", BalanceTableCodeGenerator.ToIdentifier(""));
+        }
+
+        [Test]
+        public void Test88_ToIdentifier_Null_ReturnsColumn()
+        {
+            Assert.AreEqual("Column", BalanceTableCodeGenerator.ToIdentifier(null));
+        }
+
+        [Test]
+        public void Test89_ToIdentifier_PreservesInnerUpperCase()
+        {
+            // Single token: first char uppercased, rest preserved as-is
+            Assert.AreEqual("MyHPValue", BalanceTableCodeGenerator.ToIdentifier("myHPValue"));
+        }
+
+        [Test]
+        public void Test90_ToIdentifier_MultipleConsecutiveDelimiters_Collapsed()
+        {
+            // "hp__max" — "__" is one separator (+ quantifier) → ["hp","max"] → "HpMax"
+            Assert.AreEqual("HpMax", BalanceTableCodeGenerator.ToIdentifier("hp__max"));
+        }
+
+        #endregion
+
+        #region CodeGen — GenerateCode Argument Validation Tests
+
+        [Test]
+        public void Test91_GenerateCode_NullTable_ThrowsArgumentNullException()
+        {
+            Assert.Throws<System.ArgumentNullException>(() =>
+                BalanceTableCodeGenerator.GenerateCode(null, "Assets/BalanceForge/Tests/TempCodeGen/"));
+        }
+
+        [Test]
+        public void Test92_GenerateCode_EmptyOutputDir_ThrowsArgumentException()
+        {
+            var table = CreateCodeGenTable();
+            Assert.Throws<System.ArgumentException>(() =>
+                BalanceTableCodeGenerator.GenerateCode(table, ""));
+        }
+
+        #endregion
+
+        #region CodeGen — GenerateCode File Content Tests
+
+        [Test]
+        public void Test93_GenerateCode_CreatesFileOnDisk()
+        {
+            var table = CreateCodeGenTable();
+            string dir = UniqueTempCodeGenDir();
+            try
+            {
+                BalanceTableCodeGenerator.GenerateCode(table, dir);
+                Assert.IsTrue(File.Exists(GetCodeGenOsPath(dir + "CharacterStatsData.cs")));
+            }
+            finally { CleanTempCodeGenDir(dir); }
+        }
+
+        [Test]
+        public void Test94_GenerateCode_ReturnedPathEndsWithDataCs()
+        {
+            var table = CreateCodeGenTable();
+            string dir = UniqueTempCodeGenDir();
+            try
+            {
+                string path = BalanceTableCodeGenerator.GenerateCode(table, dir);
+                StringAssert.EndsWith("CharacterStatsData.cs", path);
+            }
+            finally { CleanTempCodeGenDir(dir); }
+        }
+
+        [Test]
+        public void Test95_GenerateCode_ContainsCorrectClassDeclaration()
+        {
+            string code = GenerateCodeAndRead(CreateCodeGenTable());
+            StringAssert.Contains("public class CharacterStatsData : ScriptableObject", code);
+        }
+
+        [Test]
+        public void Test96_GenerateCode_NoRowClassEmitted()
+        {
+            string code = GenerateCodeAndRead(CreateCodeGenTable());
+            // SoA has no separate Row class
+            StringAssert.DoesNotContain("class CharacterStatsRow", code);
+        }
+
+        [Test]
+        public void Test97_GenerateCode_CorrectNamespace()
+        {
+            string code = GenerateCodeAndRead(CreateCodeGenTable());
+            StringAssert.Contains("namespace BalanceForge.Generated", code);
+        }
+
+        [Test]
+        public void Test98_GenerateCode_IntegerColumn_EmitsIntArray()
+        {
+            string code = GenerateCodeAndRead(CreateCodeGenTable());
+            StringAssert.Contains("int[] Hp", code);
+        }
+
+        [Test]
+        public void Test99_GenerateCode_FloatColumn_EmitsFloatArray()
+        {
+            string code = GenerateCodeAndRead(CreateCodeGenTable());
+            StringAssert.Contains("float[] Speed", code);
+        }
+
+        [Test]
+        public void Test100_GenerateCode_BoolColumn_EmitsBoolArray()
+        {
+            string code = GenerateCodeAndRead(CreateCodeGenTable());
+            StringAssert.Contains("bool[] IsActive", code);
+        }
+
+        [Test]
+        public void Test101_GenerateCode_StringColumn_EmitsStringArray()
+        {
+            string code = GenerateCodeAndRead(CreateCodeGenTable());
+            StringAssert.Contains("string[] Name", code);
+        }
+
+        [Test]
+        public void Test102_GenerateCode_DefaultIsArrayEmpty()
+        {
+            string code = GenerateCodeAndRead(CreateCodeGenTable());
+            StringAssert.Contains("System.Array.Empty<int>()",    code);
+            StringAssert.Contains("System.Array.Empty<float>()",  code);
+            StringAssert.Contains("System.Array.Empty<string>()", code);
+            StringAssert.Contains("System.Array.Empty<bool>()",   code);
+        }
+
+        [Test]
+        public void Test103_GenerateCode_ContainsCountProperty()
+        {
+            string code = GenerateCodeAndRead(CreateCodeGenTable());
+            StringAssert.Contains("public int Count =>", code);
+        }
+
+        [Test]
+        public void Test104_GenerateCode_ContainsFindIndexMethod()
+        {
+            string code = GenerateCodeAndRead(CreateCodeGenTable());
+            StringAssert.Contains("public int FindIndex(Predicate<int> predicate)", code);
+        }
+
+        [Test]
+        public void Test105_GenerateCode_DuplicateColumnIds_AreDeduplicated()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.TableName = "DupTest";
+            table.AddColumn(new ColumnDefinition("hp", "HP First",  ColumnType.Integer));
+            table.AddColumn(new ColumnDefinition("hp", "HP Second", ColumnType.Integer));
+
+            string code = GenerateCodeAndRead(table);
+
+            StringAssert.Contains("int[] Hp ",   code);  // first occurrence
+            StringAssert.Contains("int[] Hp_2 ", code);  // deduplicated second
+        }
+
+        [Test]
+        public void Test106_GenerateCode_AllColumnTypes_EmitCorrectArrayTypes()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.TableName = "AllTypesTable";
+            table.AddColumn(new ColumnDefinition("str", "Str", ColumnType.String));
+            table.AddColumn(new ColumnDefinition("i",   "I",   ColumnType.Integer));
+            table.AddColumn(new ColumnDefinition("f",   "F",   ColumnType.Float));
+            table.AddColumn(new ColumnDefinition("b",   "B",   ColumnType.Boolean));
+            table.AddColumn(new ColumnDefinition("v2",  "V2",  ColumnType.Vector2));
+            table.AddColumn(new ColumnDefinition("v3",  "V3",  ColumnType.Vector3));
+            table.AddColumn(new ColumnDefinition("col", "Col", ColumnType.Color));
+            table.AddColumn(new ColumnDefinition("e",   "E",   ColumnType.Enum));
+            table.AddColumn(new ColumnDefinition("ar",  "Ar",  ColumnType.AssetReference));
+
+            string code = GenerateCodeAndRead(table);
+
+            StringAssert.Contains("string[]",             code);
+            StringAssert.Contains("int[]",                code);
+            StringAssert.Contains("float[]",              code);
+            StringAssert.Contains("bool[]",               code);
+            StringAssert.Contains("Vector2[]",            code);
+            StringAssert.Contains("Vector3[]",            code);
+            StringAssert.Contains("Color[]",              code);
+            StringAssert.Contains("UnityEngine.Object[]", code);
+        }
+
+        [Test]
+        public void Test107_GenerateCode_EmptyTable_StillCompilableOutput()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.TableName = "EmptyTable";
+            // No columns — should produce a valid class without crashing
+
+            string code = GenerateCodeAndRead(table);
+
+            StringAssert.Contains("public class EmptyTableData : ScriptableObject", code);
+            // Count property is omitted when there are no columns
+            StringAssert.DoesNotContain("public int Count =>", code);
+        }
+
+        #endregion
+
+        #region CodeGen — BakeData Argument Validation Tests
+
+        [Test]
+        public void Test108_BakeData_NullSource_ThrowsArgumentNullException()
+        {
+            Assert.Throws<System.ArgumentNullException>(() =>
+                BalanceTableCodeGenerator.BakeData(null, "Assets/BalanceForge/Generated/Test.asset"));
+        }
+
+        [Test]
+        public void Test109_BakeData_EmptyAssetPath_ThrowsArgumentException()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            Assert.Throws<System.ArgumentException>(() =>
+                BalanceTableCodeGenerator.BakeData(table, ""));
+        }
+
+        #endregion
+
         #region Helper Methods
 
         private List<BalanceRow> CreateTestRows()
@@ -1364,6 +1628,59 @@ namespace BalanceForge.Tests
             var path = Path.Combine(Path.GetTempPath(), $"bf_import_{System.Guid.NewGuid():N}.csv");
             File.WriteAllText(path, content);
             return path;
+        }
+
+        // ── CodeGen helpers ───────────────────────────────────────
+
+        private BalanceTable CreateCodeGenTable()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.TableName = "CharacterStats";
+            table.AddColumn(new ColumnDefinition("name",      "Name",     ColumnType.String));
+            table.AddColumn(new ColumnDefinition("hp",        "Hp",       ColumnType.Integer));
+            table.AddColumn(new ColumnDefinition("speed",     "Speed",    ColumnType.Float));
+            table.AddColumn(new ColumnDefinition("is_active", "IsActive", ColumnType.Boolean));
+            return table;
+        }
+
+        /// <summary>Returns a unique Assets-relative temp directory for each test.</summary>
+        private string UniqueTempCodeGenDir() =>
+            "Assets/BalanceForge/Tests/TempCodeGen_" + System.Guid.NewGuid().ToString("N").Substring(0, 8) + "/";
+
+        /// <summary>Converts an Assets-relative path to an OS absolute path.</summary>
+        private string GetCodeGenOsPath(string assetsRelPath)
+        {
+            string projectRoot = Application.dataPath.Replace('\\', '/');
+            projectRoot = projectRoot.Substring(0, projectRoot.Length - "Assets".Length);
+            return projectRoot + assetsRelPath;
+        }
+
+        /// <summary>Deletes a temp codegen directory if it exists.</summary>
+        private void CleanTempCodeGenDir(string dir)
+        {
+            string osDir = GetCodeGenOsPath(dir);
+            if (Directory.Exists(osDir))
+                Directory.Delete(osDir, true);
+        }
+
+        /// <summary>
+        /// Generates code for a table into a unique temp directory, reads the file
+        /// contents, cleans up, and returns the source text.
+        /// </summary>
+        private string GenerateCodeAndRead(BalanceTable table)
+        {
+            string dir = UniqueTempCodeGenDir();
+            try
+            {
+                BalanceTableCodeGenerator.GenerateCode(table, dir);
+                string className = BalanceTableCodeGenerator.ToIdentifier(table.TableName);
+                if (string.IsNullOrEmpty(className)) className = "BalanceTable";
+                return File.ReadAllText(GetCodeGenOsPath(dir + className + "Data.cs"));
+            }
+            finally
+            {
+                CleanTempCodeGenDir(dir);
+            }
         }
 
         #endregion
