@@ -307,7 +307,7 @@ namespace BalanceForge.Editor.Windows
             foreach (var field in fields)
             {
                 // Skip explicitly hidden or non-serialized fields
-                if (field.IsDefined(typeof(HideInInspectorAttribute), false)) continue;
+                if (field.IsDefined(typeof(HideInInspector), false)) continue;
                 if (field.IsDefined(typeof(NonSerializedAttribute),    false)) continue;
                 // Skip arrays and generic collections (no direct BalanceForge mapping)
                 if (field.FieldType.IsArray)        continue;
