@@ -1,6 +1,8 @@
 #if UNITY_EDITOR
 using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Text;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -16,6 +18,11 @@ namespace BalanceForge.Editor.Windows
 
         private ScrollView columnsScroll;
         private Button createButton;
+        private TextField tableNameField;
+
+        // ── ScriptableObject import state ────────────────────────
+        private ScriptableObject importSource;
+        private bool appendOnImport;
 
         private const string StyleSheetPath = "Assets/BalanceForge/Editor/UI/BalanceForgeEditor.uss";
 
@@ -50,15 +57,18 @@ namespace BalanceForge.Editor.Windows
             root.Add(title);
 
             // ── Table name ───────────────────────────────────────
-            var nameField = new TextField("Table Name") { value = tableName, isDelayed = true };
-            nameField.style.marginTop    = 6;
-            nameField.style.marginBottom = 10;
-            nameField.RegisterValueChangedCallback(evt =>
+            tableNameField = new TextField("Table Name") { value = tableName, isDelayed = true };
+            tableNameField.style.marginTop    = 6;
+            tableNameField.style.marginBottom = 6;
+            tableNameField.RegisterValueChangedCallback(evt =>
             {
                 tableName = evt.newValue;
                 RefreshCreateButton();
             });
-            root.Add(nameField);
+            root.Add(tableNameField);
+
+            // ── Import from ScriptableObject ─────────────────────
+            root.Add(BuildImportSection());
 
             // ── Columns header ───────────────────────────────────
             var colHeader = new VisualElement();
@@ -207,6 +217,175 @@ namespace BalanceForge.Editor.Windows
             }
 
             return section;
+        }
+
+        // ── Import from ScriptableObject ─────────────────────────
+
+        private VisualElement BuildImportSection()
+        {
+            var foldout = new Foldout { text = "Import Structure from ScriptableObject", value = false };
+            foldout.style.marginBottom = 8;
+
+            var hint = new Label("Reflects public and [SerializeField] fields and maps them to columns.");
+            hint.style.fontSize  = 10;
+            hint.style.color     = new StyleColor(new Color(0.55f, 0.55f, 0.55f));
+            hint.style.marginBottom = 4;
+            hint.style.whiteSpace   = WhiteSpace.Normal;
+            foldout.Add(hint);
+
+            var soField = new ObjectField("ScriptableObject") { objectType = typeof(ScriptableObject) };
+            soField.RegisterValueChangedCallback(evt =>
+            {
+                importSource = evt.newValue as ScriptableObject;
+
+                // Auto-fill table name when it is still the default
+                if (importSource != null && tableName == "NewBalanceTable")
+                {
+                    tableName = importSource.GetType().Name;
+                    if (tableNameField != null) tableNameField.SetValueWithoutNotify(tableName);
+                    RefreshCreateButton();
+                }
+            });
+            foldout.Add(soField);
+
+            var appendToggle = new Toggle("Append to existing columns") { value = false };
+            appendToggle.RegisterValueChangedCallback(evt => appendOnImport = evt.newValue);
+            appendToggle.style.marginTop = 2;
+            foldout.Add(appendToggle);
+
+            var importBtn = new Button(ExecuteImport) { text = "Import Columns" };
+            importBtn.style.marginTop = 6;
+            foldout.Add(importBtn);
+
+            return foldout;
+        }
+
+        private void ExecuteImport()
+        {
+            if (importSource == null)
+            {
+                EditorUtility.DisplayDialog("Import Structure",
+                    "Drag a ScriptableObject into the field above first.", "OK");
+                return;
+            }
+
+            var imported = ReflectColumns(importSource.GetType());
+
+            if (imported.Count == 0)
+            {
+                EditorUtility.DisplayDialog("Import Structure",
+                    $"No mappable serialized fields found on '{importSource.GetType().Name}'.\n\n" +
+                    "Supported field types: string, int, float, bool, " +
+                    "Vector2, Vector3, Color, enum, UnityEngine.Object subclasses.",
+                    "OK");
+                return;
+            }
+
+            if (!appendOnImport)
+                columns.Clear();
+
+            foreach (var col in imported)
+                columns.Add(col);
+
+            RebuildColumnList();
+        }
+
+        // ── Reflection helpers ────────────────────────────────────
+
+        private static List<ColumnDefinition> ReflectColumns(Type type)
+        {
+            var result = new List<ColumnDefinition>();
+            var seenIds = new HashSet<string>();
+
+            // Collect public instance fields + private fields marked [SerializeField]
+            var fields = new List<FieldInfo>();
+            fields.AddRange(type.GetFields(BindingFlags.Public | BindingFlags.Instance));
+            foreach (var f in type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance))
+                if (f.IsDefined(typeof(SerializeField), false))
+                    fields.Add(f);
+
+            foreach (var field in fields)
+            {
+                // Skip explicitly hidden or non-serialized fields
+                if (field.IsDefined(typeof(HideInInspectorAttribute), false)) continue;
+                if (field.IsDefined(typeof(NonSerializedAttribute),    false)) continue;
+                // Skip arrays and generic collections (no direct BalanceForge mapping)
+                if (field.FieldType.IsArray)        continue;
+                if (field.FieldType.IsGenericType)  continue;
+
+                ColumnType? colType = MapFieldType(field.FieldType);
+                if (colType == null) continue;
+
+                // Deduplicate column IDs
+                string colId = field.Name;
+                if (!seenIds.Add(colId))
+                {
+                    int n = 2;
+                    while (!seenIds.Add(colId + "_" + n)) n++;
+                    colId = colId + "_" + (n - 1);
+                }
+
+                var col = new ColumnDefinition(
+                    colId,
+                    FormatFieldName(field.Name),
+                    colType.Value,
+                    false);
+
+                // Populate enum values from the C# enum definition
+                if (colType == ColumnType.Enum && col.EnumDefinition != null)
+                {
+                    foreach (var enumName in Enum.GetNames(field.FieldType))
+                        col.EnumDefinition.AddValue(enumName);
+                }
+
+                result.Add(col);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Maps a C# field type to the closest BalanceForge ColumnType.
+        /// Returns null for unmappable types (complex classes, collections, etc.).
+        /// </summary>
+        private static ColumnType? MapFieldType(Type t)
+        {
+            if (t == typeof(string))                                    return ColumnType.String;
+            if (t == typeof(int)   || t == typeof(long)  ||
+                t == typeof(short) || t == typeof(byte)  ||
+                t == typeof(uint)  || t == typeof(ulong))               return ColumnType.Integer;
+            if (t == typeof(float) || t == typeof(double))              return ColumnType.Float;
+            if (t == typeof(bool))                                      return ColumnType.Boolean;
+            if (t == typeof(Vector2))                                   return ColumnType.Vector2;
+            if (t == typeof(Vector3))                                   return ColumnType.Vector3;
+            if (t == typeof(Color) || t == typeof(Color32))             return ColumnType.Color;
+            if (t.IsEnum)                                               return ColumnType.Enum;
+            if (typeof(UnityEngine.Object).IsAssignableFrom(t))         return ColumnType.AssetReference;
+            return null;
+        }
+
+        /// <summary>
+        /// Converts a camelCase or _prefixed field name to a readable display name.
+        /// Examples: "maxHp" → "Max Hp",  "m_moveSpeed" → "Move Speed"
+        /// </summary>
+        private static string FormatFieldName(string name)
+        {
+            // Strip leading m_ or _ (common Unity serialization convention)
+            if (name.StartsWith("m_", StringComparison.Ordinal)) name = name.Substring(2);
+            else if (name.Length > 0 && name[0] == '_')          name = name.Substring(1);
+
+            if (name.Length == 0) return "Column";
+
+            var sb = new StringBuilder(name.Length + 4);
+            for (int i = 0; i < name.Length; i++)
+            {
+                char c = name[i];
+                // Insert space before an uppercase letter that follows a lowercase letter
+                if (i > 0 && char.IsUpper(c) && char.IsLower(name[i - 1]))
+                    sb.Append(' ');
+                sb.Append(i == 0 ? char.ToUpperInvariant(c) : c);
+            }
+            return sb.ToString();
         }
 
         // ── Helpers ──────────────────────────────────────────────
