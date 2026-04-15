@@ -1,0 +1,72 @@
+\doxysection{Класс Balance\+Forge.\+Services.\+Required\+Validator}
+\hypertarget{classBalanceForge_1_1Services_1_1RequiredValidator}{}\label{classBalanceForge_1_1Services_1_1RequiredValidator}\index{BalanceForge.Services.RequiredValidator@{BalanceForge.Services.RequiredValidator}}
+
+
+Валидатор для проверки, что значение не пусто. Проверяет что значение не null и его строковое представление не пусто. Используется для обязательных полей в таблице баланса. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Services_1_1IValidator}{IValidator}.  
+
+
+Граф наследования\+:Balance\+Forge.\+Services.\+Required\+Validator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classBalanceForge_1_1Services_1_1RequiredValidator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classBalanceForge_1_1Services_1_1RequiredValidator_af1d58bdee4dd643e10f8000a7bfdb27f}{Validate}} (object value)
+\begin{DoxyCompactList}\small\item\em Проверяет что значение не пусто и не null. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classBalanceForge_1_1Services_1_1RequiredValidator_ae3043cca04ccfd90060383be05dd8a98}{Get\+Error\+Message}} ()
+\begin{DoxyCompactList}\small\item\em Получает сообщение об ошибке для обязательного поля. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Валидатор для проверки, что значение не пусто. Проверяет что значение не null и его строковое представление не пусто. Используется для обязательных полей в таблице баланса. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Services_1_1IValidator}{IValidator}. 
+
+\label{doc-func-members}
+\Hypertarget{classBalanceForge_1_1Services_1_1RequiredValidator_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{classBalanceForge_1_1Services_1_1RequiredValidator_ae3043cca04ccfd90060383be05dd8a98}\index{BalanceForge.Services.RequiredValidator@{BalanceForge.Services.RequiredValidator}!GetErrorMessage@{GetErrorMessage}}
+\index{GetErrorMessage@{GetErrorMessage}!BalanceForge.Services.RequiredValidator@{BalanceForge.Services.RequiredValidator}}
+\doxysubsubsection{\texorpdfstring{GetErrorMessage()}{GetErrorMessage()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Services_1_1RequiredValidator_ae3043cca04ccfd90060383be05dd8a98} 
+string Balance\+Forge.\+Services.\+Required\+Validator.\+Get\+Error\+Message (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получает сообщение об ошибке для обязательного поля. 
+
+\begin{DoxyReturn}{Возвращает}
+Строка "{}\+This field is required"{}.
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{interfaceBalanceForge_1_1Services_1_1IValidator_a99f0faafa71ccbfaf15b04bf4c963f59}{Balance\+Forge.\+Services.\+IValidator}}.
+
+\Hypertarget{classBalanceForge_1_1Services_1_1RequiredValidator_af1d58bdee4dd643e10f8000a7bfdb27f}\index{BalanceForge.Services.RequiredValidator@{BalanceForge.Services.RequiredValidator}!Validate@{Validate}}
+\index{Validate@{Validate}!BalanceForge.Services.RequiredValidator@{BalanceForge.Services.RequiredValidator}}
+\doxysubsubsection{\texorpdfstring{Validate()}{Validate()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Services_1_1RequiredValidator_af1d58bdee4dd643e10f8000a7bfdb27f} 
+bool Balance\+Forge.\+Services.\+Required\+Validator.\+Validate (\begin{DoxyParamCaption}\item[{object}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Проверяет что значение не пусто и не null. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em value} & Значение для проверки.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если значение не null и не пусто, иначе false.
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{interfaceBalanceForge_1_1Services_1_1IValidator_af37581322f7a549a387e72d4f6ee9f9e}{Balance\+Forge.\+Services.\+IValidator}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Balance\+Forge/\+Services/\mbox{\hyperlink{Validators_8cs}{Validators.\+cs}}\end{DoxyCompactItemize}

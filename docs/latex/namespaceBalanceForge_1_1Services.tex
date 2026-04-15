@@ -1,0 +1,27 @@
+\doxysection{Пространство имен Balance\+Forge.\+Services}
+\hypertarget{namespaceBalanceForge_1_1Services}{}\label{namespaceBalanceForge_1_1Services}\index{BalanceForge.Services@{BalanceForge.Services}}
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Services_1_1ClipboardService}{Clipboard\+Service}}
+\begin{DoxyCompactList}\small\item\em Статический сервис управления буфером обмена для таблицы баланса. Поддерживает копирование и вставку отдельных значений и групп значений. Интегрирует внутренний буфер обмена с системным буфером обмена Unity через GUIUtility.\+system\+Copy\+Buffer. \end{DoxyCompactList}\item 
+interface \mbox{\hyperlink{interfaceBalanceForge_1_1Services_1_1ICommand}{ICommand}}
+\begin{DoxyCompactList}\small\item\em Интерфейс для команд поддерживающих операции Undo/\+Redo. Каждая команда инкапсулирует действие которое можно выполнить и отменить. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Services_1_1AddRowCommand}{Add\+Row\+Command}}
+\begin{DoxyCompactList}\small\item\em Команда для добавления новой строки в таблицу баланса. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Services_1_1ICommand}{ICommand} для поддержки Undo/\+Redo операций. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Services_1_1EditCellCommand}{Edit\+Cell\+Command}}
+\begin{DoxyCompactList}\small\item\em Команда для редактирования значения ячейки в таблице баланса. Сохраняет старое и новое значение для поддержки Undo/\+Redo. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Services_1_1ICommand}{ICommand}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Services_1_1DeleteRowCommand}{Delete\+Row\+Command}}
+\begin{DoxyCompactList}\small\item\em Команда для удаления одной строки из таблицы баланса. Сохраняет индекс строки для восстановления исходной позиции при Undo. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Services_1_1ICommand}{ICommand}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Services_1_1MultiDeleteCommand}{Multi\+Delete\+Command}}
+\begin{DoxyCompactList}\small\item\em Команда для удаления нескольких строк из таблицы баланса одновременно. Сохраняет индексы всех удаляемых строк для точного восстановления порядка при Undo. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Services_1_1ICommand}{ICommand}. \end{DoxyCompactList}\item 
+interface \mbox{\hyperlink{interfaceBalanceForge_1_1Services_1_1IValidator}{IValidator}}
+\begin{DoxyCompactList}\small\item\em Интерфейс для валидаторов значений ячеек таблицы баланса. Позволяет определять кастомные правила проверки для значений столбцов. Реализующие классы должны проверять соответствие значения определенным критериям. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Services_1_1UndoRedoService}{Undo\+Redo\+Service}}
+\begin{DoxyCompactList}\small\item\em Сервис управления операциями Undo/\+Redo для таблицы баланса. Использует паттерн Command для инкапсуляции действий и поддержки отката/повтора операций. Поддерживает два стека\+: для отмены и для повтора команд. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Services_1_1RangeValidator}{Range\+Validator}}
+\begin{DoxyCompactList}\small\item\em Валидатор для проверки что значение находится в указанном диапазоне. Поддерживает целые числа и числа с плавающей точкой. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Services_1_1IValidator}{IValidator}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Services_1_1RegexValidator}{Regex\+Validator}}
+\begin{DoxyCompactList}\small\item\em Валидатор для проверки, что значение соответствует регулярному выражению. Используется для валидации строк по сложным шаблонам (email, URL, специальные форматы и т.\+д.). Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Services_1_1IValidator}{IValidator}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Services_1_1RequiredValidator}{Required\+Validator}}
+\begin{DoxyCompactList}\small\item\em Валидатор для проверки, что значение не пусто. Проверяет что значение не null и его строковое представление не пусто. Используется для обязательных полей в таблице баланса. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Services_1_1IValidator}{IValidator}. \end{DoxyCompactList}\end{DoxyCompactItemize}

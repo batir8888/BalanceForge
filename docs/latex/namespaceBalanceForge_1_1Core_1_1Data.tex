@@ -1,0 +1,124 @@
+\doxysection{Пространство имен Balance\+Forge.\+Core.\+Data}
+\hypertarget{namespaceBalanceForge_1_1Core_1_1Data}{}\label{namespaceBalanceForge_1_1Core_1_1Data}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}}
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}}
+\begin{DoxyCompactList}\small\item\em Представляет строку таблицы баланса с поддержкой различных типов данных и Unity Object ссылок. Обеспечивает сериализацию и десериализацию значений ячеек с сохранением информации о типах. Поддерживает примитивные типы (int, float, bool), Vector2/3, Color и Asset References. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structBalanceForge_1_1Core_1_1Data_1_1Vector2Serializable}{Vector2\+Serializable}}
+\begin{DoxyCompactList}\small\item\em Вспомогательная структура для сериализации Vector2 с использованием Json\+Utility. Необходима так как Unity не сериализует Vector2 напрямую в JSON. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structBalanceForge_1_1Core_1_1Data_1_1Vector3Serializable}{Vector3\+Serializable}}
+\begin{DoxyCompactList}\small\item\em Вспомогательная структура для сериализации Vector3 с использованием Json\+Utility. Необходима так как Unity не сериализует Vector3 напрямую в JSON. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structBalanceForge_1_1Core_1_1Data_1_1ColorSerializable}{Color\+Serializable}}
+\begin{DoxyCompactList}\small\item\em Вспомогательная структура для сериализации Color с использованием Json\+Utility. Необходима так как Unity не сериализует Color напрямую в JSON. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable}{Balance\+Table}}
+\begin{DoxyCompactList}\small\item\em Scriptable\+Object для управления таблицей баланса, содержащей определения столбцов и строки данных. Поддерживает операции создания, удаления и валидации строк и столбцов. Автоматически отслеживает время последнего изменения. Доступен для создания через Unity Editor меню\+: \doxylink{namespaceBalanceForge}{Balance\+Forge} \texorpdfstring{$>$}{>} Balance Table. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1ColumnDefinition}{Column\+Definition}}
+\begin{DoxyCompactList}\small\item\em Определяет схему столбца таблицы баланса, включая тип данных, валидацию и значение по умолчанию. Поддерживает сериализацию/десериализацию различных типов (примитивы, Vector, Color, Enum, Asset References). Может содержать кастомный валидатор для проверки значений. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1EnumDefinition}{Enum\+Definition}}
+\begin{DoxyCompactList}\small\item\em Определяет набор возможных значений для столбца типа Enum. Управляет списком доступных опций для выбора в ячейках столбца перечисления. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1SerializableDictionary-2-g}{Serializable\+Dictionary$<$ TKey, TValue $>$}}
+\begin{DoxyCompactList}\small\item\em Сериализуемый словарь для Unity, поддерживающий сохранение и загрузку из сцен и Scriptable\+Objects. Наследует от Dictionary\texorpdfstring{$<$}{<}TKey, TValue\texorpdfstring{$>$}{>} и реализует ISerialization\+Callback\+Receiver для интеграции с системой сериализации Unity. Преобразует словарь в два отдельных списка (ключи и значения) для сериализации, так как Unity не может напрямую сериализовать Dictionary. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1ValidationResult}{Validation\+Result}}
+\begin{DoxyCompactList}\small\item\em Представляет результат валидации таблицы баланса. Содержит список обнаруженных ошибок и предупреждений, позволяет определить прошла ли валидация успешно. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1ValidationError}{Validation\+Error}}
+\begin{DoxyCompactList}\small\item\em Представляет одну ошибку или предупреждение валидации для конкретной ячейки таблицы. Содержит информацию о местоположении ошибки (строка и столбец) и её описание. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Перечисления}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7}{Column\+Type}} \{ \newline
+\mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a27118326006d3829667a400ad23d5d98}{String}}
+, \mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7aa0faef0851b4294c06f2b94bb1cb2044}{Integer}}
+, \mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a22ae0e2b89e5e3d477f988cc36d3272b}{Float}}
+, \mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a27226c864bac7454a8504f8edb15d95b}{Boolean}}
+, \newline
+\mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7acf20423ed48998082c20099488a0917c}{Enum}}
+, \mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a288bea8884ad7841549428e57cf236df}{Asset\+Reference}}
+, \mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7acb5feb1b7314637725a2e73bdc9f7295}{Color}}
+, \mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a1bebc5ae2822f8e361fb0ce57b5e09e2}{Vector2}}
+, \newline
+\mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a02b4dab58bbc49e0851fb3fd8df520cc}{Vector3}}
+ \}
+\begin{DoxyCompactList}\small\item\em Перечисление поддерживаемых типов данных для столбцов таблицы баланса. Определяет какие типы значений могут храниться в ячейках и как они будут сериализоваться/десериализоваться. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_a8bf639737512f86c913051d934077cdf}{Error\+Severity}} \{ \mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_a8bf639737512f86c913051d934077cdfa0eaadb4fcb48a0a0ed7bc9868be9fbaa}{Warning}}
+, \mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_a8bf639737512f86c913051d934077cdfa902b0d55fddef6f8d651fe1035b7d4bd}{Error}}
+, \mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_a8bf639737512f86c913051d934077cdfa278d01e5af56273bae1bb99a98b370cd}{Critical}}
+ \}
+\begin{DoxyCompactList}\small\item\em Перечисление уровней серьезности ошибок валидации. Определяет как критичной является найденная проблема. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_doc-enum-members}
+\doxysubsection{Перечисления}
+\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!ColumnType@{ColumnType}}
+\index{ColumnType@{ColumnType}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}
+\doxysubsubsection{\texorpdfstring{ColumnType}{ColumnType}}
+{\footnotesize\ttfamily \label{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7} 
+enum \mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7}{Balance\+Forge.\+Core.\+Data.\+Column\+Type}}}
+
+
+
+Перечисление поддерживаемых типов данных для столбцов таблицы баланса. Определяет какие типы значений могут храниться в ячейках и как они будут сериализоваться/десериализоваться. 
+
+\begin{DoxyEnumFields}[2]{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{String@{String}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!String@{String}}}\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a27118326006d3829667a400ad23d5d98}\label{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a27118326006d3829667a400ad23d5d98} 
+String&Текстовая строка. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Integer@{Integer}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!Integer@{Integer}}}\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7aa0faef0851b4294c06f2b94bb1cb2044}\label{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7aa0faef0851b4294c06f2b94bb1cb2044} 
+Integer&Целое число (int). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Float@{Float}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!Float@{Float}}}\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a22ae0e2b89e5e3d477f988cc36d3272b}\label{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a22ae0e2b89e5e3d477f988cc36d3272b} 
+Float&Число с плавающей точкой (float). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Boolean@{Boolean}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!Boolean@{Boolean}}}\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a27226c864bac7454a8504f8edb15d95b}\label{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a27226c864bac7454a8504f8edb15d95b} 
+Boolean&Логическое значение (bool) -\/ true или false. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Enum@{Enum}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!Enum@{Enum}}}\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7acf20423ed48998082c20099488a0917c}\label{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7acf20423ed48998082c20099488a0917c} 
+Enum&Перечисление -\/ выбор из предопределенного списка значений. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AssetReference@{AssetReference}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!AssetReference@{AssetReference}}}\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a288bea8884ad7841549428e57cf236df}\label{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a288bea8884ad7841549428e57cf236df} 
+Asset\+Reference&Ссылка на Unity Asset (Prefab, Material, Texture2D и т.\+д.). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Color@{Color}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!Color@{Color}}}\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7acb5feb1b7314637725a2e73bdc9f7295}\label{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7acb5feb1b7314637725a2e73bdc9f7295} 
+Color&Цвет в формате RGBA (Color). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Vector2@{Vector2}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!Vector2@{Vector2}}}\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a1bebc5ae2822f8e361fb0ce57b5e09e2}\label{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a1bebc5ae2822f8e361fb0ce57b5e09e2} 
+Vector2&Двумерный вектор (Vector2) с компонентами x и y. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Vector3@{Vector3}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!Vector3@{Vector3}}}\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a02b4dab58bbc49e0851fb3fd8df520cc}\label{namespaceBalanceForge_1_1Core_1_1Data_ac4a077c5c7eadcbd7efb29ff7d59fde7a02b4dab58bbc49e0851fb3fd8df520cc} 
+Vector3&Трехмерный вектор (Vector3) с компонентами x, y и z. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_a8bf639737512f86c913051d934077cdf}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!ErrorSeverity@{ErrorSeverity}}
+\index{ErrorSeverity@{ErrorSeverity}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}
+\doxysubsubsection{\texorpdfstring{ErrorSeverity}{ErrorSeverity}}
+{\footnotesize\ttfamily \label{namespaceBalanceForge_1_1Core_1_1Data_a8bf639737512f86c913051d934077cdf} 
+enum \mbox{\hyperlink{namespaceBalanceForge_1_1Core_1_1Data_a8bf639737512f86c913051d934077cdf}{Balance\+Forge.\+Core.\+Data.\+Error\+Severity}}}
+
+
+
+Перечисление уровней серьезности ошибок валидации. Определяет как критичной является найденная проблема. 
+
+\begin{DoxyEnumFields}[2]{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Warning@{Warning}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!Warning@{Warning}}}\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_a8bf639737512f86c913051d934077cdfa0eaadb4fcb48a0a0ed7bc9868be9fbaa}\label{namespaceBalanceForge_1_1Core_1_1Data_a8bf639737512f86c913051d934077cdfa0eaadb4fcb48a0a0ed7bc9868be9fbaa} 
+Warning&Предупреждение -\/ потенциальная проблема, но данные могут быть использованы. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Error@{Error}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!Error@{Error}}}\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_a8bf639737512f86c913051d934077cdfa902b0d55fddef6f8d651fe1035b7d4bd}\label{namespaceBalanceForge_1_1Core_1_1Data_a8bf639737512f86c913051d934077cdfa902b0d55fddef6f8d651fe1035b7d4bd} 
+Error&Ошибка -\/ нарушение требований, данные не должны использоваться в продакшене. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Critical@{Critical}!BalanceForge.Core.Data@{BalanceForge.Core.Data}}\index{BalanceForge.Core.Data@{BalanceForge.Core.Data}!Critical@{Critical}}}\Hypertarget{namespaceBalanceForge_1_1Core_1_1Data_a8bf639737512f86c913051d934077cdfa278d01e5af56273bae1bb99a98b370cd}\label{namespaceBalanceForge_1_1Core_1_1Data_a8bf639737512f86c913051d934077cdfa278d01e5af56273bae1bb99a98b370cd} 
+Critical&Критическая ошибка -\/ серьезное нарушение целостности данных, использование невозможно. \\
+\hline
+
+\end{DoxyEnumFields}

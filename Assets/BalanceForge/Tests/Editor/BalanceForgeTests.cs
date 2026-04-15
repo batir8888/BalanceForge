@@ -1,11 +1,13 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using System.IO;
 
 // Direct namespace imports - no assembly references needed
 using BalanceForge.Core.Data;
 using BalanceForge.Data.Operations;
 using BalanceForge.Services;
+using BalanceForge.ImportExport;
 
 namespace BalanceForge.Tests
 {
@@ -660,30 +662,710 @@ namespace BalanceForge.Tests
         
         #endregion
         
+        #region Additional Filtering Tests
+
+        [Test]
+        public void Test36_ColumnFilter_NotEquals_FiltersCorrectly()
+        {
+            var rows = CreateTestRows();
+            var filter = new ColumnFilter(new FilterCondition
+            {
+                ColumnId = "name",
+                Operator = FilterOperator.NotEquals,
+                Value = "Item2"
+            });
+
+            var filtered = filter.Apply(rows);
+
+            Assert.AreEqual(2, filtered.Count);
+            Assert.IsFalse(filtered.Exists(r => r.GetValue("name").ToString() == "Item2"));
+        }
+
+        [Test]
+        public void Test37_ColumnFilter_LessThan_FiltersCorrectly()
+        {
+            var rows = CreateTestRows();
+            var filter = new ColumnFilter(new FilterCondition
+            {
+                ColumnId = "value",
+                Operator = FilterOperator.LessThan,
+                Value = 20
+            });
+
+            var filtered = filter.Apply(rows);
+
+            Assert.AreEqual(1, filtered.Count);
+            Assert.AreEqual(10, filtered[0].GetValue("value"));
+        }
+
+        [Test]
+        public void Test38_ColumnFilter_StartsWith_FiltersCorrectly()
+        {
+            var rows = CreateTestRows();
+            var filter = new ColumnFilter(new FilterCondition
+            {
+                ColumnId = "name",
+                Operator = FilterOperator.StartsWith,
+                Value = "Item"
+            });
+
+            var filtered = filter.Apply(rows);
+
+            Assert.AreEqual(3, filtered.Count);
+        }
+
+        [Test]
+        public void Test39_ColumnFilter_EndsWith_FiltersCorrectly()
+        {
+            var rows = CreateTestRows();
+            var filter = new ColumnFilter(new FilterCondition
+            {
+                ColumnId = "name",
+                Operator = FilterOperator.EndsWith,
+                Value = "3"
+            });
+
+            var filtered = filter.Apply(rows);
+
+            Assert.AreEqual(1, filtered.Count);
+            Assert.AreEqual("Item3", filtered[0].GetValue("name").ToString());
+        }
+
+        [Test]
+        public void Test40_ColumnFilter_Regex_FiltersCorrectly()
+        {
+            var rows = CreateTestRows();
+            var filter = new ColumnFilter(new FilterCondition
+            {
+                ColumnId = "name",
+                Operator = FilterOperator.Regex,
+                Value = @"^Item[12]$"
+            });
+
+            var filtered = filter.Apply(rows);
+
+            Assert.AreEqual(2, filtered.Count);
+        }
+
+        [Test]
+        public void Test41_ColumnFilter_Regex_InvalidPattern_ReturnsNoRows()
+        {
+            var rows = CreateTestRows();
+            var filter = new ColumnFilter(new FilterCondition
+            {
+                ColumnId = "name",
+                Operator = FilterOperator.Regex,
+                Value = "[invalid"
+            });
+
+            var filtered = filter.Apply(rows);
+
+            Assert.AreEqual(0, filtered.Count);
+        }
+
+        [Test]
+        public void Test42_ColumnFilter_NullCellValue_ExcludesRow()
+        {
+            var rows = new List<BalanceRow>();
+            var rowWithNull = new BalanceRow();
+            // do NOT set "name" — GetValue returns null
+            rows.Add(rowWithNull);
+
+            var filter = new ColumnFilter(new FilterCondition
+            {
+                ColumnId = "name",
+                Operator = FilterOperator.Contains,
+                Value = "Item"
+            });
+
+            var filtered = filter.Apply(rows);
+
+            Assert.AreEqual(0, filtered.Count);
+        }
+
+        [Test]
+        public void Test43_CompositeFilter_Or_CombinesCorrectly()
+        {
+            var rows = CreateTestRows();
+            var filter = new CompositeFilter(LogicalOperator.Or);
+            filter.AddFilter(new ColumnFilter(new FilterCondition
+            {
+                ColumnId = "name",
+                Operator = FilterOperator.Equals,
+                Value = "Item1"
+            }));
+            filter.AddFilter(new ColumnFilter(new FilterCondition
+            {
+                ColumnId = "name",
+                Operator = FilterOperator.Equals,
+                Value = "Item3"
+            }));
+
+            var filtered = filter.Apply(rows);
+
+            Assert.AreEqual(2, filtered.Count);
+        }
+
+        [Test]
+        public void Test44_CompositeFilter_Empty_ReturnsAllRows()
+        {
+            var rows = CreateTestRows();
+            var filter = new CompositeFilter(LogicalOperator.And);
+
+            var filtered = filter.Apply(rows);
+
+            Assert.AreEqual(3, filtered.Count);
+        }
+
+        #endregion
+
+        #region Command Tests
+
+        [Test]
+        public void Test45_AddRowCommand_Execute_AddsRow()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Col1", ColumnType.String));
+            var row = new BalanceRow();
+            var command = new AddRowCommand(table, row);
+
+            command.Execute();
+
+            Assert.AreEqual(1, table.Rows.Count);
+            Assert.IsTrue(table.Rows.Contains(row));
+        }
+
+        [Test]
+        public void Test46_AddRowCommand_Undo_RemovesRow()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Col1", ColumnType.String));
+            var row = new BalanceRow();
+            var command = new AddRowCommand(table, row);
+
+            command.Execute();
+            command.Undo();
+
+            Assert.AreEqual(0, table.Rows.Count);
+        }
+
+        [Test]
+        public void Test47_DeleteRowCommand_Execute_RemovesRow()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Col1", ColumnType.String));
+            var row = table.AddRow();
+            var command = new DeleteRowCommand(table, row);
+
+            command.Execute();
+
+            Assert.AreEqual(0, table.Rows.Count);
+        }
+
+        [Test]
+        public void Test48_DeleteRowCommand_Undo_RestoresRowAtOriginalIndex()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Col1", ColumnType.String));
+            var rowA = table.AddRow(); rowA.SetValue("col1", "A");
+            var rowB = table.AddRow(); rowB.SetValue("col1", "B");
+            var rowC = table.AddRow(); rowC.SetValue("col1", "C");
+
+            // Delete the middle row (index 1)
+            var command = new DeleteRowCommand(table, rowB);
+            command.Execute();
+            command.Undo();
+
+            Assert.AreEqual(3, table.Rows.Count);
+            Assert.AreEqual("B", table.Rows[1].GetValue("col1").ToString());
+        }
+
+        [Test]
+        public void Test49_MultiDeleteCommand_Execute_RemovesAllRows()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Col1", ColumnType.String));
+            var rowA = table.AddRow();
+            var rowB = table.AddRow();
+            var rowC = table.AddRow();
+
+            var command = new MultiDeleteCommand(table, new List<BalanceRow> { rowA, rowC });
+            command.Execute();
+
+            Assert.AreEqual(1, table.Rows.Count);
+            Assert.IsTrue(table.Rows.Contains(rowB));
+        }
+
+        [Test]
+        public void Test50_MultiDeleteCommand_Undo_RestoresRowsInOrder()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Col1", ColumnType.String));
+            var rowA = table.AddRow(); rowA.SetValue("col1", "A");
+            var rowB = table.AddRow(); rowB.SetValue("col1", "B");
+            var rowC = table.AddRow(); rowC.SetValue("col1", "C");
+
+            var command = new MultiDeleteCommand(table, new List<BalanceRow> { rowA, rowC });
+            command.Execute();
+            command.Undo();
+
+            Assert.AreEqual(3, table.Rows.Count);
+            Assert.AreEqual("A", table.Rows[0].GetValue("col1").ToString());
+            Assert.AreEqual("C", table.Rows[2].GetValue("col1").ToString());
+        }
+
+        [Test]
+        public void Test51_CommandDescriptions_MatchExpected()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("hp", "HP", ColumnType.Integer));
+            var row = table.AddRow();
+
+            ICommand addCmd    = new AddRowCommand(table, new BalanceRow());
+            ICommand deleteCmd = new DeleteRowCommand(table, row);
+            ICommand editCmd   = new EditCellCommand(table, row.RowId, "hp", 0, 100);
+            ICommand multiCmd  = new MultiDeleteCommand(table, new List<BalanceRow> { row });
+
+            Assert.AreEqual("Add Row",      addCmd.GetDescription());
+            Assert.AreEqual("Delete Row",   deleteCmd.GetDescription());
+            Assert.AreEqual("Edit Cell [hp]", editCmd.GetDescription());
+            Assert.AreEqual("Delete 1 Rows", multiCmd.GetDescription());
+        }
+
+        #endregion
+
+        #region UndoRedo Edge-Case Tests
+
+        [Test]
+        public void Test52_UndoRedoService_Clear_EmptiesBothStacks()
+        {
+            var service = new UndoRedoService();
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Col1", ColumnType.String));
+            var row = table.AddRow();
+            row.SetValue("col1", "old");
+
+            service.ExecuteCommand(new EditCellCommand(table, row.RowId, "col1", "old", "new1"));
+            service.ExecuteCommand(new EditCellCommand(table, row.RowId, "col1", "new1", "new2"));
+            service.Undo();  // put one command into redo stack
+
+            service.Clear();
+
+            Assert.IsFalse(service.CanUndo());
+            Assert.IsFalse(service.CanRedo());
+        }
+
+        [Test]
+        public void Test53_UndoRedoService_NewCommandClearsRedoStack()
+        {
+            var service = new UndoRedoService();
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Col1", ColumnType.String));
+            var row = table.AddRow();
+            row.SetValue("col1", "original");
+
+            service.ExecuteCommand(new EditCellCommand(table, row.RowId, "col1", "original", "v1"));
+            service.Undo();
+            Assert.IsTrue(service.CanRedo());
+
+            // Execute a new command — redo stack must be cleared
+            service.ExecuteCommand(new EditCellCommand(table, row.RowId, "col1", "original", "v2"));
+
+            Assert.IsFalse(service.CanRedo());
+        }
+
+        #endregion
+
+        #region CSV Export Tests
+
+        [Test]
+        public void Test54_CSVExporter_ProducesCorrectHeaders()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("name", "Name", ColumnType.String));
+            table.AddColumn(new ColumnDefinition("hp",   "HP",   ColumnType.Integer));
+
+            var exporter = new CSVExporter();
+            var path = Path.Combine(Path.GetTempPath(), "bf_test_export.csv");
+            exporter.Export(table, path);
+
+            var lines = File.ReadAllLines(path);
+            Assert.AreEqual("Name,HP", lines[0]);
+            File.Delete(path);
+        }
+
+        [Test]
+        public void Test55_CSVExporter_ProducesCorrectDataRow()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("name", "Name", ColumnType.String));
+            table.AddColumn(new ColumnDefinition("hp",   "HP",   ColumnType.Integer));
+            var row = table.AddRow();
+            row.SetValue("name", "Warrior");
+            row.SetValue("hp",   100);
+
+            var exporter = new CSVExporter();
+            var path = Path.Combine(Path.GetTempPath(), "bf_test_datarow.csv");
+            exporter.Export(table, path);
+
+            var lines = File.ReadAllLines(path);
+            Assert.AreEqual("Warrior,100", lines[1]);
+            File.Delete(path);
+        }
+
+        [Test]
+        public void Test56_CSVExporter_QuotesFieldWithComma()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("desc", "Desc", ColumnType.String));
+            var row = table.AddRow();
+            row.SetValue("desc", "Sword, Magic");
+
+            var exporter = new CSVExporter();
+            var path = Path.Combine(Path.GetTempPath(), "bf_test_comma.csv");
+            exporter.Export(table, path);
+
+            var content = File.ReadAllText(path);
+            StringAssert.Contains("\"Sword, Magic\"", content);
+            File.Delete(path);
+        }
+
+        [Test]
+        public void Test57_CSVExporter_EscapesDoubleQuote()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("desc", "Desc", ColumnType.String));
+            var row = table.AddRow();
+            row.SetValue("desc", "He said \"hi\"");
+
+            var exporter = new CSVExporter();
+            var path = Path.Combine(Path.GetTempPath(), "bf_test_quote.csv");
+            exporter.Export(table, path);
+
+            var content = File.ReadAllText(path);
+            StringAssert.Contains("\"He said \"\"hi\"\"\"", content);
+            File.Delete(path);
+        }
+
+        [Test]
+        public void Test58_CSVExporter_InvalidPath_ReturnsFalse()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("col1", "Col1", ColumnType.String));
+
+            var exporter = new CSVExporter();
+            var result = exporter.Export(table, "/nonexistent_dir/file.csv");
+
+            Assert.IsFalse(result);
+        }
+
+        #endregion
+
+        #region CSV Import Tests
+
+        [Test]
+        public void Test59_CSVImporter_CanImport_TrueForCsvExtension()
+        {
+            var importer = new CSVImporter();
+            Assert.IsTrue(importer.CanImport("data.csv"));
+            Assert.IsTrue(importer.CanImport("DATA.CSV"));
+        }
+
+        [Test]
+        public void Test60_CSVImporter_CanImport_FalseForOtherExtension()
+        {
+            var importer = new CSVImporter();
+            Assert.IsFalse(importer.CanImport("data.json"));
+            Assert.IsFalse(importer.CanImport("data.txt"));
+        }
+
+        [Test]
+        public void Test61_CSVImporter_Import_ReturnsNullForNonCsvPath()
+        {
+            var importer = new CSVImporter();
+            var result = importer.Import("data.json");
+            Assert.IsNull(result);
+        }
+
+        [Test]
+        public void Test62_CSVImporter_InfersIntegerColumn()
+        {
+            var path = WriteTempCsv("Name,HP\nWarrior,100\nMage,80\n");
+            var importer = new CSVImporter();
+
+            var table = importer.Import(path);
+
+            Assert.IsNotNull(table);
+            Assert.AreEqual(2, table.Columns.Count);
+            Assert.AreEqual(ColumnType.Integer, table.Columns[1].DataType);
+            File.Delete(path);
+        }
+
+        [Test]
+        public void Test63_CSVImporter_InfersFloatColumn()
+        {
+            var path = WriteTempCsv("Name,Speed\nWarrior,1.5\nMage,2.3\n");
+            var importer = new CSVImporter();
+
+            var table = importer.Import(path);
+
+            Assert.IsNotNull(table);
+            Assert.AreEqual(ColumnType.Float, table.Columns[1].DataType);
+            File.Delete(path);
+        }
+
+        [Test]
+        public void Test64_CSVImporter_InfersBooleanColumn()
+        {
+            var path = WriteTempCsv("Name,IsActive\nWarrior,True\nMage,False\n");
+            var importer = new CSVImporter();
+
+            var table = importer.Import(path);
+
+            Assert.IsNotNull(table);
+            Assert.AreEqual(ColumnType.Boolean, table.Columns[1].DataType);
+            File.Delete(path);
+        }
+
+        [Test]
+        public void Test65_CSVImporter_FallsBackToStringColumn()
+        {
+            var path = WriteTempCsv("Name,Tag\nWarrior,fire\nMage,ice\n");
+            var importer = new CSVImporter();
+
+            var table = importer.Import(path);
+
+            Assert.IsNotNull(table);
+            Assert.AreEqual(ColumnType.String, table.Columns[1].DataType);
+            File.Delete(path);
+        }
+
+        [Test]
+        public void Test66_CSVImporter_CorrectRowCount()
+        {
+            var path = WriteTempCsv("Name,HP\nWarrior,100\nMage,80\nRogue,70\n");
+            var importer = new CSVImporter();
+
+            var table = importer.Import(path);
+
+            Assert.AreEqual(3, table.Rows.Count);
+            File.Delete(path);
+        }
+
+        [Test]
+        public void Test67_CSVImporter_QuotedFieldWithComma_ParsedCorrectly()
+        {
+            var path = WriteTempCsv("Name,Desc\nWarrior,\"Sword, Shield\"\n");
+            var importer = new CSVImporter();
+
+            var table = importer.Import(path);
+
+            Assert.IsNotNull(table);
+            Assert.AreEqual("Sword, Shield", table.Rows[0].GetValue("col_1").ToString());
+            File.Delete(path);
+        }
+
+        [Test]
+        public void Test68_CSVImporter_ReturnsNullForHeaderOnlyFile()
+        {
+            var path = WriteTempCsv("Name,HP\n");
+            var importer = new CSVImporter();
+
+            var table = importer.Import(path);
+
+            Assert.IsNull(table);
+            File.Delete(path);
+        }
+
+        #endregion
+
+        #region ClipboardService Tests
+
+        [Test]
+        public void Test69_ClipboardService_Copy_Paste_ReturnsSameValue()
+        {
+            ClipboardService.Clear();
+            ClipboardService.Copy("hp", 42);
+
+            var result = ClipboardService.Paste("hp");
+
+            Assert.AreEqual(42, result);
+        }
+
+        [Test]
+        public void Test70_ClipboardService_CanPaste_TrueAfterCopy()
+        {
+            ClipboardService.Clear();
+            ClipboardService.Copy("hp", 100);
+
+            Assert.IsTrue(ClipboardService.CanPaste("hp"));
+        }
+
+        [Test]
+        public void Test71_ClipboardService_Clear_RemovesData()
+        {
+            ClipboardService.Copy("hp", 100);
+            ClipboardService.Clear();
+
+            // CanPaste falls back to GUIUtility.systemCopyBuffer — clear that too
+            GUIUtility.systemCopyBuffer = "";
+
+            Assert.IsFalse(ClipboardService.CanPaste("hp"));
+        }
+
+        [Test]
+        public void Test72_ClipboardService_CopyMultiple_PasteMultiple_ReturnAllValues()
+        {
+            ClipboardService.Clear();
+            var values = new Dictionary<string, object>
+            {
+                { "hp",   100 },
+                { "name", "Warrior" }
+            };
+            ClipboardService.CopyMultiple(values);
+
+            var result = ClipboardService.PasteMultiple();
+
+            Assert.AreEqual(100,      result["hp"]);
+            Assert.AreEqual("Warrior", result["name"]);
+        }
+
+        [Test]
+        public void Test73_ClipboardService_Copy_OverwritesPreviousData()
+        {
+            ClipboardService.Clear();
+            ClipboardService.Copy("hp", 50);
+            ClipboardService.Copy("hp", 99);
+
+            Assert.AreEqual(99, ClipboardService.Paste("hp"));
+        }
+
+        #endregion
+
+        #region BalanceTable Additional Tests
+
+        [Test]
+        public void Test74_BalanceTable_ValidateData_PassesForValidData()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("name", "Name", ColumnType.String, true));
+            var row = table.AddRow();
+            row.SetValue("name", "Warrior");
+
+            var result = table.ValidateData();
+
+            Assert.IsTrue(result.IsValid);
+            Assert.AreEqual(0, result.Errors.Count);
+        }
+
+        [Test]
+        public void Test75_BalanceTable_RemoveColumn_RemovesFromAllRows()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("name", "Name", ColumnType.String));
+            table.AddColumn(new ColumnDefinition("hp",   "HP",   ColumnType.Integer));
+            var row = table.AddRow();
+            row.SetValue("name", "Warrior");
+            row.SetValue("hp", 100);
+
+            table.RemoveColumn("hp");
+
+            Assert.AreEqual(1, table.Columns.Count);
+            var hpAfter = row.GetValue("hp");
+            Assert.IsTrue(hpAfter == null || hpAfter.Equals(string.Empty),
+                $"Expected null or empty string after column removal, but was: {hpAfter}");
+        }
+
+        [Test]
+        public void Test76_BalanceTable_HasStructure_TrueForMatchingColumns()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("name", "Name", ColumnType.String));
+            table.AddColumn(new ColumnDefinition("hp",   "HP",   ColumnType.Integer));
+
+            Assert.IsTrue(table.HasStructure(new List<string> { "Name", "HP" }));
+        }
+
+        [Test]
+        public void Test77_BalanceTable_HasStructure_FalseForMismatch()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("name", "Name", ColumnType.String));
+
+            Assert.IsFalse(table.HasStructure(new List<string> { "Name", "HP" }));
+            Assert.IsFalse(table.HasStructure(new List<string> { "WrongName" }));
+        }
+
+        [Test]
+        public void Test78_BalanceTable_AddColumn_SetsDefaultOnExistingRows()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("name", "Name", ColumnType.String));
+            var row = table.AddRow();
+
+            // Add a second column after the row already exists
+            table.AddColumn(new ColumnDefinition("hp", "HP", ColumnType.Integer, false, 50));
+
+            Assert.AreEqual(50, row.GetValue("hp"));
+        }
+
+        [Test]
+        public void Test79_BalanceTable_GetRow_ReturnsCorrectRow()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            table.AddColumn(new ColumnDefinition("name", "Name", ColumnType.String));
+            var row0 = table.AddRow();
+            var row1 = table.AddRow();
+
+            Assert.AreEqual(row0, table.GetRow(0));
+            Assert.AreEqual(row1, table.GetRow(1));
+            Assert.IsNull(table.GetRow(99));
+        }
+
+        [Test]
+        public void Test80_BalanceTable_GetColumn_ReturnsCorrectColumn()
+        {
+            var table = ScriptableObject.CreateInstance<BalanceTable>();
+            var col = new ColumnDefinition("hp", "HP", ColumnType.Integer);
+            table.AddColumn(col);
+
+            Assert.AreEqual(col, table.GetColumn("hp"));
+            Assert.IsNull(table.GetColumn("nonexistent"));
+        }
+
+        #endregion
+
         #region Helper Methods
-        
+
         private List<BalanceRow> CreateTestRows()
         {
             var rows = new List<BalanceRow>();
-            
+
             var row1 = new BalanceRow();
             row1.SetValue("name", "Item1");
             row1.SetValue("value", 10);
             rows.Add(row1);
-            
+
             var row2 = new BalanceRow();
             row2.SetValue("name", "Item2");
             row2.SetValue("value", 20);
             rows.Add(row2);
-            
+
             var row3 = new BalanceRow();
             row3.SetValue("name", "Item3");
             row3.SetValue("value", 30);
             rows.Add(row3);
-            
+
             return rows;
         }
-        
+
+        private string WriteTempCsv(string content)
+        {
+            var path = Path.Combine(Path.GetTempPath(), $"bf_import_{System.Guid.NewGuid():N}.csv");
+            File.WriteAllText(path, content);
+            return path;
+        }
+
         #endregion
     }
 }

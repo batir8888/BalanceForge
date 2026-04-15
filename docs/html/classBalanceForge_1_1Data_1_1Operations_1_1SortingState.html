@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>BalanceForge: Класс BalanceForge.Data.Operations.SortingState</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">BalanceForge<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Balance Table Management System for Unity</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classBalanceForge_1_1Data_1_1Operations_1_1SortingState.html','','classBalanceForge_1_1Data_1_1Operations_1_1SortingState-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс BalanceForge.Data.Operations.SortingState</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Управляет состоянием сортировки таблицы, отслеживая активный столбец и направление сортировки. Предоставляет функциональность переключения направления сортировки при клике на столбец.  
+ <a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:aa7ce7b83640b6bc2b6ca09c3b8bf3731" id="r_aa7ce7b83640b6bc2b6ca09c3b8bf3731"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7ce7b83640b6bc2b6ca09c3b8bf3731">Toggle</a> (string columnId)</td></tr>
+<tr class="memdesc:aa7ce7b83640b6bc2b6ca09c3b8bf3731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переключает направление сортировки для указанного столбца. Если сортировка по другому столбцу, переключается на новый столбец в режиме Ascending. Если сортировка по этому же столбцу, циклически переключается: None → Ascending → Descending → None.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
+Свойства</h2></td></tr>
+<tr class="memitem:af5efe7de21b5040e95e52721af1c6257" id="r_af5efe7de21b5040e95e52721af1c6257"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5efe7de21b5040e95e52721af1c6257">SortColumnId</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:af5efe7de21b5040e95e52721af1c6257"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает или устанавливает идентификатор столбца, по которому выполняется сортировка.  <br /></td></tr>
+<tr class="memitem:acd1f3d6dfcdfeb968121079a94d195f5" id="r_acd1f3d6dfcdfeb968121079a94d195f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceBalanceForge_1_1Data_1_1Operations.html#a9c3d79965f87ec115bcb34e9bcf4345a">SortDirection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd1f3d6dfcdfeb968121079a94d195f5">Direction</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:acd1f3d6dfcdfeb968121079a94d195f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает или устанавливает направление сортировки.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Управляет состоянием сортировки таблицы, отслеживая активный столбец и направление сортировки. Предоставляет функциональность переключения направления сортировки при клике на столбец. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="aa7ce7b83640b6bc2b6ca09c3b8bf3731" name="aa7ce7b83640b6bc2b6ca09c3b8bf3731"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7ce7b83640b6bc2b6ca09c3b8bf3731">&#9670;&#160;</a></span>Toggle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BalanceForge.Data.Operations.SortingState.Toggle </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>columnId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Переключает направление сортировки для указанного столбца. Если сортировка по другому столбцу, переключается на новый столбец в режиме Ascending. Если сортировка по этому же столбцу, циклически переключается: None → Ascending → Descending → None. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">columnId</td><td>Идентификатор столбца для переключения сортировки.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-property-members" id="doc-property-members"></a><h2 id="header-doc-property-members" class="groupheader">Полный список свойств</h2>
+<a id="acd1f3d6dfcdfeb968121079a94d195f5" name="acd1f3d6dfcdfeb968121079a94d195f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd1f3d6dfcdfeb968121079a94d195f5">&#9670;&#160;</a></span>Direction</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceBalanceForge_1_1Data_1_1Operations.html#a9c3d79965f87ec115bcb34e9bcf4345a">SortDirection</a> BalanceForge.Data.Operations.SortingState.Direction</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает или устанавливает направление сортировки. </p>
+
+</div>
+</div>
+<a id="af5efe7de21b5040e95e52721af1c6257" name="af5efe7de21b5040e95e52721af1c6257"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5efe7de21b5040e95e52721af1c6257">&#9670;&#160;</a></span>SortColumnId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BalanceForge.Data.Operations.SortingState.SortColumnId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает или устанавливает идентификатор столбца, по которому выполняется сортировка. </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>BalanceForge/Core/Data/Operations/<a class="el" href="TableSorter_8cs.html">TableSorter.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespaceBalanceForge.html">BalanceForge</a></li><li class="navelem"><a href="namespaceBalanceForge_1_1Data.html">Data</a></li><li class="navelem"><a href="namespaceBalanceForge_1_1Data_1_1Operations.html">Operations</a></li><li class="navelem"><a href="classBalanceForge_1_1Data_1_1Operations_1_1SortingState.html">SortingState</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

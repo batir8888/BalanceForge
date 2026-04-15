@@ -1,0 +1,104 @@
+\doxysection{Класс Balance\+Forge.\+Services.\+Multi\+Delete\+Command}
+\hypertarget{classBalanceForge_1_1Services_1_1MultiDeleteCommand}{}\label{classBalanceForge_1_1Services_1_1MultiDeleteCommand}\index{BalanceForge.Services.MultiDeleteCommand@{BalanceForge.Services.MultiDeleteCommand}}
+
+
+Команда для удаления нескольких строк из таблицы баланса одновременно. Сохраняет индексы всех удаляемых строк для точного восстановления порядка при Undo. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Services_1_1ICommand}{ICommand}.  
+
+
+Граф наследования\+:Balance\+Forge.\+Services.\+Multi\+Delete\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classBalanceForge_1_1Services_1_1MultiDeleteCommand}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBalanceForge_1_1Services_1_1MultiDeleteCommand_a0a7055a7886a860e48a0523ab9241ce3}{Multi\+Delete\+Command}} (\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable}{Balance\+Table}} table, List$<$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} $>$ rows)
+\begin{DoxyCompactList}\small\item\em Инициализирует новый экземпляр команды удаления нескольких строк. Сохраняет индексы всех строк для восстановления при Undo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBalanceForge_1_1Services_1_1MultiDeleteCommand_a664fbfc886ce4c305fc6e575b6008989}{Execute}} ()
+\begin{DoxyCompactList}\small\item\em Выполняет удаление всех строк из таблицы. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBalanceForge_1_1Services_1_1MultiDeleteCommand_ae71a24f1f8c64ac8a41882129b6ebec0}{Undo}} ()
+\begin{DoxyCompactList}\small\item\em Отменяет удаление восстанавливая все строки в их исходные позиции в правильном порядке. Сортирует строки по их исходным индексам перед вставкой для восстановления исходного порядка. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classBalanceForge_1_1Services_1_1MultiDeleteCommand_a51b547de0a3f9a8929b0dc7cf085bc74}{Get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Получает описание команды с количеством удаленных строк. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Команда для удаления нескольких строк из таблицы баланса одновременно. Сохраняет индексы всех удаляемых строк для точного восстановления порядка при Undo. Реализует интерфейс \doxylink{interfaceBalanceForge_1_1Services_1_1ICommand}{ICommand}. 
+
+\label{doc-constructors}
+\Hypertarget{classBalanceForge_1_1Services_1_1MultiDeleteCommand_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classBalanceForge_1_1Services_1_1MultiDeleteCommand_a0a7055a7886a860e48a0523ab9241ce3}\index{BalanceForge.Services.MultiDeleteCommand@{BalanceForge.Services.MultiDeleteCommand}!MultiDeleteCommand@{MultiDeleteCommand}}
+\index{MultiDeleteCommand@{MultiDeleteCommand}!BalanceForge.Services.MultiDeleteCommand@{BalanceForge.Services.MultiDeleteCommand}}
+\doxysubsubsection{\texorpdfstring{MultiDeleteCommand()}{MultiDeleteCommand()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Services_1_1MultiDeleteCommand_a0a7055a7886a860e48a0523ab9241ce3} 
+Balance\+Forge.\+Services.\+Multi\+Delete\+Command.\+Multi\+Delete\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceTable}{Balance\+Table}}}]{table}{, }\item[{List$<$ \mbox{\hyperlink{classBalanceForge_1_1Core_1_1Data_1_1BalanceRow}{Balance\+Row}} $>$}]{rows}{}\end{DoxyParamCaption})}
+
+
+
+Инициализирует новый экземпляр команды удаления нескольких строк. Сохраняет индексы всех строк для восстановления при Undo. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em table} & Таблица баланса из которой удаляются строки.\\
+\hline
+{\em rows} & Список строк для удаления.\\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classBalanceForge_1_1Services_1_1MultiDeleteCommand_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{classBalanceForge_1_1Services_1_1MultiDeleteCommand_a664fbfc886ce4c305fc6e575b6008989}\index{BalanceForge.Services.MultiDeleteCommand@{BalanceForge.Services.MultiDeleteCommand}!Execute@{Execute}}
+\index{Execute@{Execute}!BalanceForge.Services.MultiDeleteCommand@{BalanceForge.Services.MultiDeleteCommand}}
+\doxysubsubsection{\texorpdfstring{Execute()}{Execute()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Services_1_1MultiDeleteCommand_a664fbfc886ce4c305fc6e575b6008989} 
+void Balance\+Forge.\+Services.\+Multi\+Delete\+Command.\+Execute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Выполняет удаление всех строк из таблицы. 
+
+
+
+Замещает \mbox{\hyperlink{interfaceBalanceForge_1_1Services_1_1ICommand_a3125793fafaf19bc197626cc243a8587}{Balance\+Forge.\+Services.\+ICommand}}.
+
+\Hypertarget{classBalanceForge_1_1Services_1_1MultiDeleteCommand_a51b547de0a3f9a8929b0dc7cf085bc74}\index{BalanceForge.Services.MultiDeleteCommand@{BalanceForge.Services.MultiDeleteCommand}!GetDescription@{GetDescription}}
+\index{GetDescription@{GetDescription}!BalanceForge.Services.MultiDeleteCommand@{BalanceForge.Services.MultiDeleteCommand}}
+\doxysubsubsection{\texorpdfstring{GetDescription()}{GetDescription()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Services_1_1MultiDeleteCommand_a51b547de0a3f9a8929b0dc7cf085bc74} 
+string Balance\+Forge.\+Services.\+Multi\+Delete\+Command.\+Get\+Description (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получает описание команды с количеством удаленных строк. 
+
+\begin{DoxyReturn}{Возвращает}
+Строка в формате "{}\+Delete N Rows"{} где N это количество удаленных строк.
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{interfaceBalanceForge_1_1Services_1_1ICommand_a847279f7175bbd5ba35bf805e11fd3d4}{Balance\+Forge.\+Services.\+ICommand}}.
+
+\Hypertarget{classBalanceForge_1_1Services_1_1MultiDeleteCommand_ae71a24f1f8c64ac8a41882129b6ebec0}\index{BalanceForge.Services.MultiDeleteCommand@{BalanceForge.Services.MultiDeleteCommand}!Undo@{Undo}}
+\index{Undo@{Undo}!BalanceForge.Services.MultiDeleteCommand@{BalanceForge.Services.MultiDeleteCommand}}
+\doxysubsubsection{\texorpdfstring{Undo()}{Undo()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Services_1_1MultiDeleteCommand_ae71a24f1f8c64ac8a41882129b6ebec0} 
+void Balance\+Forge.\+Services.\+Multi\+Delete\+Command.\+Undo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Отменяет удаление восстанавливая все строки в их исходные позиции в правильном порядке. Сортирует строки по их исходным индексам перед вставкой для восстановления исходного порядка. 
+
+
+
+Замещает \mbox{\hyperlink{interfaceBalanceForge_1_1Services_1_1ICommand_afa9a895c42cacb66d9777dc90813a94e}{Balance\+Forge.\+Services.\+ICommand}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Balance\+Forge/\+Services/\mbox{\hyperlink{Commands_8cs}{Commands.\+cs}}\end{DoxyCompactItemize}

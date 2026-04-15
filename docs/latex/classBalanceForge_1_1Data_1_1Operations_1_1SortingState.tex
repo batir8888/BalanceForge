@@ -1,0 +1,72 @@
+\doxysection{Класс Balance\+Forge.\+Data.\+Operations.\+Sorting\+State}
+\hypertarget{classBalanceForge_1_1Data_1_1Operations_1_1SortingState}{}\label{classBalanceForge_1_1Data_1_1Operations_1_1SortingState}\index{BalanceForge.Data.Operations.SortingState@{BalanceForge.Data.Operations.SortingState}}
+
+
+Управляет состоянием сортировки таблицы, отслеживая активный столбец и направление сортировки. Предоставляет функциональность переключения направления сортировки при клике на столбец.  
+
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBalanceForge_1_1Data_1_1Operations_1_1SortingState_aa7ce7b83640b6bc2b6ca09c3b8bf3731}{Toggle}} (string column\+Id)
+\begin{DoxyCompactList}\small\item\em Переключает направление сортировки для указанного столбца. Если сортировка по другому столбцу, переключается на новый столбец в режиме Ascending. Если сортировка по этому же столбцу, циклически переключается\+: None → Ascending → Descending → None. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Свойства}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classBalanceForge_1_1Data_1_1Operations_1_1SortingState_af5efe7de21b5040e95e52721af1c6257}{Sort\+Column\+Id}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Получает или устанавливает идентификатор столбца, по которому выполняется сортировка. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceBalanceForge_1_1Data_1_1Operations_a9c3d79965f87ec115bcb34e9bcf4345a}{Sort\+Direction}} \mbox{\hyperlink{classBalanceForge_1_1Data_1_1Operations_1_1SortingState_acd1f3d6dfcdfeb968121079a94d195f5}{Direction}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Получает или устанавливает направление сортировки. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Управляет состоянием сортировки таблицы, отслеживая активный столбец и направление сортировки. Предоставляет функциональность переключения направления сортировки при клике на столбец. 
+
+\label{doc-func-members}
+\Hypertarget{classBalanceForge_1_1Data_1_1Operations_1_1SortingState_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{classBalanceForge_1_1Data_1_1Operations_1_1SortingState_aa7ce7b83640b6bc2b6ca09c3b8bf3731}\index{BalanceForge.Data.Operations.SortingState@{BalanceForge.Data.Operations.SortingState}!Toggle@{Toggle}}
+\index{Toggle@{Toggle}!BalanceForge.Data.Operations.SortingState@{BalanceForge.Data.Operations.SortingState}}
+\doxysubsubsection{\texorpdfstring{Toggle()}{Toggle()}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Data_1_1Operations_1_1SortingState_aa7ce7b83640b6bc2b6ca09c3b8bf3731} 
+void Balance\+Forge.\+Data.\+Operations.\+Sorting\+State.\+Toggle (\begin{DoxyParamCaption}\item[{string}]{column\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Переключает направление сортировки для указанного столбца. Если сортировка по другому столбцу, переключается на новый столбец в режиме Ascending. Если сортировка по этому же столбцу, циклически переключается\+: None → Ascending → Descending → None. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em column\+Id} & Идентификатор столбца для переключения сортировки.\\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-property-members}
+\Hypertarget{classBalanceForge_1_1Data_1_1Operations_1_1SortingState_doc-property-members}
+\doxysubsection{Полный список свойств}
+\Hypertarget{classBalanceForge_1_1Data_1_1Operations_1_1SortingState_acd1f3d6dfcdfeb968121079a94d195f5}\index{BalanceForge.Data.Operations.SortingState@{BalanceForge.Data.Operations.SortingState}!Direction@{Direction}}
+\index{Direction@{Direction}!BalanceForge.Data.Operations.SortingState@{BalanceForge.Data.Operations.SortingState}}
+\doxysubsubsection{\texorpdfstring{Direction}{Direction}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Data_1_1Operations_1_1SortingState_acd1f3d6dfcdfeb968121079a94d195f5} 
+\mbox{\hyperlink{namespaceBalanceForge_1_1Data_1_1Operations_a9c3d79965f87ec115bcb34e9bcf4345a}{Sort\+Direction}} Balance\+Forge.\+Data.\+Operations.\+Sorting\+State.\+Direction\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Получает или устанавливает направление сортировки. 
+
+\Hypertarget{classBalanceForge_1_1Data_1_1Operations_1_1SortingState_af5efe7de21b5040e95e52721af1c6257}\index{BalanceForge.Data.Operations.SortingState@{BalanceForge.Data.Operations.SortingState}!SortColumnId@{SortColumnId}}
+\index{SortColumnId@{SortColumnId}!BalanceForge.Data.Operations.SortingState@{BalanceForge.Data.Operations.SortingState}}
+\doxysubsubsection{\texorpdfstring{SortColumnId}{SortColumnId}}
+{\footnotesize\ttfamily \label{classBalanceForge_1_1Data_1_1Operations_1_1SortingState_af5efe7de21b5040e95e52721af1c6257} 
+string Balance\+Forge.\+Data.\+Operations.\+Sorting\+State.\+Sort\+Column\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Получает или устанавливает идентификатор столбца, по которому выполняется сортировка. 
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Balance\+Forge/\+Core/\+Data/\+Operations/\mbox{\hyperlink{TableSorter_8cs}{Table\+Sorter.\+cs}}\end{DoxyCompactItemize}
